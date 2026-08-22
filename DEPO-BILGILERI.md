@@ -1,1593 +1,1596 @@
-# developer (ozel-liste)
-
-
-
-
-
-
-
-
-
-
-
-Bu depo test CloudStream deposudur; yalnızca Türkçe film/dizi eklentilerini ve test seçtiği kaynakları barındırır. Canlı yayın, NSFW ve yabancı dil içerikli eklentiler kullanıcı tercihi gereği listeye alınmamıştır.
-
-
-
-
-
-
-
-
-
-
-
-## Durum
-
-
-
-
-
-
-
-
-
-
-
-- **Son doğrulama:** 2026-08-22 · **16 eklenti** (tümü açık; indirilebilir, hash/boyut doğrulanmış)
-
-
-
-
-
-- **Kural:** bozuk eklenti silinmez, `status:0` yapılır (bkz. Kurulum)
-
-
-
-
-
-- **Delete-zone:** silinen eklentiler yeniden eklenmez (bkz. Silinen Eklentiler)
-
-
-
-
-
-
-
-
-
-
-
-## Kurulum
-
-
-
-
-
-
-
-
-
-
-
-CloudStream → Ayarlar → Uzantılar → Depo Ekle:
-
-
-
-
-
-
-
-
-
-
-
-```
-
-
-
-
-
-https://raw.githubusercontent.com/kadircee/ozel-liste/main/repo.json
-
-
-
-
-
-```
-
-
-
-
-
-
-
-
-
-
-
-**Tek tıkla kurulum (derin link):** CloudStream kurulu bir cihazda aşağıdaki bağlantıya tıklanınca depo otomatik eklenir (`cloudstreamrepo://` şeması uygulama tarafından çözülür):
-
-
-
-
-
-
-
-
-
-
-
-```
-
-
-
-
-
-cloudstreamrepo://raw.githubusercontent.com/kadircee/ozel-liste/main/repo.json
-
-
-
-
-
-```
-
-
-
-
-
-
-
-
-
-
-
-**Shortcode (kısayol):** CloudStream, "Depo Ekle" alanına kısa bir kod yazınca onu bir kısaltma servisinden çözer (redirect `Location` başlığından okunur):
-
-
-
-
-
-
-
-
-
-
-
-- **`!ozel45`** → `py.md/ozel45` → `repo.json` (Türkiye'de çalışır; **önerilen**). "Depo Ekle" alanına sadece `!ozel45` yazman yeterli.
-
-
-
-
-
-
-
-
-
-
-
-Kısa kod yalnızca harf/rakam/`!_-` içerebilir; `!` ile başlayanlar `py.md` servisine gider. Kişisel depo için zorunlu değil — tam URL de çalışır.
-
-
-
-
-
-
-
-
-
-
-
-**İpucu — jsDelivr proxy:** CloudStream'de Ayarlar → Uzantılar bölümünde jsDelivr proxy'si açıksa (otomatik CDN dönüşümü), `raw.githubusercontent.com` adresleri hem `repo.json` hem eklenti indirmelerinde otomatik `cdn.jsdelivr.net` üzerinden çekilir. GitHub/raw Türkiye'de engellenirse bu ayar erişimi kurtarır. Uzantı hâlâ yüklenmiyorsa VPN deneyin.
-
-
-
-
-
-
-
-
-
-
-
-**Kural — bozuk eklentiyi silme, `status:0` yap (kod kanıtıyla):** Bir eklentinin kaynak sitesi ölürse kaydı `plugins.json`'dan **silme**, `status`'ünü `0`'a çek (kayıt listede kalır). Kod kanıtı (`recloudstream/cloudstream` → `app/src/main/java/com/lagradost/cloudstream3/plugins/PluginManager.kt`):
-
-
-
-
-
-
-
-
-
-
-
-- `isDisabled = plugin.status == PROVIDER_STATUS_DOWN` (satır 231) → güncelleme döngüsünde `if (pluginData.isDisabled) { unloadPlugin(...) }` (satır 306) → uygulama, repo yenilendiğinde eklentiyi **otomatik kaldırır**.
-
-
-
-
-
-- Kaydı tamamen silersen uygulama yerel kopyayla eşleşecek kayıt bulamaz → eski kurulu eklenti **yüklü ve bozuk kalır** (cihazda manuel silme dışında temizlenmez).
-
-
-
-
-
-- Büyük repolar bu kuralı uygular: `hexated/cloudstream-extensions-hexated` listede 5 eklentiyi `status:0` ile tutuyor (Anifreakz, Anizm, GomunimeProvider, IdlixProvider, Loklok).
-
-
-
-
-
-- Site düzelince `status`'ü `1`'e çevir ve `version`'ı bir artır (güncelleme tetiklenir).
-
-
-
-
-
-- `status` değerleri: `0` = kapalı, `1` = açık, `2` = yavaş, `3` = sadece beta.
-
-
-
-
-
-
-
-
-
-
-
-> **Not (ilerisi için):** Bir eklenti bozulduğunda bu kural uygulanacak: silme yok, `status:0`. Zorunlu silme gerekiyorsa (ör. yasal istek, gerçekten kaybolan kaynak) önce kullanıcıya cihazda manuel silmesi gerektiği hatırlatılmalı.
-
-
-
-
-
-
-
-
-
-
-
-## Depo Yapısı
-
-
-
-
-
-
-
-
-
-
-
-```
-
-
-
-
-
-ozel-liste/
-
-
-
-
-
-├── repo.json            → CloudStream'in açtığı depo tanımı
-
-
-
-
-
-├── plugins.json         → eklenti listesi (16 eklenti)
-
-
-
-
-
-├── verify.py            → yapısal + ağ kontrollü doğrulama script'i (--deep ile .cs3 içinden gerçek çekim domaini kontrolü; --health ile ölmüş eklentilere otomatik status:0; sadece standart kütüphane, Python 3)
-
-
-
-
-
-├── update.py            → kaynak depolardan güncel verileri senkronize eden script (--check rapor modu dahil)
-
-
-
-
-
-├── backups/            → temizlenmiş CloudStream veri yedeği örneği (kişisel veri yok)
-
-
-
-
-
-└── DEPO-BILGILERI.md    → bu doküman
-
-
-
-
-
-```
-
-
-
-
-
-
-
-
-
-
-
-## CloudStream Veri Yedeği (backups/)
-
-
-
-
-
-
-
-
-
-
-
-`backups/CS3_Backup_2026_08_18_20_14_TEMIZ.txt` — CloudStream'in **Ayarlar → Güncellemeler ve Yedek → Veri Yedeği** ile ürettiği yedeğin **kişisel veriden arındırılmış** temiz örneğidir. Restore edilebilir bir referans/template dosyasıdır. Aynı içerik `backups/CS3_Backup_2026_08_18_20_14_TEMIZ.json` olarak da saklanır (aynı klasörde; uygulama/cihaza göre uzantı `.json` → `.txt` yeniden adlandırılarak kullanılabilir).
-
-
-
-
-
-
-
-
-
-
-
-Yedek iki bloktan oluşur: `datastore` (uygulama DataStore tercihleri) ve `settings` (SharedPreferences). Bu örnekte:
-
-
-
-
-
-
-
-
-
-
-
-**Çıkarılanlar (kişisel/önemsiz):**
-
-
-
-
-
-- `REPOSITORIES_KEY` — ekli depolar (repo artık `!ozel45` ile ekleniyor, yedekte taşınmasına gerek yok)
-
-
-
-
-
-- İzleme geçmişi ve kaldığın yerler: `0/result_dub/*`, `0/result_episode/*`, `0/result_season/*`, `0/video_pos_dur/*`, `0/result_resume_watching_2/*`
-
-
-
-
-
-- Arama geçmişi + arama tercihleri: `0/search_history/*`, `0/search_pref_providers`, `0/search_pref_tags`
-
-
-
-
-
-- İndirme önbellekleri: `download_header_cache/*`, `BACKUP_download_header_cache/*`
-
-
-
-
-
-- Bu repoda olmayan eklentilerin ayarları: `KraptorPlus*`, `Torrentio*`, `persistent_program_ids`
-
-
-
-
-
-- Ana sayfa API'si (`0/home_api_used` — listede olmayan eklentiye işaret ediyordu)
-
-
-
-
-
-
-
-
-
-
-
-**Korunanlar (tercihler):**
-
-
-
-
-
-- Oynatıcı: kalite/kaynak öncelikleri, `playback_speed`, `preferred_audio_language: tr`, `resize_mode`, `duration_mode`, video profilleri
-
-
-
-
-
-- Altyazı: `subtitle_settings`, `subs_auto_download: tr`
-
-
-
-
-
-- `settings` bloğu bütün: `auto_update: true`, `auto_update_plugins`, jsDelivr proxy, DNS, swipe/pip/rotate, `provider_lang: tr` vb.
-
-
-
-
-
-- Kurulum bayrakları: `VERSION_NAME`, `HAS_DONE_SETUP`, `FILES_TO_DELETE_KEY`
-
-
-
-
-
-
-
-
-
-
-
-**Önemli değerler (kullanıcı tercihi, kaynak kod ile doğrulandı):**
-
-
-
-
-
-- `jsdelivr_proxy_key: true` — tüm raw GitHub URL'leri jsDelivr CDN üzerinden gider (`RepositoryManager.kt` `convertRawGitUrl`); GitHub raw engelli/sorunlu ağlar için doğru değer (bizim depo zaten jsDelivr CDN kullanır). `false` = doğrudan raw GitHub, null = uygulama açılışta otomatik tespit (MainActivity.kt:1327).
-
-
-
-
-
-- `prerelease_update: true` — uygulama artık prerelease sürümden (4.8.0-PRE) çalışıyor; güncelleme kontrolü prerelease build'leri de kapsar.
-
-
-
-
-
-- `enable_nsfw_on_providers_key: true` — NSFW içerik destekleyen eklentilerde yetişkin içerik gösterimi açık.
-
-
-
-
-
-
-
-
-
-
-
-**Kaynak (player) öncelikleri — semantik ve sıralama (kaynak kod ile doğrulandı):**
-
-
-
-
-
-- Semantik: `sortLinks` → `sortedBy { -it.priority }` (`PlayerGeneratorViewModel.kt`) → **büyük sayı listede üstte**; toplam öncelik = `qualityPriority + sourcePriority`, kaynak varsayılanı = 1, negatif toplam yalnız `hide_negative_sources` açıksa gizlenir (varsayılan kapalı).
-
-
-
-
-
-- Dublaj grubu (5-8) altyazı grubunun (0-4) üstünde tutuldu: kullanıcı Türkçe dublajı önce seçiyor (`preferred_audio_language: tr`, altyazı yedek).
-
-
-
-
-
-- Hoster sıralaması (en iyi → en kötü): **Filemoon** (CDN + HLS, 1080p+, en sağlam) > **VidMoly** (global CDN, çoklu kalite) > **DzenRu** (dzen.ru, 1080p) > **Odnoklassniki/Okru** (ok.ru, 720p-1080p, bazen yavaş) > **Pixel** (PixelDrain, dosya hostu — 60 gün sonra bağlantılar ölebilir) > **Sibnet** (sibnet.ru, **en fazla 720p**).
-
-
-
-
-
-- Profil 1 değerleri: Dublaj: FileMoonSx=8, Dzen=7, Odnoklassniki=6, Pixel=5 · AltYazı: Filemoon=4, VidMoly=3, Dzen=2, Odnoklassniki=1, Okru=1, Sibnet=0, Pixel=0.
-
-
-
-
-
-
-
-
-
-
-
-> Not: Yedek dosyası repo'da referans amaçlıdır; CloudStream restore ederken repo/shortcode gerektirmez, repo yine `!ozel45` ile eklenir.
-
-
-
-
-
-
-
-
-
-
-
-`repo.json` içeriği:
-
-
-
-
-
-
-
-
-
-
-
-```json
-
-
-
-
-
-{
-
-
-
-
-
-  "name": "developer",
-
-
-
-
-
-  "description": "Kisisel CloudStream deposu - Turkce film ve dizi eklentileri",
-
-
-
-
-
-  "manifestVersion": 1,
-
-
-
-
-
-  "pluginLists": [
-
-
-
-
-
-    "https://raw.githubusercontent.com/kadircee/ozel-liste/main/plugins.json"
-
-
-
-
-
-  ]
-
-
-
-
-
-}
-
-
-
-
-
-```
-
-
-
-
-
-
-
-
-
-
-
-Her `plugins.json` kaydı: `.cs3` dosya adresi, SHA-256 `fileHash`, `fileSize`, `language`, `tvTypes`, sürüm ve durum içerir.
-
-
-
-
-
-
-
-
-
-
-
-## Kaynak GitHub depoları
-
-
-
-
-
-
-
-
-
-
-
-Şu anki 16 eklentinin geldiği kaynaklar (`.cs3` adreslerinden çıkarıldı; ileride hangi kaynaktan geldiği lazım olursa buradan bakılabilir):
-
-
-
-
-
-
-
-
-
-
-
-| Kaynak repo (GitHub) | Eklenti | Adet |
-
-
-
-
-
-|----------------------|---------|------|
-
-
-
-
-
-| [Kraptor123/Cs-Karma](https://github.com/Kraptor123/Cs-Karma) | Full4kizle | 1 |
-
-
-
-
-
-| [Kraptor123/TurkMegaRepo](https://github.com/Kraptor123/TurkMegaRepo) | TurkMegaSaglayici | 1 |
-
-
-
-
-
-| [pltmustafa/plt-stream](https://github.com/pltmustafa/plt-stream) | plt-stream | 1 |
-
-
-
-
-
-| [feroxx/Kekik-cloudstream](https://github.com/feroxx/Kekik-cloudstream) | Ddizi, DiziYou, FilmMakinesi, FilmModu, HDFilmCehennemi, SinemaCX, JetFilmizle, SezonlukDizi, WebteIzle | 9 |
-
-
-
-
-
-| [ilkelkullanici/ilkel-cloudstream](https://github.com/ilkelkullanici/ilkel-cloudstream) | Sinewix | 1 |
-
-
-
-
-
-| [MRTDEVM/cloudstream-turkce](https://github.com/MRTDEVM/cloudstream-turkce) | FullHDFilmizlesene | 1 |
-
-
-
-
-
-
-
-
-
-
-Eskiden kullanılan / hiç kullanılmayan kaynaklar:
-
-
-
-
-
-
-
-
-
-
-
-- `Kraptor123/cs-kraptor` — **KAPANDI.** Depo sıfırlandı, README'de "desteği kesmiş bulunuyorum" ibaresi var; tüm `.cs3` dosyaları 404 veriyor. Bu kaynaktan gelen 29 eklenti listeden çıkarıldı; bazıları Feroxx deposundaki canlı sürümleriyle listede.
-
-
-
-
-
-- `NivinCNC/CNCVerse-Cloud-Stream-Extension` — `CricifyProvider` (canlı spor) bu kaynaktan geliyordu; kullanıcı canlı spor istemediği için eklenti yok.
-
-
-
-
-
-- `Kraptor123/Cs-Karma` — `Streamed` (canlı spor) bu kaynaktan geliyordu; kullanıcı istemedi. Kaynaktan yalnızca `Full4kizle` kaldı.
-
-
-
-
-
-- `Sertel392/Makotogecici` (Makoto2) — Türkçe eklentiler çalışıyordu; `fileHash` yok (eski CloudStream formatı), `Kanal 7` URL'sinde boşluk var. Bu depodan eklenti alınmadı.
-
-
-
-
-
-- `Kraptor123/Cs-GizliKeyif` — tamamı +18 NSFW içerikliydi (108 kayıt; NSFW olmayan kayıt yok), hiç eklenmedi.
-
-
-
-
-
-- `caca1403/cloudstream-cagi-eklenti` ve `ByAyzen/AyzenCS3` — plugins.json 404 veriyor (katalogda listeleniyor ama erişilemiyor).
-
-
-
-
-
-- `sarapcanagii/*` — `NeonSpor` (canlı) bu kaynaktan gelmişti; kullanıcı istemedi.
-
-
-
-
-
-- `ByAyzen/AyzenCS3` — `Syncler`, `Torrential` bu kaynaktan geliyordu; kişisel tercihle silindi.
-
-
-
-
-
-
-
-
-
-
-
-> Not: Kaynakların tamamı `raw.githubusercontent.com` üzerinden `builds/plugins.json` ve/veya tekil `.cs3` dosya adresleriyle çekildi; hiçbir eklenti kopyalanıp yeniden barındırılmadı, adresler kaynak repoya işaret eder.
-
-
-
-
-
-
-
-
-
-
-
-## Yapısal Kontrol (verify.py)
-
-
-
-
-
-
-
-
-
-
-
-```bash
-
-
-
-
-
-python verify.py               # yapısal + ağ kontrolleri (varsayılan)
-
-
-
-
-
-python verify.py --offline     # yalnızca yapısal kontroller
-
-
-
-
-
-python verify.py --deep        # + .cs3 içinden gerçek çekim domainlerini çıkarıp test eder (uyarı üretir, karar vermez)
-
-
-
-
-
-python verify.py --health      # + cekim domainleri TAMAMEN olmus eklentilere status:0 uygular (otomatik karar modu)
-
-
-
-
-
-```
-
-
-
-
-
-
-
-
-
-
-
-`verify.py` (yalnızca standart kütüphane, harici bağımlılık yok):
-
-
-
-
-
-
-
-
-
-
-
-**Yapısal kontroller (her iki modda):**
-
-
-
-
-
-- JSON syntax geçerliliği ve `repo.json` `pluginLists` varlığı
-
-
-
-
-
-- `internalName`, `url`, `fileHash` alanlarında yinelenme olmaması
-
-
-
-
-
-- Zorunlu alanların varlığı ve tip tutarlılığı (`status` 0-3: 0=kapalı, 1=açık, 2=yavaş, 3=sadece beta; `version`, `apiVersion` int; `authors` liste)
-
-
-
-
-
-- `url` uzantısının `.cs3` olması
-
-
-
-
-
-- `fileHash`'in `sha256-` + 64 hex formatında olması
-
-
-
-
-
-- `tvTypes` geçerliliği: `Movie, TvSeries, Anime, Live, AsianDrama, Others, Documentary, AnimeMovie, OVA, Cartoon`
-
-
-
-
-
-- `language` ISO uyumluluğu, `description`/`name`/yazar boşlukları; `iconUrl` içinde `%size%` yer tutucusu uyarı üretir (bu depo ikonları normalize eder: `%size%` → `sz=128`)
-
-
-
-
-
-
-
-
-
-
-
-**Ağ kontrolleri (varsayılan modda):**
-
-
-
-
-
-- Her eklentinin `.cs3` dosyası indirilir; HTTP durumu, `fileSize` ve `fileHash` (SHA-256) uyumu doğrulanır
-
-
-
-
-
-- `iconUrl` adresine HEAD/GET atılır (HTTP 200 şartı)
-
-
-
-
-
-- Kaynak depo geçici erişilemezse "atlanabilir" kabul edilir (uyarı); dosya **404** ise hata sayılır
-
-
-
-
-
-
-
-
-
-
-
-**Derin çekim domain kontrolü (`--deep`, deneysel):**
-
-
-
-
-
-- Her eklentinin `.cs3` arşivi açılır, `classes.dex` içinden ASCII hostname adayları çıkarılır (bilinen TLD listesi + filtreler)
-
-
-
-
-
-- Çıkan adaylar DNS + HTTP ile test edilir; `[SITE]` uyarısı üretilir
-
-
-
-
-
-- İkon domaini **yerine** eklentinin gerçekten veri çektiği domainler izlenir → yanlış alarm riski düşüktür
-
-
-
-
-
-  (ör. SinemaCX ikon domaini `sinema.cx` DNS'te ölü görünüyordu ama eklenti asıl veriyi canlı olan `sinema.gg`'den çekiyor)
-
-
-
-
-
-- Eklentinin birden fazla kaynağından en az biri ayaktaysa sorun sayılmaz; hepsi yanıt vermiyorsa uyarı üretilir
-
-
-
-
-
-- Domainler dinamik üretilen eklentilerde (FilmMakinesi, DiziYou gibi) aday çıkmaz, o eklenti için geçersiz sayılır
-
-
-
-
-
-
-
-
-
-
-
-Not: **Bu script eklentilerin "çalıştığını" doğrulamaz.** Eklentinin gerçekten film/dizi açıp oynatması yalnızca CloudStream üzerinde kullanıcının testiyle anlaşılır. `--deep` modu site kapanışlarını erken yakalamak için yapılan en derin sunucu tarafı kontrolüdür; bot engelleri ve bölgesel farklar nedeniyle karar için referans alınmaz, yalnızca uyarı üretir.
-
-
-
-
-
-
-
-
-
-
-
-**Otomatik `status:0` (`--health`):**
-
-
-
-
-
-- `--deep`'in aksine bu mod **karar verir**: aktif eklentinin `.cs3`'ünden çıkarılan çekim domainlerinin **tamamı** kesin ölü ise eklentiyi `plugins.json`'da `status:0` yapar (CloudStream yenilemede eklentiyi devre dışı bırakır).
-
-
-
-
-
-- Kesin ölü kriterleri: DNS çözülemiyor, ana sayfa 404/410, TLS hatası (http de ölü), veya sayfa **domain-parking "satılık" sayfası** (title/içerikte `satılıktır`, `for sale`, `Kaynaklar ve Bilgiler`, dan.com/afternic/nicsell vb. işaretler). Bunlar `--deep`'in kör noktasıydı: parking sayfası HTTP 200 döndürdüğü için "ayakta" sanılıyordu (666, FullHD örneği).
-
-
-
-
-
-- **Yanlış pozitife kapalı:** en az bir domain ayaktaysa veya herhangi bir domain `unknown` (zaman aşımı, bot engeli 403, belirsiz) ise **dokunulmaz**. Dinamik domainli eklentilerde (FilmMakinesi, DiziYou…) domain çıkmadığı için hiçbir zaman otomatik kapatılmaz.
-
-
-
-
-
-- `status:1`'e (yeniden açma) **asla** otomatik dönülmez — bunu yalnızca kullanıcı yapar. Bu yüzden yanlış kapatma riski düşüktür ve geri dönüşü kolaydır.
-
-
-
-
-
-- Elle `python verify.py --health` komutuyla çalıştırılır (otomatik çalışmaz).
-
-
-
-
-
-
-
-
-
-
-
-## Kaynak Senkronizasyonu (update.py)
-
-
-
-
-
-
-
-
-
-
-
-```bash
-
-
-
-
-
-python update.py --check    # yazmadan sadece farkları raporlar (fark varsa exit 1)
-
-
-
-
-
-python update.py            # farkları uygular, plugins.json'u günceller
-
-
-
-
-
-```
-
-
-
-
-
-
-
-
-
-
-
-Kaynak `builds/plugins.json` adresi, listedeki `.cs3` adresinden türetilir (`https://raw.githubusercontent.com/<owner>/<repo>/builds/<Isim>.cs3` → aynı klasördeki `plugins.json`). Senkronize edilen alanlar: `version, fileSize, fileHash, description, authors, language, tvTypes`. `iconUrl` bilinçli olarak senkronize **edilmez** — bu depo ikon adreslerini normalize eder (kaynaktaki `%size%` yer tutucuları sabit `sz=128`'e çevrilir) ve kaynak güncellemesi bu düzeltmeyi geri almasın.
-
-
-
-
-
-
-
-
-
-
-
-> **Not:** Bu depo **otomatik hiçbir şey çalıştırmaz** (GitHub Actions yok). Kaynak senkronu (`update.py`), site sağlık kontrolü (`verify.py --deep`/`--health`) ve status değişiklikleri yalnızca **elle** yapılır. `[ATLANDI]` sayısı, kaynak depo bazında toplu kapanışın (ör. cs-kraptor kapanışı: 29 eklenti tek seferde 404) erken işaretidir.
-
-
-
-
-
-
-
-
-
-
-
-## Karşılaşılan Hatalar ve Çözümleri
-
-
-
-
-
-
-
-
-
-
-
-| Hata | Neden | Çözüm |
-
-
-
-
-
-|------|-------|-------|
-
-
-
-
-
-| Eklentilerin çoğu repo listesinde görünmüyordu | CloudStream önbelleği eski listeyi tutuyordu | Uygulamada "Verileri temizle" → depo yeniden eklendi |
-
-
-
-
-
-| `.cs3` dosyaları "format hatası" gösterdi | Sorun dosyada değildi; istemci önbelleği eski listeyi gösteriyordu | Uygulamada "Verileri temizle" → depo yeniden eklendi, sorun çözüldü |
-
-
-
-
-
-| `Filmmirasım` JSON'da eşleşmiyordu | Dosya adındaki noktasız `ı` (U+0131) karakteri shell'de bozuldu | Python'da `\u0131` escape'iyle yazılarak halledildi |
-
-
-
-
-
-| PowerShell ile JSON düzenlemekte bozulma | `ConvertFrom/ConvertTo-Json` dizi yapısını bozuyordu | Tüm JSON işlemleri Python (`utf-8`, `ensure_ascii=False`) ile yapıldı |
-
-
-
-
-
-| jsDelivr hâlâ eski listeyi gösteriyordu | CDN önbelleği | `purge.jsdelivr.net` üzerinden önbellek temizlendi |
-
-
-
-
-
-| `FullRaces` simgesi yüklenmiyordu | `iconUrl` içinde `%size%` yer tutucusu kalmıştı | `sz=128` olarak düzeltildi |
-
-
-
-
-
-| `Disney-Plus` kaynağı görünüyordu | MirrorVerse eklentisinin içindeki kaynak adı | Eklenti listeden kaldırıldı |
-
-
-
-
-
-| `DiziFilmORG` açılmıyordu | Kullanıcı CloudStream'de açamadı | Eklenti listeden kaldırıldı |
-
-
-
-
-
-| 30 eklenti indirilemiyordu (hata yazıyordu) | `cs-kraptor` deposu kapanmıştı; 29 `.cs3` dosyası 404 veriyordu, 1 eklenti de (JPFilms) hash'i güncellenmediği için uyuşmuyordu | Kaynak kapandığı için 29 eklenti listeden çıkarıldı; JPFilms dahil yabancı eklentiler Türkçe filtresiyle kaldırıldı. Kalan 4 eklenti tek tek indirilip hash/boyut doğrulandı |
-
-
-
-
-
-| `JPFilms` indirilemiyordu | Kaynakta v6 → v7 güncellenmiş, hash ve boyut değişmişti; listede eski hash duruyordu | Yeni hash/boyut kaynağından alındı; ancak daha sonra Türkçe filtreyle eklenti listeden çıkarıldığı için push edilmedi |
-
-
-
-
-
-| `plt-stream` hash uyuşmazlığı | Kaynak v38 → v39 güncellenmiş; listede eski hash (411831 byte) vardı, gerçek dosya değişmişti (413103 byte) | Kaynağın `builds/plugins.json`'ından güncel `version/fileSize/fileHash/description` alındı, kayıt senkronlandı |
-
-
-
-
-
-| `İnfluencerChicks` indirilemiyordu | Eklenti adındaki `İ` (U+0130) karakteri raw URL'de HTTP isteğini ascii encode hatasıyla patlatıyordu | URL'deki `İ` → `%C4%B0` percent-encode edildi (CloudStream de benzer sorun yaşamaması için) |
-
-
-
-
-
-| GizliKeyif eklentileri hatalı görünüyordu | Katalog/tarayıcı `builds/plugins.json`'u canlı gösteriyor ama `.cs3` dosyaları kaynak kapanınca 404 veriyor | Kaynağın kendisi değil, dosyalar tek tek `urllib` ile doğrulandı; 404'ler tespit edilip listeden çıkarıldı |
-
-
-
-
-
-| Makoto2 eklentilerinde `fileHash` yoktu | Depo eski CloudStream formatı kullanıyor (hash alanı olmadan) | `fileHash` kontrolü atlanıp yalnızca indirilebilirlik doğrulandı; bu depodan eklenti alınmadı |
-
-
-
-
-
-| `Kanal 7` eklentisi indirilemiyordu | URL'de boşluk karakteri vardı (`.../Kanal 7.cs3`), GitHub raw'da geçersiz | Depodan eklenti kullanılmadı |
-
-
-
-
-
-| `cagatayrepo` ve `AyzenCS3` 404 | Bu depoların `plugins.json`'ı erişilemezdi | Katalogda listelenmesine rağmen kullanılmadı |
-
-
-
-
-
-| GitHub API rate limit | `api.github.com` istek limiti doluyordu | Ham `raw.githubusercontent.com` fetch'leri ve websearch ile aşıldı |
-
-
-
-
-
-| 9 Feroxx eklentisi CloudStream'de çalışmıyordu | `.cs3` dosyaları indirilebilirdi ama eklentilerin içerik çektikleri siteler bozuk/engelliydi (oynatma olmuyordu) | AltiYuzAltmisAltiFilmIzle, DiziMom, Dizilla, FullHDFilm, FullHDFilmizlesene, JetFilmizle, SetFilmIzle, SezonlukDizi, WebteIzle kaldırıldı; kaynak siteler düzelirse Feroxx'ten tekrar denenebilir |
-
-
-
-
-
-| `plt-stream` yine bozulmuştu (v42 → v44) | Kaynak repo v44'e güncellenmiş; listede v42/eski hash/421535 byte duruyordu, gerçek dosya 428931 byte idi. CloudStream hash doğrulaması "Extension hash mismatch" fırlatıyordu | `update.py` ile kaynaktan senkronlandı (v44, yeni hash) |
-
-
-
-
-
-| `666`, `FullHDFilmizlesene`, `SetFilmIzle` açılmıyordu | İçerik çekilen siteler ölmüştü: 666filmizle.site **"satılıktır" parking sayfası** oldu, fullhdfilmizlesene.mx/.de/.org DNS'te çözülmüyor (player turkeyplayer.com da satılık), setfilmizle.uk https'te TLS hatası veriyor ve http'de **Hdfilmcehennemi** içeriği dönüyor (site başka siteye dönüşmüş) | Deep-tarama (HTTP 200 kontrolü) parking sayfalarını "ayakta" sanıyordu — **yanlış pozitif**. Sayfa içeriği (title) testiyle doğrulandı; önce `status:0` yapıldı, kullanıcı "diğerlerini de kaldıracağım" deyince listeden **tamamen silindi** (delete-zone) |
-
-
-
-
-
-| `DiziBox`/`DiziPal`/`KultFilmler`/`Dizilla` kullanıcı tarafından istenmiyordu | Siteler (`www.dizibox.live`, `dizipal1574.com`, `kultfilmler.net`, `dizillahd.com`) canlıydı; sorun sunucu değil, kullanıcı tercihi | Kullanıcı "istemiyorum" dediği için listeden **tamamen kaldırıldı** (delete-zone'a eklendi). Cihazda kuruluysa elle silinmeli — kayıt olmadığı için uygulama otomatik temizlemez |
-
-
-
-
-
-| jsDelivr proxy `.cs3` 404/400 veriyordu (araştırma) | İlk istekte jsDelivr önbelleği soğuk olduğu için 404; `@branch` sözdizimi ve tarayıcı UA ile 200 dönüyor | Sorun değil; jsDelivr önbelleği ısınınca tüm `.cs3`'ler doğru hash'le iniyor (plt-stream hariç kaynak güncel olduğu için o da senkronlanınca düzeldi) |
-
-
-
-
-
-| jsDelivr dönüşüm formatı karışıyordu | Doğru format `cdn.jsdelivr.net/gh/<owner>/<repo>@<branch>/<path>` — `@` **repo adından sonra** gelir (branch'ten önce); `repo@branch` yazılmadığında 404 alınıyordu | Format netleştirildi: `https://cdn.jsdelivr.net/gh/kadircee/ozel-liste@main/plugins.json`; purge de aynı biçimi kullanır |
-
-
-
-
-
-| `git push` çıktısında kırmızı `NativeCommandError` görünüyordu | PowerShell, git'in stderr'e yazdığı ilerleme satırlarını hata sanıyor | Gerçek hata değil — çıktının sonunda `fb7f710..6aea63d main -> main` görülüyorsa push başarılı demektir |
-
-
-
-
-
-| YAML doğrulama `ModuleNotFoundError: No module named 'yaml'` | Python'da PyYAML kurulu değildi | `python -m pip install pyyaml` ile kuruldu; doğrulama `yaml.safe_load` ile geçti |
-
-
-
-
-
-| YAML doğrulamada `KeyError: 'on'` | PyYAML YAML 1.1'de `on:` anahtarını bool `True`'ya çevirir (GitHub Actions YAML 1.2 kullanır ve `on`'u string kabul eder) | Gerçek hata değil; GitHub Actions bu dosyayı doğru ayrıştırır (workflow dosyası sorunsuz çalışır) |
-
-
-
-
-
-| `verify.py --health` yanlış eklenti kapatabilir mi (tasarım) | Eski `--deep` HTTP 200 kontrolü parking sayfasını "ayakta" sanabiliyordu (666/FullHD yanlış pozitifi) | `--health` sayfa içeriği/title ile parking tespiti ekledi, **kesin ölü** (DNS/404/TLS/parking) dışında karar vermiyor; `unknown` veya canlı domain varsa dokunmuyor. Test: 6 parking/legit vaka + gerçek 666filmizle.site `dead` sınıflandı; 13 aktif eklenti tarandı, yanlış kapanma yok |
-
-
-
-
-
-
-
-
-
-
-
-### Tekrar Kontrol Edilecekler
-| Eklenti | Kaynak | Son Bilinen Domain | Durum |
-|---------|--------|-------------------|-------|
-| SetFilmIzle | feroxx/ilkel | setfilmizle.uk | Site olu, tekrar kontrol edilecek |
-| AltiYuzAltmisAltiFilmIzle | feroxx/ilkel | 666filmizle.site | Site olu, tekrar kontrol edilecek |
-| FilmBip | ilkel | filmbip.com | Site olu, tekrar kontrol edilecek |
-| FullHDFilm | feroxx | fullhdfilm.org | Site olu, tekrar kontrol edilecek |
-| Filmatek | Kraptor123/Cs-Karma | filmatek.net | Site olu, tekrar kontrol edilecek |
-
-## Silinen Eklentiler (delete-zone)
-
-
-
-
-
-
-
-
-
-
-
-Bu eklentiler listeye **eklenmez**; yeniden ekleme kararı yalnızca kullanıcı verir. Listede NSFW (+18) hiç yer almadı; canlı yayın/maç eklentileri istenmedi. Bozuk eklentiler silinmez, `status:0` yapılır (bkz. Kurulum). "Site açılmıyor" gerekçesiyle silinenler **geri dönüşlüdür**: site düzelirse tekrar denenebilir.
-
-
-
-
-
-
-
-
-
-
-
-**Anime/Asya içerikli (kullanıcı anime istemiyor):** AnimeciX, Animeler, Animely, AnimPow, Anizium, OnePaceTr, OpenAnime, TrAnimeIzle, TurkAnime, AsyaAnimeleri, AsyaFanatiklerim, AsyaWatch, DiziAsia, DiziAsya, DiziKorea, Koredizi, AnimeAV, AnimeWorld, AnimeYTX, Latanime, DramaDizilerim, Dramaizle
-
-
-
-
-
-
-
-
-
-
-
-**Canlı yayın / maç (kullanıcı hiçbir halükarda istemiyor):** InatBox, NeonSpor, RecTV, Streamed, CricifyProvider
-
-
-
-
-
-
-
-
-
-
-
-**Diğer ("kesinlikle istemiyorum" / kişisel tercih):** Filmmirasım, SeiCode, YTS, YeniKaynak, YesilCamTv, MirrorVerse, Vavoo, WebDramaTurkey, Syncler, Torrential, BelgeselX, CizgiMax, CizgiveDizi, DiziPal, KultFilmler, DiziPalOriginal
-
-
-
-
-
-
-
-
-
-
-
-> Not (2026-08-22): `DiziBox`, `DiziPal`, `KultFilmler`, `Dizilla` siteleri canlı olmasına rağmen kullanıcı "istemiyorum" dediği için listeden çıkarıldı. Cihazda kuruluysa elle silinmeli (kayıt olmadığı için CloudStream otomatik temizlemez).
-
-
-
-
-
-
-
-
-
-
-
-**Site açılmıyordu (site düzelirse geri denenebilir):** Dizipod, DiziFilmORG, DiziPalOrijinal, DiziYo, FilmBOL, FullHDFilm, FULLHDFILM_PLACEHOLDER
-
-
-
-
-
-
-
-
-
-
-
-> Not (2026-08-22): `AltiYuzAltmisAltiFilmIzle` (666filmizle.site satılık sayfa), `FullHDFilmizlesene` (ana domainler ölmüş), `SetFilmIzle` (TLS hatası + site başka siteye dönüşmüş) siteleri öldüğü için önce `status:0` yapıldı, ardından kullanıcının onayıyla listeden tamamen silindi. Kaynak siteler düzelirse Feroxx'ten tekrar denenebilir. FullHDFilmizlesene ise yeni domainle (fullhdfilmizlesene.now, MRTDEVM kaynağından) tekrar eklendi (2026-08-22).
-
-
-
-
-
-
-
-
-
-
-
-**Kaynak kapanması (cs-kraptor `.cs3` dosyaları 404):** Dizigecesi, DiziLife, FilmEkseni, FilmHane, Filmzal, HDFilmDelisi, HDFilmizle, KraptorPlus, RareFilmm, SelcukFlix, SineWix, Sinezy, Turkdizileri, TvDiziler, WFilmizle, YabanciDizi
-
-
-
-
-
-
-
-
-
-
-
-**Türkçe/Türkiye filtresi (yabancı dil içerikli):** Esheaq, Krmzy, YoTurkish, DoramasLatinoX, Dubbindo, Flixlatam, Henaojara, Gnulahd, JPFilms, KissKH, LayarKaca, Movix, OK, Sokuja, Subsplease, Supercartoons, Wcoflix, Yablom, DocumentaryArea, Iwatchtheoffice, FullRaces, FootReplays
-
-
-
-
-
-
-
-
-
-
-
-**Hiç eklenmeyenler / istisnalar (kaynaklardaki):**
-
-
-
-
-
-- **Canlı spor / Live** — maç yayını ve canlı kanal eklentileri istenmedi; `InatBox`, `NeonSpor`, `RecTV` kullanıcı isteğiyle silindi, `Streamed` ve `CricifyProvider` ise kullanıcının talimatıyla listeden çıkarıldı. Artık listede canlı yayın eklentisi yok.
-
-
-
-
-
-
-
-
-
-
-
-## Güncelleme
-
-
-
-
-
-
-
-
-
-
-
-Yeni bir değişiklik yapıldığında:
-
-
-
-
-
-
-
-
-
-
-
-```bash
-
-
-
-
-
-python verify.py --offline      # önce yapısal doğrula
-
-
-
-
-
-python update.py --check        # kaynak farkı var mı bak (exit 1 = var)
-
-
-
-
-
-python update.py                # gerekirse kaynak verilerini senkronize et
-
-
-
-
-
-python verify.py --health       # ölmüş eklentileri status:0 yap (elle tetikleme)
-
-
-
-
-
-python verify.py --deep         # senkronizasyon sonrası ağ + gerçek çekim domaini kontrolü
-
-
-
-
-
-git add plugins.json
-
-
-
-
-
-git -c user.name="kadircee" -c user.email="kadircee@users.noreply.github.com" \
-
-
-
-
-
-    commit -m "plugins.json: aciklama"
-
-
-
-
-
-git push
-
-
-
-
-
-```
-
-
-
-
-
-
-
-
-
-
-
-Push sonrası jsDelivr önbelleği için:
-
-
-
-
-
-
-
-
-
-
-
-```
-
-
-
-
-
-https://purge.jsdelivr.net/gh/kadircee/ozel-liste@main/plugins.json
-
-
-
-
-
-```
-
-
-
-
-
-
-
-
-
-
-
-CloudStream tarafında depo yenilendiğinde yeni liste otomatik çekilir. Kaynak senkronu ve site sağlığı **otomatik değildir** (GitHub Actions yok): kaynak bir eklentiyi güncellediğinde listedeki hash/boyut **elle** `update.py` çalıştırılarak senkronlanır, kaynak site ölürse eklenti **elle** `verify.py --health` (veya `--deep`) çalıştırılarak `status:0` yapılır. `status:1`'e (yeniden açma) otomatik dönülmez; site geri geldiyse `plugins.json`'da ilgili eklentinin `status`'u elle `1` yapılır. Güncelleme öncesi `verify.py --offline` ve `update.py --check` ile kontrol etmek iyi alışkanlıktır.
-
-
-
-
-
-
-
-
-
-
-
-## Yasal Uyarı ve Sorumluluk Reddi (Disclaimer)
-
-
-
-
-
-
-
-
-
-
-
-Bu depo kişisel arşivleme amacıyla oluşturulmuştur; hiçbir ticari amacı yoktur. Bu depo (ve GitHub sunucuları) hiçbir video, ses dosyası, medya veya telif hakkıyla korunan materyal barındırmaz, kopyalamaz veya dağıtmaz. Bu depo yalnızca internette herkese açık olarak paylaşılan üçüncü taraf eklentilerin (`.cs3`) doğrudan GitHub RAW adreslerini derleyen metin tabanlı bir JSON dizinidir ("Yalnızca Endeks"). Listelenen eklentilerin kodları, işleyişleri veya hangi web sitelerinden veri çektikleri üzerinde bu deponun hiçbir kontrolü, sahipliği veya sorumluluğu yoktur; tüm sorumluluk eklentilerin orijinal geliştiricilerine ve veriyi barındıran kaynak web sitelerine aittir. Bu depo yalnızca bağlantıları listeleyen bir köprü görevi gördüğü için telif hakkı ihlali iddialarının muhatabı değildir; içerik kaldırma talepleri (DMCA) doğrudan içerikleri sunan kaynak web sitelerine veya eklentilerin orijinal GitHub depolarına yapılmalıdır. Bu depo, 5846 sayılı Fikir ve Sanat Eserleri Kanunu ve 5651 sayılı Kanun kapsamında da eser barındırmaz, çoğaltmaz veya iletmez; yalnızca kamuya açık kaynaklardaki `.cs3` dosyalarına bağlantı sağlar. 5651 sayılı Kanunun 4. maddesinin ikinci fıkrası gereği içerik sağlayıcı, bağlantı sağladığı başkasına ait içerikten sorumlu değildir; ancak aynı maddenin istisnası saklıdır: sunuş biçiminden bağlantı verilen içeriğin benimsendiği ve kullanıcının o içeriğe ulaşmasının amaçlandığı açıkça belli ise sorumluluk doğabilir. Bu depo, listedeki hiçbir eklentiyi veya eklentilerin veri çektiği kaynakları benimsemez ve tavsiye etmez; liste salt teknik bir indekstir. Hak sahipleri 5651 sayılı Kanunun 9. maddesi uyarınca uyarı yöntemiyle bildirimde bulunursa ilgili bağlantı derhal kaldırılır.
-
-
-
-
-
-
-
-
-
-
-
+# developer (ozel-liste)
+
+
+
+
+
+
+
+
+
+
+
+Bu depo test CloudStream deposudur; yalnızca Türkçe film/dizi eklentilerini ve test seçtiği kaynakları barındırır. Canlı yayın, NSFW ve yabancı dil içerikli eklentiler kullanıcı tercihi gereği listeye alınmamıştır.
+
+
+
+
+
+
+
+
+
+
+
+## Durum
+
+
+
+
+
+
+
+
+
+
+
+- **Son doğrulama:** 2026-08-22 · **16 eklenti** (tümü açık; indirilebilir, hash/boyut doğrulanmış)
+
+
+
+
+
+- **Kural:** bozuk eklenti silinmez, `status:0` yapılır (bkz. Kurulum)
+
+
+
+
+
+- **Delete-zone:** silinen eklentiler yeniden eklenmez (bkz. Silinen Eklentiler)
+
+
+
+
+
+
+
+
+
+
+
+## Kurulum
+
+
+
+
+
+
+
+
+
+
+
+CloudStream → Ayarlar → Uzantılar → Depo Ekle:
+
+
+
+
+
+
+
+
+
+
+
+```
+
+
+
+
+
+https://raw.githubusercontent.com/kadircee/ozel-liste/main/repo.json
+
+
+
+
+
+```
+
+
+
+
+
+
+
+
+
+
+
+**Tek tıkla kurulum (derin link):** CloudStream kurulu bir cihazda aşağıdaki bağlantıya tıklanınca depo otomatik eklenir (`cloudstreamrepo://` şeması uygulama tarafından çözülür):
+
+
+
+
+
+
+
+
+
+
+
+```
+
+
+
+
+
+cloudstreamrepo://raw.githubusercontent.com/kadircee/ozel-liste/main/repo.json
+
+
+
+
+
+```
+
+
+
+
+
+
+
+
+
+
+
+**Shortcode (kısayol):** CloudStream, "Depo Ekle" alanına kısa bir kod yazınca onu bir kısaltma servisinden çözer (redirect `Location` başlığından okunur):
+
+
+
+
+
+
+
+
+
+
+
+- **`!ozel45`** → `py.md/ozel45` → `repo.json` (Türkiye'de çalışır; **önerilen**). "Depo Ekle" alanına sadece `!ozel45` yazman yeterli.
+
+
+
+
+
+
+
+
+
+
+
+Kısa kod yalnızca harf/rakam/`!_-` içerebilir; `!` ile başlayanlar `py.md` servisine gider. Kişisel depo için zorunlu değil — tam URL de çalışır.
+
+
+
+
+
+
+
+
+
+
+
+**İpucu — jsDelivr proxy:** CloudStream'de Ayarlar → Uzantılar bölümünde jsDelivr proxy'si açıksa (otomatik CDN dönüşümü), `raw.githubusercontent.com` adresleri hem `repo.json` hem eklenti indirmelerinde otomatik `cdn.jsdelivr.net` üzerinden çekilir. GitHub/raw Türkiye'de engellenirse bu ayar erişimi kurtarır. Uzantı hâlâ yüklenmiyorsa VPN deneyin.
+
+
+
+
+
+
+
+
+
+
+
+**Kural — bozuk eklentiyi silme, `status:0` yap (kod kanıtıyla):** Bir eklentinin kaynak sitesi ölürse kaydı `plugins.json`'dan **silme**, `status`'ünü `0`'a çek (kayıt listede kalır). Kod kanıtı (`recloudstream/cloudstream` → `app/src/main/java/com/lagradost/cloudstream3/plugins/PluginManager.kt`):
+
+
+
+
+
+
+
+
+
+
+
+- `isDisabled = plugin.status == PROVIDER_STATUS_DOWN` (satır 231) → güncelleme döngüsünde `if (pluginData.isDisabled) { unloadPlugin(...) }` (satır 306) → uygulama, repo yenilendiğinde eklentiyi **otomatik kaldırır**.
+
+
+
+
+
+- Kaydı tamamen silersen uygulama yerel kopyayla eşleşecek kayıt bulamaz → eski kurulu eklenti **yüklü ve bozuk kalır** (cihazda manuel silme dışında temizlenmez).
+
+
+
+
+
+- Büyük repolar bu kuralı uygular: `hexated/cloudstream-extensions-hexated` listede 5 eklentiyi `status:0` ile tutuyor (Anifreakz, Anizm, GomunimeProvider, IdlixProvider, Loklok).
+
+
+
+
+
+- Site düzelince `status`'ü `1`'e çevir ve `version`'ı bir artır (güncelleme tetiklenir).
+
+
+
+
+
+- `status` değerleri: `0` = kapalı, `1` = açık, `2` = yavaş, `3` = sadece beta.
+
+
+
+
+
+
+
+
+
+
+
+> **Not (ilerisi için):** Bir eklenti bozulduğunda bu kural uygulanacak: silme yok, `status:0`. Zorunlu silme gerekiyorsa (ör. yasal istek, gerçekten kaybolan kaynak) önce kullanıcıya cihazda manuel silmesi gerektiği hatırlatılmalı.
+
+
+
+
+
+
+
+
+
+
+
+## Depo Yapısı
+
+
+
+
+
+
+
+
+
+
+
+```
+
+
+
+
+
+ozel-liste/
+
+
+
+
+
+├── repo.json            → CloudStream'in açtığı depo tanımı
+
+
+
+
+
+├── plugins.json         → eklenti listesi (16 eklenti)
+
+
+
+
+
+├── verify.py            → yapısal + ağ kontrollü doğrulama script'i (--deep ile .cs3 içinden gerçek çekim domaini kontrolü; --health ile ölmüş eklentilere otomatik status:0; sadece standart kütüphane, Python 3)
+
+
+
+
+
+├── update.py            → kaynak depolardan güncel verileri senkronize eden script (--check rapor modu dahil)
+
+
+
+
+
+├── backups/            → temizlenmiş CloudStream veri yedeği örneği (kişisel veri yok)
+
+
+
+
+
+└── DEPO-BILGILERI.md    → bu doküman
+
+
+
+
+
+```
+
+
+
+
+
+
+
+
+
+
+
+## CloudStream Veri Yedeği (backups/)
+
+
+
+
+
+
+
+
+
+
+
+`backups/CS3_Backup_2026_08_18_20_14_TEMIZ.txt` — CloudStream'in **Ayarlar → Güncellemeler ve Yedek → Veri Yedeği** ile ürettiği yedeğin **kişisel veriden arındırılmış** temiz örneğidir. Restore edilebilir bir referans/template dosyasıdır. Aynı içerik `backups/CS3_Backup_2026_08_18_20_14_TEMIZ.json` olarak da saklanır (aynı klasörde; uygulama/cihaza göre uzantı `.json` → `.txt` yeniden adlandırılarak kullanılabilir).
+
+
+
+
+
+
+
+
+
+
+
+Yedek iki bloktan oluşur: `datastore` (uygulama DataStore tercihleri) ve `settings` (SharedPreferences). Bu örnekte:
+
+
+
+
+
+
+
+
+
+
+
+**Çıkarılanlar (kişisel/önemsiz):**
+
+
+
+
+
+- `REPOSITORIES_KEY` — ekli depolar (repo artık `!ozel45` ile ekleniyor, yedekte taşınmasına gerek yok)
+
+
+
+
+
+- İzleme geçmişi ve kaldığın yerler: `0/result_dub/*`, `0/result_episode/*`, `0/result_season/*`, `0/video_pos_dur/*`, `0/result_resume_watching_2/*`
+
+
+
+
+
+- Arama geçmişi + arama tercihleri: `0/search_history/*`, `0/search_pref_providers`, `0/search_pref_tags`
+
+
+
+
+
+- İndirme önbellekleri: `download_header_cache/*`, `BACKUP_download_header_cache/*`
+
+
+
+
+
+- Bu repoda olmayan eklentilerin ayarları: `KraptorPlus*`, `Torrentio*`, `persistent_program_ids`
+
+
+
+
+
+- Ana sayfa API'si (`0/home_api_used` — listede olmayan eklentiye işaret ediyordu)
+
+
+
+
+
+
+
+
+
+
+
+**Korunanlar (tercihler):**
+
+
+
+
+
+- Oynatıcı: kalite/kaynak öncelikleri, `playback_speed`, `preferred_audio_language: tr`, `resize_mode`, `duration_mode`, video profilleri
+
+
+
+
+
+- Altyazı: `subtitle_settings`, `subs_auto_download: tr`
+
+
+
+
+
+- `settings` bloğu bütün: `auto_update: true`, `auto_update_plugins`, jsDelivr proxy, DNS, swipe/pip/rotate, `provider_lang: tr` vb.
+
+
+
+
+
+- Kurulum bayrakları: `VERSION_NAME`, `HAS_DONE_SETUP`, `FILES_TO_DELETE_KEY`
+
+
+
+
+
+
+
+
+
+
+
+**Önemli değerler (kullanıcı tercihi, kaynak kod ile doğrulandı):**
+
+
+
+
+
+- `jsdelivr_proxy_key: true` — tüm raw GitHub URL'leri jsDelivr CDN üzerinden gider (`RepositoryManager.kt` `convertRawGitUrl`); GitHub raw engelli/sorunlu ağlar için doğru değer (bizim depo zaten jsDelivr CDN kullanır). `false` = doğrudan raw GitHub, null = uygulama açılışta otomatik tespit (MainActivity.kt:1327).
+
+
+
+
+
+- `prerelease_update: true` — uygulama artık prerelease sürümden (4.8.0-PRE) çalışıyor; güncelleme kontrolü prerelease build'leri de kapsar.
+
+
+
+
+
+- `enable_nsfw_on_providers_key: true` — NSFW içerik destekleyen eklentilerde yetişkin içerik gösterimi açık.
+
+
+
+
+
+
+
+
+
+
+
+**Kaynak (player) öncelikleri — semantik ve sıralama (kaynak kod ile doğrulandı):**
+
+
+
+
+
+- Semantik: `sortLinks` → `sortedBy { -it.priority }` (`PlayerGeneratorViewModel.kt`) → **büyük sayı listede üstte**; toplam öncelik = `qualityPriority + sourcePriority`, kaynak varsayılanı = 1, negatif toplam yalnız `hide_negative_sources` açıksa gizlenir (varsayılan kapalı).
+
+
+
+
+
+- Dublaj grubu (5-8) altyazı grubunun (0-4) üstünde tutuldu: kullanıcı Türkçe dublajı önce seçiyor (`preferred_audio_language: tr`, altyazı yedek).
+
+
+
+
+
+- Hoster sıralaması (en iyi → en kötü): **Filemoon** (CDN + HLS, 1080p+, en sağlam) > **VidMoly** (global CDN, çoklu kalite) > **DzenRu** (dzen.ru, 1080p) > **Odnoklassniki/Okru** (ok.ru, 720p-1080p, bazen yavaş) > **Pixel** (PixelDrain, dosya hostu — 60 gün sonra bağlantılar ölebilir) > **Sibnet** (sibnet.ru, **en fazla 720p**).
+
+
+
+
+
+- Profil 1 değerleri: Dublaj: FileMoonSx=8, Dzen=7, Odnoklassniki=6, Pixel=5 · AltYazı: Filemoon=4, VidMoly=3, Dzen=2, Odnoklassniki=1, Okru=1, Sibnet=0, Pixel=0.
+
+
+
+
+
+
+
+
+
+
+
+> Not: Yedek dosyası repo'da referans amaçlıdır; CloudStream restore ederken repo/shortcode gerektirmez, repo yine `!ozel45` ile eklenir.
+
+
+
+
+
+
+
+
+
+
+
+`repo.json` içeriği:
+
+
+
+
+
+
+
+
+
+
+
+```json
+
+
+
+
+
+{
+
+
+
+
+
+  "name": "developer",
+
+
+
+
+
+  "description": "Kisisel CloudStream deposu - Turkce film ve dizi eklentileri",
+
+
+
+
+
+  "manifestVersion": 1,
+
+
+
+
+
+  "pluginLists": [
+
+
+
+
+
+    "https://raw.githubusercontent.com/kadircee/ozel-liste/main/plugins.json"
+
+
+
+
+
+  ]
+
+
+
+
+
+}
+
+
+
+
+
+```
+
+
+
+
+
+
+
+
+
+
+
+Her `plugins.json` kaydı: `.cs3` dosya adresi, SHA-256 `fileHash`, `fileSize`, `language`, `tvTypes`, sürüm ve durum içerir.
+
+
+
+
+
+
+
+
+
+
+
+## Kaynak GitHub depoları
+
+
+
+
+
+
+
+
+
+
+
+Şu anki 16 eklentinin geldiği kaynaklar (`.cs3` adreslerinden çıkarıldı; ileride hangi kaynaktan geldiği lazım olursa buradan bakılabilir):
+
+
+
+
+
+
+
+
+
+
+
+| Kaynak repo (GitHub) | Eklenti | Adet |
+
+
+
+
+
+|----------------------|---------|------|
+
+
+
+
+
+| [Kraptor123/Cs-Karma](https://github.com/Kraptor123/Cs-Karma) | Full4kizle | 1 |
+
+
+
+
+
+| [Kraptor123/TurkMegaRepo](https://github.com/Kraptor123/TurkMegaRepo) | TurkMegaSaglayici | 1 |
+
+
+
+
+
+| [pltmustafa/plt-stream](https://github.com/pltmustafa/plt-stream) | plt-stream | 1 |
+
+
+
+
+
+| [feroxx/Kekik-cloudstream](https://github.com/feroxx/Kekik-cloudstream) | Ddizi, DiziYou, FilmMakinesi, FilmModu, HDFilmCehennemi, SinemaCX, JetFilmizle, SezonlukDizi, WebteIzle | 9 |
+
+
+
+
+
+| [ilkelkullanici/ilkel-cloudstream](https://github.com/ilkelkullanici/ilkel-cloudstream) | Sinewix | 1 |
+
+
+
+
+
+| [MRTDEVM/cloudstream-turkce](https://github.com/MRTDEVM/cloudstream-turkce) | FullHDFilmizlesene | 1 |
+
+
+
+
+
+
+
+
+
+
+Eskiden kullanılan / hiç kullanılmayan kaynaklar:
+
+
+
+
+
+
+
+
+
+
+
+- `Kraptor123/cs-kraptor` — **KAPANDI.** Depo sıfırlandı, README'de "desteği kesmiş bulunuyorum" ibaresi var; tüm `.cs3` dosyaları 404 veriyor. Bu kaynaktan gelen 29 eklenti listeden çıkarıldı; bazıları Feroxx deposundaki canlı sürümleriyle listede.
+
+
+
+
+
+- `NivinCNC/CNCVerse-Cloud-Stream-Extension` — `CricifyProvider` (canlı spor) bu kaynaktan geliyordu; kullanıcı canlı spor istemediği için eklenti yok.
+
+
+
+
+
+- `Kraptor123/Cs-Karma` — `Streamed` (canlı spor) bu kaynaktan geliyordu; kullanıcı istemedi. Kaynaktan yalnızca `Full4kizle` kaldı.
+
+
+
+
+
+- `Sertel392/Makotogecici` (Makoto2) — Türkçe eklentiler çalışıyordu; `fileHash` yok (eski CloudStream formatı), `Kanal 7` URL'sinde boşluk var. Bu depodan eklenti alınmadı.
+
+
+
+
+
+- `Kraptor123/Cs-GizliKeyif` — tamamı +18 NSFW içerikliydi (108 kayıt; NSFW olmayan kayıt yok), hiç eklenmedi.
+
+
+
+
+
+- `caca1403/cloudstream-cagi-eklenti` ve `ByAyzen/AyzenCS3` — plugins.json 404 veriyor (katalogda listeleniyor ama erişilemiyor).
+
+
+
+
+
+- `sarapcanagii/*` — `NeonSpor` (canlı) bu kaynaktan gelmişti; kullanıcı istemedi.
+
+
+
+
+
+- `ByAyzen/AyzenCS3` — `Syncler`, `Torrential` bu kaynaktan geliyordu; kişisel tercihle silindi.
+
+
+
+
+
+
+
+
+
+
+
+> Not: Kaynakların tamamı `raw.githubusercontent.com` üzerinden `builds/plugins.json` ve/veya tekil `.cs3` dosya adresleriyle çekildi; hiçbir eklenti kopyalanıp yeniden barındırılmadı, adresler kaynak repoya işaret eder.
+
+
+
+
+
+
+
+
+
+
+
+## Yapısal Kontrol (verify.py)
+
+
+
+
+
+
+
+
+
+
+
+```bash
+
+
+
+
+
+python verify.py               # yapısal + ağ kontrolleri (varsayılan)
+
+
+
+
+
+python verify.py --offline     # yalnızca yapısal kontroller
+
+
+
+
+
+python verify.py --deep        # + .cs3 içinden gerçek çekim domainlerini çıkarıp test eder (uyarı üretir, karar vermez)
+
+
+
+
+
+python verify.py --health      # + cekim domainleri TAMAMEN olmus eklentilere status:0 uygular (otomatik karar modu)
+
+
+
+
+
+```
+
+
+
+
+
+
+
+
+
+
+
+`verify.py` (yalnızca standart kütüphane, harici bağımlılık yok):
+
+
+
+
+
+
+
+
+
+
+
+**Yapısal kontroller (her iki modda):**
+
+
+
+
+
+- JSON syntax geçerliliği ve `repo.json` `pluginLists` varlığı
+
+
+
+
+
+- `internalName`, `url`, `fileHash` alanlarında yinelenme olmaması
+
+
+
+
+
+- Zorunlu alanların varlığı ve tip tutarlılığı (`status` 0-3: 0=kapalı, 1=açık, 2=yavaş, 3=sadece beta; `version`, `apiVersion` int; `authors` liste)
+
+
+
+
+
+- `url` uzantısının `.cs3` olması
+
+
+
+
+
+- `fileHash`'in `sha256-` + 64 hex formatında olması
+
+
+
+
+
+- `tvTypes` geçerliliği: `Movie, TvSeries, Anime, Live, AsianDrama, Others, Documentary, AnimeMovie, OVA, Cartoon`
+
+
+
+
+
+- `language` ISO uyumluluğu, `description`/`name`/yazar boşlukları; `iconUrl` içinde `%size%` yer tutucusu uyarı üretir (bu depo ikonları normalize eder: `%size%` → `sz=128`)
+
+
+
+
+
+
+
+
+
+
+
+**Ağ kontrolleri (varsayılan modda):**
+
+
+
+
+
+- Her eklentinin `.cs3` dosyası indirilir; HTTP durumu, `fileSize` ve `fileHash` (SHA-256) uyumu doğrulanır
+
+
+
+
+
+- `iconUrl` adresine HEAD/GET atılır (HTTP 200 şartı)
+
+
+
+
+
+- Kaynak depo geçici erişilemezse "atlanabilir" kabul edilir (uyarı); dosya **404** ise hata sayılır
+
+
+
+
+
+
+
+
+
+
+
+**Derin çekim domain kontrolü (`--deep`, deneysel):**
+
+
+
+
+
+- Her eklentinin `.cs3` arşivi açılır, `classes.dex` içinden ASCII hostname adayları çıkarılır (bilinen TLD listesi + filtreler)
+
+
+
+
+
+- Çıkan adaylar DNS + HTTP ile test edilir; `[SITE]` uyarısı üretilir
+
+
+
+
+
+- İkon domaini **yerine** eklentinin gerçekten veri çektiği domainler izlenir → yanlış alarm riski düşüktür
+
+
+
+
+
+  (ör. SinemaCX ikon domaini `sinema.cx` DNS'te ölü görünüyordu ama eklenti asıl veriyi canlı olan `sinema.gg`'den çekiyor)
+
+
+
+
+
+- Eklentinin birden fazla kaynağından en az biri ayaktaysa sorun sayılmaz; hepsi yanıt vermiyorsa uyarı üretilir
+
+
+
+
+
+- Domainler dinamik üretilen eklentilerde (FilmMakinesi, DiziYou gibi) aday çıkmaz, o eklenti için geçersiz sayılır
+
+
+
+
+
+
+
+
+
+
+
+Not: **Bu script eklentilerin "çalıştığını" doğrulamaz.** Eklentinin gerçekten film/dizi açıp oynatması yalnızca CloudStream üzerinde kullanıcının testiyle anlaşılır. `--deep` modu site kapanışlarını erken yakalamak için yapılan en derin sunucu tarafı kontrolüdür; bot engelleri ve bölgesel farklar nedeniyle karar için referans alınmaz, yalnızca uyarı üretir.
+
+
+
+
+
+
+
+
+
+
+
+**Otomatik `status:0` (`--health`):**
+
+
+
+
+
+- `--deep`'in aksine bu mod **karar verir**: aktif eklentinin `.cs3`'ünden çıkarılan çekim domainlerinin **tamamı** kesin ölü ise eklentiyi `plugins.json`'da `status:0` yapar (CloudStream yenilemede eklentiyi devre dışı bırakır).
+
+
+
+
+
+- Kesin ölü kriterleri: DNS çözülemiyor, ana sayfa 404/410, TLS hatası (http de ölü), veya sayfa **domain-parking "satılık" sayfası** (title/içerikte `satılıktır`, `for sale`, `Kaynaklar ve Bilgiler`, dan.com/afternic/nicsell vb. işaretler). Bunlar `--deep`'in kör noktasıydı: parking sayfası HTTP 200 döndürdüğü için "ayakta" sanılıyordu (666, FullHD örneği).
+
+
+
+
+
+- **Yanlış pozitife kapalı:** en az bir domain ayaktaysa veya herhangi bir domain `unknown` (zaman aşımı, bot engeli 403, belirsiz) ise **dokunulmaz**. Dinamik domainli eklentilerde (FilmMakinesi, DiziYou…) domain çıkmadığı için hiçbir zaman otomatik kapatılmaz.
+
+
+
+
+
+- `status:1`'e (yeniden açma) **asla** otomatik dönülmez — bunu yalnızca kullanıcı yapar. Bu yüzden yanlış kapatma riski düşüktür ve geri dönüşü kolaydır.
+
+
+
+
+
+- Elle `python verify.py --health` komutuyla çalıştırılır (otomatik çalışmaz).
+
+
+
+
+
+
+
+
+
+
+
+## Kaynak Senkronizasyonu (update.py)
+
+
+
+
+
+
+
+
+
+
+
+```bash
+
+
+
+
+
+python update.py --check    # yazmadan sadece farkları raporlar (fark varsa exit 1)
+
+
+
+
+
+python update.py            # farkları uygular, plugins.json'u günceller
+
+
+
+
+
+```
+
+
+
+
+
+
+
+
+
+
+
+Kaynak `builds/plugins.json` adresi, listedeki `.cs3` adresinden türetilir (`https://raw.githubusercontent.com/<owner>/<repo>/builds/<Isim>.cs3` → aynı klasördeki `plugins.json`). Senkronize edilen alanlar: `version, fileSize, fileHash, description, authors, language, tvTypes`. `iconUrl` bilinçli olarak senkronize **edilmez** — bu depo ikon adreslerini normalize eder (kaynaktaki `%size%` yer tutucuları sabit `sz=128`'e çevrilir) ve kaynak güncellemesi bu düzeltmeyi geri almasın.
+
+
+
+
+
+
+
+
+
+
+
+> **Not:** Bu depo **otomatik hiçbir şey çalıştırmaz** (GitHub Actions yok). Kaynak senkronu (`update.py`), site sağlık kontrolü (`verify.py --deep`/`--health`) ve status değişiklikleri yalnızca **elle** yapılır. `[ATLANDI]` sayısı, kaynak depo bazında toplu kapanışın (ör. cs-kraptor kapanışı: 29 eklenti tek seferde 404) erken işaretidir.
+
+
+
+
+
+
+
+
+
+
+
+## Karşılaşılan Hatalar ve Çözümleri
+
+
+
+
+
+
+
+
+
+
+
+| Hata | Neden | Çözüm |
+
+
+
+
+
+|------|-------|-------|
+
+
+
+
+
+| Eklentilerin çoğu repo listesinde görünmüyordu | CloudStream önbelleği eski listeyi tutuyordu | Uygulamada "Verileri temizle" → depo yeniden eklendi |
+
+
+
+
+
+| `.cs3` dosyaları "format hatası" gösterdi | Sorun dosyada değildi; istemci önbelleği eski listeyi gösteriyordu | Uygulamada "Verileri temizle" → depo yeniden eklendi, sorun çözüldü |
+
+
+
+
+
+| `Filmmirasım` JSON'da eşleşmiyordu | Dosya adındaki noktasız `ı` (U+0131) karakteri shell'de bozuldu | Python'da `\u0131` escape'iyle yazılarak halledildi |
+
+
+
+
+
+| PowerShell ile JSON düzenlemekte bozulma | `ConvertFrom/ConvertTo-Json` dizi yapısını bozuyordu | Tüm JSON işlemleri Python (`utf-8`, `ensure_ascii=False`) ile yapıldı |
+
+
+
+
+
+| jsDelivr hâlâ eski listeyi gösteriyordu | CDN önbelleği | `purge.jsdelivr.net` üzerinden önbellek temizlendi |
+
+
+
+
+
+| `FullRaces` simgesi yüklenmiyordu | `iconUrl` içinde `%size%` yer tutucusu kalmıştı | `sz=128` olarak düzeltildi |
+
+
+
+
+
+| `Disney-Plus` kaynağı görünüyordu | MirrorVerse eklentisinin içindeki kaynak adı | Eklenti listeden kaldırıldı |
+
+
+
+
+
+| `DiziFilmORG` açılmıyordu | Kullanıcı CloudStream'de açamadı | Eklenti listeden kaldırıldı |
+
+
+
+
+
+| 30 eklenti indirilemiyordu (hata yazıyordu) | `cs-kraptor` deposu kapanmıştı; 29 `.cs3` dosyası 404 veriyordu, 1 eklenti de (JPFilms) hash'i güncellenmediği için uyuşmuyordu | Kaynak kapandığı için 29 eklenti listeden çıkarıldı; JPFilms dahil yabancı eklentiler Türkçe filtresiyle kaldırıldı. Kalan 4 eklenti tek tek indirilip hash/boyut doğrulandı |
+
+
+
+
+
+| `JPFilms` indirilemiyordu | Kaynakta v6 → v7 güncellenmiş, hash ve boyut değişmişti; listede eski hash duruyordu | Yeni hash/boyut kaynağından alındı; ancak daha sonra Türkçe filtreyle eklenti listeden çıkarıldığı için push edilmedi |
+
+
+
+
+
+| `plt-stream` hash uyuşmazlığı | Kaynak v38 → v39 güncellenmiş; listede eski hash (411831 byte) vardı, gerçek dosya değişmişti (413103 byte) | Kaynağın `builds/plugins.json`'ından güncel `version/fileSize/fileHash/description` alındı, kayıt senkronlandı |
+
+
+
+
+
+| `İnfluencerChicks` indirilemiyordu | Eklenti adındaki `İ` (U+0130) karakteri raw URL'de HTTP isteğini ascii encode hatasıyla patlatıyordu | URL'deki `İ` → `%C4%B0` percent-encode edildi (CloudStream de benzer sorun yaşamaması için) |
+
+
+
+
+
+| GizliKeyif eklentileri hatalı görünüyordu | Katalog/tarayıcı `builds/plugins.json`'u canlı gösteriyor ama `.cs3` dosyaları kaynak kapanınca 404 veriyor | Kaynağın kendisi değil, dosyalar tek tek `urllib` ile doğrulandı; 404'ler tespit edilip listeden çıkarıldı |
+
+
+
+
+
+| Makoto2 eklentilerinde `fileHash` yoktu | Depo eski CloudStream formatı kullanıyor (hash alanı olmadan) | `fileHash` kontrolü atlanıp yalnızca indirilebilirlik doğrulandı; bu depodan eklenti alınmadı |
+
+
+
+
+
+| `Kanal 7` eklentisi indirilemiyordu | URL'de boşluk karakteri vardı (`.../Kanal 7.cs3`), GitHub raw'da geçersiz | Depodan eklenti kullanılmadı |
+
+
+
+
+
+| `cagatayrepo` ve `AyzenCS3` 404 | Bu depoların `plugins.json`'ı erişilemezdi | Katalogda listelenmesine rağmen kullanılmadı |
+
+
+
+
+
+| GitHub API rate limit | `api.github.com` istek limiti doluyordu | Ham `raw.githubusercontent.com` fetch'leri ve websearch ile aşıldı |
+
+
+
+
+
+| 9 Feroxx eklentisi CloudStream'de çalışmıyordu | `.cs3` dosyaları indirilebilirdi ama eklentilerin içerik çektikleri siteler bozuk/engelliydi (oynatma olmuyordu) | AltiYuzAltmisAltiFilmIzle, DiziMom, Dizilla, FullHDFilm, FullHDFilmizlesene, JetFilmizle, SetFilmIzle, SezonlukDizi, WebteIzle kaldırıldı; kaynak siteler düzelirse Feroxx'ten tekrar denenebilir |
+
+
+
+
+
+| `plt-stream` yine bozulmuştu (v42 → v44) | Kaynak repo v44'e güncellenmiş; listede v42/eski hash/421535 byte duruyordu, gerçek dosya 428931 byte idi. CloudStream hash doğrulaması "Extension hash mismatch" fırlatıyordu | `update.py` ile kaynaktan senkronlandı (v44, yeni hash) |
+
+
+
+
+
+| `666`, `FullHDFilmizlesene`, `SetFilmIzle` açılmıyordu | İçerik çekilen siteler ölmüştü: 666filmizle.site **"satılıktır" parking sayfası** oldu, fullhdfilmizlesene.mx/.de/.org DNS'te çözülmüyor (player turkeyplayer.com da satılık), setfilmizle.uk https'te TLS hatası veriyor ve http'de **Hdfilmcehennemi** içeriği dönüyor (site başka siteye dönüşmüş) | Deep-tarama (HTTP 200 kontrolü) parking sayfalarını "ayakta" sanıyordu — **yanlış pozitif**. Sayfa içeriği (title) testiyle doğrulandı; önce `status:0` yapıldı, kullanıcı "diğerlerini de kaldıracağım" deyince listeden **tamamen silindi** (delete-zone) |
+
+
+
+
+
+| `DiziBox`/`DiziPal`/`KultFilmler`/`Dizilla` kullanıcı tarafından istenmiyordu | Siteler (`www.dizibox.live`, `dizipal1574.com`, `kultfilmler.net`, `dizillahd.com`) canlıydı; sorun sunucu değil, kullanıcı tercihi | Kullanıcı "istemiyorum" dediği için listeden **tamamen kaldırıldı** (delete-zone'a eklendi). Cihazda kuruluysa elle silinmeli — kayıt olmadığı için uygulama otomatik temizlemez |
+
+
+
+
+
+| jsDelivr proxy `.cs3` 404/400 veriyordu (araştırma) | İlk istekte jsDelivr önbelleği soğuk olduğu için 404; `@branch` sözdizimi ve tarayıcı UA ile 200 dönüyor | Sorun değil; jsDelivr önbelleği ısınınca tüm `.cs3`'ler doğru hash'le iniyor (plt-stream hariç kaynak güncel olduğu için o da senkronlanınca düzeldi) |
+
+
+
+
+
+| jsDelivr dönüşüm formatı karışıyordu | Doğru format `cdn.jsdelivr.net/gh/<owner>/<repo>@<branch>/<path>` — `@` **repo adından sonra** gelir (branch'ten önce); `repo@branch` yazılmadığında 404 alınıyordu | Format netleştirildi: `https://cdn.jsdelivr.net/gh/kadircee/ozel-liste@main/plugins.json`; purge de aynı biçimi kullanır |
+
+
+
+
+
+| `git push` çıktısında kırmızı `NativeCommandError` görünüyordu | PowerShell, git'in stderr'e yazdığı ilerleme satırlarını hata sanıyor | Gerçek hata değil — çıktının sonunda `fb7f710..6aea63d main -> main` görülüyorsa push başarılı demektir |
+
+
+
+
+
+| YAML doğrulama `ModuleNotFoundError: No module named 'yaml'` | Python'da PyYAML kurulu değildi | `python -m pip install pyyaml` ile kuruldu; doğrulama `yaml.safe_load` ile geçti |
+
+
+
+
+
+| YAML doğrulamada `KeyError: 'on'` | PyYAML YAML 1.1'de `on:` anahtarını bool `True`'ya çevirir (GitHub Actions YAML 1.2 kullanır ve `on`'u string kabul eder) | Gerçek hata değil; GitHub Actions bu dosyayı doğru ayrıştırır (workflow dosyası sorunsuz çalışır) |
+
+
+
+
+
+| `verify.py --health` yanlış eklenti kapatabilir mi (tasarım) | Eski `--deep` HTTP 200 kontrolü parking sayfasını "ayakta" sanabiliyordu (666/FullHD yanlış pozitifi) | `--health` sayfa içeriği/title ile parking tespiti ekledi, **kesin ölü** (DNS/404/TLS/parking) dışında karar vermiyor; `unknown` veya canlı domain varsa dokunmuyor. Test: 6 parking/legit vaka + gerçek 666filmizle.site `dead` sınıflandı; 13 aktif eklenti tarandı, yanlış kapanma yok |
+
+
+
+
+
+
+
+
+
+
+
+### Tekrar Kontrol Edilecekler
+| Eklenti | Kaynak | Son Bilinen Domain | Durum |
+|---------|--------|-------------------|-------|
+| SetFilmIzle | feroxx/ilkel | setfilmizle.uk | Site olu, tekrar kontrol edilecek |
+| AltiYuzAltmisAltiFilmIzle | feroxx/ilkel | 666filmizle.site | Site olu, tekrar kontrol edilecek |
+| FilmBip | ilkel | filmbip.com | Site olu, tekrar kontrol edilecek |
+| FullHDFilm | feroxx | fullhdfilm.org | Site olu, tekrar kontrol edilecek |
+| Filmatek | Kraptor123/Cs-Karma | filmatek.net | Site olu, tekrar kontrol edilecek |
+
+### Onemli Not
+Repolar guncellendiginde (update.py calistiginda veya elle senkron yapildiginda), bu listedeki dead sites'ler otomatik olarak kontrol edilmeli ve calisiyorsa tekrar eklenebilir.
+
+## Silinen Eklentiler (delete-zone)
+
+
+
+
+
+
+
+
+
+
+
+Bu eklentiler listeye **eklenmez**; yeniden ekleme kararı yalnızca kullanıcı verir. Listede NSFW (+18) hiç yer almadı; canlı yayın/maç eklentileri istenmedi. Bozuk eklentiler silinmez, `status:0` yapılır (bkz. Kurulum). "Site açılmıyor" gerekçesiyle silinenler **geri dönüşlüdür**: site düzelirse tekrar denenebilir.
+
+
+
+
+
+
+
+
+
+
+
+**Anime/Asya içerikli (kullanıcı anime istemiyor):** AnimeciX, Animeler, Animely, AnimPow, Anizium, OnePaceTr, OpenAnime, TrAnimeIzle, TurkAnime, AsyaAnimeleri, AsyaFanatiklerim, AsyaWatch, DiziAsia, DiziAsya, DiziKorea, Koredizi, AnimeAV, AnimeWorld, AnimeYTX, Latanime, DramaDizilerim, Dramaizle
+
+
+
+
+
+
+
+
+
+
+
+**Canlı yayın / maç (kullanıcı hiçbir halükarda istemiyor):** InatBox, NeonSpor, RecTV, Streamed, CricifyProvider
+
+
+
+
+
+
+
+
+
+
+
+**Diğer ("kesinlikle istemiyorum" / kişisel tercih):** Filmmirasım, SeiCode, YTS, YeniKaynak, YesilCamTv, MirrorVerse, Vavoo, WebDramaTurkey, Syncler, Torrential, BelgeselX, CizgiMax, CizgiveDizi, DiziPal, KultFilmler, DiziPalOriginal
+
+
+
+
+
+
+
+
+
+
+
+> Not (2026-08-22): `DiziBox`, `DiziPal`, `KultFilmler`, `Dizilla` siteleri canlı olmasına rağmen kullanıcı "istemiyorum" dediği için listeden çıkarıldı. Cihazda kuruluysa elle silinmeli (kayıt olmadığı için CloudStream otomatik temizlemez).
+
+
+
+
+
+
+
+
+
+
+
+**Site açılmıyordu (site düzelirse geri denenebilir):** Dizipod, DiziFilmORG, DiziPalOrijinal, DiziYo, FilmBOL, FullHDFilm, FULLHDFILM_PLACEHOLDER
+
+
+
+
+
+
+
+
+
+
+
+> Not (2026-08-22): `AltiYuzAltmisAltiFilmIzle` (666filmizle.site satılık sayfa), `FullHDFilmizlesene` (ana domainler ölmüş), `SetFilmIzle` (TLS hatası + site başka siteye dönüşmüş) siteleri öldüğü için önce `status:0` yapıldı, ardından kullanıcının onayıyla listeden tamamen silindi. Kaynak siteler düzelirse Feroxx'ten tekrar denenebilir. FullHDFilmizlesene ise yeni domainle (fullhdfilmizlesene.now, MRTDEVM kaynağından) tekrar eklendi (2026-08-22).
+
+
+
+
+
+
+
+
+
+
+
+**Kaynak kapanması (cs-kraptor `.cs3` dosyaları 404):** Dizigecesi, DiziLife, FilmEkseni, FilmHane, Filmzal, HDFilmDelisi, HDFilmizle, KraptorPlus, RareFilmm, SelcukFlix, SineWix, Sinezy, Turkdizileri, TvDiziler, WFilmizle, YabanciDizi
+
+
+
+
+
+
+
+
+
+
+
+**Türkçe/Türkiye filtresi (yabancı dil içerikli):** Esheaq, Krmzy, YoTurkish, DoramasLatinoX, Dubbindo, Flixlatam, Henaojara, Gnulahd, JPFilms, KissKH, LayarKaca, Movix, OK, Sokuja, Subsplease, Supercartoons, Wcoflix, Yablom, DocumentaryArea, Iwatchtheoffice, FullRaces, FootReplays
+
+
+
+
+
+
+
+
+
+
+
+**Hiç eklenmeyenler / istisnalar (kaynaklardaki):**
+
+
+
+
+
+- **Canlı spor / Live** — maç yayını ve canlı kanal eklentileri istenmedi; `InatBox`, `NeonSpor`, `RecTV` kullanıcı isteğiyle silindi, `Streamed` ve `CricifyProvider` ise kullanıcının talimatıyla listeden çıkarıldı. Artık listede canlı yayın eklentisi yok.
+
+
+
+
+
+
+
+
+
+
+
+## Güncelleme
+
+
+
+
+
+
+
+
+
+
+
+Yeni bir değişiklik yapıldığında:
+
+
+
+
+
+
+
+
+
+
+
+```bash
+
+
+
+
+
+python verify.py --offline      # önce yapısal doğrula
+
+
+
+
+
+python update.py --check        # kaynak farkı var mı bak (exit 1 = var)
+
+
+
+
+
+python update.py                # gerekirse kaynak verilerini senkronize et
+
+
+
+
+
+python verify.py --health       # ölmüş eklentileri status:0 yap (elle tetikleme)
+
+
+
+
+
+python verify.py --deep         # senkronizasyon sonrası ağ + gerçek çekim domaini kontrolü
+
+
+
+
+
+git add plugins.json
+
+
+
+
+
+git -c user.name="kadircee" -c user.email="kadircee@users.noreply.github.com" \
+
+
+
+
+
+    commit -m "plugins.json: aciklama"
+
+
+
+
+
+git push
+
+
+
+
+
+```
+
+
+
+
+
+
+
+
+
+
+
+Push sonrası jsDelivr önbelleği için:
+
+
+
+
+
+
+
+
+
+
+
+```
+
+
+
+
+
+https://purge.jsdelivr.net/gh/kadircee/ozel-liste@main/plugins.json
+
+
+
+
+
+```
+
+
+
+
+
+
+
+
+
+
+
+CloudStream tarafında depo yenilendiğinde yeni liste otomatik çekilir. Kaynak senkronu ve site sağlığı **otomatik değildir** (GitHub Actions yok): kaynak bir eklentiyi güncellediğinde listedeki hash/boyut **elle** `update.py` çalıştırılarak senkronlanır, kaynak site ölürse eklenti **elle** `verify.py --health` (veya `--deep`) çalıştırılarak `status:0` yapılır. `status:1`'e (yeniden açma) otomatik dönülmez; site geri geldiyse `plugins.json`'da ilgili eklentinin `status`'u elle `1` yapılır. Güncelleme öncesi `verify.py --offline` ve `update.py --check` ile kontrol etmek iyi alışkanlıktır.
+
+
+
+
+
+
+
+
+
+
+
+## Yasal Uyarı ve Sorumluluk Reddi (Disclaimer)
+
+
+
+
+
+
+
+
+
+
+
+Bu depo kişisel arşivleme amacıyla oluşturulmuştur; hiçbir ticari amacı yoktur. Bu depo (ve GitHub sunucuları) hiçbir video, ses dosyası, medya veya telif hakkıyla korunan materyal barındırmaz, kopyalamaz veya dağıtmaz. Bu depo yalnızca internette herkese açık olarak paylaşılan üçüncü taraf eklentilerin (`.cs3`) doğrudan GitHub RAW adreslerini derleyen metin tabanlı bir JSON dizinidir ("Yalnızca Endeks"). Listelenen eklentilerin kodları, işleyişleri veya hangi web sitelerinden veri çektikleri üzerinde bu deponun hiçbir kontrolü, sahipliği veya sorumluluğu yoktur; tüm sorumluluk eklentilerin orijinal geliştiricilerine ve veriyi barındıran kaynak web sitelerine aittir. Bu depo yalnızca bağlantıları listeleyen bir köprü görevi gördüğü için telif hakkı ihlali iddialarının muhatabı değildir; içerik kaldırma talepleri (DMCA) doğrudan içerikleri sunan kaynak web sitelerine veya eklentilerin orijinal GitHub depolarına yapılmalıdır. Bu depo, 5846 sayılı Fikir ve Sanat Eserleri Kanunu ve 5651 sayılı Kanun kapsamında da eser barındırmaz, çoğaltmaz veya iletmez; yalnızca kamuya açık kaynaklardaki `.cs3` dosyalarına bağlantı sağlar. 5651 sayılı Kanunun 4. maddesinin ikinci fıkrası gereği içerik sağlayıcı, bağlantı sağladığı başkasına ait içerikten sorumlu değildir; ancak aynı maddenin istisnası saklıdır: sunuş biçiminden bağlantı verilen içeriğin benimsendiği ve kullanıcının o içeriğe ulaşmasının amaçlandığı açıkça belli ise sorumluluk doğabilir. Bu depo, listedeki hiçbir eklentiyi veya eklentilerin veri çektiği kaynakları benimsemez ve tavsiye etmez; liste salt teknik bir indekstir. Hak sahipleri 5651 sayılı Kanunun 9. maddesi uyarınca uyarı yöntemiyle bildirimde bulunursa ilgili bağlantı derhal kaldırılır.
+
+
+
+
+
+
+
+
+
+
+
 This repository is created for personal archiving purposes and has no commercial intent. This repository does not host, store, copy, or distribute any video, audio, media files, or copyrighted material; it serves merely as a text-based JSON index containing direct links to third-party `.cs3` plugins already publicly available on the internet ("Index Only"). The owner of this repository does not develop, host, or control any of the listed plugins, their source code, operation, or the websites these plugins scrape; all liability lies strictly with the original plugin developers and the respective websites hosting the media. As this repository only provides a compilation of text-based URLs, it is not liable for copyright infringement; any DMCA takedown requests must be directed to the actual websites hosting the copyrighted content or to the original developers' repositories. Under Turkish law (FSEK No. 5846 and Law No. 5651), this repository does not host, reproduce, or communicate any work; it merely provides links to `.cs3` files publicly available on the internet. Under Article 4/2 of Law No. 5651, a content provider is not liable for third-party content to which it merely provides a link; however, the exception in that provision is reserved: liability may arise where the presentation clearly shows that the linked content is adopted and that users are intended to reach it. This repository does not adopt or recommend any of the listed plugins or the sources they use; the list is a purely technical index. If rights holders send a notice under Article 9 of Law No. 5651, the relevant link will be removed promptly.
