@@ -154,11 +154,9 @@ Her `plugins.json` kaydı: `.cs3` dosya adresi, SHA-256 `fileHash`, `fileSize`, 
 
 | [Kraptor123/Cs-Karma](https://github.com/Kraptor123/Cs-Karma) | Full4kizle | 1 |
 
-| [Kraptor123/TurkMegaRepo](https://github.com/Kraptor123/TurkMegaRepo) | TurkMegaSaglayici | 1 |
-
 | [pltmustafa/plt-stream](https://github.com/pltmustafa/plt-stream) | plt-stream | 1 |
 
-| [feroxx/Kekik-cloudstream](https://github.com/feroxx/Kekik-cloudstream) | Ddizi, DiziYou, FilmMakinesi, FilmModu, HDFilmCehennemi, SinemaCX, JetFilmizle, SezonlukDizi, WebteIzle | 9 |
+| [feroxx/Kekik-cloudstream](https://github.com/feroxx/Kekik-cloudstream) | Ddizi, DiziYou, DiziBox, Dizilla, DiziMom, FilmMakinesi, FilmModu, HDFilmCehennemi, SinemaCX, JetFilmizle, SezonlukDizi, WebteIzle | 12 |
 
 | [ilkelkullanici/ilkel-cloudstream](https://github.com/ilkelkullanici/ilkel-cloudstream) | Sinewix | 1 |
 
@@ -171,8 +169,6 @@ Eskiden kullanılan / hiç kullanılmayan kaynaklar:
 - `NivinCNC/CNCVerse-Cloud-Stream-Extension` — `CricifyProvider` (canlı spor) bu kaynaktan geliyordu; kullanıcı canlı spor istemediği için eklenti yok.
 
 - `Kraptor123/Cs-Karma` — `Streamed` (canlı spor) bu kaynaktan geliyordu; kullanıcı istemedi. Kaynaktan yalnızca `Full4kizle` kaldı.
-
-- `Sertel392/Makotogecici` (Makoto2) — Türkçe eklentiler çalışıyordu; `fileHash` yok (eski CloudStream formatı), `Kanal 7` URL'sinde boşluk var. Bu depodan eklenti alınmadı.
 
 - `Kraptor123/Cs-GizliKeyif` — tamamı +18 NSFW içerikliydi (108 kayıt; NSFW olmayan kayıt yok), hiç eklenmedi.
 
@@ -306,7 +302,7 @@ Kaynak `builds/plugins.json` adresi, listedeki `.cs3` adresinden türetilir (`ht
 
 | GitHub API rate limit | `api.github.com` istek limiti doluyordu | Ham `raw.githubusercontent.com` fetch'leri ve websearch ile aşıldı |
 
-| 9 Feroxx eklentisi CloudStream'de çalışmıyordu | `.cs3` dosyaları indirilebilirdi ama eklentilerin içerik çektikleri siteler bozuk/engelliydi (oynatma olmuyordu) | AltiYuzAltmisAltiFilmIzle, DiziMom, Dizilla, FullHDFilm, FullHDFilmizlesene, JetFilmizle, SetFilmIzle, SezonlukDizi, WebteIzle kaldırıldı; kaynak siteler düzelirse Feroxx'ten tekrar denenebilir |
+| Eski Feroxx eklentileri CloudStream'de çalışmıyordu | `.cs3` dosyaları indirilebilirdi ama eklentilerin içerik çektikleri siteler bozuk/engelliydi (oynatma olmuyordu) | AltiYuzAltmisAltiFilmIzle, DiziMom, Dizilla, FullHDFilm, FullHDFilmizlesene, JetFilmizle, SetFilmIzle, SezonlukDizi, WebteIzle kaldırıldı; kaynak siteler düzelirse Feroxx'ten tekrar denenebilir |
 
 | `plt-stream` yine bozulmuştu (v42 → v44) | Kaynak repo v44'e güncellenmiş; listede v42/eski hash/421535 byte duruyordu, gerçek dosya 428931 byte idi. CloudStream hash doğrulaması "Extension hash mismatch" fırlatıyordu | `update.py` ile kaynaktan senkronlandı (v44, yeni hash) |
 
@@ -329,14 +325,14 @@ Kaynak `builds/plugins.json` adresi, listedeki `.cs3` adresinden türetilir (`ht
 ### Tekrar Kontrol Edilecekler
 | Eklenti | Kaynak | Son Bilinen Domain | Durum |
 |---------|--------|-------------------|-------|
-| SetFilmIzle | feroxx/ilkel | setfilmizle.uk | Site olu, tekrar kontrol edilecek |
-| AltiYuzAltmisAltiFilmIzle | feroxx/ilkel | 666filmizle.site | Site olu, tekrar kontrol edilecek |
-| FilmBip | ilkel | filmbip.com | Site olu, tekrar kontrol edilecek |
-| FullHDFilm | feroxx | fullhdfilm.org | Site olu, tekrar kontrol edilecek |
-| Filmatek | Kraptor123/Cs-Karma | filmatek.net | Site olu, tekrar kontrol edilecek |
+| SetFilmIzle | feroxx/ilkel | setfilmizle.uk | Site ölü, tekrar kontrol edilecek |
+| AltiYuzAltmisAltiFilmIzle | feroxx/ilkel | 666filmizle.site | Site ölü, tekrar kontrol edilecek |
+| FilmBip | ilkel | filmbip.com | Site ölü, tekrar kontrol edilecek |
+| FullHDFilm | feroxx | fullhdfilm.org | Site ölü, tekrar kontrol edilecek |
+| Filmatek | Kraptor123/Cs-Karma | filmatek.net | Site ölü, tekrar kontrol edilecek |
 
-### Onemli Not
-Repolar guncellendiginde (yeni build yayinlandiginda (GitHub uzerinden takip edilir)), bu listedeki dead sites'ler otomatik olarak kontrol edilmeli ve calisiyorsa tekrar eklenebilir.
+### Önemli Not
+Repolar güncellendiğinde (yeni build yayınlandığında (GitHub uzerinden takip edilir)), bu listedeki ölü siteler otomatik olarak kontrol edilmeli ve çalışıyorsa tekrar eklenebilir.
 
 ## Silinen Eklentiler (delete-zone)
 
@@ -346,7 +342,7 @@ Bu eklentiler listeye **eklenmez**; yeniden ekleme kararı yalnızca kullanıcı
 
 **Canlı yayın / maç (kullanıcı hiçbir halükarda istemiyor):** InatBox, NeonSpor, RecTV, Streamed, CricifyProvider
 
-**Diğer ("kesinlikle istemiyorum" / kişisel tercih):** Filmmirasım, SeiCode, YTS, YeniKaynak, YesilCamTv, MirrorVerse, Vavoo, WebDramaTurkey, Syncler, Torrential, BelgeselX, CizgiMax, CizgiveDizi, DiziPal, DiziPalOriginal, KultFilmler, RareFilmm, DiziPalOriginal
+**Diğer ("kesinlikle istemiyorum" / kişisel tercih):** Filmmirasım, SeiCode, YTS, YeniKaynak, YesilCamTv, MirrorVerse, Vavoo, WebDramaTurkey, Syncler, Torrential, BelgeselX, CizgiMax, CizgiveDizi, DiziPal, DiziPalOriginal, KultFilmler, RareFilmm
 
 > Not (2026-08-22): `DiziBox`, `DiziPal`, `KultFilmler`, `Dizilla` siteleri canlı olmasına rağmen kullanıcı "istemiyorum" dediği için listeden çıkarıldı. Cihazda kuruluysa elle silinmeli (kayıt olmadığı için CloudStream otomatik temizlemez).
 
@@ -354,7 +350,7 @@ Bu eklentiler listeye **eklenmez**; yeniden ekleme kararı yalnızca kullanıcı
 
 > Not (2026-08-22): `AltiYuzAltmisAltiFilmIzle` (666filmizle.site satılık sayfa), `FullHDFilmizlesene` (ana domainler ölmüş), `SetFilmIzle` (TLS hatası + site başka siteye dönüşmüş) siteleri öldüğü için önce `status:0` yapıldı, ardından kullanıcının onayıyla listeden tamamen silindi. Kaynak siteler düzelirse Feroxx'ten tekrar denenebilir. FullHDFilmizlesene ise yeni domainle (fullhdfilmizlesene.now, MRTDEVM kaynağından) tekrar eklendi (2026-08-22).
 
-**Kaynak kapanması (cs-kraptor `.cs3` dosyaları 404):** Dizigecesi, DiziLife, FilmEkseni, FilmHane, Filmzal, HDFilmDelisi, HDFilmizle, KraptorPlus, RareFilmm, SelcukFlix, SineWix, Sinezy, Turkdizileri, TvDiziler, WFilmizle, YabanciDizi
+**Kaynak kapanması (cs-kraptor `.cs3` dosyaları 404):** Dizigecesi, DiziLife, FilmEkseni, FilmHane, Filmzal, HDFilmDelisi, HDFilmizle, KraptorPlus, SelcukFlix, SineWix, Sinezy, Turkdizileri, TvDiziler, WFilmizle, YabanciDizi
 
 **Türkçe/Türkiye filtresi (yabancı dil içerikli):** Esheaq, Krmzy, YoTurkish, DoramasLatinoX, Dubbindo, Flixlatam, Henaojara, Gnulahd, JPFilms, KissKH, LayarKaca, Movix, OK, Sokuja, Subsplease, Supercartoons, Wcoflix, Yablom, DocumentaryArea, Iwatchtheoffice, FullRaces, FootReplays
 
