@@ -2,7 +2,7 @@
 Bu depo test CloudStream deposudur; yalnÄ±zca TÃ¼rkÃ§e film/dizi eklentilerini ve test seÃ§tiÄŸi kaynaklarÄ± barÄ±ndÄ±rÄ±r. CanlÄ± yayÄ±n, NSFW ve yabancÄ± dil iÃ§erikli eklentiler kullanÄ±cÄ± tercihi gereÄŸi listeye alÄ±nmamÄ±ÅŸtÄ±r.
 
 ## Durum
-- **Son doÄŸrulama:** 2026-08-22 Â· **16 eklenti** (12 aÃ§Ä±k, 4 devre dÄ±ÅŸÄ±; indirilebilir, hash/boyut doÄŸrulanmÄ±ÅŸ)
+- **Son doÄŸrulama:** 2026-08-22 Â· **12 eklenti** (tÃ¼mÃ¼ aÃ§Ä±k; indirilebilir, hash/boyut doÄŸrulanmÄ±ÅŸ)
 - **Kural:** bozuk eklenti silinmez, `status:0` yapÄ±lÄ±r (bkz. Kurulum)
 - **Delete-zone:** silinen eklentiler yeniden eklenmez (bkz. Silinen Eklentiler)
 
@@ -31,7 +31,7 @@ KÄ±sa kod yalnÄ±zca harf/rakam/`!_-` iÃ§erebilir; `!` ile baÅŸlayanlar `
 ```
 ozel-liste/
 â”œâ”€â”€ repo.json            â†’ CloudStream'in aÃ§tÄ±ÄŸÄ± depo tanÄ±mÄ±
-â”œâ”€â”€ plugins.json         â†’ eklenti listesi (16 eklenti)
+â”œâ”€â”€ plugins.json         â†’ eklenti listesi (12 eklenti)
 â”œâ”€â”€ verify.py            â†’ yapÄ±sal + aÄŸ kontrollÃ¼ doÄŸrulama script'i (--deep ile .cs3 iÃ§inden gerÃ§ek Ã§ekim domaini kontrolÃ¼; --health ile Ã¶lmÃ¼ÅŸ eklentilere otomatik status:0; sadece standart kÃ¼tÃ¼phane, Python 3)
 â”œâ”€â”€ update.py            â†’ kaynak depolardan gÃ¼ncel verileri senkronize eden script (--check rapor modu dahil)
 â”œâ”€â”€ backups/            â†’ temizlenmiÅŸ CloudStream veri yedeÄŸi Ã¶rneÄŸi (kiÅŸisel veri yok)
@@ -88,7 +88,7 @@ Her `plugins.json` kaydÄ±: `.cs3` dosya adresi, SHA-256 `fileHash`, `fileSize`
 |----------------------|---------|------|
 | [Kraptor123/Cs-Karma](https://github.com/Kraptor123/Cs-Karma) | Full4kizle | 1 |
 | [pltmustafa/plt-stream](https://github.com/pltmustafa/plt-stream) | plt-stream | 1 |
-| [feroxx/Kekik-cloudstream](https://github.com/feroxx/Kekik-cloudstream) | Ddizi, DiziYou, DiziBox, Dizilla, DiziMom, FilmMakinesi, FilmModu, HDFilmCehennemi, SinemaCX, JetFilmizle, SezonlukDizi, WebteIzle | 12 |
+| [feroxx/Kekik-cloudstream](https://github.com/feroxx/Kekik-cloudstream) | Ddizi, DiziYou, FilmMakinesi, FilmModu, HDFilmCehennemi, SinemaCX, JetFilmizle, SezonlukDizi | 8 |
 | [ilkelkullanici/ilkel-cloudstream](https://github.com/ilkelkullanici/ilkel-cloudstream) | Sinewix | 1 |
 | [MRTDEVM/cloudstream-turkce](https://github.com/MRTDEVM/cloudstream-turkce) | FullHDFilmizlesene | 1 |
 
