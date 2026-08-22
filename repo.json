@@ -1,0 +1,8 @@
+{
+  "name": "developer",
+  "description": "Kisisel CloudStream deposu - Turkce film ve dizi eklentileri",
+  "manifestVersion": 1,
+  "pluginLists": [
+    "https://raw.githubusercontent.com/kadircee/ozel-liste/main/plugins.json"
+  ]
+}
