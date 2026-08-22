@@ -8,28 +8,19 @@ Bu depo test CloudStream deposudur; yalnızca Türkçe film/dizi eklentilerini v
 
 - **Kural:** bozuk eklenti silinmez, `status:0` yapılır (bkz. Kurulum)
 
-- **Delete-zone:** silinen eklentiler yeniden eklenmez (bkz. Silinen Eklentiler)
-
 ## Kurulum
 
 CloudStream → Ayarlar → Uzantılar → Depo Ekle:
 
 ```
-
 https://raw.githubusercontent.com/kadircee/ozel-liste/main/repo.json
-
 ```
-
 **Tek tıkla kurulum (derin link):** CloudStream kurulu bir cihazda aşağıdaki bağlantıya tıklanınca depo otomatik eklenir (`cloudstreamrepo://` şeması uygulama tarafından çözülür):
-
 ```
-
 cloudstreamrepo://raw.githubusercontent.com/kadircee/ozel-liste/main/repo.json
-
 ```
 
 **Shortcode (kısayol):** CloudStream, "Depo Ekle" alanına kısa bir kod yazınca onu bir kısaltma servisinden çözer (redirect `Location` başlığından okunur):
-
 - **`!ozel45`** → `py.md/ozel45` → `repo.json` (Türkiye'de çalışır; **önerilen**). "Depo Ekle" alanına sadece `!ozel45` yazman yeterli.
 
 Kısa kod yalnızca harf/rakam/`!_-` içerebilir; `!` ile başlayanlar `py.md` servisine gider. Kişisel depo için zorunlu değil — tam URL de çalışır.
@@ -133,9 +124,7 @@ Yedek iki bloktan oluşur: `datastore` (uygulama DataStore tercihleri) ve `setti
   "manifestVersion": 1,
 
   "pluginLists": [
-
     "https://raw.githubusercontent.com/kadircee/ozel-liste/main/plugins.json"
-
   ]
 
 }
@@ -164,7 +153,7 @@ Her `plugins.json` kaydı: `.cs3` dosya adresi, SHA-256 `fileHash`, `fileSize`, 
 
 Eskiden kullanılan / hiç kullanılmayan kaynaklar:
 
-- `Kraptor123/cs-kraptor` — **KAPANDI.** Depo sıfırlandı, README'de "desteği kesmiş bulunuyorum" ibaresi var; tüm `.cs3` dosyaları 404 veriyor. Bu kaynaktan gelen 29 eklenti listeden çıkarıldı; bazıları Feroxx deposundaki canlı sürümleriyle listede.
+- `Kraptor123/cs-kraptor` — **KAPANDI.** 
 
 - `NivinCNC/CNCVerse-Cloud-Stream-Extension` — `CricifyProvider` (canlı spor) bu kaynaktan geliyordu; kullanıcı canlı spor istemediği için eklenti yok.
 
@@ -185,11 +174,8 @@ Eskiden kullanılan / hiç kullanılmayan kaynaklar:
 ```bash
 
 python verify.py               # yapısal + ağ kontrolleri (varsayılan)
-
 python verify.py --offline     # yalnızca yapısal kontroller
-
 python verify.py --deep        # + .cs3 içinden gerçek çekim domainlerini çıkarıp test eder (uyarı üretir, karar vermez)
-
 python verify.py --health      # + cekim domainleri TAMAMEN olmus eklentilere status:0 uygular (otomatik karar modu)
 
 ```
@@ -282,10 +268,6 @@ Kaynak `builds/plugins.json` adresi, listedeki `.cs3` adresinden türetilir (`ht
 
 | `Disney-Plus` kaynağı görünüyordu | MirrorVerse eklentisinin içindeki kaynak adı | Eklenti listeden kaldırıldı |
 
-| `DiziFilmORG` açılmıyordu | Kullanıcı CloudStream'de açamadı | Eklenti listeden kaldırıldı |
-
-| 30 eklenti indirilemiyordu (hata yazıyordu) | `cs-kraptor` deposu kapanmıştı; 29 `.cs3` dosyası 404 veriyordu, 1 eklenti de (JPFilms) hash'i güncellenmediği için uyuşmuyordu | Kaynak kapandığı için 29 eklenti listeden çıkarıldı; JPFilms dahil yabancı eklentiler Türkçe filtresiyle kaldırıldı. Kalan 4 eklenti tek tek indirilip hash/boyut doğrulandı |
-
 | `JPFilms` indirilemiyordu | Kaynakta v6 → v7 güncellenmiş, hash ve boyut değişmişti; listede eski hash duruyordu | Yeni hash/boyut kaynağından alındı; ancak daha sonra Türkçe filtreyle eklenti listeden çıkarıldığı için push edilmedi |
 
 | `plt-stream` hash uyuşmazlığı | Kaynak v38 → v39 güncellenmiş; listede eski hash (411831 byte) vardı, gerçek dosya değişmişti (413103 byte) | Kaynağın `builds/plugins.json`'ından güncel `version/fileSize/fileHash/description` alındı, kayıt senkronlandı |
@@ -302,13 +284,7 @@ Kaynak `builds/plugins.json` adresi, listedeki `.cs3` adresinden türetilir (`ht
 
 | GitHub API rate limit | `api.github.com` istek limiti doluyordu | Ham `raw.githubusercontent.com` fetch'leri ve websearch ile aşıldı |
 
-| Eski Feroxx eklentileri CloudStream'de çalışmıyordu | `.cs3` dosyaları indirilebilirdi ama eklentilerin içerik çektikleri siteler bozuk/engelliydi (oynatma olmuyordu) | AltiYuzAltmisAltiFilmIzle, DiziMom, Dizilla, FullHDFilm, FullHDFilmizlesene, JetFilmizle, SetFilmIzle, SezonlukDizi, WebteIzle kaldırıldı; kaynak siteler düzelirse Feroxx'ten tekrar denenebilir |
-
 | `plt-stream` yine bozulmuştu (v42 → v44) | Kaynak repo v44'e güncellenmiş; listede v42/eski hash/421535 byte duruyordu, gerçek dosya 428931 byte idi. CloudStream hash doğrulaması "Extension hash mismatch" fırlatıyordu | `update.py` ile kaynaktan senkronlandı (v44, yeni hash) |
-
-| `666`, `SetFilmIzle` açılmıyordu | İçerik çekilen siteler ölmüştü: 666filmizle.site **"satılıktır" parking sayfası** oldu, fullhdfilmizlesene.mx/.de/.org DNS'te çözülmüyor (player turkeyplayer.com da satılık), setfilmizle.uk https'te TLS hatası veriyor ve http'de **Hdfilmcehennemi** içeriği dönüyor (site başka siteye dönüşmüş) | Deep-tarama (HTTP 200 kontrolü) parking sayfalarını "ayakta" sanıyordu — **yanlış pozitif**. Sayfa içeriği (title) testiyle doğrulandı; önce `status:0` yapıldı, kullanıcı "diğerlerini de kaldıracağım" deyince listeden **tamamen silindi** (delete-zone) |
-
-| `DiziBox`/`DiziPal`/`KultFilmler`/`Dizilla` kullanıcı tarafından istenmiyordu | Siteler (`www.dizibox.live`, `dizipal1574.com`, `kultfilmler.net`, `dizillahd.com`) canlıydı; sorun sunucu değil, kullanıcı tercihi | Kullanıcı "istemiyorum" dediği için listeden **tamamen kaldırıldı** (delete-zone'a eklendi). Cihazda kuruluysa elle silinmeli — kayıt olmadığı için uygulama otomatik temizlemez |
 
 | jsDelivr proxy `.cs3` 404/400 veriyordu (araştırma) | İlk istekte jsDelivr önbelleği soğuk olduğu için 404; `@branch` sözdizimi ve tarayıcı UA ile 200 dönüyor | Sorun değil; jsDelivr önbelleği ısınınca tüm `.cs3`'ler doğru hash'le iniyor (plt-stream hariç kaynak güncel olduğu için o da senkronlanınca düzeldi) |
 
@@ -343,14 +319,6 @@ Bu eklentiler listeye **eklenmez**; yeniden ekleme kararı yalnızca kullanıcı
 **Canlı yayın / maç (kullanıcı hiçbir halükarda istemiyor):** InatBox, NeonSpor, RecTV, Streamed, CricifyProvider
 
 **Diğer ("kesinlikle istemiyorum" / kişisel tercih):** Filmmirasım, SeiCode, YTS, YeniKaynak, YesilCamTv, MirrorVerse, Vavoo, WebDramaTurkey, Syncler, Torrential, BelgeselX, CizgiMax, CizgiveDizi, DiziPal, DiziPalOriginal, KultFilmler, RareFilmm
-
-> Not (2026-08-22): `DiziBox`, `DiziPal`, `KultFilmler`, `Dizilla` siteleri canlı olmasına rağmen kullanıcı "istemiyorum" dediği için listeden çıkarıldı. Cihazda kuruluysa elle silinmeli (kayıt olmadığı için CloudStream otomatik temizlemez).
-
-**Site açılmıyordu (site düzelirse geri denenebilir):** Dizipod, DiziFilmORG, DiziYo, FilmBOL, FullHDFilm
-
-> Not (2026-08-22): `AltiYuzAltmisAltiFilmIzle` (666filmizle.site satılık sayfa), `FullHDFilmizlesene` (ana domainler ölmüş), `SetFilmIzle` (TLS hatası + site başka siteye dönüşmüş) siteleri öldüğü için önce `status:0` yapıldı, ardından kullanıcının onayıyla listeden tamamen silindi. Kaynak siteler düzelirse Feroxx'ten tekrar denenebilir. FullHDFilmizlesene ise yeni domainle (fullhdfilmizlesene.now, MRTDEVM kaynağından) tekrar eklendi (2026-08-22).
-
-**Kaynak kapanması (cs-kraptor `.cs3` dosyaları 404):** Dizigecesi, DiziLife, FilmEkseni, FilmHane, Filmzal, HDFilmDelisi, HDFilmizle, KraptorPlus, SelcukFlix, SineWix, Sinezy, Turkdizileri, TvDiziler, WFilmizle, YabanciDizi
 
 **Türkçe/Türkiye filtresi (yabancı dil içerikli):** Esheaq, Krmzy, YoTurkish, DoramasLatinoX, Dubbindo, Flixlatam, Henaojara, Gnulahd, JPFilms, KissKH, LayarKaca, Movix, OK, Sokuja, Subsplease, Supercartoons, Wcoflix, Yablom, DocumentaryArea, Iwatchtheoffice, FullRaces, FootReplays
 
