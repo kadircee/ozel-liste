@@ -329,14 +329,14 @@ Kaynak `builds/plugins.json` adresi, listedeki `.cs3` adresinden türetilir (`ht
 ### Tekrar Kontrol Edilecekler
 | Eklenti | Kaynak | Son Bilinen Domain | Durum |
 |---------|--------|-------------------|-------|
-| SetFilmIzle | feroxx/ilkel | setfilmizle.uk | Site ölü, tekrar kontrol edilecek |
-| AltiYuzAltmisAltiFilmIzle | feroxx/ilkel | 666filmizle.site | Site ölü, tekrar kontrol edilecek |
-| FilmBip | ilkel | filmbip.com | Site ölü, tekrar kontrol edilecek |
-| FullHDFilm | feroxx | fullhdfilm.org | Site ölü, tekrar kontrol edilecek |
-| Filmatek | Kraptor123/Cs-Karma | filmatek.net | Site ölü, tekrar kontrol edilecek |
+| SetFilmIzle | feroxx/ilkel | setfilmizle.uk | Site olu, tekrar kontrol edilecek |
+| AltiYuzAltmisAltiFilmIzle | feroxx/ilkel | 666filmizle.site | Site olu, tekrar kontrol edilecek |
+| FilmBip | ilkel | filmbip.com | Site olu, tekrar kontrol edilecek |
+| FullHDFilm | feroxx | fullhdfilm.org | Site olu, tekrar kontrol edilecek |
+| Filmatek | Kraptor123/Cs-Karma | filmatek.net | Site olu, tekrar kontrol edilecek |
 
-### Önemli Not
-Repolar güncellendiğinde (yeni build yayınlandığında (GitHub uzerinden takip edilir)), bu listedeki ölü siteler otomatik olarak kontrol edilmeli ve çalışıyorsa tekrar eklenebilir.
+### Onemli Not
+Repolar guncellendiginde (yeni build yayinlandiginda (GitHub uzerinden takip edilir)), bu listedeki dead sites'ler otomatik olarak kontrol edilmeli ve calisiyorsa tekrar eklenebilir.
 
 ## Silinen Eklentiler (delete-zone)
 
@@ -350,7 +350,7 @@ Bu eklentiler listeye **eklenmez**; yeniden ekleme kararı yalnızca kullanıcı
 
 > Not (2026-08-22): `DiziBox`, `DiziPal`, `KultFilmler`, `Dizilla` siteleri canlı olmasına rağmen kullanıcı "istemiyorum" dediği için listeden çıkarıldı. Cihazda kuruluysa elle silinmeli (kayıt olmadığı için CloudStream otomatik temizlemez).
 
-**Site açılmıyordu (site düzelirse geri denenebilir):** Dizipod, DiziFilmORG, DiziYo (plt-stream domaini), FilmBOL, FullHDFilm
+**Site açılmıyordu (site düzelirse geri denenebilir):** Dizipod, DiziFilmORG, DiziYo, FilmBOL, FullHDFilm
 
 > Not (2026-08-22): `AltiYuzAltmisAltiFilmIzle` (666filmizle.site satılık sayfa), `FullHDFilmizlesene` (ana domainler ölmüş), `SetFilmIzle` (TLS hatası + site başka siteye dönüşmüş) siteleri öldüğü için önce `status:0` yapıldı, ardından kullanıcının onayıyla listeden tamamen silindi. Kaynak siteler düzelirse Feroxx'ten tekrar denenebilir. FullHDFilmizlesene ise yeni domainle (fullhdfilmizlesene.now, MRTDEVM kaynağından) tekrar eklendi (2026-08-22).
 
