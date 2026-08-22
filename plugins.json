@@ -21,21 +21,6 @@
     "fileHash": "sha256-56eaf9ee7c790d5d95dbcf5d5b990ab1714f118a4b6ef5b43b5a6156cb55f1f3"
   },
   {
-    "url": "https://raw.githubusercontent.com/Kraptor123/TurkMegaRepo/builds/TurkMegaSaglayici.cs3",
-    "status": 1,
-    "version": 2,
-    "name": "TurkMegaSaglayici",
-    "internalName": "TurkMegaSaglayici",
-    "authors": [],
-    "description": "Bu eklenti, uygulama her açıldığında tüm depoları ekler. Eğer tüm depoları eklemek istemiyorsanız, tek bir çalıştırmadan sonra eklentiyi kaldırın. Depo listesi otomatik olarak yenilenmez.",
-    "fileSize": 7954,
-    "repositoryUrl": "https://github.com/Kraptor123/TurkMegaRepo",
-    "language": "tr",
-    "apiVersion": 1,
-    "fileHash": "sha256-281121b418cb3fc4137c57fc3878454ecc3bb4fa8109eec1e09abf70d93cbd1b",
-    "iconUrl": "https://raw.githubusercontent.com/kadircee/ozel-liste/main/icons/TurkMegaSaglayici.png"
-  },
-  {
     "url": "https://raw.githubusercontent.com/pltmustafa/plt-stream/builds/plt-stream.cs3",
     "status": 1,
     "version": 46,
@@ -283,5 +268,50 @@
     "iconUrl": "https://www.fullhdfilmizlesene.now/favicon.ico",
     "apiVersion": 1,
     "fileHash": "sha256-f8fa5d0f87bef94d2110a453c2297adb63be065548d30d69cbedb0b4cfdd670a"
+  },
+  {
+    "url": "https://raw.githubusercontent.com/feroxx/Kekik-cloudstream/builds/DiziBox.cs3",
+    "status": 1,
+    "version": 1,
+    "name": "DiziBox",
+    "internalName": "DiziBox",
+    "authors": [],
+    "description": "DiziBox - Yabanci dizi izleme sitesi",
+    "fileSize": 22623,
+    "repositoryUrl": "https://github.com/feroxx/Kekik-cloudstream",
+    "language": "tr",
+    "apiVersion": 1,
+    "fileHash": "sha256-b9600d6881c076f90b4342f3b43e24928008247e",
+    "iconUrl": "https://raw.githubusercontent.com/kadircee/ozel-liste/main/icons/DiziBox.png"
+  },
+  {
+    "url": "https://raw.githubusercontent.com/feroxx/Kekik-cloudstream/builds/Dizilla.cs3",
+    "status": 1,
+    "version": 1,
+    "name": "Dizilla",
+    "internalName": "Dizilla",
+    "authors": [],
+    "description": "Dizilla - Dizi izleme sitesi",
+    "fileSize": 35982,
+    "repositoryUrl": "https://github.com/feroxx/Kekik-cloudstream",
+    "language": "tr",
+    "apiVersion": 1,
+    "fileHash": "sha256-31e01ad7e9fbe3493a659c82d901defa257d3583",
+    "iconUrl": "https://raw.githubusercontent.com/kadircee/ozel-liste/main/icons/Dizilla.png"
+  },
+  {
+    "url": "https://raw.githubusercontent.com/feroxx/Kekik-cloudstream/builds/DiziMom.cs3",
+    "status": 1,
+    "version": 1,
+    "name": "DiziMom",
+    "internalName": "DiziMom",
+    "authors": [],
+    "description": "DiziMom - Dizi izleme sitesi",
+    "fileSize": 34841,
+    "repositoryUrl": "https://github.com/feroxx/Kekik-cloudstream",
+    "language": "tr",
+    "apiVersion": 1,
+    "fileHash": "sha256-1e21b3b3069857b9b0131b45ec0d01d262b34b78",
+    "iconUrl": "https://raw.githubusercontent.com/kadircee/ozel-liste/main/icons/DiziMom.png"
   }
 ]
