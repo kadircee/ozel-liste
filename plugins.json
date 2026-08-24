@@ -23,14 +23,14 @@
   {
     "url": "https://raw.githubusercontent.com/pltmustafa/plt-stream/builds/plt-stream.cs3",
     "status": 1,
-    "version": 46,
+    "version": 47,
     "name": "plt-stream",
     "internalName": "plt-stream",
     "authors": [
       "pltmustafa"
     ],
     "description": "plt-stream - Birden fazla siteden içerik sağlayan bir eklenti",
-    "fileSize": 458547,
+    "fileSize": 458620,
     "repositoryUrl": "https://github.com/pltmustafa/plt-stream",
     "language": "tr",
     "tvTypes": [
@@ -40,7 +40,7 @@
     ],
     "iconUrl": "https://raw.githubusercontent.com/pltmustafa/plt-stream/master/icon.png",
     "apiVersion": 1,
-    "fileHash": "sha256-681111c3d84a28ca9be3d279d355d74cf664a2fb0741ae1172264bcf73ba1287"
+    "fileHash": "sha256-aa3cbe54cc86254fe2047817df994a52c8869d4001b12f028ec8d734210dc1b2"
   },
   {
     "url": "https://raw.githubusercontent.com/feroxx/Kekik-cloudstream/builds/Ddizi.cs3",
@@ -93,7 +93,7 @@
       "usdogu"
     ],
     "description": "Film Makinesi, en yeni ve en güncel filmleri sitemizde full HD kalite farkı ile izleyebilirsiniz. HD film izle denildiğinde akla gelen en kaliteli film izleme sitesi.",
-    "fileSize": 20531,
+    "fileSize": 22836,
     "repositoryUrl": "https://github.com/feroxx/Kekik-cloudstream",
     "language": "tr",
     "tvTypes": [
@@ -101,7 +101,7 @@
     ],
     "iconUrl": "https://www.google.com/s2/favicons?domain=filmmakinesi.film&sz=128",
     "apiVersion": 1,
-    "fileHash": "sha256-9b58987f0eb1e19d70c2cd54f7c9c1e7ef18a005edf03113bc9e992d3f2e255b"
+    "fileHash": "sha256-8c6c51c374449996d68993283bfb7170c9f24b6dafdaadde3958b314453a88ec"
   },
   {
     "url": "https://raw.githubusercontent.com/feroxx/Kekik-cloudstream/builds/FilmModu.cs3",
@@ -219,7 +219,7 @@
       "keyiflerolsun"
     ],
     "description": "Binlerce Film İzleme Seçeneğiyle En İyi Film İzleme Sitesi",
-    "fileSize": 21108,
+    "fileSize": 18698,
     "repositoryUrl": "https://github.com/feroxx/Kekik-cloudstream",
     "language": "tr",
     "tvTypes": [
@@ -227,7 +227,7 @@
     ],
     "iconUrl": "https://www.google.com/s2/favicons?domain=jetfilmizle.de&sz=128",
     "apiVersion": 1,
-    "fileHash": "sha256-b648e5346f05d428069d20489c8862107b21c3bb116d903cd5ee95d1ce162e2c"
+    "fileHash": "sha256-1472a4fd418b77e82a5f21a15d838bc8a0a6b4a9c8189611c53c07df3dc916b9"
   },
   {
     "url": "https://raw.githubusercontent.com/MRTDEVM/cloudstream-turkce/builds/FullHDFilmizlesene.cs3",
