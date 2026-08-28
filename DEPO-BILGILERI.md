@@ -100,6 +100,25 @@ Eskiden kullanılan / hiç kullanılmayan kaynaklar:
 - `ByAyzen/AyzenCS3` — `Syncler`, `Torrential` bu kaynaktan geliyordu; kişisel tercihle silindi.
 > Not: Kaynakların tamamı `raw.githubusercontent.com` üzerinden `builds/plugins.json` ve/veya tekil `.cs3` dosya adresleriyle çekildi; hiçbir eklenti kopyalanıp yeniden barındırılmadı, adresler kaynak repoya işaret eder.
 
+
+## Kaynak Seçim Kriteri ve Tablo Bakımı
+
+**1. Kaynak seçimi — en güncel tarih esastır, versiyon tek başına değil:**
+- Per-eklenti tarih `git -C <repo> log -1 --format=%cd --date=short --all -- <Eklenti>` ile alınır; repo genel `pushed_at` değil.
+- Örnek: `FilmMakinesi feroxx v58 (2026-08-23)` vs `blackhope v1 (2026-08-25)` — tarih yeni diye `v1` olgun `v58`'i ezmez; bu yüzden 18 eklentide tarih bazlı geçiş yapılırken versiyon düşüşü halüsinasyon sayıldı ve manuel kontrolle karar verildi. Kural: **tarih + versiyon + site canlılığı birlikte** değerlendirilir.
+
+**2. Tablo bakımı — `Tüm Repolar` sadece `tr` + `Movie/TvSeries/Documentary` içerir:**
+- `lang != tr` veya `tvTypes` içinde `Live/Anime/Cartoon/All/AsianDrama` olanlar otomatik `Istenmeyenler`'e gider; `Dil`/`Tur` kolonları bu yüzden kaldırıldı.
+- `Site (domain)` her zaman `[domain](https://domain)` linkli olmalı (tıklanabilir).
+- `kadircee/ozel-liste` kaynak değil derleme olduğu için `Tüm Repolar`'da yer almaz.
+- `Istenmeyenler` metin + tablo aynı anda tutulmaz; tek tablo (`71→74`) yeterlidir, `Silinen Eklentiler` metin listesi sadece not bırakır.
+
+**3. Durum renkleri — `verify.py --deep` çekim domaini baz alır, icon domain değil:**
+- `SinemaCX` icon `sinema.cx` DNS ölü olsa da çekim `sinema.gg` 200 olduğu için `verify` çalışıyor sayar.
+- GitHub markdown `style` strip ettiği için renkler `span` değil emoji ile verilir: `🟩 Çalışıyor` / `🟨 Çalışmıyor` / `🟧 Duplicate` / `🟥 İstenmeyen` / `🟦 Eklenebilir`; `Eklenti` kolonuna da eklenir (dar ekranda `Durum` sağa kaydığı için).
+- `status:0` silme değil; `Tekrar Kontrol`/`Istenmeyenler` ile izlenir, `verify --health` sadece kesin ölüde karar verir.
+
+
 ## Yapısal Kontrol (verify.py)
 ```bash
 python verify.py               # yapısal + ağ kontrolleri (varsayılan)
