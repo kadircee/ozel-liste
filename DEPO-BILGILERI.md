@@ -103,9 +103,9 @@ Eskiden kullanılan / hiç kullanılmayan kaynaklar:
 
 ## Kaynak Seçim Kriteri ve Tablo Bakımı
 
-**1. Kaynak seçimi — en güncel tarih esastır, versiyon tek başına değil:**
-- Per-eklenti tarih `git -C <repo> log -1 --format=%cd --date=short --all -- <Eklenti>` ile alınır; repo genel `pushed_at` değil.
-- Örnek: `FilmMakinesi feroxx v58 (2026-08-23)` vs `blackhope v1 (2026-08-25)` — tarih yeni diye `v1` olgun `v58`'i ezmez; bu yüzden 18 eklentide tarih bazlı geçiş yapılırken versiyon düşüşü halüsinasyon sayıldı ve manuel kontrolle karar verildi. Kural: **tarih + versiyon + site canlılığı birlikte** değerlendirilir.
+**1. Kaynak seçimi — SADECE TARİH esastır, versiyon kriter değil:**
+- Per-eklenti tarih `git -C <repo> log -1 --format=%cd --date=short --all -- <Eklenti>` ile alınır; repo genel `pushed_at` değil. Aynı eklentinin birden fazla kaynaktan gelen kopyaları arasında en güncel tarihli kayıt otomatik tercih edilir; versiyon numarasının düşük/yüksek olması kararı etkilemez.
+- Örnek: `FilmMakinesi feroxx v58 (2026-08-23)` vs `blackhope01 v1 (2026-08-25)` — `blackhope01 v1` tarih olarak daha güncel olduğu için doğru şekilde tercih edildi; düşük versiyon yüksek versiyonu ezer ve bu beklenen davranıştır.
 
 **2. Tablo bakımı — `Tüm Repolar` sadece `tr` + `Movie/TvSeries/Documentary` içerir:**
 - `lang != tr` veya `tvTypes` içinde `Live/Anime/Cartoon/All/AsianDrama` olanlar otomatik `Istenmeyenler`'e gider; `Dil`/`Tur` kolonları bu yüzden kaldırıldı.
@@ -167,7 +167,7 @@ python update.py            # farkları uygular, plugins.json'u günceller
 ```
 Kaynak `builds/plugins.json` adresi, listedeki `.cs3` adresinden türetilir (`https://raw.githubusercontent.com/<owner>/<repo>/builds/<Isim>.cs3` → aynı klasördeki `plugins.json`). Senkronize edilen alanlar: `version, fileSize, fileHash, description, authors, language, tvTypes`. `iconUrl` bilinçli olarak senkronize **edilmez** — bu depo ikon adreslerini normalize eder (kaynaktaki `%size%` yer tutucuları sabit `sz=128`'e çevrilir) ve kaynak güncellemesi bu düzeltmeyi geri almasın.
 
-> **Not:** Bu depo **otomatik hiçbir şey çalıştırmaz** (GitHub Actions yok). Kaynak senkronu (`update.py`), site sağlık kontrolü (`verify.py --deep`/`--health`) ve status değişiklikleri yalnızca **elle** yapılır. `[ATLANDI]` sayısı, kaynak depo bazında toplu kapanışın (ör. cs-kraptor kapanışı: 29 eklenti tek seferde 404) erken işaretidir.
+> **Not:** Bu depo **otomatik hiçbir şey çalıştırmaz** (workflow dosyası yalnızca manuel tetikleme (workflow_dispatch) için tutulur; cron/otomatik tetikleyici kapalıdır). Kaynak senkronu (`update.py`), site sağlık kontrolü (`verify.py --deep`/`--health`) ve status değişiklikleri yalnızca **elle** yapılır. `[ATLANDI]` sayısı, kaynak depo bazında toplu kapanışın (ör. cs-kraptor kapanışı: 29 eklenti tek seferde 404) erken işaretidir.
 
 ## Karşılaşılan Hatalar ve Çözümleri
 | Hata | Neden | Çözüm |
@@ -224,7 +224,7 @@ CloudStream tarafında depo yenilendiğinde yeni liste otomatik çekilir. Kaynak
 
 ## Tüm Repolar - Alfabetik Liste
 
-Bu bölüm otomatik üretildi (2026-08-28) — tüm kaynak repolardaki 107 eklenti (Istenmeyenler ve ozel-liste hariç) alfabetik, site domain ve durum bilgisiyle.
+Bu bölüm otomatik üretildi (2026-08-28) — tüm kaynak repolardaki 87 eklenti (Istenmeyenler ve ozel-liste hariç) alfabetik, site domain ve durum bilgisiyle.
 
 Aynı isim/kökten farklı repo/build'lerde gelen ve yalnızca 1 tanesi listede tutulan eklentiler için aynı mantık geçerlidir: Her gruptan sadece 1 tanesi `plugins.json`'da yer alır; diğer(leri) duplicate olarak eklenmez, repobuild güncellendiğinde kontrol edilir. Renkler: 🟩 Çalışan (yeşil), 🟨 Çalışmayan (sarı), 🟧 Duplicate (turuncu), 🟥 İstenmeyen/Ignore (kırmızı), 🟦 Eklenebilir (mavi).
 Toplam kayit: 87 (Istenmeyenler ve ozel-liste hariç, sadece kaynak repolar)
