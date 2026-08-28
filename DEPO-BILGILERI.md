@@ -197,10 +197,7 @@ Repolar güncellendiğinde (yeni build yayınlandığında (GitHub uzerinden tak
 ## Silinen Eklentiler (delete-zone)
 Bu eklentiler listeye **eklenmez**; yeniden ekleme kararı yalnızca kullanıcı verir. Listede NSFW (+18) hiç yer almadı; canlı yayın/maç eklentileri istenmedi. Bozuk eklentiler silinmez, `status:0` yapılır (bkz. Kurulum). "Site açılmıyor" gerekçesiyle silinenler **geri dönüşlüdür**: site düzelirse tekrar denenebilir.
 
-**Anime/Asya içerikli (kullanıcı anime istemiyor):** AnimeciX, Animeler, Animely, AnimPow, Anizium, OnePaceTr, OpenAnime, TrAnimeIzle, TurkAnime, AsyaAnimeleri, AsyaFanatiklerim, AsyaWatch, DiziAsia, DiziAsya, DiziKorea, Koredizi, AnimeAV, AnimeWorld, AnimeYTX, Latanime, DramaDizilerim, Dramaizle, AsyaMinik
-**Canlı yayın / maç (kullanıcı hiçbir halükarda istemiyor):** InatBox, NeonSpor, RecTV, Streamed, CricifyProvider, GinikoCanli, KickTR, Youtube, TVGarden, WatchWrestling
-**Diğer ("kesinlikle istemiyorum" / kişisel tercih):** Filmmirasım, SeiCode, YTS, YeniKaynak, YesilCamTv, MirrorVerse, Vavoo, WebDramaTurkey, Syncler, Torrential, BelgeselX, CizgiMax, CizgiveDizi, KultFilmler, RareFilmm, TmdbProvider, EnglishW, TurkishW, Cloud-Sync, BasketballReplays, UgurFilm, Watch2Movies, WebdramaTurkey2
-**Türkçe/Türkiye filtresi (yabancı dil içerikli):** Esheaq, Krmzy, YoTurkish, DoramasLatinoX, Dubbindo, Flixlatam, Henaojara, Gnulahd, JPFilms, KissKH, LayarKaca, Movix, OK, Sokuja, Subsplease, Supercartoons, Wcoflix, Yablom, DocumentaryArea, Iwatchtheoffice, FullRaces, FootReplays, Filmzal
+> **Not:** Ayrıntılı liste `Istenmeyenler (Delete-Zone)` tablosunda alfabetik olarak yer almaktadır.
 
 ## Güncelleme
 Yeni bir değişiklik yapıldığında:
