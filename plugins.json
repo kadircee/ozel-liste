@@ -1,7 +1,7 @@
 [
   {
     "url": "https://raw.githubusercontent.com/Kraptor123/Cs-Karma/builds/Full4kizle.cs3",
-    "status": 1,
+    "status": 0,
     "version": 20,
     "name": "Full4kizle",
     "internalName": "Full4kizle",
@@ -233,7 +233,7 @@
   },
   {
     "url": "https://raw.githubusercontent.com/ilkelkullanici/ilkel-cloudstream/builds/FullHDFilmizlesene.cs3",
-    "status": 1,
+    "status": 0,
     "version": 29,
     "name": "FullHDFilmizlesene",
     "internalName": "FullHDFilmizlesene",
@@ -296,7 +296,7 @@
   },
   {
     "url": "https://raw.githubusercontent.com/ilkelkullanici/ilkel-cloudstream/builds/DiziBox.cs3",
-    "status": 1,
+    "status": 0,
     "version": 23,
     "name": "DiziBox",
     "internalName": "DiziBox",
@@ -316,7 +316,7 @@
   },
   {
     "url": "https://raw.githubusercontent.com/aytzey/cs-kraptor/builds/DiziFilmORG.cs3",
-    "status": 1,
+    "status": 0,
     "version": 22,
     "name": "DiziFilmORG",
     "internalName": "DiziFilmORG",
@@ -399,7 +399,7 @@
   },
   {
     "url": "https://raw.githubusercontent.com/feroxx/Kekik-cloudstream/builds/DiziMom.cs3",
-    "status": 1,
+    "status": 0,
     "version": 56,
     "name": "DiziMom",
     "internalName": "DiziMom",
@@ -419,7 +419,7 @@
   },
   {
     "url": "https://raw.githubusercontent.com/ilkelkullanici/ilkel-cloudstream/builds/DiziPal.cs3",
-    "status": 1,
+    "status": 0,
     "version": 90,
     "name": "DiziPal",
     "internalName": "DiziPal",
@@ -619,7 +619,7 @@
   },
   {
     "url": "https://raw.githubusercontent.com/feroxx/Kekik-cloudstream/builds/SetFilmIzle.cs3",
-    "status": 1,
+    "status": 0,
     "version": 30,
     "name": "SetFilmIzle",
     "internalName": "SetFilmIzle",
@@ -782,7 +782,7 @@
   },
   {
     "url": "https://raw.githubusercontent.com/ilkelkullanici/ilkel-cloudstream/builds/AltiYuzAltmisAltiFilmIzle.cs3",
-    "status": 1,
+    "status": 0,
     "version": 1,
     "name": "AltiYuzAltmisAltiFilmIzle",
     "internalName": "AltiYuzAltmisAltiFilmIzle",
@@ -802,7 +802,7 @@
   },
   {
     "url": "https://raw.githubusercontent.com/ilkelkullanici/ilkel-cloudstream/builds/FilmBip.cs3",
-    "status": 1,
+    "status": 0,
     "version": 19,
     "name": "FilmBip",
     "internalName": "FilmBip",
