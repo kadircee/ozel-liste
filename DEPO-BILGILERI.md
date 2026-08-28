@@ -181,15 +181,12 @@ Kaynak `builds/plugins.json` adresi, listedeki `.cs3` adresinden türetilir (`ht
 ### Tekrar Kontrol Edilecekler (Dead Link Değildir, repo build güncellendiğinde belki çalışacaktır ?)
 | Eklenti | Kaynak | Son Bilinen Domain | Durum |
 |---------|--------|-------------------|-------|
-| SetFilmIzle | feroxx/ilkel | setfilmizle.uk | Site ölü, tekrar kontrol edilecek |
 | AltiYuzAltmisAltiFilmIzle | feroxx/ilkel | 666filmizle.site | Site ölü, tekrar kontrol edilecek |
 | FilmBip | ilkel | filmbip.com | Site ölü, tekrar kontrol edilecek |
 | FullHDFilm | feroxx | fullhdfilm.org | Site ölü, tekrar kontrol edilecek |
 | Filmatek | Kraptor123/Cs-Karma | filmatek.net | Site ölü, tekrar kontrol edilecek |
-| DiziBox | feroxx/Kekik-cloudstream | dizibox.com | Site ölü, tekrar kontrol edilecek |
-| DiziMom | feroxx/Kekik-cloudstream | dizimom.com | Site ölü, tekrar kontrol edilecek |
-| Dizilla | feroxx/Kekik-cloudstream | dizilla.com | Site ölü, tekrar kontrol edilecek |
-| WebteIzle | feroxx/Kekik-cloudstream | webteizle3.xyz | Site ölü, tekrar kontrol edilecek |
+
+> **Not (2026-08-28):** Yukarıdaki tablodan `SetFilmIzle`, `DiziBox`, `DiziMom`, `Dizilla`, `WebteIzle` aynı build güncellendiğinde / yeni repolardan farklı domainlerle yeniden eklendiği için çıkarıldı: `aytzey/cs-kraptor`'da `SetFilmIzle (www.setfilmizle.uk)`, `DiziBox (dizibox.de)`, `DiziMom (dizimom.mom)`, `Dizilla (dizilla.to)`, `WebteIzle (webteizle1.xyz)` olarak `plugins.json`'a aktif eklendi ve çalışıyor. Bu mantıkla tablo, sadece hala ölü ve yeni repo/build'de de çalışmayanlar için tutulur.
 
 ### Önemli Not
 Repolar güncellendiğinde (yeni build yayınlandığında (GitHub uzerinden takip edilir)), bu listedeki ölü siteler otomatik olarak kontrol edilmeli ve çalışıyorsa tekrar eklenebilir.
