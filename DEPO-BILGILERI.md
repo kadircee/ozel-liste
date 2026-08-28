@@ -202,7 +202,7 @@ Bu eklentiler listeye **eklenmez**; yeniden ekleme kararı yalnızca kullanıcı
 
 **Anime/Asya içerikli (kullanıcı anime istemiyor):** AnimeciX, Animeler, Animely, AnimPow, Anizium, OnePaceTr, OpenAnime, TrAnimeIzle, TurkAnime, AsyaAnimeleri, AsyaFanatiklerim, AsyaWatch, DiziAsia, DiziAsya, DiziKorea, Koredizi, AnimeAV, AnimeWorld, AnimeYTX, Latanime, DramaDizilerim, Dramaizle, AsyaMinik
 **Canlı yayın / maç (kullanıcı hiçbir halükarda istemiyor):** InatBox, NeonSpor, RecTV, Streamed, CricifyProvider, GinikoCanli, KickTR, Youtube
-**Diğer ("kesinlikle istemiyorum" / kişisel tercih):** Filmmirasım, SeiCode, YTS, YeniKaynak, YesilCamTv, MirrorVerse, Vavoo, WebDramaTurkey, Syncler, Torrential, BelgeselX, CizgiMax, CizgiveDizi, KultFilmler, RareFilmm, TmdbProvider, EnglishW, TurkishW
+**Diğer ("kesinlikle istemiyorum" / kişisel tercih):** Filmmirasım, SeiCode, YTS, YeniKaynak, YesilCamTv, MirrorVerse, Vavoo, WebDramaTurkey, Syncler, Torrential, BelgeselX, CizgiMax, CizgiveDizi, KultFilmler, RareFilmm, TmdbProvider, EnglishW, TurkishW, Cloud-Sync, BasketballReplays
 **Türkçe/Türkiye filtresi (yabancı dil içerikli):** Esheaq, Krmzy, YoTurkish, DoramasLatinoX, Dubbindo, Flixlatam, Henaojara, Gnulahd, JPFilms, KissKH, LayarKaca, Movix, OK, Sokuja, Subsplease, Supercartoons, Wcoflix, Yablom, DocumentaryArea, Iwatchtheoffice, FullRaces, FootReplays, Filmzal
 
 ## Duplicate / Çakışan Eklentiler
@@ -243,159 +243,121 @@ CloudStream tarafında depo yenilendiğinde yeni liste otomatik çekilir. Kaynak
 
 ## Tüm Repolar - Alfabetik Liste
 
-Bu bölüm otomatik üretildi (2026-08-28) — tüm kaynak repolardaki 146 eklenti (Istenmeyenler hariç) alfabetik, site domain ve durum bilgisiyle.
+Bu bölüm otomatik üretildi (2026-08-28) — tüm kaynak repolardaki 107 eklenti (Istenmeyenler ve ozel-liste hariç) alfabetik, site domain ve durum bilgisiyle.
 
 Aynı isim/kökten farklı repo/build'lerde gelen ve yalnızca 1 tanesi listede tutulan eklentiler için aynı mantık geçerlidir: Her gruptan sadece 1 tanesi `plugins.json`'da yer alır; diğer(leri) duplicate olarak eklenmez, repobuild güncellendiğinde kontrol edilir. Renkler: 🟩 Çalışan (yeşil), 🟨 Çalışmayan (sarı), 🟧 Duplicate (turuncu), 🟥 İstenmeyen/Ignore (kırmızı), 🟦 Eklenebilir (mavi).
-Toplam kayit: 146 (Istenmeyenler hariç)
+Toplam kayit: 107 (Istenmeyenler ve ozel-liste hariç, sadece kaynak repolar)
 
-| # | Eklenti | Kaynak | Site (domain) | Dil | Tur | v | Durum |
-|---|---------|--------|---------------|-----|-----|---|-------|
-| 1 | 🟦 AltiYuzAltmisAltiFilmIzle | ilkelkullanici/ilkel-cloudstream | 666filmizle.site | tr | Movie | 1 | 🟦 Eklenebilir |
-| 2 | 🟦 BasketballReplays | Kraptor123/Cs-Karma | basketballreplays.net | en | Live | 4 | 🟦 Eklenebilir |
-| 3 | 🟦 CanliTV | feroxx/Kekik-cloudstream | tr.canlitv.team | tr | Live | 10 | 🟦 Eklenebilir |
-| 4 | 🟦 CanliTV | ilkelkullanici/ilkel-cloudstream | tr.canlitv.team | tr | Live | 10 | 🟦 Eklenebilir |
-| 5 | 🟦 Cloud-Sync | pltmustafa/plt-stream | img.icons8.com | tr | All | 12 | 🟦 Eklenebilir |
-| 6 | 🟩 Ddizi | feroxx/Kekik-cloudstream | www.ddizi.im | tr | TvSeries | 22 | 🟩 Çalışıyor |
-| 7 | 🟩 Ddizi | ilkelkullanici/ilkel-cloudstream | www.ddizi.im | tr | TvSeries | 22 | 🟩 Çalışıyor |
-| 8 | 🟩 Ddizi | aytzey/cs-kraptor | www.ddizi.im | tr | TvSeries | 19 | 🟩 Çalışıyor |
-| 9 | 🟩 Ddizi | kadircee/ozel-liste | www.ddizi.im | tr | TvSeries | 22 | 🟩 Çalışıyor |
-| 10 | 🟩 DiziBox | feroxx/Kekik-cloudstream | www.dizibox.live | tr | TvSeries | 23 | 🟩 Çalışıyor |
-| 11 | 🟩 DiziBox | ilkelkullanici/ilkel-cloudstream | www.dizibox.live | tr | TvSeries | 23 | 🟩 Çalışıyor |
-| 12 | 🟩 DiziBox | aytzey/cs-kraptor | www.dizibox.de | tr | TvSeries | 37 | 🟩 Çalışıyor |
-| 13 | 🟩 DiziBox | kadircee/ozel-liste | www.dizibox.de | tr | TvSeries | 37 | 🟩 Çalışıyor |
-| 14 | 🟨 DiziFilmORG | aytzey/cs-kraptor | dizifilm.org | tr | Movie,TvSeries | 22 | 🟨 Çalışmıyor |
-| 15 | 🟨 DiziFilmORG | kadircee/ozel-liste | dizifilm.org | tr | Movie,TvSeries | 22 | 🟨 Çalışmıyor |
-| 16 | 🟩 Dizigecesi | aytzey/cs-kraptor | dizigecesi.com | tr | Movie,TvSeries | 4 | 🟩 Çalışıyor |
-| 17 | 🟩 Dizigecesi | kadircee/ozel-liste | dizigecesi.com | tr | Movie,TvSeries | 4 | 🟩 Çalışıyor |
-| 18 | 🟩 DiziLife | blackhope01/cloudstream-plugins | dizi73.life | tr | Movie,TvSeries | 2 | 🟩 Çalışıyor |
-| 19 | 🟩 DiziLife | aytzey/cs-kraptor | dizi18.life | tr | Movie,TvSeries | 58 | 🟩 Çalışıyor |
-| 20 | 🟩 DiziLife | kadircee/ozel-liste | dizi18.life | tr | Movie,TvSeries | 58 | 🟩 Çalışıyor |
-| 21 | 🟩 Dizilla | feroxx/Kekik-cloudstream | dizilla.club | tr | TvSeries | 92 | 🟩 Çalışıyor |
-| 22 | 🟩 Dizilla | ilkelkullanici/ilkel-cloudstream | dizilla.club | tr | TvSeries | 92 | 🟩 Çalışıyor |
-| 23 | 🟩 Dizilla | aytzey/cs-kraptor | dizilla.to | tr | TvSeries | 111 | 🟩 Çalışıyor |
-| 24 | 🟩 Dizilla | kadircee/ozel-liste | dizilla.to | tr | TvSeries | 111 | 🟩 Çalışıyor |
-| 25 | 🟩 DiziMom | feroxx/Kekik-cloudstream | www.dizimom.plus | tr | TvSeries | 56 | 🟩 Çalışıyor |
-| 26 | 🟩 DiziMom | ilkelkullanici/ilkel-cloudstream | www.dizimom.plus | tr | TvSeries | 43 | 🟩 Çalışıyor |
-| 27 | 🟩 DiziMom | blackhope01/cloudstream-plugins | www.dizimom.surf | tr | Movie,TvSeries | 3 | 🟩 Çalışıyor |
-| 28 | 🟩 DiziMom | aytzey/cs-kraptor | www.dizimom.mom | tr | TvSeries | 61 | 🟩 Çalışıyor |
-| 29 | 🟩 DiziMom | kadircee/ozel-liste | www.dizimom.mom | tr | TvSeries | 61 | 🟩 Çalışıyor |
-| 30 | 🟨 DiziPal | feroxx/Kekik-cloudstream | dizipal1563.com | tr | TvSeries,Movie | 104 | 🟨 Çalışmıyor |
-| 31 | 🟨 DiziPal | ilkelkullanici/ilkel-cloudstream | dizipal952.com | tr | TvSeries,Movie | 90 | 🟨 Çalışmıyor |
-| 32 | 🟨 DiziPal | aytzey/cs-kraptor | dizipal.im | tr | Movie,TvSeries | 89 | 🟨 Çalışmıyor |
-| 33 | 🟨 DiziPal | kadircee/ozel-liste | dizipal.im | tr | Movie,TvSeries | 89 | 🟨 Çalışmıyor |
-| 34 | 🟩 DiziPalOriginal | feroxx/Kekik-cloudstream | chessplyimages.cfd | tr | TvSeries,Movie | 84 | 🟩 Çalışıyor |
-| 35 | 🟩 DiziPalOriginal | ilkelkullanici/ilkel-cloudstream | dizipal2036.com | tr | TvSeries,Movie | 66 | 🟩 Çalışıyor |
-| 36 | 🟩 DiziPalOriginal | kadircee/ozel-liste | chessplyimages.cfd | tr | TvSeries,Movie | 84 | 🟩 Çalışıyor |
-| 37 | 🟩 DiziPalOrijinal | aytzey/cs-kraptor | dizipal932.com | tr | TvSeries | 45 | 🟩 Çalışıyor |
-| 38 | 🟩 DiziPalOrijinal | kadircee/ozel-liste | dizipal932.com | tr | TvSeries | 45 | 🟩 Çalışıyor |
-| 39 | 🟩 Dizipod | aytzey/cs-kraptor | dizipod.com | tr | Movie,TvSeries,AsianDrama | 12 | 🟩 Çalışıyor |
-| 40 | 🟩 Dizipod | kadircee/ozel-liste | dizipod.com | tr | Movie,TvSeries,AsianDrama | 12 | 🟩 Çalışıyor |
-| 41 | 🟨 DiziYo | blackhope01/cloudstream-plugins | www.diziyo.so | tr | Movie,TvSeries | 1 | 🟨 Çalışmıyor |
-| 42 | 🟨 DiziYo | aytzey/cs-kraptor | i.imgur.com | tr | TvSeries | 74 | 🟨 Çalışmıyor |
-| 43 | 🟨 DiziYo | kadircee/ozel-liste | i.imgur.com | tr | TvSeries | 74 | 🟨 Çalışmıyor |
-| 44 | 🟩 DiziYou | feroxx/Kekik-cloudstream | cdn.diziyou.one | tr | TvSeries | 25 | 🟩 Çalışıyor |
-| 45 | 🟩 DiziYou | ilkelkullanici/ilkel-cloudstream | cdn.diziyou6.com | tr | TvSeries | 25 | 🟩 Çalışıyor |
-| 46 | 🟩 DiziYou | aytzey/cs-kraptor | www.diziyou.co | tr | TvSeries | 49 | 🟩 Çalışıyor |
-| 47 | 🟩 DiziYou | kadircee/ozel-liste | cdn.diziyou.one | tr | TvSeries | 25 | 🟩 Çalışıyor |
-| 48 | 🟦 F1FullRaces | Kraptor123/Cs-Karma | i.imgur.com | en | Live | 10 | 🟦 Eklenebilir |
-| 49 | 🟦 FilmBip | ilkelkullanici/ilkel-cloudstream | filmbip.com | tr | Movie | 19 | 🟦 Eklenebilir |
-| 50 | 🟩 FilmEkseni | blackhope01/cloudstream-plugins | www.filmekseni.vip | tr | Movie,TvSeries | 1 | 🟩 Çalışıyor |
-| 51 | 🟩 FilmEkseni | aytzey/cs-kraptor | filmekseni.net | tr | Movie | 50 | 🟩 Çalışıyor |
-| 52 | 🟩 FilmEkseni | kadircee/ozel-liste | filmekseni.net | tr | Movie | 50 | 🟩 Çalışıyor |
-| 53 | 🟩 FilmHane | blackhope01/cloudstream-plugins | www.filmhane.shop | tr | Movie,TvSeries | 1 | 🟩 Çalışıyor |
-| 54 | 🟩 FilmHane | aytzey/cs-kraptor | encrypted-tbn1.gstatic.com | tr | Movie | 43 | 🟩 Çalışıyor |
-| 55 | 🟩 FilmHane | kadircee/ozel-liste | encrypted-tbn1.gstatic.com | tr | Movie | 43 | 🟩 Çalışıyor |
-| 56 | 🟩 FilmMakinesi | feroxx/Kekik-cloudstream | filmmakinesi.film | tr | Movie | 58 | 🟩 Çalışıyor |
-| 57 | 🟩 FilmMakinesi | ilkelkullanici/ilkel-cloudstream | filmmakinesi.film | tr | Movie | 57 | 🟩 Çalışıyor |
-| 58 | 🟩 FilmMakinesi | MRTDEVM/cloudstream-turkce | filmmakinesi.to | tr | Movie,TvSeries | 8 | 🟩 Çalışıyor |
-| 59 | 🟩 FilmMakinesi | blackhope01/cloudstream-plugins | www.filmmakinesi.to | tr | Movie,TvSeries | 1 | 🟩 Çalışıyor |
-| 60 | 🟩 FilmMakinesi | aytzey/cs-kraptor | filmmakinesi.tv | tr | Movie,TvSeries | 70 | 🟩 Çalışıyor |
-| 61 | 🟩 FilmMakinesi | kadircee/ozel-liste | filmmakinesi.film | tr | Movie | 58 | 🟩 Çalışıyor |
-| 62 | 🟩 FilmModu | feroxx/Kekik-cloudstream | www.filmmodu.one | tr | Movie | 19 | 🟩 Çalışıyor |
-| 63 | 🟩 FilmModu | ilkelkullanici/ilkel-cloudstream | www.filmmodu17.com | tr | Movie | 19 | 🟩 Çalışıyor |
-| 64 | 🟩 FilmModu | aytzey/cs-kraptor | www.filmmodu.one | tr | Movie | 41 | 🟩 Çalışıyor |
-| 65 | 🟩 FilmModu | kadircee/ozel-liste | www.filmmodu.one | tr | Movie | 19 | 🟩 Çalışıyor |
-| 66 | 🟦 Footballia | Kraptor123/Cs-Karma | footballia.net | en | Live | 9 | 🟦 Eklenebilir |
-| 67 | 🟨 Full4kizle | Kraptor123/Cs-Karma | plusizle.net | tr | Movie,AsianDrama | 20 | 🟨 Çalışmıyor |
-| 68 | 🟨 Full4kizle | kadircee/ozel-liste | plusizle.net | tr | Movie,AsianDrama | 20 | 🟨 Çalışmıyor |
-| 69 | 🟦 FullHDFilm | feroxx/Kekik-cloudstream | hdfilm.us | tr | Movie,TvSeries | 36 | 🟦 Eklenebilir |
-| 70 | 🟦 FullHDFilm | ilkelkullanici/ilkel-cloudstream | fullhdfilm.us | tr | Movie,TvSeries | 36 | 🟦 Eklenebilir |
-| 71 | 🟩 FullHDFilmizlesene | feroxx/Kekik-cloudstream | www.fullhdfilmizlesene.de | tr | Movie | 33 | 🟩 Çalışıyor |
-| 72 | 🟩 FullHDFilmizlesene | ilkelkullanici/ilkel-cloudstream | www.fullhdfilmizlesene.de | tr | Movie | 29 | 🟩 Çalışıyor |
-| 73 | 🟩 FullHDFilmizlesene | MRTDEVM/cloudstream-turkce | www.fullhdfilmizlesene.now | tr | Movie | 8 | 🟩 Çalışıyor |
-| 74 | 🟩 FullHDFilmizlesene | aytzey/cs-kraptor | www.fullhdfilmizlesene.de | tr | Movie | 72 | 🟩 Çalışıyor |
-| 75 | 🟩 FullHDFilmizlesene | kadircee/ozel-liste | www.fullhdfilmizlesene.now | tr | Movie | 8 | 🟩 Çalışıyor |
-| 76 | 🟩 HDFilmCehennemi | feroxx/Kekik-cloudstream | hdfilmcehennemi.com | tr | Movie,TvSeries | 48 | 🟩 Çalışıyor |
-| 77 | 🟩 HDFilmCehennemi | ilkelkullanici/ilkel-cloudstream | hdfilmcehennemi.com | tr | Movie,TvSeries | 47 | 🟩 Çalışıyor |
-| 78 | 🟩 Hdfilmcehennemi | MRTDEVM/cloudstream-turkce | www.hdfilmcehennemi.nl | tr | Movie,TvSeries | 8 | 🟩 Çalışıyor |
-| 79 | 🟩 HDFilmCehennemi | aytzey/cs-kraptor | hdfilmcehennemi.nl | tr | Movie,TvSeries | 97 | 🟩 Çalışıyor |
-| 80 | 🟩 HDFilmCehennemi | kadircee/ozel-liste | hdfilmcehennemi.com | tr | Movie,TvSeries | 48 | 🟩 Çalışıyor |
-| 81 | 🟩 HDFilmDelisi | feroxx/Kekik-cloudstream | hdfilmdelisi.com | tr | Movie,TvSeries | 1 | 🟩 Çalışıyor |
-| 82 | 🟩 HDFilmDelisi | aytzey/cs-kraptor | hdfilmdelisi.one | tr | Movie | 18 | 🟩 Çalışıyor |
-| 83 | 🟩 HDFilmDelisi | kadircee/ozel-liste | hdfilmdelisi.com | tr | Movie,TvSeries | 1 | 🟩 Çalışıyor |
-| 84 | 🟩 HDFilmizle | aytzey/cs-kraptor | www.hdfilmizle.life | tr | Movie | 25 | 🟩 Çalışıyor |
-| 85 | 🟩 HDFilmizle | kadircee/ozel-liste | www.hdfilmizle.life | tr | Movie | 25 | 🟩 Çalışıyor |
-| 86 | 🟩 JetFilmizle | feroxx/Kekik-cloudstream | jetfilmizle.de | tr | Movie | 47 | 🟩 Çalışıyor |
-| 87 | 🟩 JetFilmizle | ilkelkullanici/ilkel-cloudstream | jetfilmizle.de | tr | Movie | 47 | 🟩 Çalışıyor |
-| 88 | 🟩 JetFilmizle | blackhope01/cloudstream-plugins | jetfilmizle.now | tr | Movie,TvSeries | 1 | 🟩 Çalışıyor |
-| 89 | 🟩 JetFilmizle | aytzey/cs-kraptor | jetfilmizle.de | tr | Movie | 62 | 🟩 Çalışıyor |
-| 90 | 🟩 JetFilmizle | kadircee/ozel-liste | jetfilmizle.de | tr | Movie | 47 | 🟩 Çalışıyor |
-| 91 | 🟦 KoreanTurk | ilkelkullanici/ilkel-cloudstream | koreanturk.com | tr | AsianDrama | 7 | 🟦 Eklenebilir |
-| 92 | 🟩 KraptorPlus | aytzey/cs-kraptor | raw.githubusercontent.com | tr | TvSeries,Movie,Anime,Cartoon,AsianDrama,AnimeMovie | 86 | 🟩 Çalışıyor |
-| 93 | 🟩 KraptorPlus | kadircee/ozel-liste | raw.githubusercontent.com | tr | TvSeries,Movie,Anime,Cartoon,AsianDrama,AnimeMovie | 86 | 🟩 Çalışıyor |
-| 94 | 🟩 LoveFilm | blackhope01/cloudstream-plugins | lovefilmizle.net | tr | Movie,TvSeries | 1 | 🟩 Çalışıyor |
-| 95 | 🟩 LoveFilm | kadircee/ozel-liste | lovefilmizle.net | tr | Movie,TvSeries | 1 | 🟩 Çalışıyor |
-| 96 | 🟦 OnShort | Kraptor123/Cs-Karma | onshort.net | en | TvSeries | 1 | 🟦 Eklenebilir |
-| 97 | 🟦 plt-party | pltmustafa/plt-stream | raw.githubusercontent.com | tr | All | 5 | 🟦 Eklenebilir |
-| 98 | 🟩 plt-stream | pltmustafa/plt-stream | raw.githubusercontent.com | tr | TvSeries,Movie,Documentary | 47 | 🟩 Çalışıyor |
-| 99 | 🟩 plt-stream | kadircee/ozel-liste | raw.githubusercontent.com | tr | TvSeries,Movie,Documentary | 47 | 🟩 Çalışıyor |
-| 100 | 🟦 plt-tv | pltmustafa/plt-stream | raw.githubusercontent.com | tr | Live | 3 | 🟦 Eklenebilir |
-| 101 | 🟩 SelcukFlix | aytzey/cs-kraptor | selcukflix.com | tr | Movie,TvSeries | 49 | 🟩 Çalışıyor |
-| 102 | 🟩 SelcukFlix | kadircee/ozel-liste | selcukflix.com | tr | Movie,TvSeries | 49 | 🟩 Çalışıyor |
-| 103 | 🟨 SetFilmIzle | feroxx/Kekik-cloudstream | www.setfilmizle.uk | tr | Movie,TvSeries | 30 | 🟨 Çalışmıyor |
-| 104 | 🟨 SetFilmIzle | ilkelkullanici/ilkel-cloudstream | www.setfilmizle.nl | tr | Movie,TvSeries | 28 | 🟨 Çalışmıyor |
-| 105 | 🟨 SetFilmIzle | aytzey/cs-kraptor | www.setfilmizle.uk | tr | Movie | 42 | 🟨 Çalışmıyor |
-| 106 | 🟨 SetFilmIzle | kadircee/ozel-liste | www.setfilmizle.uk | tr | Movie | 42 | 🟨 Çalışmıyor |
-| 107 | 🟩 SezonlukDizi | feroxx/Kekik-cloudstream | sezonlukdizi6.com | tr | TvSeries | 9 | 🟩 Çalışıyor |
-| 108 | 🟩 SezonlukDizi | ilkelkullanici/ilkel-cloudstream | sezonlukdizi6.com | tr | TvSeries | 8 | 🟩 Çalışıyor |
-| 109 | 🟩 SezonlukDizi | blackhope01/cloudstream-plugins | sezonlukdizi.cc | tr | TvSeries | 1 | 🟩 Çalışıyor |
-| 110 | 🟩 SezonlukDizi | aytzey/cs-kraptor | sezonlukdizi6.com | tr | TvSeries | 40 | 🟩 Çalışıyor |
-| 111 | 🟩 SezonlukDizi | kadircee/ozel-liste | sezonlukdizi6.com | tr | TvSeries | 9 | 🟩 Çalışıyor |
-| 112 | 🟩 SinemaCX | feroxx/Kekik-cloudstream | www.sinema.cx | tr | Movie | 24 | 🟩 Çalışıyor |
-| 113 | 🟩 SinemaCX | ilkelkullanici/ilkel-cloudstream | www.sinema.cx | tr | Movie | 24 | 🟩 Çalışıyor |
-| 114 | 🟩 SinemaCX | aytzey/cs-kraptor | www.sinema.gg | tr | Movie | 35 | 🟩 Çalışıyor |
-| 115 | 🟩 SinemaCX | kadircee/ozel-liste | www.sinema.cx | tr | Movie | 24 | 🟩 Çalışıyor |
-| 116 | 🟩 Sinewix | feroxx/Kekik-cloudstream | play-lh.googleusercontent.com | tr | Movie,TvSeries,Anime | 2 | 🟩 Çalışıyor |
-| 117 | 🟩 Sinewix | ilkelkullanici/ilkel-cloudstream | play-lh.googleusercontent.com | tr | Movie,TvSeries,Anime | 2 | 🟩 Çalışıyor |
-| 118 | 🟩 SineWix | aytzey/cs-kraptor | play-lh.googleusercontent.com | tr | Movie,TvSeries,Anime,AsianDrama,Cartoon | 33 | 🟩 Çalışıyor |
-| 119 | 🟩 Sinewix | kadircee/ozel-liste | play-lh.googleusercontent.com | tr | Movie,TvSeries,Anime | 2 | 🟩 Çalışıyor |
-| 120 | 🟩 Sinezy | aytzey/cs-kraptor | sinezy.fit | tr | Movie | 40 | 🟩 Çalışıyor |
-| 121 | 🟩 Sinezy | kadircee/ozel-liste | sinezy.fit | tr | Movie | 40 | 🟩 Çalışıyor |
-| 122 | 🟦 TLCtr | feroxx/Kekik-cloudstream | www.tlctv.com.tr | tr | Movie | 19 | 🟦 Eklenebilir |
-| 123 | 🟦 TLCtr | ilkelkullanici/ilkel-cloudstream | www.tlctv.com.tr | tr | Movie | 19 | 🟦 Eklenebilir |
-| 124 | 🟦 TRanimaci | feroxx/Kekik-cloudstream | tranimaci.com | tr | Anime | 17 | 🟦 Eklenebilir |
-| 125 | 🟦 TRanimaci | ilkelkullanici/ilkel-cloudstream | tranimaci.com | tr | Anime | 17 | 🟦 Eklenebilir |
-| 126 | 🟦 TRasyalog | feroxx/Kekik-cloudstream | asyalog.co | tr | TvSeries | 65 | 🟦 Eklenebilir |
-| 127 | 🟦 TRasyalog | ilkelkullanici/ilkel-cloudstream | asyalog.com | tr | TvSeries | 64 | 🟦 Eklenebilir |
-| 128 | 🟩 Turkdizileri | aytzey/cs-kraptor | i.imgur.com | tr | Movie | 33 | 🟩 Çalışıyor |
-| 129 | 🟩 Turkdizileri | kadircee/ozel-liste | i.imgur.com | tr | Movie | 33 | 🟩 Çalışıyor |
-| 130 | 🟩 TvDiziler | aytzey/cs-kraptor | tvdiziler.cc | tr | TvSeries | 18 | 🟩 Çalışıyor |
-| 131 | 🟩 TvDiziler | kadircee/ozel-liste | tvdiziler.cc | tr | TvSeries | 18 | 🟩 Çalışıyor |
-| 132 | 🟦 TVGarden | Kraptor123/Cs-Karma | tv.garden | en | Live | 11 | 🟦 Eklenebilir |
-| 133 | 🟦 UgurFilm | ilkelkullanici/ilkel-cloudstream | ugurfilm7.com | tr | Movie | 13 | 🟦 Eklenebilir |
-| 134 | 🟦 Watch2Movies | feroxx/Kekik-cloudstream | movies2watch.watch | en | Movie,TvSeries | 6 | 🟦 Eklenebilir |
-| 135 | 🟦 Watch2Movies | ilkelkullanici/ilkel-cloudstream | watch2movies.net | en | Movie | 5 | 🟦 Eklenebilir |
-| 136 | 🟦 WatchWrestling | Kraptor123/Cs-Karma | instapro.ac | en | Live | 17 | 🟦 Eklenebilir |
-| 137 | 🟦 WebdramaTurkey2 | feroxx/Kekik-cloudstream | webdramaturkey2.com | tr | AsianDrama,Movie,Anime,Others | 1 | 🟦 Eklenebilir |
-| 138 | 🟩 WebteIzle | feroxx/Kekik-cloudstream | webteizle3.xyz | tr | Movie | 20 | 🟩 Çalışıyor |
-| 139 | 🟩 WebteIzle | ilkelkullanici/ilkel-cloudstream | webteizle2.com | tr | Movie | 17 | 🟩 Çalışıyor |
-| 140 | 🟩 Webteizle | blackhope01/cloudstream-plugins | webteizle3.xyz | tr | Movie,TvSeries | 1 | 🟩 Çalışıyor |
-| 141 | 🟩 WebteIzle | aytzey/cs-kraptor | webteizle1.xyz | tr | Movie | 53 | 🟩 Çalışıyor |
-| 142 | 🟩 WebteIzle | kadircee/ozel-liste | webteizle1.xyz | tr | Movie | 53 | 🟩 Çalışıyor |
-| 143 | 🟩 WFilmizle | aytzey/cs-kraptor | wfilmizle.bar | tr | Movie | 23 | 🟩 Çalışıyor |
-| 144 | 🟩 WFilmizle | kadircee/ozel-liste | wfilmizle.bar | tr | Movie | 23 | 🟩 Çalışıyor |
-| 145 | 🟩 YabanciDizi | aytzey/cs-kraptor | yabancidizi.so | tr | TvSeries | 18 | 🟩 Çalışıyor |
-| 146 | 🟩 YabanciDizi | kadircee/ozel-liste | yabancidizi.so | tr | TvSeries | 18 | 🟩 Çalışıyor |## Istenmeyenler (Delete-Zone) - 66 unique
+| # | Eklenti | Kaynak | Site (domain) | Tur | v | Son Guncelleme | Durum |
+|---|---------|--------|---------------|-----|---|---|----------------|
+| 1 | 🟦 AltiYuzAltmisAltiFilmIzle | ilkelkullanici/ilkel-cloudstream | 666filmizle.site | Movie | 1 | 2026-06-11 | 🟨 Çalışmıyor (son ölü: 2026-08-22, ilkel build güncellendiğinde kontrol) |
+| 2 | 🟦 CanliTV | feroxx/Kekik-cloudstream | tr.canlitv.team | Live | 10 | 2025-08-05 | 🟦 Eklenebilir |
+| 3 | 🟦 CanliTV | ilkelkullanici/ilkel-cloudstream | tr.canlitv.team | Live | 10 | 2026-06-11 | 🟧 Duplicate (ayni eklenti, feroxx tercih edildi) |
+| 4 | 🟩 Ddizi | feroxx/Kekik-cloudstream | www.ddizi.im | TvSeries | 22 | 2026-04-01 | 🟩 Çalışıyor |
+| 5 | 🟩 Ddizi | ilkelkullanici/ilkel-cloudstream | www.ddizi.im | TvSeries | 22 | 2026-06-11 | 🟩 Çalışıyor |
+| 6 | 🟩 Ddizi | aytzey/cs-kraptor | www.ddizi.im | TvSeries | 19 | 2026-07-14 | 🟩 Çalışıyor |
+| 7 | 🟩 DiziBox | feroxx/Kekik-cloudstream | www.dizibox.live | TvSeries | 23 | 2025-10-27 | 🟩 Çalışıyor |
+| 8 | 🟩 DiziBox | ilkelkullanici/ilkel-cloudstream | www.dizibox.live | TvSeries | 23 | 2026-06-11 | 🟩 Çalışıyor |
+| 9 | 🟩 DiziBox | aytzey/cs-kraptor | www.dizibox.de | TvSeries | 37 | 2025-08-14 | 🟩 Çalışıyor |
+| 10 | 🟨 DiziFilmORG | aytzey/cs-kraptor | dizifilm.org | Movie,TvSeries | 22 | 2026-07-24 | 🟨 Çalışmıyor |
+| 11 | 🟩 Dizigecesi | aytzey/cs-kraptor | dizigecesi.com | Movie,TvSeries | 4 | 2026-07-15 | 🟩 Çalışıyor |
+| 12 | 🟩 DiziLife | blackhope01/cloudstream-plugins | dizi73.life | Movie,TvSeries | 2 | 2026-08-28 | 🟩 Çalışıyor |
+| 13 | 🟩 DiziLife | aytzey/cs-kraptor | dizi18.life | Movie,TvSeries | 58 | 2026-07-24 | 🟩 Çalışıyor |
+| 14 | 🟩 Dizilla | feroxx/Kekik-cloudstream | dizilla.club | TvSeries | 92 | 2026-08-23 | 🟩 Çalışıyor |
+| 15 | 🟩 Dizilla | ilkelkullanici/ilkel-cloudstream | dizilla.club | TvSeries | 92 | 2026-06-11 | 🟩 Çalışıyor |
+| 16 | 🟩 Dizilla | aytzey/cs-kraptor | dizilla.to | TvSeries | 111 | 2025-08-14 | 🟩 Çalışıyor |
+| 17 | 🟩 DiziMom | feroxx/Kekik-cloudstream | www.dizimom.plus | TvSeries | 56 | 2026-08-28 | 🟩 Çalışıyor |
+| 18 | 🟩 DiziMom | ilkelkullanici/ilkel-cloudstream | www.dizimom.plus | TvSeries | 43 | 2026-08-28 | 🟩 Çalışıyor |
+| 19 | 🟩 DiziMom | blackhope01/cloudstream-plugins | www.dizimom.surf | Movie,TvSeries | 3 | 2026-08-28 | 🟩 Çalışıyor |
+| 20 | 🟩 DiziMom | aytzey/cs-kraptor | www.dizimom.mom | TvSeries | 61 | 2025-08-14 | 🟩 Çalışıyor |
+| 21 | 🟨 DiziPal | feroxx/Kekik-cloudstream | dizipal1563.com | TvSeries,Movie | 104 | 2026-08-22 | 🟨 Çalışmıyor |
+| 22 | 🟨 DiziPal | ilkelkullanici/ilkel-cloudstream | dizipal952.com | TvSeries,Movie | 90 | 2026-08-28 | 🟨 Çalışmıyor |
+| 23 | 🟨 DiziPal | aytzey/cs-kraptor | dizipal.im | Movie,TvSeries | 89 | 2025-08-14 | 🟨 Çalışmıyor |
+| 24 | 🟩 DiziPalOriginal | feroxx/Kekik-cloudstream | chessplyimages.cfd | TvSeries,Movie | 84 | 2026-08-28 | 🟩 Çalışıyor |
+| 25 | 🟩 DiziPalOriginal | ilkelkullanici/ilkel-cloudstream | dizipal2036.com | TvSeries,Movie | 66 | 2026-08-28 | 🟩 Çalışıyor |
+| 26 | 🟩 DiziPalOrijinal | aytzey/cs-kraptor | dizipal932.com | TvSeries | 45 | 2026-08-05 | 🟩 Çalışıyor |
+| 27 | 🟩 Dizipod | aytzey/cs-kraptor | dizipod.com | Movie,TvSeries,AsianDrama | 12 | 2026-07-24 | 🟩 Çalışıyor |
+| 28 | 🟨 DiziYo | blackhope01/cloudstream-plugins | www.diziyo.so | Movie,TvSeries | 1 | 2026-08-25 | 🟨 Çalışmıyor |
+| 29 | 🟨 DiziYo | aytzey/cs-kraptor | i.imgur.com | TvSeries | 74 | 2025-08-14 | 🟨 Çalışmıyor |
+| 30 | 🟩 DiziYou | feroxx/Kekik-cloudstream | cdn.diziyou.one | TvSeries | 25 | 2026-07-20 | 🟩 Çalışıyor |
+| 31 | 🟩 DiziYou | ilkelkullanici/ilkel-cloudstream | cdn.diziyou6.com | TvSeries | 25 | 2026-06-11 | 🟩 Çalışıyor |
+| 32 | 🟩 DiziYou | aytzey/cs-kraptor | www.diziyou.co | TvSeries | 49 | 2025-08-14 | 🟩 Çalışıyor |
+| 33 | 🟦 F1FullRaces | Kraptor123/Cs-Karma | i.imgur.com | Live | 10 | 2026-06-17 | 🟦 Eklenebilir |
+| 34 | 🟦 FilmBip | ilkelkullanici/ilkel-cloudstream | filmbip.com | Movie | 19 | 2026-06-11 | 🟦 Eklenebilir |
+| 35 | 🟩 FilmEkseni | blackhope01/cloudstream-plugins | www.filmekseni.vip | Movie,TvSeries | 1 | 2026-08-25 | 🟩 Çalışıyor |
+| 36 | 🟩 FilmEkseni | aytzey/cs-kraptor | filmekseni.net | Movie | 50 | 2025-08-14 | 🟩 Çalışıyor |
+| 37 | 🟩 FilmHane | blackhope01/cloudstream-plugins | www.filmhane.shop | Movie,TvSeries | 1 | 2026-08-25 | 🟩 Çalışıyor |
+| 38 | 🟩 FilmHane | aytzey/cs-kraptor | encrypted-tbn1.gstatic.com | Movie | 43 | 2025-08-14 | 🟩 Çalışıyor |
+| 39 | 🟩 FilmMakinesi | feroxx/Kekik-cloudstream | filmmakinesi.film | Movie | 58 | 2026-08-23 | 🟩 Çalışıyor |
+| 40 | 🟩 FilmMakinesi | ilkelkullanici/ilkel-cloudstream | filmmakinesi.film | Movie | 57 | 2026-06-11 | 🟩 Çalışıyor |
+| 41 | 🟩 FilmMakinesi | MRTDEVM/cloudstream-turkce | filmmakinesi.to | Movie,TvSeries | 8 | 2026-08-21 | 🟩 Çalışıyor |
+| 42 | 🟩 FilmMakinesi | blackhope01/cloudstream-plugins | www.filmmakinesi.to | Movie,TvSeries | 1 | 2026-08-25 | 🟩 Çalışıyor |
+| 43 | 🟩 FilmMakinesi | aytzey/cs-kraptor | filmmakinesi.tv | Movie,TvSeries | 70 | 2025-08-14 | 🟩 Çalışıyor |
+| 44 | 🟩 FilmModu | feroxx/Kekik-cloudstream | www.filmmodu.one | Movie | 19 | 2026-07-20 | 🟩 Çalışıyor |
+| 45 | 🟩 FilmModu | ilkelkullanici/ilkel-cloudstream | www.filmmodu17.com | Movie | 19 | 2026-06-11 | 🟩 Çalışıyor |
+| 46 | 🟩 FilmModu | aytzey/cs-kraptor | www.filmmodu.one | Movie | 41 | 2025-08-14 | 🟩 Çalışıyor |
+| 47 | 🟦 Footballia | Kraptor123/Cs-Karma | footballia.net | Live | 9 | 2026-06-03 | 🟦 Eklenebilir |
+| 48 | 🟨 Full4kizle | Kraptor123/Cs-Karma | plusizle.net | Movie,AsianDrama | 20 | 2026-08-27 | 🟨 Çalışmıyor |
+| 49 | 🟦 FullHDFilm | feroxx/Kekik-cloudstream | hdfilm.us | Movie,TvSeries | 36 | 2026-07-20 | 🟦 Eklenebilir |
+| 50 | 🟦 FullHDFilm | ilkelkullanici/ilkel-cloudstream | fullhdfilm.us | Movie,TvSeries | 36 | 2026-06-11 | 🟦 Eklenebilir |
+| 51 | 🟩 FullHDFilmizlesene | feroxx/Kekik-cloudstream | www.fullhdfilmizlesene.de | Movie | 33 | 2026-08-22 | 🟩 Çalışıyor |
+| 52 | 🟩 FullHDFilmizlesene | ilkelkullanici/ilkel-cloudstream | www.fullhdfilmizlesene.de | Movie | 29 | 2026-08-28 | 🟩 Çalışıyor |
+| 53 | 🟩 FullHDFilmizlesene | MRTDEVM/cloudstream-turkce | www.fullhdfilmizlesene.now | Movie | 8 | 2026-08-21 | 🟩 Çalışıyor |
+| 54 | 🟩 FullHDFilmizlesene | aytzey/cs-kraptor | www.fullhdfilmizlesene.de | Movie | 72 | 2025-08-14 | 🟩 Çalışıyor |
+| 55 | 🟩 HDFilmCehennemi | feroxx/Kekik-cloudstream | hdfilmcehennemi.com | Movie,TvSeries | 48 | 2026-07-19 | 🟩 Çalışıyor |
+| 56 | 🟩 HDFilmCehennemi | ilkelkullanici/ilkel-cloudstream | hdfilmcehennemi.com | Movie,TvSeries | 47 | 2026-06-11 | 🟩 Çalışıyor |
+| 57 | 🟩 Hdfilmcehennemi | MRTDEVM/cloudstream-turkce | www.hdfilmcehennemi.nl | Movie,TvSeries | 8 | 2026-08-21 | 🟩 Çalışıyor |
+| 58 | 🟩 HDFilmCehennemi | aytzey/cs-kraptor | hdfilmcehennemi.nl | Movie,TvSeries | 97 | 2025-08-14 | 🟩 Çalışıyor |
+| 59 | 🟩 HDFilmDelisi | feroxx/Kekik-cloudstream | hdfilmdelisi.com | Movie,TvSeries | 1 | 2026-08-27 | 🟩 Çalışıyor |
+| 60 | 🟩 HDFilmDelisi | aytzey/cs-kraptor | hdfilmdelisi.one | Movie | 18 | 2026-07-15 | 🟩 Çalışıyor |
+| 61 | 🟩 HDFilmizle | aytzey/cs-kraptor | www.hdfilmizle.life | Movie | 25 | 2026-08-05 | 🟩 Çalışıyor |
+| 62 | 🟩 JetFilmizle | feroxx/Kekik-cloudstream | jetfilmizle.de | Movie | 47 | 2026-08-23 | 🟩 Çalışıyor |
+| 63 | 🟩 JetFilmizle | ilkelkullanici/ilkel-cloudstream | jetfilmizle.de | Movie | 47 | 2026-06-11 | 🟩 Çalışıyor |
+| 64 | 🟩 JetFilmizle | blackhope01/cloudstream-plugins | jetfilmizle.now | Movie,TvSeries | 1 | 2026-08-25 | 🟩 Çalışıyor |
+| 65 | 🟩 JetFilmizle | aytzey/cs-kraptor | jetfilmizle.de | Movie | 62 | 2025-08-14 | 🟩 Çalışıyor |
+| 66 | 🟦 KoreanTurk | ilkelkullanici/ilkel-cloudstream | koreanturk.com | AsianDrama | 7 | 2026-06-11 | 🟦 Eklenebilir |
+| 67 | 🟩 KraptorPlus | aytzey/cs-kraptor | raw.githubusercontent.com | TvSeries,Movie,Anime,Cartoon,AsianDrama,AnimeMovie | 86 | 2026-08-04 | 🟩 Çalışıyor |
+| 68 | 🟩 LoveFilm | blackhope01/cloudstream-plugins | lovefilmizle.net | Movie,TvSeries | 1 | 2026-08-25 | 🟩 Çalışıyor |
+| 69 | 🟦 OnShort | Kraptor123/Cs-Karma | onshort.net | TvSeries | 1 | 2026-08-23 | 🟦 Eklenebilir |
+| 70 | 🟦 plt-party | pltmustafa/plt-stream | raw.githubusercontent.com | All | 5 | 2026-08-20 | 🟦 Eklenebilir |
+| 71 | 🟩 plt-stream | pltmustafa/plt-stream | raw.githubusercontent.com | TvSeries,Movie,Documentary | 47 | 2026-08-24 | 🟩 Çalışıyor |
+| 72 | 🟦 plt-tv | pltmustafa/plt-stream | raw.githubusercontent.com | Live | 3 | 2026-08-23 | 🟦 Eklenebilir |
+| 73 | 🟩 SelcukFlix | aytzey/cs-kraptor | selcukflix.com | Movie,TvSeries | 49 | 2026-07-15 | 🟩 Çalışıyor |
+| 74 | 🟨 SetFilmIzle | feroxx/Kekik-cloudstream | www.setfilmizle.uk | Movie,TvSeries | 30 | 2026-07-22 | 🟨 Çalışmıyor |
+| 75 | 🟨 SetFilmIzle | ilkelkullanici/ilkel-cloudstream | www.setfilmizle.nl | Movie,TvSeries | 28 | 2026-06-11 | 🟨 Çalışmıyor |
+| 76 | 🟨 SetFilmIzle | aytzey/cs-kraptor | www.setfilmizle.uk | Movie | 42 | 2025-08-14 | 🟨 Çalışmıyor |
+| 77 | 🟩 SezonlukDizi | feroxx/Kekik-cloudstream | sezonlukdizi6.com | TvSeries | 9 | 2026-07-15 | 🟩 Çalışıyor |
+| 78 | 🟩 SezonlukDizi | ilkelkullanici/ilkel-cloudstream | sezonlukdizi6.com | TvSeries | 8 | 2026-08-28 | 🟩 Çalışıyor |
+| 79 | 🟩 SezonlukDizi | blackhope01/cloudstream-plugins | sezonlukdizi.cc | TvSeries | 1 | 2026-08-25 | 🟩 Çalışıyor |
+| 80 | 🟩 SezonlukDizi | aytzey/cs-kraptor | sezonlukdizi6.com | TvSeries | 40 | 2025-08-14 | 🟩 Çalışıyor |
+| 81 | 🟩 SinemaCX | feroxx/Kekik-cloudstream | www.sinema.cx | Movie | 24 | 2026-04-24 | 🟩 Çalışıyor |
+| 82 | 🟩 SinemaCX | ilkelkullanici/ilkel-cloudstream | www.sinema.cx | Movie | 24 | 2026-06-11 | 🟩 Çalışıyor |
+| 83 | 🟩 SinemaCX | aytzey/cs-kraptor | www.sinema.gg | Movie | 35 | 2025-08-14 | 🟩 Çalışıyor |
+| 84 | 🟩 Sinewix | feroxx/Kekik-cloudstream | play-lh.googleusercontent.com | Movie,TvSeries,Anime | 2 | 2026-08-23 | 🟩 Çalışıyor |
+| 85 | 🟩 Sinewix | ilkelkullanici/ilkel-cloudstream | play-lh.googleusercontent.com | Movie,TvSeries,Anime | 2 | 2026-06-11 | 🟩 Çalışıyor |
+| 86 | 🟩 SineWix | aytzey/cs-kraptor | play-lh.googleusercontent.com | Movie,TvSeries,Anime,AsianDrama,Cartoon | 33 | 2026-07-15 | 🟩 Çalışıyor |
+| 87 | 🟩 Sinezy | aytzey/cs-kraptor | sinezy.fit | Movie | 40 | 2026-07-14 | 🟩 Çalışıyor |
+| 88 | 🟦 TLCtr | feroxx/Kekik-cloudstream | www.tlctv.com.tr | Movie | 19 | 2025-04-22 | 🟦 Eklenebilir |
+| 89 | 🟦 TLCtr | ilkelkullanici/ilkel-cloudstream | www.tlctv.com.tr | Movie | 19 | 2026-06-11 | 🟦 Eklenebilir |
+| 90 | 🟦 TRanimaci | feroxx/Kekik-cloudstream | tranimaci.com | Anime | 17 | 2025-07-04 | 🟦 Eklenebilir |
+| 91 | 🟦 TRanimaci | ilkelkullanici/ilkel-cloudstream | tranimaci.com | Anime | 17 | 2026-06-11 | 🟦 Eklenebilir |
+| 92 | 🟦 TRasyalog | feroxx/Kekik-cloudstream | asyalog.co | TvSeries | 65 | 2026-07-19 | 🟦 Eklenebilir |
+| 93 | 🟦 TRasyalog | ilkelkullanici/ilkel-cloudstream | asyalog.com | TvSeries | 64 | 2026-06-11 | 🟦 Eklenebilir |
+| 94 | 🟩 Turkdizileri | aytzey/cs-kraptor | i.imgur.com | Movie | 33 | 2026-07-15 | 🟩 Çalışıyor |
+| 95 | 🟩 TvDiziler | aytzey/cs-kraptor | tvdiziler.cc | TvSeries | 18 | 2026-07-15 | 🟩 Çalışıyor |
+| 96 | 🟦 TVGarden | Kraptor123/Cs-Karma | tv.garden | Live | 11 | 2026-07-08 | 🟦 Eklenebilir |
+| 97 | 🟦 UgurFilm | ilkelkullanici/ilkel-cloudstream | ugurfilm7.com | Movie | 13 | 2026-06-11 | 🟦 Eklenebilir |
+| 98 | 🟦 Watch2Movies | feroxx/Kekik-cloudstream | movies2watch.watch | Movie,TvSeries | 6 | 2026-07-19 | 🟦 Eklenebilir |
+| 99 | 🟦 Watch2Movies | ilkelkullanici/ilkel-cloudstream | watch2movies.net | Movie | 5 | 2026-06-11 | 🟦 Eklenebilir |
+| 100 | 🟦 WatchWrestling | Kraptor123/Cs-Karma | instapro.ac | Live | 17 | 2026-07-03 | 🟦 Eklenebilir |
+| 101 | 🟦 WebdramaTurkey2 | feroxx/Kekik-cloudstream | webdramaturkey2.com | AsianDrama,Movie,Anime,Others | 1 | 2026-08-27 | 🟦 Eklenebilir |
+| 102 | 🟩 WebteIzle | feroxx/Kekik-cloudstream | webteizle3.xyz | Movie | 20 | 2026-08-27 | 🟩 Çalışıyor |
+| 103 | 🟩 WebteIzle | ilkelkullanici/ilkel-cloudstream | webteizle2.com | Movie | 17 | 2026-06-11 | 🟩 Çalışıyor |
+| 104 | 🟩 Webteizle | blackhope01/cloudstream-plugins | webteizle3.xyz | Movie,TvSeries | 1 | 2026-08-25 | 🟩 Çalışıyor |
+| 105 | 🟩 WebteIzle | aytzey/cs-kraptor | webteizle1.xyz | Movie | 53 | 2025-08-14 | 🟩 Çalışıyor |
+| 106 | 🟩 WFilmizle | aytzey/cs-kraptor | wfilmizle.bar | Movie | 23 | 2026-07-24 | 🟩 Çalışıyor |
+| 107 | 🟩 YabanciDizi | aytzey/cs-kraptor | yabancidizi.so | TvSeries | 18 | 2025-08-14 | 🟩 Çalışıyor |
+## Istenmeyenler (Delete-Zone) - 66 unique
 
 | Eklenti | Kaynak Ornek | Site | Dil | Tur |
 |---------|--------------|------|-----|-----|
