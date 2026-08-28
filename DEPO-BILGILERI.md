@@ -175,22 +175,6 @@ Kaynak `builds/plugins.json` adresi, listedeki `.cs3` adresinden türetilir (`ht
 | YAML doğrulamada `KeyError: 'on'` | PyYAML YAML 1.1'de `on:` anahtarını bool `True`'ya çevirir (GitHub Actions YAML 1.2 kullanır ve `on`'u string kabul eder) | Gerçek hata değil; GitHub Actions bu dosyayı doğru ayrıştırır (workflow dosyası sorunsuz çalışır) |
 | `verify.py --health` yanlış eklenti kapatabilir mi (tasarım) | Eski `--deep` HTTP 200 kontrolü parking sayfasını "ayakta" sanabiliyordu (666/FullHD yanlış pozitifi) | `--health` sayfa içeriği/title ile parking tespiti ekledi, **kesin ölü** (DNS/404/TLS/parking) dışında karar vermiyor; `unknown` veya canlı domain varsa dokunmuyor. Test: 6 parking/legit vaka + gerçek 666filmizle.site `dead` sınıflandı; 13 aktif eklenti tarandı, yanlış kapanma yok |
 
-### Tekrar Kontrol Edilecekler (Dead Link Değildir, repo build güncellendiğinde belki çalışacaktır ?)
-| Eklenti | Kaynak | Son Bilinen Domain | Durum |
-|---------|--------|-------------------|-------|
-| AltiYuzAltmisAltiFilmIzle | feroxx/ilkel | 666filmizle.site | 🟨 Site ölü, tekrar kontrol edilecek |
-| FilmBip | ilkel | filmbip.com | 🟨 Site ölü, tekrar kontrol edilecek |
-| FullHDFilm | feroxx | fullhdfilm.org | 🟨 Site ölü, tekrar kontrol edilecek |
-| Filmatek | Kraptor123/Cs-Karma | filmatek.net | 🟨 Site ölü, tekrar kontrol edilecek |
-| Full4kizle | Kraptor123/Cs-Karma | plusizle.net | 🟨 **status:0** — domain plusizle.org'a taşındı, build bekleniyor |
-| DiziFilmORG | aytzey/cs-kraptor | dizifilm.org | 🟨 **status:0** — çalışmıyor, repobuild gelince kontrol |
-| DiziPal | aytzey/cs-kraptor | dizipal.im | 🟨 **status:0** — çalışmıyor (DiziPalOriginal v84 + DiziPalOrijinal v45 çalışıyor) |
-| DiziYo | aytzey/cs-kraptor | diziyo (DiziYo) | 🟨 **status:0** — çalışmıyor (DiziYou v25 çalışıyor) |
-| SetFilmIzle | aytzey/cs-kraptor | www.setfilmizle.uk | 🟨 **status:0** — çalışmıyor, repobuild gelince kontrol |
-
-> **Not (2026-08-28):** Yukarıdaki tablodan `DiziBox`, `DiziMom`, `Dizilla`, `WebteIzle` aynı build güncellendiğinde / yeni repolardan farklı domainlerle yeniden eklendiği için çıkarıldı: `aytzey/cs-kraptor`'da `DiziBox (dizibox.de)`, `DiziMom (dizimom.mom)`, `Dizilla (dizilla.to)`, `WebteIzle (webteizle1.xyz)` olarak `plugins.json`'a aktif eklendi ve çalışıyor. `SetFilmIzle` ise aytzey'de **status:0** ile yeniden eklenip bu tabloda izleniyor (repobuild gelince kontrol). Bu mantıkla tablo, sadece hala ölü ve yeni repo/build'de de çalışmayanlar için tutulur.
-> **Not:** Bu liste güncellenebilir; aynı build güncellendiğinde veya yeni repolarda yeniden eklendiğinde çalışanlar ana listeye alınır, hala ölü olanlar burada bırakılır.
-
 ### Önemli Not
 Repolar güncellendiğinde (yeni build yayınlandığında (GitHub uzerinden takip edilir)), bu listedeki ölü siteler otomatik olarak kontrol edilmeli ve çalışıyorsa tekrar eklenebilir.
 
