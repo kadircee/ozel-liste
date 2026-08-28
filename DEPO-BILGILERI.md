@@ -248,101 +248,101 @@ Toplam kayit: 95 (Istenmeyenler ve ozel-liste hariç, sadece kaynak repolar)
 
 | # | Eklenti | Kaynak | Site (domain) | v | Kaynak Tarih | Bizim Tarih | Durum |
 |---|---------|--------|---------------|---|---|----------------|---------------|
-| 1 | 🟦 AltiYuzAltmisAltiFilmIzle | ilkelkullanici/ilkel-cloudstream | 666filmizle.site | 1 | 2026-06-11 | - | 🟨 Çalışmıyor (son ölü: 2026-08-22, ilkel build güncellendiğinde kontrol) |
-| 2 | 🟦 CanliTV | feroxx/Kekik-cloudstream | tr.canlitv.team | 10 | 2025-08-05 | - | 🟧 Duplicate (ilkelkullanici 2026-06-11 tercih edildi) |
-| 3 | 🟦 CanliTV | ilkelkullanici/ilkel-cloudstream | tr.canlitv.team | 10 | 2026-06-11 | - | 🟧 Duplicate (ayni eklenti, feroxx tercih edildi) |
-| 4 | 🟩 Ddizi | feroxx/Kekik-cloudstream | www.ddizi.im | 22 | 2026-04-01 | 2026-08-22 | 🟧 Duplicate (aytzey 2026-07-14 tercih edildi) |
-| 5 | 🟩 Ddizi | ilkelkullanici/ilkel-cloudstream | www.ddizi.im | 22 | 2026-06-11 | 2026-08-22 | 🟧 Duplicate (aytzey 2026-07-14 tercih edildi) |
-| 6 | 🟩 Ddizi | aytzey/cs-kraptor | www.ddizi.im | 19 | 2026-07-14 | 2026-08-22 | 🟩 Çalışıyor |
-| 7 | 🟩 DiziBox | feroxx/Kekik-cloudstream | www.dizibox.live | 23 | 2025-10-27 | 2026-08-28 | 🟧 Duplicate (ilkelkullanici 2026-06-11 tercih edildi) |
-| 8 | 🟩 DiziBox | ilkelkullanici/ilkel-cloudstream | www.dizibox.live | 23 | 2026-06-11 | 2026-08-28 | 🟩 Çalışıyor |
-| 9 | 🟩 DiziBox | aytzey/cs-kraptor | www.dizibox.de | 37 | 2025-08-14 | 2026-08-28 | 🟧 Duplicate (ilkelkullanici 2026-06-11 tercih edildi) |
-| 10 | 🟨 DiziFilmORG | aytzey/cs-kraptor | dizifilm.org | 22 | 2026-07-24 | 2026-08-28 | 🟨 Çalışmıyor |
-| 11 | 🟩 Dizigecesi | aytzey/cs-kraptor | dizigecesi.com | 4 | 2026-07-15 | 2026-08-28 | 🟩 Çalışıyor |
-| 12 | 🟩 DiziLife | blackhope01/cloudstream-plugins | dizi73.life | 2 | 2026-08-28 | 2026-08-28 | 🟩 Çalışıyor |
-| 13 | 🟩 DiziLife | aytzey/cs-kraptor | dizi18.life | 58 | 2026-07-24 | 2026-08-28 | 🟧 Duplicate (blackhope01 2026-08-28 tercih edildi) |
-| 14 | 🟩 Dizilla | feroxx/Kekik-cloudstream | dizilla.club | 92 | 2026-08-23 | 2026-08-28 | 🟩 Çalışıyor |
-| 15 | 🟩 Dizilla | ilkelkullanici/ilkel-cloudstream | dizilla.club | 92 | 2026-06-11 | 2026-08-28 | 🟧 Duplicate (feroxx 2026-08-23 tercih edildi) |
-| 16 | 🟩 Dizilla | aytzey/cs-kraptor | dizilla.to | 111 | 2025-08-14 | 2026-08-28 | 🟧 Duplicate (feroxx 2026-08-23 tercih edildi) |
-| 17 | 🟩 DiziMom | feroxx/Kekik-cloudstream | www.dizimom.plus | 56 | 2026-08-28 | 2026-08-28 | 🟩 Çalışıyor |
-| 18 | 🟩 DiziMom | ilkelkullanici/ilkel-cloudstream | www.dizimom.plus | 43 | 2026-08-28 | 2026-08-28 | 🟧 Duplicate (feroxx 2026-08-28 tercih edildi) |
-| 19 | 🟩 DiziMom | blackhope01/cloudstream-plugins | www.dizimom.surf | 3 | 2026-08-28 | 2026-08-28 | 🟧 Duplicate (feroxx 2026-08-28 tercih edildi) |
-| 20 | 🟩 DiziMom | aytzey/cs-kraptor | www.dizimom.mom | 61 | 2025-08-14 | 2026-08-28 | 🟧 Duplicate (feroxx 2026-08-28 tercih edildi) |
-| 21 | 🟨 DiziPal | feroxx/Kekik-cloudstream | dizipal1563.com | 104 | 2026-08-22 | 2026-08-28 | 🟧 Duplicate (ilkelkullanici 2026-08-28 tercih edildi) |
-| 22 | 🟨 DiziPal | ilkelkullanici/ilkel-cloudstream | dizipal952.com | 90 | 2026-08-28 | 2026-08-28 | 🟨 Çalışmıyor |
-| 23 | 🟨 DiziPal | aytzey/cs-kraptor | dizipal.im | 89 | 2025-08-14 | 2026-08-28 | 🟧 Duplicate (ilkelkullanici 2026-08-28 tercih edildi) |
-| 24 | 🟩 DiziPalOriginal | feroxx/Kekik-cloudstream | chessplyimages.cfd | 84 | 2026-08-28 | 2026-08-28 | 🟩 Çalışıyor |
-| 25 | 🟩 DiziPalOriginal | ilkelkullanici/ilkel-cloudstream | dizipal2036.com | 66 | 2026-08-28 | 2026-08-28 | 🟧 Duplicate (feroxx 2026-08-28 tercih edildi) |
-| 26 | 🟩 DiziPalOrijinal | aytzey/cs-kraptor | dizipal932.com | 45 | 2026-08-05 | 2026-08-28 | 🟩 Çalışıyor |
-| 27 | 🟩 Dizipod | aytzey/cs-kraptor | dizipod.com | 12 | 2026-07-24 | 2026-08-28 | 🟩 Çalışıyor |
-| 28 | 🟨 DiziYo | blackhope01/cloudstream-plugins | www.diziyo.so | 1 | 2026-08-25 | 2026-08-28 | 🟨 Çalışmıyor |
-| 29 | 🟨 DiziYo | aytzey/cs-kraptor | i.imgur.com | 74 | 2025-08-14 | 2026-08-28 | 🟧 Duplicate (blackhope01 2026-08-25 tercih edildi) |
-| 30 | 🟩 DiziYou | feroxx/Kekik-cloudstream | cdn.diziyou.one | 25 | 2026-07-20 | 2026-08-22 | 🟩 Çalışıyor |
-| 31 | 🟩 DiziYou | ilkelkullanici/ilkel-cloudstream | cdn.diziyou6.com | 25 | 2026-06-11 | 2026-08-22 | 🟧 Duplicate (feroxx 2026-07-20 tercih edildi) |
-| 32 | 🟩 DiziYou | aytzey/cs-kraptor | www.diziyou.co | 49 | 2025-08-14 | 2026-08-22 | 🟧 Duplicate (feroxx 2026-07-20 tercih edildi) |
-| 33 | 🟦 F1FullRaces | Kraptor123/Cs-Karma | i.imgur.com | 10 | 2026-06-17 | - | 🟦 Eklenebilir |
-| 34 | 🟦 FilmBip | ilkelkullanici/ilkel-cloudstream | filmbip.com | 19 | 2026-06-11 | - | 🟦 Eklenebilir |
-| 35 | 🟩 FilmEkseni | blackhope01/cloudstream-plugins | www.filmekseni.vip | 1 | 2026-08-25 | 2026-08-28 | 🟩 Çalışıyor |
-| 36 | 🟩 FilmEkseni | aytzey/cs-kraptor | filmekseni.net | 50 | 2025-08-14 | 2026-08-28 | 🟧 Duplicate (blackhope01 2026-08-25 tercih edildi) |
-| 37 | 🟩 FilmHane | blackhope01/cloudstream-plugins | www.filmhane.shop | 1 | 2026-08-25 | 2026-08-28 | 🟩 Çalışıyor |
-| 38 | 🟩 FilmHane | aytzey/cs-kraptor | encrypted-tbn1.gstatic.com | 43 | 2025-08-14 | 2026-08-28 | 🟧 Duplicate (blackhope01 2026-08-25 tercih edildi) |
-| 39 | 🟩 FilmMakinesi | feroxx/Kekik-cloudstream | filmmakinesi.film | 58 | 2026-08-23 | 2026-08-22 | 🟧 Duplicate (blackhope01 2026-08-25 tercih edildi) |
-| 40 | 🟩 FilmMakinesi | ilkelkullanici/ilkel-cloudstream | filmmakinesi.film | 57 | 2026-06-11 | 2026-08-22 | 🟧 Duplicate (blackhope01 2026-08-25 tercih edildi) |
-| 41 | 🟩 FilmMakinesi | MRTDEVM/cloudstream-turkce | filmmakinesi.to | 8 | 2026-08-21 | 2026-08-22 | 🟧 Duplicate (blackhope01 2026-08-25 tercih edildi) |
-| 42 | 🟩 FilmMakinesi | blackhope01/cloudstream-plugins | www.filmmakinesi.to | 1 | 2026-08-25 | 2026-08-22 | 🟩 Çalışıyor |
-| 43 | 🟩 FilmMakinesi | aytzey/cs-kraptor | filmmakinesi.tv | 70 | 2025-08-14 | 2026-08-22 | 🟧 Duplicate (blackhope01 2026-08-25 tercih edildi) |
-| 44 | 🟩 FilmModu | feroxx/Kekik-cloudstream | www.filmmodu.one | 19 | 2026-07-20 | 2026-08-22 | 🟩 Çalışıyor |
-| 45 | 🟩 FilmModu | ilkelkullanici/ilkel-cloudstream | www.filmmodu17.com | 19 | 2026-06-11 | 2026-08-22 | 🟧 Duplicate (feroxx 2026-07-20 tercih edildi) |
-| 46 | 🟩 FilmModu | aytzey/cs-kraptor | www.filmmodu.one | 41 | 2025-08-14 | 2026-08-22 | 🟧 Duplicate (feroxx 2026-07-20 tercih edildi) |
-| 47 | 🟦 Footballia | Kraptor123/Cs-Karma | footballia.net | 9 | 2026-06-03 | - | 🟦 Eklenebilir |
-| 48 | 🟨 Full4kizle | Kraptor123/Cs-Karma | plusizle.net | 20 | 2026-08-27 | 2026-08-22 | 🟨 Çalışmıyor |
-| 49 | 🟦 FullHDFilm | feroxx/Kekik-cloudstream | hdfilm.us | 36 | 2026-07-20 | - | 🟩 Çalışıyor (2026-07-20 en güncel) |
-| 50 | 🟦 FullHDFilm | ilkelkullanici/ilkel-cloudstream | fullhdfilm.us | 36 | 2026-06-11 | - | 🟧 Duplicate (feroxx 2026-07-20 tercih edildi) |
-| 51 | 🟩 FullHDFilmizlesene | feroxx/Kekik-cloudstream | www.fullhdfilmizlesene.de | 33 | 2026-08-22 | 2026-08-22 | 🟧 Duplicate (ilkelkullanici 2026-08-28 tercih edildi) |
-| 52 | 🟩 FullHDFilmizlesene | ilkelkullanici/ilkel-cloudstream | www.fullhdfilmizlesene.de | 29 | 2026-08-28 | 2026-08-22 | 🟩 Çalışıyor |
-| 53 | 🟩 FullHDFilmizlesene | MRTDEVM/cloudstream-turkce | www.fullhdfilmizlesene.now | 8 | 2026-08-21 | 2026-08-22 | 🟧 Duplicate (ilkelkullanici 2026-08-28 tercih edildi) |
-| 54 | 🟩 FullHDFilmizlesene | aytzey/cs-kraptor | www.fullhdfilmizlesene.de | 72 | 2025-08-14 | 2026-08-22 | 🟧 Duplicate (ilkelkullanici 2026-08-28 tercih edildi) |
-| 55 | 🟩 HDFilmCehennemi | feroxx/Kekik-cloudstream | hdfilmcehennemi.com | 48 | 2026-07-19 | 2026-08-22 | 🟧 Duplicate (MRTDEVM 2026-08-21 tercih edildi) |
-| 56 | 🟩 HDFilmCehennemi | ilkelkullanici/ilkel-cloudstream | hdfilmcehennemi.com | 47 | 2026-06-11 | 2026-08-22 | 🟧 Duplicate (MRTDEVM 2026-08-21 tercih edildi) |
-| 57 | 🟩 Hdfilmcehennemi | MRTDEVM/cloudstream-turkce | www.hdfilmcehennemi.nl | 8 | 2026-08-21 | - | 🟩 Çalışıyor |
-| 58 | 🟩 HDFilmCehennemi | aytzey/cs-kraptor | hdfilmcehennemi.nl | 97 | 2025-08-14 | 2026-08-22 | 🟧 Duplicate (MRTDEVM 2026-08-21 tercih edildi) |
-| 59 | 🟩 HDFilmDelisi | feroxx/Kekik-cloudstream | hdfilmdelisi.com | 1 | 2026-08-27 | 2026-08-28 | 🟩 Çalışıyor |
-| 60 | 🟩 HDFilmDelisi | aytzey/cs-kraptor | hdfilmdelisi.one | 18 | 2026-07-15 | 2026-08-28 | 🟧 Duplicate (feroxx 2026-08-27 tercih edildi) |
-| 61 | 🟩 HDFilmizle | aytzey/cs-kraptor | www.hdfilmizle.life | 25 | 2026-08-05 | 2026-08-28 | 🟩 Çalışıyor |
-| 62 | 🟩 JetFilmizle | feroxx/Kekik-cloudstream | jetfilmizle.de | 47 | 2026-08-23 | 2026-08-22 | 🟧 Duplicate (blackhope01 2026-08-25 tercih edildi) |
-| 63 | 🟩 JetFilmizle | ilkelkullanici/ilkel-cloudstream | jetfilmizle.de | 47 | 2026-06-11 | 2026-08-22 | 🟧 Duplicate (blackhope01 2026-08-25 tercih edildi) |
-| 64 | 🟩 JetFilmizle | blackhope01/cloudstream-plugins | jetfilmizle.now | 1 | 2026-08-25 | 2026-08-22 | 🟩 Çalışıyor |
-| 65 | 🟩 JetFilmizle | aytzey/cs-kraptor | jetfilmizle.de | 62 | 2025-08-14 | 2026-08-22 | 🟧 Duplicate (blackhope01 2026-08-25 tercih edildi) |
-| 66 | 🟦 KoreanTurk | ilkelkullanici/ilkel-cloudstream | koreanturk.com | 7 | 2026-06-11 | - | 🟦 Eklenebilir |
-| 67 | 🟩 KraptorPlus | aytzey/cs-kraptor | raw.githubusercontent.com | 86 | 2026-08-04 | 2026-08-28 | 🟩 Çalışıyor |
-| 68 | 🟩 LoveFilm | blackhope01/cloudstream-plugins | lovefilmizle.net | 1 | 2026-08-25 | 2026-08-28 | 🟩 Çalışıyor |
-| 69 | 🟦 OnShort | Kraptor123/Cs-Karma | onshort.net | 1 | 2026-08-23 | - | 🟦 Eklenebilir |
-| 70 | 🟦 plt-party | pltmustafa/plt-stream | raw.githubusercontent.com | 5 | 2026-08-20 | - | 🟦 Eklenebilir |
-| 71 | 🟩 plt-stream | pltmustafa/plt-stream | raw.githubusercontent.com | 47 | 2026-08-24 | 2026-08-22 | 🟩 Çalışıyor |
-| 72 | 🟦 plt-tv | pltmustafa/plt-stream | raw.githubusercontent.com | 3 | 2026-08-23 | - | 🟦 Eklenebilir |
-| 73 | 🟩 SelcukFlix | aytzey/cs-kraptor | selcukflix.com | 49 | 2026-07-15 | 2026-08-28 | 🟩 Çalışıyor |
-| 74 | 🟨 SetFilmIzle | feroxx/Kekik-cloudstream | www.setfilmizle.uk | 30 | 2026-07-22 | 2026-08-28 | 🟨 Çalışmıyor |
-| 75 | 🟨 SetFilmIzle | ilkelkullanici/ilkel-cloudstream | www.setfilmizle.nl | 28 | 2026-06-11 | 2026-08-28 | 🟧 Duplicate (feroxx 2026-07-22 tercih edildi) |
-| 76 | 🟨 SetFilmIzle | aytzey/cs-kraptor | www.setfilmizle.uk | 42 | 2025-08-14 | 2026-08-28 | 🟧 Duplicate (feroxx 2026-07-22 tercih edildi) |
-| 77 | 🟩 SezonlukDizi | feroxx/Kekik-cloudstream | sezonlukdizi6.com | 9 | 2026-07-15 | 2026-08-22 | 🟧 Duplicate (ilkelkullanici 2026-08-28 tercih edildi) |
-| 78 | 🟩 SezonlukDizi | ilkelkullanici/ilkel-cloudstream | sezonlukdizi6.com | 8 | 2026-08-28 | 2026-08-22 | 🟩 Çalışıyor |
-| 79 | 🟩 SezonlukDizi | blackhope01/cloudstream-plugins | sezonlukdizi.cc | 1 | 2026-08-25 | 2026-08-22 | 🟧 Duplicate (ilkelkullanici 2026-08-28 tercih edildi) |
-| 80 | 🟩 SezonlukDizi | aytzey/cs-kraptor | sezonlukdizi6.com | 40 | 2025-08-14 | 2026-08-22 | 🟧 Duplicate (ilkelkullanici 2026-08-28 tercih edildi) |
-| 81 | 🟩 SinemaCX | feroxx/Kekik-cloudstream | www.sinema.cx | 24 | 2026-04-24 | 2026-08-22 | 🟧 Duplicate (ilkelkullanici 2026-06-11 tercih edildi) |
-| 82 | 🟩 SinemaCX | ilkelkullanici/ilkel-cloudstream | www.sinema.cx | 24 | 2026-06-11 | 2026-08-22 | 🟩 Çalışıyor |
-| 83 | 🟩 SinemaCX | aytzey/cs-kraptor | www.sinema.gg | 35 | 2025-08-14 | 2026-08-22 | 🟧 Duplicate (ilkelkullanici 2026-06-11 tercih edildi) |
-| 84 | 🟩 Sinewix | feroxx/Kekik-cloudstream | play-lh.googleusercontent.com | 2 | 2026-08-23 | 2026-08-22 | 🟩 Çalışıyor |
-| 85 | 🟩 Sinewix | ilkelkullanici/ilkel-cloudstream | play-lh.googleusercontent.com | 2 | 2026-06-11 | 2026-08-22 | 🟧 Duplicate (feroxx 2026-08-23 tercih edildi) |
-| 86 | 🟩 SineWix | aytzey/cs-kraptor | play-lh.googleusercontent.com | 33 | 2026-07-15 | - | 🟧 Duplicate (feroxx 2026-08-23 tercih edildi) |
-| 87 | 🟩 Sinezy | aytzey/cs-kraptor | sinezy.fit | 40 | 2026-07-14 | 2026-08-28 | 🟩 Çalışıyor |
-| 88 | 🟩 Turkdizileri | aytzey/cs-kraptor | i.imgur.com | 33 | 2026-07-15 | 2026-08-28 | 🟩 Çalışıyor |
-| 89 | 🟩 TvDiziler | aytzey/cs-kraptor | tvdiziler.cc | 18 | 2026-07-15 | 2026-08-28 | 🟩 Çalışıyor |
-| 90 | 🟩 WebteIzle | feroxx/Kekik-cloudstream | webteizle3.xyz | 20 | 2026-08-27 | 2026-08-28 | 🟩 Çalışıyor |
-| 91 | 🟩 WebteIzle | ilkelkullanici/ilkel-cloudstream | webteizle2.com | 17 | 2026-06-11 | 2026-08-28 | 🟧 Duplicate (feroxx 2026-08-27 tercih edildi) |
-| 92 | 🟩 Webteizle | blackhope01/cloudstream-plugins | webteizle3.xyz | 1 | 2026-08-25 | - | 🟧 Duplicate (feroxx 2026-08-27 tercih edildi) |
-| 93 | 🟩 WebteIzle | aytzey/cs-kraptor | webteizle1.xyz | 53 | 2025-08-14 | 2026-08-28 | 🟧 Duplicate (feroxx 2026-08-27 tercih edildi) |
-| 94 | 🟩 WFilmizle | aytzey/cs-kraptor | wfilmizle.bar | 23 | 2026-07-24 | 2026-08-28 | 🟩 Çalışıyor |
-| 95 | 🟩 YabanciDizi | aytzey/cs-kraptor | yabancidizi.so | 18 | 2025-08-14 | 2026-08-28 | 🟩 Çalışıyor |## Istenmeyenler (Delete-Zone) - 74 unique
+| 1 | 🟦 AltiYuzAltmisAltiFilmIzle | ilkelkullanici/ilkel-cloudstream | [666filmizle.site](https://666filmizle.site) | 1 | 2026-06-11 | - | 🟨 Çalışmıyor (son ölü: 2026-08-22, ilkel build güncellendiğinde kontrol) |
+| 2 | 🟦 CanliTV | feroxx/Kekik-cloudstream | [tr.canlitv.team](https://tr.canlitv.team) | 10 | 2025-08-05 | - | 🟧 Duplicate (ilkelkullanici 2026-06-11 tercih edildi) |
+| 3 | 🟦 CanliTV | ilkelkullanici/ilkel-cloudstream | [tr.canlitv.team](https://tr.canlitv.team) | 10 | 2026-06-11 | - | 🟦 Eklenebilir |
+| 4 | 🟩 Ddizi | feroxx/Kekik-cloudstream | [www.ddizi.im](https://www.ddizi.im) | 22 | 2026-04-01 | 2026-08-22 | 🟧 Duplicate (aytzey 2026-07-14 tercih edildi) |
+| 5 | 🟩 Ddizi | ilkelkullanici/ilkel-cloudstream | [www.ddizi.im](https://www.ddizi.im) | 22 | 2026-06-11 | 2026-08-22 | 🟧 Duplicate (aytzey 2026-07-14 tercih edildi) |
+| 6 | 🟩 Ddizi | aytzey/cs-kraptor | [www.ddizi.im](https://www.ddizi.im) | 19 | 2026-07-14 | 2026-08-22 | 🟩 Çalışıyor |
+| 7 | 🟩 DiziBox | feroxx/Kekik-cloudstream | [www.dizibox.live](https://www.dizibox.live) | 23 | 2025-10-27 | 2026-08-28 | 🟧 Duplicate (ilkelkullanici 2026-06-11 tercih edildi) |
+| 8 | 🟩 DiziBox | ilkelkullanici/ilkel-cloudstream | [www.dizibox.live](https://www.dizibox.live) | 23 | 2026-06-11 | 2026-08-28 | 🟩 Çalışıyor |
+| 9 | 🟩 DiziBox | aytzey/cs-kraptor | [www.dizibox.de](https://www.dizibox.de) | 37 | 2025-08-14 | 2026-08-28 | 🟧 Duplicate (ilkelkullanici 2026-06-11 tercih edildi) |
+| 10 | 🟨 DiziFilmORG | aytzey/cs-kraptor | [dizifilm.org](https://dizifilm.org) | 22 | 2026-07-24 | 2026-08-28 | 🟨 Çalışmıyor |
+| 11 | 🟩 Dizigecesi | aytzey/cs-kraptor | [dizigecesi.com](https://dizigecesi.com) | 4 | 2026-07-15 | 2026-08-28 | 🟩 Çalışıyor |
+| 12 | 🟩 DiziLife | blackhope01/cloudstream-plugins | [dizi73.life](https://dizi73.life) | 2 | 2026-08-28 | 2026-08-28 | 🟩 Çalışıyor |
+| 13 | 🟩 DiziLife | aytzey/cs-kraptor | [dizi18.life](https://dizi18.life) | 58 | 2026-07-24 | 2026-08-28 | 🟧 Duplicate (blackhope01 2026-08-28 tercih edildi) |
+| 14 | 🟩 Dizilla | feroxx/Kekik-cloudstream | [dizilla.club](https://dizilla.club) | 92 | 2026-08-23 | 2026-08-28 | 🟩 Çalışıyor |
+| 15 | 🟩 Dizilla | ilkelkullanici/ilkel-cloudstream | [dizilla.club](https://dizilla.club) | 92 | 2026-06-11 | 2026-08-28 | 🟧 Duplicate (feroxx 2026-08-23 tercih edildi) |
+| 16 | 🟩 Dizilla | aytzey/cs-kraptor | [dizilla.to](https://dizilla.to) | 111 | 2025-08-14 | 2026-08-28 | 🟧 Duplicate (feroxx 2026-08-23 tercih edildi) |
+| 17 | 🟩 DiziMom | feroxx/Kekik-cloudstream | [www.dizimom.plus](https://www.dizimom.plus) | 56 | 2026-08-28 | 2026-08-28 | 🟩 Çalışıyor |
+| 18 | 🟩 DiziMom | ilkelkullanici/ilkel-cloudstream | [www.dizimom.plus](https://www.dizimom.plus) | 43 | 2026-08-28 | 2026-08-28 | 🟧 Duplicate (feroxx 2026-08-28 tercih edildi) |
+| 19 | 🟩 DiziMom | blackhope01/cloudstream-plugins | [www.dizimom.surf](https://www.dizimom.surf) | 3 | 2026-08-28 | 2026-08-28 | 🟧 Duplicate (feroxx 2026-08-28 tercih edildi) |
+| 20 | 🟩 DiziMom | aytzey/cs-kraptor | [www.dizimom.mom](https://www.dizimom.mom) | 61 | 2025-08-14 | 2026-08-28 | 🟧 Duplicate (feroxx 2026-08-28 tercih edildi) |
+| 21 | 🟨 DiziPal | feroxx/Kekik-cloudstream | [dizipal1563.com](https://dizipal1563.com) | 104 | 2026-08-22 | 2026-08-28 | 🟧 Duplicate (ilkelkullanici 2026-08-28 tercih edildi) |
+| 22 | 🟨 DiziPal | ilkelkullanici/ilkel-cloudstream | [dizipal952.com](https://dizipal952.com) | 90 | 2026-08-28 | 2026-08-28 | 🟨 Çalışmıyor |
+| 23 | 🟨 DiziPal | aytzey/cs-kraptor | [dizipal.im](https://dizipal.im) | 89 | 2025-08-14 | 2026-08-28 | 🟧 Duplicate (ilkelkullanici 2026-08-28 tercih edildi) |
+| 24 | 🟩 DiziPalOriginal | feroxx/Kekik-cloudstream | [chessplyimages.cfd](https://chessplyimages.cfd) | 84 | 2026-08-28 | 2026-08-28 | 🟩 Çalışıyor |
+| 25 | 🟩 DiziPalOriginal | ilkelkullanici/ilkel-cloudstream | [dizipal2036.com](https://dizipal2036.com) | 66 | 2026-08-28 | 2026-08-28 | 🟧 Duplicate (feroxx 2026-08-28 tercih edildi) |
+| 26 | 🟩 DiziPalOrijinal | aytzey/cs-kraptor | [dizipal932.com](https://dizipal932.com) | 45 | 2026-08-05 | 2026-08-28 | 🟩 Çalışıyor |
+| 27 | 🟩 Dizipod | aytzey/cs-kraptor | [dizipod.com](https://dizipod.com) | 12 | 2026-07-24 | 2026-08-28 | 🟩 Çalışıyor |
+| 28 | 🟨 DiziYo | blackhope01/cloudstream-plugins | [www.diziyo.so](https://www.diziyo.so) | 1 | 2026-08-25 | 2026-08-28 | 🟨 Çalışmıyor |
+| 29 | 🟨 DiziYo | aytzey/cs-kraptor | [i.imgur.com](https://i.imgur.com) | 74 | 2025-08-14 | 2026-08-28 | 🟧 Duplicate (blackhope01 2026-08-25 tercih edildi) |
+| 30 | 🟩 DiziYou | feroxx/Kekik-cloudstream | [cdn.diziyou.one](https://cdn.diziyou.one) | 25 | 2026-07-20 | 2026-08-22 | 🟩 Çalışıyor |
+| 31 | 🟩 DiziYou | ilkelkullanici/ilkel-cloudstream | [cdn.diziyou6.com](https://cdn.diziyou6.com) | 25 | 2026-06-11 | 2026-08-22 | 🟧 Duplicate (feroxx 2026-07-20 tercih edildi) |
+| 32 | 🟩 DiziYou | aytzey/cs-kraptor | [www.diziyou.co](https://www.diziyou.co) | 49 | 2025-08-14 | 2026-08-22 | 🟧 Duplicate (feroxx 2026-07-20 tercih edildi) |
+| 33 | 🟦 F1FullRaces | Kraptor123/Cs-Karma | [i.imgur.com](https://i.imgur.com) | 10 | 2026-06-17 | - | 🟦 Eklenebilir |
+| 34 | 🟦 FilmBip | ilkelkullanici/ilkel-cloudstream | [filmbip.com](https://filmbip.com) | 19 | 2026-06-11 | - | 🟦 Eklenebilir |
+| 35 | 🟩 FilmEkseni | blackhope01/cloudstream-plugins | [www.filmekseni.vip](https://www.filmekseni.vip) | 1 | 2026-08-25 | 2026-08-28 | 🟩 Çalışıyor |
+| 36 | 🟩 FilmEkseni | aytzey/cs-kraptor | [filmekseni.net](https://filmekseni.net) | 50 | 2025-08-14 | 2026-08-28 | 🟧 Duplicate (blackhope01 2026-08-25 tercih edildi) |
+| 37 | 🟩 FilmHane | blackhope01/cloudstream-plugins | [www.filmhane.shop](https://www.filmhane.shop) | 1 | 2026-08-25 | 2026-08-28 | 🟩 Çalışıyor |
+| 38 | 🟩 FilmHane | aytzey/cs-kraptor | [encrypted-tbn1.gstatic.com](https://encrypted-tbn1.gstatic.com) | 43 | 2025-08-14 | 2026-08-28 | 🟧 Duplicate (blackhope01 2026-08-25 tercih edildi) |
+| 39 | 🟩 FilmMakinesi | feroxx/Kekik-cloudstream | [filmmakinesi.film](https://filmmakinesi.film) | 58 | 2026-08-23 | 2026-08-22 | 🟧 Duplicate (blackhope01 2026-08-25 tercih edildi) |
+| 40 | 🟩 FilmMakinesi | ilkelkullanici/ilkel-cloudstream | [filmmakinesi.film](https://filmmakinesi.film) | 57 | 2026-06-11 | 2026-08-22 | 🟧 Duplicate (blackhope01 2026-08-25 tercih edildi) |
+| 41 | 🟩 FilmMakinesi | MRTDEVM/cloudstream-turkce | [filmmakinesi.to](https://filmmakinesi.to) | 8 | 2026-08-21 | 2026-08-22 | 🟧 Duplicate (blackhope01 2026-08-25 tercih edildi) |
+| 42 | 🟩 FilmMakinesi | blackhope01/cloudstream-plugins | [www.filmmakinesi.to](https://www.filmmakinesi.to) | 1 | 2026-08-25 | 2026-08-22 | 🟩 Çalışıyor |
+| 43 | 🟩 FilmMakinesi | aytzey/cs-kraptor | [filmmakinesi.tv](https://filmmakinesi.tv) | 70 | 2025-08-14 | 2026-08-22 | 🟧 Duplicate (blackhope01 2026-08-25 tercih edildi) |
+| 44 | 🟩 FilmModu | feroxx/Kekik-cloudstream | [www.filmmodu.one](https://www.filmmodu.one) | 19 | 2026-07-20 | 2026-08-22 | 🟩 Çalışıyor |
+| 45 | 🟩 FilmModu | ilkelkullanici/ilkel-cloudstream | [www.filmmodu17.com](https://www.filmmodu17.com) | 19 | 2026-06-11 | 2026-08-22 | 🟧 Duplicate (feroxx 2026-07-20 tercih edildi) |
+| 46 | 🟩 FilmModu | aytzey/cs-kraptor | [www.filmmodu.one](https://www.filmmodu.one) | 41 | 2025-08-14 | 2026-08-22 | 🟧 Duplicate (feroxx 2026-07-20 tercih edildi) |
+| 47 | 🟦 Footballia | Kraptor123/Cs-Karma | [footballia.net](https://footballia.net) | 9 | 2026-06-03 | - | 🟦 Eklenebilir |
+| 48 | 🟨 Full4kizle | Kraptor123/Cs-Karma | [plusizle.net](https://plusizle.net) | 20 | 2026-08-27 | 2026-08-22 | 🟨 Çalışmıyor |
+| 49 | 🟦 FullHDFilm | feroxx/Kekik-cloudstream | [hdfilm.us](https://hdfilm.us) | 36 | 2026-07-20 | - | 🟩 Çalışıyor (2026-07-20 en güncel) |
+| 50 | 🟦 FullHDFilm | ilkelkullanici/ilkel-cloudstream | [fullhdfilm.us](https://fullhdfilm.us) | 36 | 2026-06-11 | - | 🟧 Duplicate (feroxx 2026-07-20 tercih edildi) |
+| 51 | 🟩 FullHDFilmizlesene | feroxx/Kekik-cloudstream | [www.fullhdfilmizlesene.de](https://www.fullhdfilmizlesene.de) | 33 | 2026-08-22 | 2026-08-22 | 🟧 Duplicate (ilkelkullanici 2026-08-28 tercih edildi) |
+| 52 | 🟩 FullHDFilmizlesene | ilkelkullanici/ilkel-cloudstream | [www.fullhdfilmizlesene.de](https://www.fullhdfilmizlesene.de) | 29 | 2026-08-28 | 2026-08-22 | 🟩 Çalışıyor |
+| 53 | 🟩 FullHDFilmizlesene | MRTDEVM/cloudstream-turkce | [www.fullhdfilmizlesene.now](https://www.fullhdfilmizlesene.now) | 8 | 2026-08-21 | 2026-08-22 | 🟧 Duplicate (ilkelkullanici 2026-08-28 tercih edildi) |
+| 54 | 🟩 FullHDFilmizlesene | aytzey/cs-kraptor | [www.fullhdfilmizlesene.de](https://www.fullhdfilmizlesene.de) | 72 | 2025-08-14 | 2026-08-22 | 🟧 Duplicate (ilkelkullanici 2026-08-28 tercih edildi) |
+| 55 | 🟩 HDFilmCehennemi | feroxx/Kekik-cloudstream | [hdfilmcehennemi.com](https://hdfilmcehennemi.com) | 48 | 2026-07-19 | 2026-08-22 | 🟧 Duplicate (MRTDEVM 2026-08-21 tercih edildi) |
+| 56 | 🟩 HDFilmCehennemi | ilkelkullanici/ilkel-cloudstream | [hdfilmcehennemi.com](https://hdfilmcehennemi.com) | 47 | 2026-06-11 | 2026-08-22 | 🟧 Duplicate (MRTDEVM 2026-08-21 tercih edildi) |
+| 57 | 🟩 Hdfilmcehennemi | MRTDEVM/cloudstream-turkce | [www.hdfilmcehennemi.nl](https://www.hdfilmcehennemi.nl) | 8 | 2026-08-21 | - | 🟩 Çalışıyor |
+| 58 | 🟩 HDFilmCehennemi | aytzey/cs-kraptor | [hdfilmcehennemi.nl](https://hdfilmcehennemi.nl) | 97 | 2025-08-14 | 2026-08-22 | 🟧 Duplicate (MRTDEVM 2026-08-21 tercih edildi) |
+| 59 | 🟩 HDFilmDelisi | feroxx/Kekik-cloudstream | [hdfilmdelisi.com](https://hdfilmdelisi.com) | 1 | 2026-08-27 | 2026-08-28 | 🟩 Çalışıyor |
+| 60 | 🟩 HDFilmDelisi | aytzey/cs-kraptor | [hdfilmdelisi.one](https://hdfilmdelisi.one) | 18 | 2026-07-15 | 2026-08-28 | 🟧 Duplicate (feroxx 2026-08-27 tercih edildi) |
+| 61 | 🟩 HDFilmizle | aytzey/cs-kraptor | [www.hdfilmizle.life](https://www.hdfilmizle.life) | 25 | 2026-08-05 | 2026-08-28 | 🟩 Çalışıyor |
+| 62 | 🟩 JetFilmizle | feroxx/Kekik-cloudstream | [jetfilmizle.de](https://jetfilmizle.de) | 47 | 2026-08-23 | 2026-08-22 | 🟧 Duplicate (blackhope01 2026-08-25 tercih edildi) |
+| 63 | 🟩 JetFilmizle | ilkelkullanici/ilkel-cloudstream | [jetfilmizle.de](https://jetfilmizle.de) | 47 | 2026-06-11 | 2026-08-22 | 🟧 Duplicate (blackhope01 2026-08-25 tercih edildi) |
+| 64 | 🟩 JetFilmizle | blackhope01/cloudstream-plugins | [jetfilmizle.now](https://jetfilmizle.now) | 1 | 2026-08-25 | 2026-08-22 | 🟩 Çalışıyor |
+| 65 | 🟩 JetFilmizle | aytzey/cs-kraptor | [jetfilmizle.de](https://jetfilmizle.de) | 62 | 2025-08-14 | 2026-08-22 | 🟧 Duplicate (blackhope01 2026-08-25 tercih edildi) |
+| 66 | 🟦 KoreanTurk | ilkelkullanici/ilkel-cloudstream | [koreanturk.com](https://koreanturk.com) | 7 | 2026-06-11 | - | 🟦 Eklenebilir |
+| 67 | 🟩 KraptorPlus | aytzey/cs-kraptor | [raw.githubusercontent.com](https://raw.githubusercontent.com) | 86 | 2026-08-04 | 2026-08-28 | 🟩 Çalışıyor |
+| 68 | 🟩 LoveFilm | blackhope01/cloudstream-plugins | [lovefilmizle.net](https://lovefilmizle.net) | 1 | 2026-08-25 | 2026-08-28 | 🟩 Çalışıyor |
+| 69 | 🟦 OnShort | Kraptor123/Cs-Karma | [onshort.net](https://onshort.net) | 1 | 2026-08-23 | - | 🟦 Eklenebilir |
+| 70 | 🟦 plt-party | pltmustafa/plt-stream | [raw.githubusercontent.com](https://raw.githubusercontent.com) | 5 | 2026-08-20 | - | 🟦 Eklenebilir |
+| 71 | 🟩 plt-stream | pltmustafa/plt-stream | [raw.githubusercontent.com](https://raw.githubusercontent.com) | 47 | 2026-08-24 | 2026-08-22 | 🟩 Çalışıyor |
+| 72 | 🟦 plt-tv | pltmustafa/plt-stream | [raw.githubusercontent.com](https://raw.githubusercontent.com) | 3 | 2026-08-23 | - | 🟦 Eklenebilir |
+| 73 | 🟩 SelcukFlix | aytzey/cs-kraptor | [selcukflix.com](https://selcukflix.com) | 49 | 2026-07-15 | 2026-08-28 | 🟩 Çalışıyor |
+| 74 | 🟨 SetFilmIzle | feroxx/Kekik-cloudstream | [www.setfilmizle.uk](https://www.setfilmizle.uk) | 30 | 2026-07-22 | 2026-08-28 | 🟨 Çalışmıyor |
+| 75 | 🟨 SetFilmIzle | ilkelkullanici/ilkel-cloudstream | [www.setfilmizle.nl](https://www.setfilmizle.nl) | 28 | 2026-06-11 | 2026-08-28 | 🟧 Duplicate (feroxx 2026-07-22 tercih edildi) |
+| 76 | 🟨 SetFilmIzle | aytzey/cs-kraptor | [www.setfilmizle.uk](https://www.setfilmizle.uk) | 42 | 2025-08-14 | 2026-08-28 | 🟧 Duplicate (feroxx 2026-07-22 tercih edildi) |
+| 77 | 🟩 SezonlukDizi | feroxx/Kekik-cloudstream | [sezonlukdizi6.com](https://sezonlukdizi6.com) | 9 | 2026-07-15 | 2026-08-22 | 🟧 Duplicate (ilkelkullanici 2026-08-28 tercih edildi) |
+| 78 | 🟩 SezonlukDizi | ilkelkullanici/ilkel-cloudstream | [sezonlukdizi6.com](https://sezonlukdizi6.com) | 8 | 2026-08-28 | 2026-08-22 | 🟩 Çalışıyor |
+| 79 | 🟩 SezonlukDizi | blackhope01/cloudstream-plugins | [sezonlukdizi.cc](https://sezonlukdizi.cc) | 1 | 2026-08-25 | 2026-08-22 | 🟧 Duplicate (ilkelkullanici 2026-08-28 tercih edildi) |
+| 80 | 🟩 SezonlukDizi | aytzey/cs-kraptor | [sezonlukdizi6.com](https://sezonlukdizi6.com) | 40 | 2025-08-14 | 2026-08-22 | 🟧 Duplicate (ilkelkullanici 2026-08-28 tercih edildi) |
+| 81 | 🟩 SinemaCX | feroxx/Kekik-cloudstream | [www.sinema.cx](https://www.sinema.cx) | 24 | 2026-04-24 | 2026-08-22 | 🟧 Duplicate (ilkelkullanici 2026-06-11 tercih edildi) |
+| 82 | 🟩 SinemaCX | ilkelkullanici/ilkel-cloudstream | [www.sinema.cx](https://www.sinema.cx) | 24 | 2026-06-11 | 2026-08-22 | 🟩 Çalışıyor |
+| 83 | 🟩 SinemaCX | aytzey/cs-kraptor | [www.sinema.gg](https://www.sinema.gg) | 35 | 2025-08-14 | 2026-08-22 | 🟧 Duplicate (ilkelkullanici 2026-06-11 tercih edildi) |
+| 84 | 🟩 Sinewix | feroxx/Kekik-cloudstream | [play-lh.googleusercontent.com](https://play-lh.googleusercontent.com) | 2 | 2026-08-23 | 2026-08-22 | 🟩 Çalışıyor |
+| 85 | 🟩 Sinewix | ilkelkullanici/ilkel-cloudstream | [play-lh.googleusercontent.com](https://play-lh.googleusercontent.com) | 2 | 2026-06-11 | 2026-08-22 | 🟧 Duplicate (feroxx 2026-08-23 tercih edildi) |
+| 86 | 🟩 SineWix | aytzey/cs-kraptor | [play-lh.googleusercontent.com](https://play-lh.googleusercontent.com) | 33 | 2026-07-15 | - | 🟧 Duplicate (feroxx 2026-08-23 tercih edildi) |
+| 87 | 🟩 Sinezy | aytzey/cs-kraptor | [sinezy.fit](https://sinezy.fit) | 40 | 2026-07-14 | 2026-08-28 | 🟩 Çalışıyor |
+| 88 | 🟩 Turkdizileri | aytzey/cs-kraptor | [i.imgur.com](https://i.imgur.com) | 33 | 2026-07-15 | 2026-08-28 | 🟩 Çalışıyor |
+| 89 | 🟩 TvDiziler | aytzey/cs-kraptor | [tvdiziler.cc](https://tvdiziler.cc) | 18 | 2026-07-15 | 2026-08-28 | 🟩 Çalışıyor |
+| 90 | 🟩 WebteIzle | feroxx/Kekik-cloudstream | [webteizle3.xyz](https://webteizle3.xyz) | 20 | 2026-08-27 | 2026-08-28 | 🟩 Çalışıyor |
+| 91 | 🟩 WebteIzle | ilkelkullanici/ilkel-cloudstream | [webteizle2.com](https://webteizle2.com) | 17 | 2026-06-11 | 2026-08-28 | 🟧 Duplicate (feroxx 2026-08-27 tercih edildi) |
+| 92 | 🟩 Webteizle | blackhope01/cloudstream-plugins | [webteizle3.xyz](https://webteizle3.xyz) | 1 | 2026-08-25 | - | 🟧 Duplicate (feroxx 2026-08-27 tercih edildi) |
+| 93 | 🟩 WebteIzle | aytzey/cs-kraptor | [webteizle1.xyz](https://webteizle1.xyz) | 53 | 2025-08-14 | 2026-08-28 | 🟧 Duplicate (feroxx 2026-08-27 tercih edildi) |
+| 94 | 🟩 WFilmizle | aytzey/cs-kraptor | [wfilmizle.bar](https://wfilmizle.bar) | 23 | 2026-07-24 | 2026-08-28 | 🟩 Çalışıyor |
+| 95 | 🟩 YabanciDizi | aytzey/cs-kraptor | [yabancidizi.so](https://yabancidizi.so) | 18 | 2025-08-14 | 2026-08-28 | 🟩 Çalışıyor |## Istenmeyenler (Delete-Zone) - 74 unique
 
 | Eklenti | Kaynak Ornek | Site | Dil | Tur |
 |---------|--------------|------|-----|-----|
