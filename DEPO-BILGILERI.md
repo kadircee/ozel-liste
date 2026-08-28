@@ -220,7 +220,7 @@ Push sonrası jsDelivr önbelleği için:
 ```
 https://purge.jsdelivr.net/gh/kadircee/ozel-liste@main/plugins.json
 ```
-CloudStream tarafında depo yenilendiğinde yeni liste otomatik çekilir. Kaynak senkronu ve site sağlığı **otomatik değildir** (GitHub Actions yok): kaynak bir eklentiyi güncellediğinde listedeki hash/boyut **elle** `update.py` çalıştırılarak senkronlanır, kaynak site ölürse eklenti **elle** `verify.py --health` (veya `--deep`) çalıştırılarak `status:0` yapılır. `status:1`'e (yeniden açma) otomatik dönülmez; site geri geldiyse `plugins.json`'da ilgili eklentinin `status`'u elle `1` yapılır. Güncelleme öncesi `verify.py --offline` ve `update.py --check` ile kontrol etmek iyi alışkanlıktır.
+CloudStream tarafında depo yenilendiğinde yeni liste otomatik çekilir. Kaynak senkronu ve site sağlığı **otomatik değildir** (workflow dosyası yalnızca manuel tetikleme içindir, cron kapalı): kaynak bir eklentiyi güncellediğinde listedeki hash/boyut **elle** `update.py` çalıştırılarak senkronlanır, kaynak site ölürse eklenti **elle** `verify.py --health` (veya `--deep`) çalıştırılarak `status:0` yapılır. `status:1`'e (yeniden açma) otomatik dönülmez; site geri geldiyse `plugins.json`'da ilgili eklentinin `status`'u elle `1` yapılır. Güncelleme öncesi `verify.py --offline` ve `update.py --check` ile kontrol etmek iyi alışkanlıktır.
 
 ## Tüm Repolar - Alfabetik Liste
 
