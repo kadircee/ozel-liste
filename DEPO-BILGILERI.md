@@ -185,8 +185,13 @@ Kaynak `builds/plugins.json` adresi, listedeki `.cs3` adresinden türetilir (`ht
 | FilmBip | ilkel | filmbip.com | Site ölü, tekrar kontrol edilecek |
 | FullHDFilm | feroxx | fullhdfilm.org | Site ölü, tekrar kontrol edilecek |
 | Filmatek | Kraptor123/Cs-Karma | filmatek.net | Site ölü, tekrar kontrol edilecek |
+| Full4kizle | Kraptor123/Cs-Karma | plusizle.net | **status:0** — domain plusizle.org'a taşındı, build bekleniyor |
+| DiziFilmORG | aytzey/cs-kraptor | dizifilm.org | **status:0** — çalışmıyor, repobuild gelince kontrol |
+| DiziPal | aytzey/cs-kraptor | dizipal.im | **status:0** — çalışmıyor (DiziPalOriginal v84 + DiziPalOrijinal v45 çalışıyor) |
+| DiziYo | aytzey/cs-kraptor | diziyo (DiziYo) | **status:0** — çalışmıyor (DiziYou v25 çalışıyor) |
+| SetFilmIzle | aytzey/cs-kraptor | www.setfilmizle.uk | **status:0** — çalışmıyor, repobuild gelince kontrol |
 
-> **Not (2026-08-28):** Yukarıdaki tablodan `SetFilmIzle`, `DiziBox`, `DiziMom`, `Dizilla`, `WebteIzle` aynı build güncellendiğinde / yeni repolardan farklı domainlerle yeniden eklendiği için çıkarıldı: `aytzey/cs-kraptor`'da `SetFilmIzle (www.setfilmizle.uk)`, `DiziBox (dizibox.de)`, `DiziMom (dizimom.mom)`, `Dizilla (dizilla.to)`, `WebteIzle (webteizle1.xyz)` olarak `plugins.json`'a aktif eklendi ve çalışıyor. Bu mantıkla tablo, sadece hala ölü ve yeni repo/build'de de çalışmayanlar için tutulur.
+> **Not (2026-08-28):** Yukarıdaki tablodan `DiziBox`, `DiziMom`, `Dizilla`, `WebteIzle` aynı build güncellendiğinde / yeni repolardan farklı domainlerle yeniden eklendiği için çıkarıldı: `aytzey/cs-kraptor`'da `DiziBox (dizibox.de)`, `DiziMom (dizimom.mom)`, `Dizilla (dizilla.to)`, `WebteIzle (webteizle1.xyz)` olarak `plugins.json`'a aktif eklendi ve çalışıyor. `SetFilmIzle` ise aytzey'de **status:0** ile yeniden eklenip bu tabloda izleniyor (repobuild gelince kontrol). Bu mantıkla tablo, sadece hala ölü ve yeni repo/build'de de çalışmayanlar için tutulur.
 > **Not:** Bu liste güncellenebilir; aynı build güncellendiğinde veya yeni repolarda yeniden eklendiğinde çalışanlar ana listeye alınır, hala ölü olanlar burada bırakılır.
 
 ### Önemli Not
@@ -204,21 +209,15 @@ Bu eklentiler listeye **eklenmez**; yeniden ekleme kararı yalnızca kullanıcı
 
 Aynı isim/kökten farklı repo/build'lerde gelen ve yalnızca 1 tanesi listede tutulan eklentiler. Her gruptan sadece 1 tanesi `plugins.json`'da yer alır; diğer(leri) duplicate olarak eklenmez, repobuild güncellendiğinde kontrol edilir.
 
-| Grup | Seçilen (Aktif) | Versiyon | Kaynak | Duplicate (Eklenmedi / Çalışmıyor) | Duplicate Kaynak | Durum / Not |
-|------|---------------------|----------|--------|--------------------------------------------------------|------------------|-------------|
-| DiziPal grubu | DiziPalOriginal | v84 | feroxx/Kekik-cloudstream | DiziPal | aytzey/cs-kraptor v89 | **Çalışmıyor** — repobuild gelince kontrol edilecek |
-| DiziPal grubu | DiziPalOrijinal | v45 | aytzey/cs-kraptor | DiziPal (aynı grup) | aytzey v89 | Çalışmıyor, Original/Orijinal çalışıyor |
-| DiziYo / DiziYou | DiziYou | v25 | feroxx/Kekik-cloudstream | DiziYo | aytzey v74 | **Çalışmıyor** — repobuild gelince kontrol |
-| DiziYo / DiziYou | DiziYo (aytzey) | v74 | aytzey/cs-kraptor | DiziYo (blackhope) | blackhope v1 | Duplicate, aytzey tercih edildi |
+| Grup | Seçilen (Aktif) | Versiyon | Kaynak | Duplicate (Eklenmedi) | Duplicate Kaynak | Durum / Not |
+|------|---------------------|----------|--------|------------------------|------------------|-------------|
 | DiziLife | DiziLife | v58 | aytzey/cs-kraptor | DiziLife | blackhope v2 | Duplicate, aytzey tercih edildi |
 | DiziMom | DiziMom | v61 | aytzey/cs-kraptor | DiziMom | blackhope v3 | Duplicate, aytzey tercih edildi |
 | FilmEkseni | FilmEkseni | v50 | aytzey/cs-kraptor | FilmEkseni | blackhope v1 | Duplicate, aytzey tercih edildi |
 | FilmHane | FilmHane | v43 | aytzey/cs-kraptor | FilmHane | blackhope v1 | Duplicate, aytzey tercih edildi |
 | WebteIzle | WebteIzle | v53 | aytzey/cs-kraptor | Webteizle | blackhope v1 | Duplicate, aytzey tercih edildi |
-| DiziFilmORG | - | - | - | DiziFilmORG | aytzey v22 | **Çalışmıyor** — repobuild gelince kontrol |
-| SetFilmIzle | - | - | - | SetFilmIzle | aytzey v42 | **Çalışmıyor** — repobuild gelince kontrol |
 
-> **Not:** `DiziFilmORG`, `DiziPal`, `DiziYo`, `SetFilmIzle` şu an çalışmıyor olarak işaretlendi; aytzey/blackhope repolarında build güncellendiğinde veya farklı domainle yeniden eklendiğinde kontrol edilip gerekirse `status` güncellenecek veya değiştirilecek. Duplicate tablosu güncellenebilir.
+> **Not:** Duplicate tablosu sadece farklı repo/build'lerdeki aynı isimli eklentiler için tutulur; `status:0` olan `DiziFilmORG`, `DiziPal`, `DiziYo`, `SetFilmIzle` ve `Full4kizle` artık **Tekrar Kontrol** tablosunda (yeniden eklenebilirler) izlenir. Her iki tablo da güncellenebilir.
 
 
 ## Güncelleme
