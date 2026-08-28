@@ -43,24 +43,24 @@
     "fileHash": "sha256-aa3cbe54cc86254fe2047817df994a52c8869d4001b12f028ec8d734210dc1b2"
   },
   {
-    "url": "https://raw.githubusercontent.com/feroxx/Kekik-cloudstream/builds/Ddizi.cs3",
+    "url": "https://raw.githubusercontent.com/aytzey/cs-kraptor/builds/Ddizi.cs3",
     "status": 1,
-    "version": 22,
+    "version": 19,
     "name": "Ddizi",
     "internalName": "Ddizi",
     "authors": [
-      "keyiflerolsun"
+      "kraptor"
     ],
-    "description": "DDizi.im için Cloudstream eklentisi",
-    "fileSize": 20110,
-    "repositoryUrl": "https://github.com/feroxx/Kekik-cloudstream",
+    "description": "Ddizi, dizi izle, dizi seyret, yerli dizi izle, canlı dizi, türk dizi izle, dizi izle full, diziizle, eski diziler.",
+    "fileSize": 36196,
+    "repositoryUrl": "https://github.com/aytzey/cs-kraptor",
     "language": "tr",
     "tvTypes": [
       "TvSeries"
     ],
-    "iconUrl": "https://www.ddizi.im/favicon.ico",
+    "iconUrl": "https://www.ddizi.im/images/logo.png",
     "apiVersion": 1,
-    "fileHash": "sha256-47e75d5eb583ed98fb54324a73028da5f35775e910f3e6a5e78cd00effa786a9"
+    "fileHash": "sha256-4e20618c5b65b5ee28f58db98889d48d1245d06f9ee5028663d8d66988c9abf8"
   },
   {
     "url": "https://raw.githubusercontent.com/feroxx/Kekik-cloudstream/builds/DiziYou.cs3",
@@ -83,25 +83,25 @@
     "fileHash": "sha256-6261d0bb203f1870dec0f0e3eab2e6dba9404b36b2e83cef5e653f7bc112e72b"
   },
   {
-    "url": "https://raw.githubusercontent.com/feroxx/Kekik-cloudstream/builds/FilmMakinesi.cs3",
+    "url": "https://raw.githubusercontent.com/blackhope01/cloudstream-plugins/builds/FilmMakinesi.cs3",
     "status": 1,
-    "version": 58,
+    "version": 1,
     "name": "FilmMakinesi",
     "internalName": "FilmMakinesi",
     "authors": [
-      "keyiflerolsun",
-      "usdogu"
+      "blackhope01"
     ],
-    "description": "Film Makinesi, en yeni ve en güncel filmleri sitemizde full HD kalite farkı ile izleyebilirsiniz. HD film izle denildiğinde akla gelen en kaliteli film izleme sitesi.",
-    "fileSize": 22836,
-    "repositoryUrl": "https://github.com/feroxx/Kekik-cloudstream",
+    "description": "Film Makinesi ile en yeni ve güncel filmleri Full HD kalite farkı ile izleyebilirsiniz. Film izle denildiğinde akla gelen en kaliteli film sitesi.",
+    "fileSize": 37414,
+    "repositoryUrl": "https://github.com/blackhope01/cloudstream-plugins",
     "language": "tr",
     "tvTypes": [
-      "Movie"
+      "Movie",
+      "TvSeries"
     ],
-    "iconUrl": "https://www.google.com/s2/favicons?domain=filmmakinesi.film&sz=128",
+    "iconUrl": "https://www.google.com/s2/favicons?domain=https://www.filmmakinesi.to&sz=128",
     "apiVersion": 1,
-    "fileHash": "sha256-8c6c51c374449996d68993283bfb7170c9f24b6dafdaadde3958b314453a88ec"
+    "fileHash": "sha256-05ca975ab3f029f28d52c2e332d7189d5c1a861143f2efb86a3b6db4760a8019"
   },
   {
     "url": "https://raw.githubusercontent.com/feroxx/Kekik-cloudstream/builds/FilmModu.cs3",
@@ -124,29 +124,28 @@
     "fileHash": "sha256-3150a6212f052ad843a8b9e67d65c82b35078f502bb9f5032b1af808d87b862e"
   },
   {
-    "url": "https://raw.githubusercontent.com/feroxx/Kekik-cloudstream/builds/HDFilmCehennemi.cs3",
+    "url": "https://raw.githubusercontent.com/MRTDEVM/cloudstream-turkce/builds/Hdfilmcehennemi.cs3",
     "status": 1,
-    "version": 48,
-    "name": "HDFilmCehennemi",
+    "version": 8,
+    "name": "Hdfilmcehennemi",
     "internalName": "HDFilmCehennemi",
     "authors": [
-      "hexated",
-      "keyiflerolsun"
+      "CloudStream User"
     ],
-    "description": "Türkiye'nin en hızlı hd film izleme sitesi",
-    "fileSize": 31661,
-    "repositoryUrl": "https://github.com/feroxx/Kekik-cloudstream",
+    "description": "HDFilmCehennemi Turkce Film ve Dizi Saglayicisi",
+    "fileSize": 26700,
+    "repositoryUrl": "https://github.com/MRTDEVM/cloudstream-turkce",
     "language": "tr",
     "tvTypes": [
       "Movie",
       "TvSeries"
     ],
-    "iconUrl": "https://www.google.com/s2/favicons?domain=hdfilmcehennemi.com&sz=128",
+    "iconUrl": "https://www.hdfilmcehennemi.nl/favicon.ico",
     "apiVersion": 1,
-    "fileHash": "sha256-d3edf0a3cce476d7a5b850950c0fe467102cfacc890da86c5fc39eaecd470c86"
+    "fileHash": "sha256-87a9083a8a6ee61d90b9c5376acefb41e1f4f194fc0ad7d107dfaa0792e75684"
   },
   {
-    "url": "https://raw.githubusercontent.com/feroxx/Kekik-cloudstream/builds/SinemaCX.cs3",
+    "url": "https://raw.githubusercontent.com/ilkelkullanici/ilkel-cloudstream/builds/SinemaCX.cs3",
     "status": 1,
     "version": 24,
     "name": "SinemaCX",
@@ -155,43 +154,45 @@
       "keyiflerolsun"
     ],
     "description": "Güncel ve en iyi yabancı filmleri yüksek görüntü kalitesinde, Türkçe dublaj ve altyazı seçenekleriyle filmleri full izleyin.",
-    "fileSize": 16707,
-    "repositoryUrl": "https://github.com/feroxx/Kekik-cloudstream",
+    "fileSize": 16693,
+    "repositoryUrl": "https://github.com/ilkelkullanici/ilkel-cloudstream",
     "language": "tr",
     "tvTypes": [
       "Movie"
     ],
     "iconUrl": "https://www.google.com/s2/favicons?domain=www.sinema.cx&sz=128",
     "apiVersion": 1,
-    "fileHash": "sha256-a190ac05f8aea8e02626447814c076b6442ed2854794634d07878c2728be06d9"
+    "fileHash": "sha256-3c496ff118452705b240bc4e2ab887efc5c1496897d0a0bf851db40d0ff04a4c"
   },
   {
-    "url": "https://raw.githubusercontent.com/ilkelkullanici/ilkel-cloudstream/builds/Sinewix.cs3",
+    "url": "https://raw.githubusercontent.com/aytzey/cs-kraptor/builds/SineWix.cs3",
     "status": 1,
-    "version": 2,
-    "name": "Sinewix",
+    "version": 33,
+    "name": "SineWix",
     "internalName": "Sinewix",
     "authors": [
-      "patr0n",
-      "keyiflerolsun"
+      "kraptor",
+      "ByAyzen"
     ],
-    "description": "Sinewix | Ücretsiz Film - Dizi - Anime İzleme Uygulaması",
-    "fileSize": 23824,
-    "repositoryUrl": "https://github.com/ilkelkullanici/ilkel-cloudstream",
+    "description": "SineWix - Ücretsiz Film, Dizi ve Anime İzleme Uygulaması 5000+ HD İçerik, Türkçe Altyazılı, Otaku Dostu Anime Arşivi, Premium Kalite Yabancı Yapımlar",
+    "fileSize": 77299,
+    "repositoryUrl": "https://github.com/aytzey/cs-kraptor",
     "language": "tr",
     "tvTypes": [
       "Movie",
       "TvSeries",
-      "Anime"
+      "Anime",
+      "AsianDrama",
+      "Cartoon"
     ],
-    "iconUrl": "https://play-lh.googleusercontent.com/brwGNmr7IjA_MKk_TTPs0va10hdKE_bD_a1lnKoiMuCayW98EHpRv55edA6aEoJlmwfX",
+    "iconUrl": "https://play-lh.googleusercontent.com/brwGNmr7IjA_MKk_TTPs0va10hdKE_bD_a1lnKoiMuCayW98EHpRv55edA6aEoJlmwfX=w240-h480",
     "apiVersion": 1,
-    "fileHash": "sha256-e04a2a8fc3dc1b55a2f594a25e74c41900ac68df88e9c67e73253afd12363098"
+    "fileHash": "sha256-8155d0c87480fd1c28da228acea89a6c79c13a546a8df49cf5063a54f7922772"
   },
   {
-    "url": "https://raw.githubusercontent.com/feroxx/Kekik-cloudstream/builds/SezonlukDizi.cs3",
+    "url": "https://raw.githubusercontent.com/ilkelkullanici/ilkel-cloudstream/builds/SezonlukDizi.cs3",
     "status": 1,
-    "version": 9,
+    "version": 8,
     "name": "SezonlukDizi",
     "internalName": "SezonlukDizi",
     "authors": [
@@ -199,55 +200,56 @@
       "JustRelaxable"
     ],
     "description": "Güncel ve eski dizileri en iyi görüntü kalitesiyle bulabileceğiniz yabancı dizi izleme siteniz.",
-    "fileSize": 21851,
-    "repositoryUrl": "https://github.com/feroxx/Kekik-cloudstream",
+    "fileSize": 21648,
+    "repositoryUrl": "https://github.com/ilkelkullanici/ilkel-cloudstream",
     "language": "tr",
     "tvTypes": [
       "TvSeries"
     ],
     "iconUrl": "https://www.google.com/s2/favicons?domain=sezonlukdizi6.com&sz=128",
     "apiVersion": 1,
-    "fileHash": "sha256-d20e1936290d33d0aa1ea07a262b371bcfcd866e56363cc2dcf1c1abd60eb91a"
+    "fileHash": "sha256-930ff881fa9b35ad8bc1f662ddfafd20f37349b10eecff6c028f9cdbd4a9dedf"
   },
   {
-    "url": "https://raw.githubusercontent.com/feroxx/Kekik-cloudstream/builds/JetFilmizle.cs3",
+    "url": "https://raw.githubusercontent.com/blackhope01/cloudstream-plugins/builds/JetFilmizle.cs3",
     "status": 1,
-    "version": 47,
+    "version": 1,
     "name": "JetFilmizle",
     "internalName": "JetFilmizle",
     "authors": [
-      "keyiflerolsun"
+      "blackhope01"
     ],
-    "description": "Binlerce Film İzleme Seçeneğiyle En İyi Film İzleme Sitesi",
-    "fileSize": 18698,
-    "repositoryUrl": "https://github.com/feroxx/Kekik-cloudstream",
+    "description": "En yeni yerli ve yabancı yapımları Full HD kalitede film izle. Türkçe dublaj ve altyazı seçenekleriyle sunulan ödüllü sinema eserlerini JetFilmizle hızıyla keşfedin.",
+    "fileSize": 41722,
+    "repositoryUrl": "https://github.com/blackhope01/cloudstream-plugins",
     "language": "tr",
     "tvTypes": [
-      "Movie"
+      "Movie",
+      "TvSeries"
     ],
-    "iconUrl": "https://www.google.com/s2/favicons?domain=jetfilmizle.de&sz=128",
+    "iconUrl": "https://www.google.com/s2/favicons?domain=https://jetfilmizle.now&sz=128",
     "apiVersion": 1,
-    "fileHash": "sha256-1472a4fd418b77e82a5f21a15d838bc8a0a6b4a9c8189611c53c07df3dc916b9"
+    "fileHash": "sha256-6396427508fbce27ef8ffeb56ac73436ef9ea4ecf9c8f01e74681ea167ed0d01"
   },
   {
-    "url": "https://raw.githubusercontent.com/MRTDEVM/cloudstream-turkce/builds/FullHDFilmizlesene.cs3",
+    "url": "https://raw.githubusercontent.com/ilkelkullanici/ilkel-cloudstream/builds/FullHDFilmizlesene.cs3",
     "status": 1,
-    "version": 8,
+    "version": 29,
     "name": "FullHDFilmizlesene",
     "internalName": "FullHDFilmizlesene",
     "authors": [
-      "CloudStream User"
+      "keyiflerolsun"
     ],
-    "description": "FullHDFilmizlesene Turkce Film Saglayicisi",
-    "fileSize": 18682,
-    "repositoryUrl": "https://github.com/MRTDEVM/cloudstream-turkce",
+    "description": "Sinema zevkini evinize kadar getirdik. Türkiye'nin lider Film sitesinde, en yeni filmleri Full HD izleyin.",
+    "fileSize": 40663,
+    "repositoryUrl": "https://github.com/ilkelkullanici/ilkel-cloudstream",
     "language": "tr",
     "tvTypes": [
       "Movie"
     ],
-    "iconUrl": "https://www.fullhdfilmizlesene.now/favicon.ico",
+    "iconUrl": "https://www.google.com/s2/favicons?domain=www.fullhdfilmizlesene.de&sz=128",
     "apiVersion": 1,
-    "fileHash": "sha256-f8fa5d0f87bef94d2110a453c2297adb63be065548d30d69cbedb0b4cfdd670a"
+    "fileHash": "sha256-ebb53b2a989c8142fb7ba0ba4caab214a42c5c3f61905dff936c9886156c8e69"
   },
   {
     "url": "https://raw.githubusercontent.com/feroxx/Kekik-cloudstream/builds/DiziPalOriginal.cs3",
@@ -293,26 +295,24 @@
     "fileHash": "sha256-20329159ede070b4f6535bb501c5d4276262247574f27ef9740cdf2ab7175a95"
   },
   {
-    "url": "https://raw.githubusercontent.com/aytzey/cs-kraptor/builds/DiziBox.cs3",
+    "url": "https://raw.githubusercontent.com/ilkelkullanici/ilkel-cloudstream/builds/DiziBox.cs3",
     "status": 1,
-    "version": 37,
+    "version": 23,
     "name": "DiziBox",
     "internalName": "DiziBox",
     "authors": [
-      "kraptor",
-      "kerimmkirac",
-      "ByAyzen"
+      "keyiflerolsun"
     ],
     "description": "Yabancı Dizi izle, Tüm yabancı dizilerin yeni ve eski sezonlarını full hd izleyebileceğiniz elit site.",
-    "fileSize": 41155,
-    "repositoryUrl": "https://github.com/aytzey/cs-kraptor",
+    "fileSize": 22870,
+    "repositoryUrl": "https://github.com/ilkelkullanici/ilkel-cloudstream",
     "language": "tr",
     "tvTypes": [
       "TvSeries"
     ],
-    "iconUrl": "https://t3.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url=http://www.dizibox.de&size=16",
+    "iconUrl": "https://www.google.com/s2/favicons?domain=www.dizibox.live&sz=128",
     "apiVersion": 1,
-    "fileHash": "sha256-b794027e91ef844b33acba4a5e1bf0dbd8112e74ddf787525264bfbeff8263a3"
+    "fileHash": "sha256-49fee65d7ef8ce4f952e196c74da903c3d8440b5deaf9382730d9fb0062b6c4d"
   },
   {
     "url": "https://raw.githubusercontent.com/aytzey/cs-kraptor/builds/DiziFilmORG.cs3",
@@ -357,90 +357,87 @@
     "fileHash": "sha256-d4bf1c4d02c4c2d04aee0182865ad93ff932b1cebb162ee5c75769caed4ff822"
   },
   {
-    "url": "https://raw.githubusercontent.com/aytzey/cs-kraptor/builds/DiziLife.cs3",
+    "url": "https://raw.githubusercontent.com/blackhope01/cloudstream-plugins/builds/DiziLife.cs3",
     "status": 1,
-    "version": 58,
+    "version": 2,
     "name": "DiziLife",
     "internalName": "DiziLife",
     "authors": [
-      "kerimmkirac",
-      "kraptor",
-      "ByAyzen"
+      "blackhope01"
     ],
-    "description": "Dizilife yabancı dizi ve film izlemek için tasarlanmış bir platformdur. Tüm dünyadan yerli/yabancı bütün dizileri ve filmleri ücretsiz ve donmadan izleyebilirsiniz.",
-    "fileSize": 82740,
-    "repositoryUrl": "https://github.com/aytzey/cs-kraptor",
+    "description": "Dizi.life Türkçe dizi/film izleme platformu — yabancı diziler, yeni filmler, son bölümler.",
+    "fileSize": 17212,
+    "repositoryUrl": "https://github.com/blackhope01/cloudstream-plugins",
     "language": "tr",
     "tvTypes": [
       "Movie",
       "TvSeries"
     ],
-    "iconUrl": "https://www.google.com/s2/favicons?sz=64&domain=dizi18.life",
+    "iconUrl": "https://www.google.com/s2/favicons?domain=https://dizi73.life&sz=128",
     "apiVersion": 1,
-    "fileHash": "sha256-4028b03eb80e9b60183f45401b49d5c253162e11dd279747b98e4ba5dbff5ea3"
+    "fileHash": "sha256-70a7307e640f4b21023d84f7f4e9ad64b24aeacdf3c670ab83a6139621e365e2"
   },
   {
-    "url": "https://raw.githubusercontent.com/aytzey/cs-kraptor/builds/Dizilla.cs3",
+    "url": "https://raw.githubusercontent.com/feroxx/Kekik-cloudstream/builds/Dizilla.cs3",
     "status": 1,
-    "version": 111,
+    "version": 92,
     "name": "Dizilla",
     "internalName": "Dizilla",
     "authors": [
-      "kraptor",
-      "kerimmkirac"
+      "keyiflerolsun"
     ],
-    "description": "1080p yabancı dizi izle. Türkçe altyazılı veya dublaj seçenekleriyle 1080p çözünürlükte yabancı dizilere anında ulaş. Popüler dizileri kesintisiz izle.",
-    "fileSize": 150195,
-    "repositoryUrl": "https://github.com/aytzey/cs-kraptor",
+    "description": "Dizilla tüm yabancı dizileri ücretsiz olarak Türkçe Dublaj ve altyazılı seçenekleri ile 1080P kalite izleyebileceğiniz yeni nesil yabancı dizi izleme siteniz.",
+    "fileSize": 36123,
+    "repositoryUrl": "https://github.com/feroxx/Kekik-cloudstream",
     "language": "tr",
     "tvTypes": [
       "TvSeries"
     ],
-    "iconUrl": "https://www.google.com/s2/favicons?sz=128&domain=https://dizilla.to",
+    "iconUrl": "https://www.google.com/s2/favicons?domain=dizilla.club&sz=128",
     "apiVersion": 1,
-    "fileHash": "sha256-aab334fad3a465dc2eef948b2883f2e5a1b05e33eeac2ec66ebc7dea728c7c08"
+    "fileHash": "sha256-25a5164a8a92dece1f5993e4ddd7be8399f53c92ebf7448177712fa51b853827"
   },
   {
-    "url": "https://raw.githubusercontent.com/aytzey/cs-kraptor/builds/DiziMom.cs3",
+    "url": "https://raw.githubusercontent.com/feroxx/Kekik-cloudstream/builds/DiziMom.cs3",
     "status": 1,
-    "version": 61,
+    "version": 56,
     "name": "DiziMom",
     "internalName": "DiziMom",
     "authors": [
-      "kraptor"
+      "keyiflerolsun"
     ],
     "description": "Binlerce yerli yabancı dizi arşivi, tüm sezonlar, kesintisiz bölümler. Sadece dizi izle, Dizimom heryerde seninle!",
-    "fileSize": 55291,
-    "repositoryUrl": "https://github.com/aytzey/cs-kraptor",
+    "fileSize": 34844,
+    "repositoryUrl": "https://github.com/feroxx/Kekik-cloudstream",
     "language": "tr",
     "tvTypes": [
       "TvSeries"
     ],
-    "iconUrl": "https://t1.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url=https://www.dizimom.mom&size=32",
+    "iconUrl": "https://www.google.com/s2/favicons?domain=www.dizimom.plus&sz=128",
     "apiVersion": 1,
-    "fileHash": "sha256-d0f2af2b7be8e19197841e6aa678ec7009ab8411ac168cfdd155427841ab6752"
+    "fileHash": "sha256-cada7dde976ccbe3d28d6d3c525893c8e4267c1aa0d35b6a2cef0daf864874b3"
   },
   {
-    "url": "https://raw.githubusercontent.com/aytzey/cs-kraptor/builds/DiziPal.cs3",
+    "url": "https://raw.githubusercontent.com/ilkelkullanici/ilkel-cloudstream/builds/DiziPal.cs3",
     "status": 0,
-    "version": 89,
+    "version": 90,
     "name": "DiziPal",
     "internalName": "DiziPal",
     "authors": [
-      "kraptor",
-      "ByAyzen"
+      "keyiflerolsun",
+      "muratcesmecioglu"
     ],
-    "description": "En yeni dizileri güvenli ve hızlı şekilde sunar.",
-    "fileSize": 38248,
-    "repositoryUrl": "https://github.com/aytzey/cs-kraptor",
+    "description": "en yeni dizileri güvenli ve hızlı şekilde sunar.",
+    "fileSize": 27732,
+    "repositoryUrl": "https://github.com/ilkelkullanici/ilkel-cloudstream",
     "language": "tr",
     "tvTypes": [
-      "Movie",
-      "TvSeries"
+      "TvSeries",
+      "Movie"
     ],
-    "iconUrl": "https://t2.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url=https://dizipal.im/&size=128",
+    "iconUrl": "https://www.google.com/s2/favicons?domain=https://dizipal952.com&sz=128",
     "apiVersion": 1,
-    "fileHash": "sha256-d6bc9075369fed694b9a7bb28e0a78c4ac4467c59c60209c1bcc7389d5465bfe"
+    "fileHash": "sha256-f757d37095e7b14e041dca43f9d992d3e1a5acf8648c493b3e9d90fe5d0a254b"
   },
   {
     "url": "https://raw.githubusercontent.com/aytzey/cs-kraptor/builds/DiziPalOrijinal.cs3",
@@ -489,66 +486,67 @@
     "fileHash": "sha256-64c82bbd92dda72ea00e666e7488ae876d4f456ec5144347071e2616ae58d2c5"
   },
   {
-    "url": "https://raw.githubusercontent.com/aytzey/cs-kraptor/builds/DiziYo.cs3",
+    "url": "https://raw.githubusercontent.com/blackhope01/cloudstream-plugins/builds/DiziYo.cs3",
     "status": 0,
-    "version": 74,
+    "version": 1,
     "name": "DiziYo",
     "internalName": "DiziYo",
     "authors": [
-      "kraptor",
-      "ByAyzen"
+      "blackhope01"
     ],
-    "description": "Diziyo ile Yabancı Dizi, Film, Anime, Çizgi-Film izle.",
-    "fileSize": 36750,
-    "repositoryUrl": "https://github.com/aytzey/cs-kraptor",
+    "description": "Yeni film, dizi, anime ve bölümleri keşfet; güncel trendleri, sıralamaları ve yayın takvimini incele.",
+    "fileSize": 28760,
+    "repositoryUrl": "https://github.com/blackhope01/cloudstream-plugins",
     "language": "tr",
     "tvTypes": [
+      "Movie",
       "TvSeries"
     ],
-    "iconUrl": "https://i.imgur.com/zQYsL6Z.png",
+    "iconUrl": "https://www.google.com/s2/favicons?domain=https://www.diziyo.so&sz=128",
     "apiVersion": 1,
-    "fileHash": "sha256-2fd00b01979aec233433cf0030320dd03a4b9881dbe8cec4c8908b3ea67ec8f0"
+    "fileHash": "sha256-9dacc67b13830d30c0412b4430b1bf8476cd7ca98e02fe848cc3818c7982f0aa"
   },
   {
-    "url": "https://raw.githubusercontent.com/aytzey/cs-kraptor/builds/FilmEkseni.cs3",
+    "url": "https://raw.githubusercontent.com/blackhope01/cloudstream-plugins/builds/FilmEkseni.cs3",
     "status": 1,
-    "version": 50,
+    "version": 1,
     "name": "FilmEkseni",
     "internalName": "FilmEkseni",
     "authors": [
-      "kraptor",
-      "ByAyzen"
+      "blackhope01"
     ],
-    "description": "Film Ekseni ⚡ Vizyonda ki, en güncel ve en yeni filmleri full hd kalitesinde türkçe dublaj ve altyazı seçenekleriyle 1080p olarak izleyebileceğiniz adresiniz.",
-    "fileSize": 71994,
-    "repositoryUrl": "https://github.com/aytzey/cs-kraptor",
+    "description": "Film Ekseni Vizyonda ki, en güncel ve en yeni filmleri full hd kalitesinde türkçe dublaj ve altyazı seçenekleriyle 1080p olarak izleyebileceğiniz adresiniz.",
+    "fileSize": 39502,
+    "repositoryUrl": "https://github.com/blackhope01/cloudstream-plugins",
     "language": "tr",
     "tvTypes": [
-      "Movie"
+      "Movie",
+      "TvSeries"
     ],
-    "iconUrl": "https://t3.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url=https://filmekseni.net/&size=128",
+    "iconUrl": "https://www.google.com/s2/favicons?domain=https://www.filmekseni.vip&sz=128",
     "apiVersion": 1,
-    "fileHash": "sha256-b14d8915a8d72bd25590037be0f1a74946ec755995ed3896a452f3b547a1b3f2"
+    "fileHash": "sha256-7c891b320aa438c66ca7ffbdd8176777caaf4d5da488aa4c6ac39fbb4aedbdf7"
   },
   {
-    "url": "https://raw.githubusercontent.com/aytzey/cs-kraptor/builds/FilmHane.cs3",
+    "url": "https://raw.githubusercontent.com/blackhope01/cloudstream-plugins/builds/FilmHane.cs3",
     "status": 1,
-    "version": 43,
+    "version": 1,
     "name": "FilmHane",
     "internalName": "FilmHane",
     "authors": [
-      "kraptor",
-      "ByAyzen"
+      "blackhope01"
     ],
-    "fileSize": 60857,
-    "repositoryUrl": "https://github.com/aytzey/cs-kraptor",
+    "fileSize": 22379,
+    "repositoryUrl": "https://github.com/blackhope01/cloudstream-plugins",
     "language": "tr",
     "tvTypes": [
-      "Movie"
+      "Movie",
+      "TvSeries"
     ],
-    "iconUrl": "https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcRbK_Pe3vpG-yUVt1NvckDpaD6COLDitImrBUnHfAVA4fawhijE",
+    "iconUrl": "https://www.google.com/s2/favicons?domain=https://www.filmhane.shop&sz=128",
     "apiVersion": 1,
-    "fileHash": "sha256-02df47ed1de0d7771432f726955de1cb4b6078f3e7d7437d632cebbe0c6af676"
+    "fileHash": "sha256-795a96520644a3a5f85da35e92904e02e51990cab36c860a4feef2b06a235e6a",
+    "description": "Trend olan tüm yabancı yerli filmleri Hd ve 720p 1080p kalitesinde kesintisiz indirmeden izleyebilirsiniz, Online film sitemizde Türkçe dublaj olarak izleyebilirsiniz."
   },
   {
     "url": "https://raw.githubusercontent.com/aytzey/cs-kraptor/builds/HDFilmizle.cs3",
@@ -620,26 +618,25 @@
     "fileHash": "sha256-4d77eace4b9b109141cb910b3aaa387cc39e78155d53a473e80ca36d94a94aee"
   },
   {
-    "url": "https://raw.githubusercontent.com/aytzey/cs-kraptor/builds/SetFilmIzle.cs3",
+    "url": "https://raw.githubusercontent.com/feroxx/Kekik-cloudstream/builds/SetFilmIzle.cs3",
     "status": 0,
-    "version": 42,
+    "version": 30,
     "name": "SetFilmIzle",
     "internalName": "SetFilmIzle",
     "authors": [
-      "kraptor",
-      "kerimmkirac",
-      "ByAyzen"
+      "keyiflerolsun"
     ],
     "description": "Setfilmizle sitemizde, donma yaşamadan Türkçe dublaj ve altyazılı filmleri ile dizileri muhteşem 1080p full HD kalitesinde izleyebilirsiniz.",
-    "fileSize": 69963,
-    "repositoryUrl": "https://github.com/aytzey/cs-kraptor",
+    "fileSize": 24635,
+    "repositoryUrl": "https://github.com/feroxx/Kekik-cloudstream",
     "language": "tr",
     "tvTypes": [
-      "Movie"
+      "Movie",
+      "TvSeries"
     ],
-    "iconUrl": "https://t1.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url=https://www.setfilmizle.uk/&size=128",
+    "iconUrl": "https://www.google.com/s2/favicons?domain=www.setfilmizle.uk&sz=128",
     "apiVersion": 1,
-    "fileHash": "sha256-0924b29d367baf9bce40363b48d209614ef5c64368d82ce9370d2b59a3376437"
+    "fileHash": "sha256-7d68082a8c875ede5c804dd243decbedb1d81e5d96abe702b1c61c8be6d02f09"
   },
   {
     "url": "https://raw.githubusercontent.com/aytzey/cs-kraptor/builds/Sinezy.cs3",
@@ -702,25 +699,25 @@
     "fileHash": "sha256-f844e8b349462cb5407a6f219fb1894bb7582853adaf49ddfe8267e98139de0d"
   },
   {
-    "url": "https://raw.githubusercontent.com/aytzey/cs-kraptor/builds/WebteIzle.cs3",
+    "url": "https://raw.githubusercontent.com/blackhope01/cloudstream-plugins/builds/Webteizle.cs3",
     "status": 1,
-    "version": 53,
-    "name": "WebteIzle",
+    "version": 1,
+    "name": "Webteizle",
     "internalName": "WebteIzle",
     "authors": [
-      "kraptor",
-      "ByAyzen"
+      "blackhope01"
     ],
     "description": "Her türlü filmi ister dublaj ister altyazılı, en kaliteli bir şekilde izleyebileceğiniz arşivi en geniş gerçek film izleme siteniz.",
-    "fileSize": 67576,
-    "repositoryUrl": "https://github.com/aytzey/cs-kraptor",
+    "fileSize": 28924,
+    "repositoryUrl": "https://github.com/blackhope01/cloudstream-plugins",
     "language": "tr",
     "tvTypes": [
-      "Movie"
+      "Movie",
+      "TvSeries"
     ],
-    "iconUrl": "https://t2.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url=https://webteizle1.xyz&size=128",
+    "iconUrl": "https://www.google.com/s2/favicons?domain=https://webteizle3.xyz&sz=128",
     "apiVersion": 1,
-    "fileHash": "sha256-00baa649d28dd4ececb8fbe1f7490ba01a68ef473ab478eff8b8620daa486333"
+    "fileHash": "sha256-163fc89b68c30065cdfdf4afc027167fad047c92e7e6b3025a7e1716ed670e78"
   },
   {
     "url": "https://raw.githubusercontent.com/aytzey/cs-kraptor/builds/WFilmizle.cs3",
