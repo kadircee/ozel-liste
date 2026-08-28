@@ -81,15 +81,7 @@ Yedek iki bloktan oluşur: `datastore` (uygulama DataStore tercihleri) ve `setti
 ```
 Her `plugins.json` kaydı: `.cs3` dosya adresi, SHA-256 `fileHash`, `fileSize`, `language`, `tvTypes`, sürüm ve durum içerir.
 
-| Kaynak repo (GitHub) | Eklenti | Adet | Son Guncelleme |
-|----------------------|---------|------|----------------|
-| [blackhope01/cloudstream-plugins](https://github.com/blackhope01/cloudstream-plugins) | LoveFilm | 8 | 2026-08-28 |
-| [feroxx/Kekik-cloudstream](https://github.com/feroxx/Kekik-cloudstream) | Ddizi, DiziYou, FilmMakinesi, FilmModu, Hdfilmcehennemi, SinemaCX, JetFilmizle, SezonlukDizi, DiziPalOriginal, HDFilmDelisi | 7 | 2026-08-27 |
-| [Kraptor123/Cs-Karma](https://github.com/Kraptor123/Cs-Karma) | Full4kizle | 1 | 2026-08-27 |
-| [aytzey/cs-kraptor](https://github.com/aytzey/cs-kraptor) | DiziBox, DiziFilmORG, Dizigecesi, DiziLife, Dizilla, DiziMom, DiziPal, DiziPalOrijinal, Dizipod, DiziYo, FilmEkseni, FilmHane, HDFilmizle, KraptorPlus, SelcukFlix, SetFilmIzle, Sinezy, Turkdizileri, TvDiziler, Webteizle, WFilmizle, YabanciDizi | 14 | 2026-08-25 |
-| [MRTDEVM/cloudstream-turkce](https://github.com/MRTDEVM/cloudstream-turkce) | FullHDFilmizlesene | 1 | 2026-08-21 |
-| [pltmustafa/plt-stream](https://github.com/pltmustafa/plt-stream) | plt-stream | 1 | 2026-08-14 |
-| [ilkelkullanici/ilkel-cloudstream](https://github.com/ilkelkullanici/ilkel-cloudstream) | SineWix | 5 | 2026-06-18 |
+> **Not:** Kaynak repo bazında dağılım için bkz. **'Tüm Repolar - Alfabetik Liste'** tablosu (en güncel, tek kaynak). Bu özet tablo çift bakım yükü ve tutarsızlık riski nedeniyle kaldırıldı.
 
 Eskiden kullanılan / hiç kullanılmayan kaynaklar:
 - `Kraptor123/cs-kraptor` — **KAPANDI.** Depo sıfırlandı, README'de "desteği kesmiş bulunuyorum" ibaresi var; tüm `.cs3` dosyaları 404 veriyor. Bu kaynaktan gelen 29 eklenti listeden çıkarıldı; bazıları Feroxx deposundaki canlı sürümleriyle listede.
