@@ -99,6 +99,12 @@ Eskiden kullanılan / hiç kullanılmayan kaynaklar:
 - Per-eklenti tarih `git -C <repo> log -1 --format=%cd --date=short --all -- <Eklenti>` ile alınır; repo genel `pushed_at` değil. Aynı eklentinin birden fazla kaynaktan gelen kopyaları arasında en güncel tarihli kayıt otomatik tercih edilir; versiyon numarasının düşük/yüksek olması kararı etkilemez.
 - Örnek: `FilmMakinesi feroxx v58 (2026-08-23)` vs `blackhope01 v1 (2026-08-25)` — `blackhope01 v1` tarih olarak daha güncel olduğu için doğru şekilde tercih edildi; düşük versiyon yüksek versiyonu ezer ve bu beklenen davranıştır.
 
+**1a. Eşit tarihli kaynaklar (tie-breaker) — VERSİYON NUMARASI HİÇBİR AŞAMADA KULLANILMAZ:**
+İki veya daha fazla kaynağın aynı güncelleme tarihine sahip olduğu durumlarda sırasıyla şu kriterler uygulanır:
+1. Site canlılığı — `verify.py --deep` ile çekim domaini testi yapılır; ölü/parking domain'e sahip olan elenir.
+2. Hâlâ eşitse (ikisi de canlıysa) — `verify.py --health`/`--deep` çıktısındaki hız/güvenilirlik sinyaline (HTTP yanıt süresi, hata oranı) bakılır; net bir sinyal yoksa kullanıcıya sorulur, otomatik karar verilmez.
+Versiyon numarası bu tie-breaker'ın HİÇBİR adımında kriter olarak kullanılmaz — ne düşük ne yüksek versiyon tercih nedeni sayılır.
+
 **2. Tablo bakımı — `Tüm Repolar` sadece `tr` + `Movie/TvSeries/Documentary` içerir:**
 - `lang != tr` veya `tvTypes` içinde `Live/Anime/Cartoon/All/AsianDrama` olanlar otomatik `Istenmeyenler`'e gider; `Dil`/`Tur` kolonları bu yüzden kaldırıldı.
 - `Site (domain)` her zaman `[domain](https://domain)` linkli olmalı (tıklanabilir).
@@ -238,14 +244,14 @@ Toplam kayit: 87 (Istenmeyenler ve ozel-liste hariç, sadece kaynak repolar)
 | 13 | 🟧 Dizilla | [ilkelkullanici/ilkel-cloudstream](https://github.com/ilkelkullanici/ilkel-cloudstream) | [dizilla.club](https://dizilla.club) | 92 | 2026-06-11 | - | 🟧 Duplicate (feroxx 2026-08-23 tercih edildi) |
 | 14 | 🟧 Dizilla | [aytzey/cs-kraptor](https://github.com/aytzey/cs-kraptor) | [dizilla.to](https://dizilla.to) | 111 | 2025-08-14 | - | 🟧 Duplicate (feroxx 2026-08-23 tercih edildi) |
 | 15 | 🟩 DiziMom | [feroxx/Kekik-cloudstream](https://github.com/feroxx/Kekik-cloudstream) | [www.dizimom.plus](https://www.dizimom.plus) | 56 | 2026-08-28 | 2026-08-28 | 🟩 Çalışıyor |
-| 16 | 🟧 DiziMom | [ilkelkullanici/ilkel-cloudstream](https://github.com/ilkelkullanici/ilkel-cloudstream) | [www.dizimom.plus](https://www.dizimom.plus) | 43 | 2026-08-28 | - | 🟧 Duplicate (feroxx 2026-08-28 tercih edildi) |
-| 17 | 🟧 DiziMom | [blackhope01/cloudstream-plugins](https://github.com/blackhope01/cloudstream-plugins) | [www.dizimom.surf](https://www.dizimom.surf) | 3 | 2026-08-28 | - | 🟧 Duplicate (feroxx 2026-08-28 tercih edildi) |
+| 16 | 🟧 DiziMom | [ilkelkullanici/ilkel-cloudstream](https://github.com/ilkelkullanici/ilkel-cloudstream) | [www.dizimom.plus](https://www.dizimom.plus) | 43 | 2026-08-28 | - | 🟧 Duplicate (feroxx 2026-08-28 tercih edildi — eşit tarih, site canlılık eşit) |
+| 17 | 🟧 DiziMom | [blackhope01/cloudstream-plugins](https://github.com/blackhope01/cloudstream-plugins) | [www.dizimom.surf](https://www.dizimom.surf) | 3 | 2026-08-28 | - | 🟧 Duplicate (feroxx 2026-08-28 tercih edildi — eşit tarih, site canlılık eşit) |
 | 18 | 🟧 DiziMom | [aytzey/cs-kraptor](https://github.com/aytzey/cs-kraptor) | [www.dizimom.mom](https://www.dizimom.mom) | 61 | 2025-08-14 | - | 🟧 Duplicate (feroxx 2026-08-28 tercih edildi) |
 | 19 | 🟧 DiziPal | [feroxx/Kekik-cloudstream](https://github.com/feroxx/Kekik-cloudstream) | [dizipal1563.com](https://dizipal1563.com) | 104 | 2026-08-22 | - | 🟧 Duplicate (ilkelkullanici 2026-08-28 tercih edildi) |
 | 20 | 🟨 DiziPal | [ilkelkullanici/ilkel-cloudstream](https://github.com/ilkelkullanici/ilkel-cloudstream) | [dizipal952.com](https://dizipal952.com) | 90 | 2026-08-28 | 2026-08-28 | 🟨 Çalışmıyor (son ölü: 2026-08-22, bu build veya başka build güncellendiğinde kontrol) |
 | 21 | 🟧 DiziPal | [aytzey/cs-kraptor](https://github.com/aytzey/cs-kraptor) | [dizipal.im](https://dizipal.im) | 89 | 2025-08-14 | - | 🟧 Duplicate (ilkelkullanici 2026-08-28 tercih edildi) |
 | 22 | 🟩 DiziPalOriginal | [feroxx/Kekik-cloudstream](https://github.com/feroxx/Kekik-cloudstream) | [chessplyimages.cfd](https://chessplyimages.cfd) | 84 | 2026-08-28 | 2026-08-28 | 🟩 Çalışıyor |
-| 23 | 🟧 DiziPalOriginal | [ilkelkullanici/ilkel-cloudstream](https://github.com/ilkelkullanici/ilkel-cloudstream) | [dizipal2036.com](https://dizipal2036.com) | 66 | 2026-08-28 | 2026-08-28 | 🟧 Duplicate (feroxx 2026-08-28 tercih edildi) |
+| 23 | 🟧 DiziPalOriginal | [ilkelkullanici/ilkel-cloudstream](https://github.com/ilkelkullanici/ilkel-cloudstream) | [dizipal2036.com](https://dizipal2036.com) | 66 | 2026-08-28 | 2026-08-28 | 🟧 Duplicate (feroxx 2026-08-28 tercih edildi — eşit tarih, site canlılık eşit) |
 | 24 | 🟩 DiziPalOrijinal | [aytzey/cs-kraptor](https://github.com/aytzey/cs-kraptor) | [dizipal932.com](https://dizipal932.com) | 45 | 2026-08-05 | 2026-08-28 | 🟩 Çalışıyor |
 | 25 | 🟩 Dizipod | [aytzey/cs-kraptor](https://github.com/aytzey/cs-kraptor) | [dizipod.com](https://dizipod.com) | 12 | 2026-07-24 | 2026-08-28 | 🟩 Çalışıyor |
 | 26 | 🟨 DiziYo | [blackhope01/cloudstream-plugins](https://github.com/blackhope01/cloudstream-plugins) | [www.diziyo.so](https://www.diziyo.so) | 1 | 2026-08-25 | 2026-08-28 | 🟨 Çalışmıyor (son ölü: 2026-08-22, bu build veya başka build güncellendiğinde kontrol) |
