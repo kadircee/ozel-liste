@@ -91,7 +91,6 @@ Her `plugins.json` kaydı: `.cs3` dosya adresi, SHA-256 `fileHash`, `fileSize`, 
 | [pltmustafa/plt-stream](https://github.com/pltmustafa/plt-stream) | plt-stream | 1 | 2026-08-14 |
 | [ilkelkullanici/ilkel-cloudstream](https://github.com/ilkelkullanici/ilkel-cloudstream) | Sinewix | 5 | 2026-06-18 |
 
-
 Eskiden kullanılan / hiç kullanılmayan kaynaklar:
 - `Kraptor123/cs-kraptor` — **KAPANDI.** Depo sıfırlandı, README'de "desteği kesmiş bulunuyorum" ibaresi var; tüm `.cs3` dosyaları 404 veriyor. Bu kaynaktan gelen 29 eklenti listeden çıkarıldı; bazıları Feroxx deposundaki canlı sürümleriyle listede.
 - `NivinCNC/CNCVerse-Cloud-Stream-Extension` — `CricifyProvider` (canlı spor) bu kaynaktan geliyordu; kullanıcı canlı spor istemediği için eklenti yok.
@@ -203,21 +202,6 @@ Bu eklentiler listeye **eklenmez**; yeniden ekleme kararı yalnızca kullanıcı
 **Diğer ("kesinlikle istemiyorum" / kişisel tercih):** Filmmirasım, SeiCode, YTS, YeniKaynak, YesilCamTv, MirrorVerse, Vavoo, WebDramaTurkey, Syncler, Torrential, BelgeselX, CizgiMax, CizgiveDizi, KultFilmler, RareFilmm, TmdbProvider, EnglishW, TurkishW, Cloud-Sync, BasketballReplays, UgurFilm, Watch2Movies, WebdramaTurkey2
 **Türkçe/Türkiye filtresi (yabancı dil içerikli):** Esheaq, Krmzy, YoTurkish, DoramasLatinoX, Dubbindo, Flixlatam, Henaojara, Gnulahd, JPFilms, KissKH, LayarKaca, Movix, OK, Sokuja, Subsplease, Supercartoons, Wcoflix, Yablom, DocumentaryArea, Iwatchtheoffice, FullRaces, FootReplays, Filmzal
 
-## Duplicate / Çakışan Eklentiler
-
-Aynı isim/kökten farklı repo/build'lerde gelen ve yalnızca 1 tanesi listede tutulan eklentiler. Her gruptan sadece 1 tanesi `plugins.json`'da yer alır; diğer(leri) duplicate olarak eklenmez, repobuild güncellendiğinde kontrol edilir.
-
-| Grup | Seçilen (Aktif) | Versiyon | Kaynak | Duplicate (Eklenmedi) | Duplicate Kaynak | Durum / Not |
-|------|---------------------|----------|--------|------------------------|------------------|-------------|
-| DiziLife | DiziLife | v58 | aytzey/cs-kraptor | DiziLife | blackhope v2 | 🟧 Duplicate, aytzey tercih edildi |
-| DiziMom | DiziMom | v61 | aytzey/cs-kraptor | DiziMom | blackhope v3 | 🟧 Duplicate, aytzey tercih edildi |
-| FilmEkseni | FilmEkseni | v50 | aytzey/cs-kraptor | FilmEkseni | blackhope v1 | 🟧 Duplicate, aytzey tercih edildi |
-| FilmHane | FilmHane | v43 | aytzey/cs-kraptor | FilmHane | blackhope v1 | 🟧 Duplicate, aytzey tercih edildi |
-| WebteIzle | WebteIzle | v53 | aytzey/cs-kraptor | Webteizle | blackhope v1 | 🟧 Duplicate, aytzey tercih edildi |
-
-> **Not:** Duplicate tablosu sadece farklı repo/build'lerdeki aynı isimli eklentiler için tutulur; `status:0` olan `DiziFilmORG`, `DiziPal`, `DiziYo`, `SetFilmIzle` ve `Full4kizle` artık **Tekrar Kontrol** tablosunda (yeniden eklenebilirler) izlenir. Her iki tablo da güncellenebilir.
-
-
 ## Güncelleme
 Yeni bir değişiklik yapıldığında:
 ```bash
@@ -236,8 +220,6 @@ Push sonrası jsDelivr önbelleği için:
 https://purge.jsdelivr.net/gh/kadircee/ozel-liste@main/plugins.json
 ```
 CloudStream tarafında depo yenilendiğinde yeni liste otomatik çekilir. Kaynak senkronu ve site sağlığı **otomatik değildir** (GitHub Actions yok): kaynak bir eklentiyi güncellediğinde listedeki hash/boyut **elle** `update.py` çalıştırılarak senkronlanır, kaynak site ölürse eklenti **elle** `verify.py --health` (veya `--deep`) çalıştırılarak `status:0` yapılır. `status:1`'e (yeniden açma) otomatik dönülmez; site geri geldiyse `plugins.json`'da ilgili eklentinin `status`'u elle `1` yapılır. Güncelleme öncesi `verify.py --offline` ve `update.py --check` ile kontrol etmek iyi alışkanlıktır.
-
-
 
 ## Tüm Repolar - Alfabetik Liste
 
@@ -418,7 +400,6 @@ Toplam kayit: 101 (Istenmeyenler ve ozel-liste hariç, sadece kaynak repolar)
 | 🟥 YoTurkish | Kraptor123/Cs-Karma | yoturkish.to | en | TvSeries |
 | 🟥 Youtube | aytzey/cs-kraptor | www.youtube.com | tr | Movie,Live,Music,TvSeries |
 | 🟥 YTS | aytzey/cs-kraptor | en.yts-official.mx | tr | Torrent |
-
 
 ## Yasal Uyarı ve Sorumluluk Reddi (Disclaimer)
 Bu depo kişisel arşivleme amacıyla oluşturulmuştur; hiçbir ticari amacı yoktur. Bu depo (ve GitHub sunucuları) hiçbir video, ses dosyası, medya veya telif hakkıyla korunan materyal barındırmaz, kopyalamaz veya dağıtmaz. Bu depo yalnızca internette herkese açık olarak paylaşılan üçüncü taraf eklentilerin (`.cs3`) doğrudan GitHub RAW adreslerini derleyen metin tabanlı bir JSON dizinidir ("Yalnızca Endeks"). Listelenen eklentilerin kodları, işleyişleri veya hangi web sitelerinden veri çektikleri üzerinde bu deponun hiçbir kontrolü, sahipliği veya sorumluluğu yoktur; tüm sorumluluk eklentilerin orijinal geliştiricilerine ve veriyi barındıran kaynak web sitelerine aittir. Bu depo yalnızca bağlantıları listeleyen bir köprü görevi gördüğü için telif hakkı ihlali iddialarının muhatabı değildir; içerik kaldırma talepleri (DMCA) doğrudan içerikleri sunan kaynak web sitelerine veya eklentilerin orijinal GitHub depolarına yapılmalıdır. Bu depo, 5846 sayılı Fikir ve Sanat Eserleri Kanunu ve 5651 sayılı Kanun kapsamında da eser barındırmaz, çoğaltmaz veya iletmez; yalnızca kamuya açık kaynaklardaki `.cs3` dosyalarına bağlantı sağlar. 5651 sayılı Kanunun 4. maddesinin ikinci fıkrası gereği içerik sağlayıcı, bağlantı sağladığı başkasına ait içerikten sorumlu değildir; ancak aynı maddenin istisnası saklıdır: sunuş biçiminden bağlantı verilen içeriğin benimsendiği ve kullanıcının o içeriğe ulaşmasının amaçlandığı açıkça belli ise sorumluluk doğabilir. Bu depo, listedeki hiçbir eklentiyi veya eklentilerin veri çektiği kaynakları benimsemez ve tavsiye etmez; liste salt teknik bir indekstir. Hak sahipleri 5651 sayılı Kanunun 9. maddesi uyarınca uyarı yöntemiyle bildirimde bulunursa ilgili bağlantı derhal kaldırılır.
