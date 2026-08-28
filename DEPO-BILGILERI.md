@@ -2,7 +2,7 @@
 Bu depo test CloudStream deposudur; yalnızca Türkçe film/dizi eklentilerini ve test seçtiği kaynakları barındırır. Canlı yayın, NSFW ve yabancı dil içerikli eklentiler kullanıcı tercihi gereği listeye alınmamıştır.
 
 ## Durum
-- **Son doğrulama:** 2026-08-22 · **12 eklenti** (tümü açık; indirilebilir, hash/boyut doğrulanmış)
+- **Son doğrulama:** 2026-08-28 · **14 eklenti** (13 açık + 1 kapalı (Full4kizle); indirilebilir, hash/boyut doğrulanmış)
 - **Kural:** bozuk eklenti silinmez, `status:0` yapılır (bkz. Kurulum)
 - **Delete-zone:** silinen eklentiler yeniden eklenmez (bkz. Silinen Eklentiler)
 
@@ -31,7 +31,7 @@ Kısa kod yalnızca harf/rakam/`!_-` içerebilir; `!` ile başlayanlar `py.md` s
 ```
 ozel-liste/
 ├── repo.json            → CloudStream'in açtığı depo tanımı
-├── plugins.json         → eklenti listesi (12 eklenti)
+├── plugins.json         → eklenti listesi (14 eklenti)
 ├── verify.py            → yapısal + ağ kontrollü doğrulama script'i (--deep ile .cs3 içinden gerçek çekim domaini kontrolü; --health ile ölmüş eklentilere otomatik status:0; sadece standart kütüphane, Python 3)
 ├── update.py            → kaynak depolardan güncel verileri senkronize eden script (--check rapor modu dahil)
 ├── backups/            → temizlenmiş CloudStream veri yedeği örneği (kişisel veri yok)
@@ -83,12 +83,12 @@ Her `plugins.json` kaydı: `.cs3` dosya adresi, SHA-256 `fileHash`, `fileSize`, 
 
 ## Kaynak GitHub depoları
 
-Şu anki 12 eklentinin geldiği kaynaklar (`.cs3` adreslerinden çıkarıldı; ileride hangi kaynaktan geldiği lazım olursa buradan bakılabilir):
+Şu anki 14 eklentinin geldiği kaynaklar (`.cs3` adreslerinden çıkarıldı; ileride hangi kaynaktan geldiği lazım olursa buradan bakılabilir):
 | Kaynak repo (GitHub) | Eklenti | Adet |
 |----------------------|---------|------|
 | [Kraptor123/Cs-Karma](https://github.com/Kraptor123/Cs-Karma) | Full4kizle | 1 |
 | [pltmustafa/plt-stream](https://github.com/pltmustafa/plt-stream) | plt-stream | 1 |
-| [feroxx/Kekik-cloudstream](https://github.com/feroxx/Kekik-cloudstream) | Ddizi, DiziYou, FilmMakinesi, FilmModu, HDFilmCehennemi, SinemaCX, JetFilmizle, SezonlukDizi | 8 |
+| [feroxx/Kekik-cloudstream](https://github.com/feroxx/Kekik-cloudstream) | Ddizi, DiziYou, FilmMakinesi, FilmModu, HDFilmCehennemi, SinemaCX, JetFilmizle, SezonlukDizi, DiziPalOriginal, HDFilmDelisi | 10 |
 | [ilkelkullanici/ilkel-cloudstream](https://github.com/ilkelkullanici/ilkel-cloudstream) | Sinewix | 1 |
 | [MRTDEVM/cloudstream-turkce](https://github.com/MRTDEVM/cloudstream-turkce) | FullHDFilmizlesene | 1 |
 
