@@ -230,7 +230,7 @@ Toplam kayit: 91 (Istenmeyenler ve ozel-liste hariç, sadece kaynak repolar)
 
 | # | Eklenti | Kaynak | Site (domain) | v | Kaynak Tarih | Bizim Tarih | Durum |
 |---|---------|--------|---------------|---|---|----------------|---------------|
-| 1 | 🟦 AltiYuzAltmisAltiFilmIzle | ilkelkullanici/ilkel-cloudstream | [666filmizle.site](https://666filmizle.site) | 1 | 2026-06-11 | - | 🟨 Çalışmıyor (son ölü: 2026-08-22, ilkel build güncellendiğinde kontrol) |
+| 1 | 🟦 AltiYuzAltmisAltiFilmIzle | ilkelkullanici/ilkel-cloudstream | [666filmizle.site](https://666filmizle.site) | 1 | 2026-06-11 | - | 🟨 Çalışmıyor (son ölü: 2026-08-22, ilkel build veya başka build güncellendiğinde kontrol) |
 | 2 | 🟩 Ddizi | feroxx/Kekik-cloudstream | [www.ddizi.im](https://www.ddizi.im) | 22 | 2026-04-01 | - | 🟧 Duplicate (aytzey 2026-07-14 tercih edildi) |
 | 3 | 🟩 Ddizi | ilkelkullanici/ilkel-cloudstream | [www.ddizi.im](https://www.ddizi.im) | 22 | 2026-06-11 | - | 🟧 Duplicate (aytzey 2026-07-14 tercih edildi) |
 | 4 | 🟩 Ddizi | aytzey/cs-kraptor | [www.ddizi.im](https://www.ddizi.im) | 19 | 2026-07-14 | 2026-08-28 | 🟩 Çalışıyor |
