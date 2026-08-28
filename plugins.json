@@ -779,5 +779,66 @@
     "iconUrl": "https://www.google.com/s2/favicons?domain=https://lovefilmizle.net&sz=128",
     "apiVersion": 1,
     "fileHash": "sha256-ce17a0787c700bf1d8d3ea102fe8723dbf38d0506bf5809f8dfd67d754bf7d2a"
+  },
+  {
+    "url": "https://raw.githubusercontent.com/ilkelkullanici/ilkel-cloudstream/builds/AltiYuzAltmisAltiFilmIzle.cs3",
+    "status": 1,
+    "version": 1,
+    "name": "AltiYuzAltmisAltiFilmIzle",
+    "internalName": "AltiYuzAltmisAltiFilmIzle",
+    "authors": [
+      "patr0n"
+    ],
+    "description": "666FilmIzle - Türkçe Dublaj ve Altyazılı Film izle.",
+    "fileSize": 12208,
+    "repositoryUrl": "https://github.com/ilkelkullanici/ilkel-cloudstream",
+    "language": "tr",
+    "tvTypes": [
+      "Movie"
+    ],
+    "iconUrl": "https://www.google.com/s2/favicons?domain=666filmizle.site&sz=128",
+    "apiVersion": 1,
+    "fileHash": "sha256-0bbf18e298754eff63beb9b756f2181af140645dec383bb0a550a8b642341c34"
+  },
+  {
+    "url": "https://raw.githubusercontent.com/ilkelkullanici/ilkel-cloudstream/builds/FilmBip.cs3",
+    "status": 1,
+    "version": 19,
+    "name": "FilmBip",
+    "internalName": "FilmBip",
+    "authors": [
+      "keyiflerolsun"
+    ],
+    "description": "Binlerce yerli yabancı dizi arşivi, tüm sezonlar, kesintisiz bölümler. Filmbip heryerde seninle!",
+    "fileSize": 17208,
+    "repositoryUrl": "https://github.com/ilkelkullanici/ilkel-cloudstream",
+    "language": "tr",
+    "tvTypes": [
+      "Movie"
+    ],
+    "iconUrl": "https://filmbip.com/uploads/favicon/original/favicon.webp",
+    "apiVersion": 1,
+    "fileHash": "sha256-494094be8b4eb718cc30b6a4873c4372e9b43ea6dbb4628a32eed247713e2c6c"
+  },
+  {
+    "url": "https://raw.githubusercontent.com/feroxx/Kekik-cloudstream/builds/FullHDFilm.cs3",
+    "status": 1,
+    "version": 36,
+    "name": "FullHDFilm",
+    "internalName": "FullHDFilm",
+    "authors": [
+      "keyiflerolsun"
+    ],
+    "description": "Fullhdfilm ile en yeni vizyon filmler Full HD ve kesintisiz film sizlerle. Özgün film arşivimizle en üstün kaliteli film izle keyfini sunuyoruz.",
+    "fileSize": 28171,
+    "repositoryUrl": "https://github.com/feroxx/Kekik-cloudstream",
+    "language": "tr",
+    "tvTypes": [
+      "Movie",
+      "TvSeries"
+    ],
+    "iconUrl": "https://www.google.com/s2/favicons?domain=hdfilm.us&sz=128",
+    "apiVersion": 1,
+    "fileHash": "sha256-83de6f5e436bc671aef7925683ffa870a8f8264513d032e23e64b2d0d59515a4"
   }
 ]
