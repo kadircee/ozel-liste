@@ -2,7 +2,7 @@
 Bu depo test CloudStream deposudur; yalnızca Türkçe film/dizi eklentilerini ve test seçtiği kaynakları barındırır. Canlı yayın, NSFW ve yabancı dil içerikli eklentiler kullanıcı tercihi gereği listeye alınmamıştır.
 
 ## Durum
-- **Son doğrulama:** 2026-08-28 · **40 eklenti** (31 açık + 9 kapalı (AltiYuzAltmisAltiFilmIzle, DiziBox, DiziFilmORG, DiziMom, DiziPal, FilmBip, Full4kizle, FullHDFilmizlesene, SetFilmIzle)); indirilebilir, hash/boyut doğrulanmış)
+- **Son doğrulama:** 2026-08-28 · **40 eklenti** (30 açık + 10 kapalı (AltiYuzAltmisAltiFilmIzle, DiziBox, DiziFilmORG, DiziMom, DiziPal, FilmBip, Full4kizle, FullHDFilm, FullHDFilmizlesene, SetFilmIzle))); indirilebilir, hash/boyut doğrulanmış)
 - **Kural:** bozuk eklenti silinmez, `status:0` yapılır (bkz. Kurulum)
 - **Delete-zone:** silinen eklentiler yeniden eklenmez (bkz. Silinen Eklentiler)
 
@@ -276,8 +276,8 @@ Toplam kayit: 87 (Istenmeyenler ve ozel-liste hariç, sadece kaynak repolar)
 | 42 | 🟧 FilmModu | [ilkelkullanici/ilkel-cloudstream](https://github.com/ilkelkullanici/ilkel-cloudstream) | [www.filmmodu17.com](https://www.filmmodu17.com) | 19 | 2026-06-11 | 2026-08-22 | 🟧 Duplicate (feroxx 2026-07-20 tercih edildi) |
 | 43 | 🟧 FilmModu | [aytzey/cs-kraptor](https://github.com/aytzey/cs-kraptor) | [www.filmmodu.one](https://www.filmmodu.one) | 41 | 2025-08-14 | 2026-08-22 | 🟧 Duplicate (feroxx 2026-07-20 tercih edildi) |
 | 44 | 🟨 Full4kizle | [Kraptor123/Cs-Karma](https://github.com/Kraptor123/Cs-Karma) | [plusizle.net](https://plusizle.net) | 20 | 2026-08-27 | 2026-08-22 | 🟨 Çalışmıyor (son ölü: 2026-08-22, bu build veya başka build güncellendiğinde kontrol) |
-| 45 | 🟩 FullHDFilm | [feroxx/Kekik-cloudstream](https://github.com/feroxx/Kekik-cloudstream) | [hdfilm.us](https://hdfilm.us) | 36 | 2026-07-20 | 2026-08-28 | 🟩 Çalışıyor (geçici — tekrar değerlendirilecek, son ölü: 2026-08-22) |
-| 46 | 🟧 FullHDFilm | [ilkelkullanici/ilkel-cloudstream](https://github.com/ilkelkullanici/ilkel-cloudstream) | [fullhdfilm.us](https://fullhdfilm.us) | 36 | 2026-06-11 | - | 🟧 Duplicate (feroxx 2026-07-20 tercih edildi) |
+| 45 | 🟨 FullHDFilm | [feroxx/Kekik-cloudstream](https://github.com/feroxx/Kekik-cloudstream) | [hdfilm.us](https://hdfilm.us) | 36 | 2026-07-20 | 2026-08-28 | 🟨 Çalışıyor (geçici — tekrar değerlendirilecek, son ölü: 2026-08-22) |
+| 46 | 🟨 FullHDFilm | [ilkelkullanici/ilkel-cloudstream](https://github.com/ilkelkullanici/ilkel-cloudstream) | [fullhdfilm.us](https://fullhdfilm.us) | 36 | 2026-06-11 | - | 🟨 Çalışmıyor (son ölü: 2026-08-22, bu build veya başka build güncellendiğinde kontrol) |
 | 47 | 🟨 FullHDFilmizlesene | [feroxx/Kekik-cloudstream](https://github.com/feroxx/Kekik-cloudstream) | [www.fullhdfilmizlesene.de](https://www.fullhdfilmizlesene.de) | 33 | 2026-08-22 | 2026-08-28 | 🟨 Çalışmıyor (son ölü: 2026-08-22, bu build veya başka build güncellendiğinde kontrol) |
 | 48 | 🟨 FullHDFilmizlesene | [ilkelkullanici/ilkel-cloudstream](https://github.com/ilkelkullanici/ilkel-cloudstream) | [www.fullhdfilmizlesene.de](https://www.fullhdfilmizlesene.de) | 29 | 2026-08-28 | 2026-08-28 | 🟨 Çalışmıyor (son ölü: 2026-08-22, bu build veya başka build güncellendiğinde kontrol) |
 | 49 | 🟨 FullHDFilmizlesene | [MRTDEVM/cloudstream-turkce](https://github.com/MRTDEVM/cloudstream-turkce) | [www.fullhdfilmizlesene.now](https://www.fullhdfilmizlesene.now) | 8 | 2026-08-21 | 2026-08-28 | 🟨 Çalışmıyor (son ölü: 2026-08-22, bu build veya başka build güncellendiğinde kontrol) |
