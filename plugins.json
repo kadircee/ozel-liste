@@ -316,7 +316,7 @@
   },
   {
     "url": "https://raw.githubusercontent.com/aytzey/cs-kraptor/builds/DiziFilmORG.cs3",
-    "status": 1,
+    "status": 0,
     "version": 22,
     "name": "DiziFilmORG",
     "internalName": "DiziFilmORG",
@@ -422,7 +422,7 @@
   },
   {
     "url": "https://raw.githubusercontent.com/aytzey/cs-kraptor/builds/DiziPal.cs3",
-    "status": 1,
+    "status": 0,
     "version": 89,
     "name": "DiziPal",
     "internalName": "DiziPal",
@@ -490,7 +490,7 @@
   },
   {
     "url": "https://raw.githubusercontent.com/aytzey/cs-kraptor/builds/DiziYo.cs3",
-    "status": 1,
+    "status": 0,
     "version": 74,
     "name": "DiziYo",
     "internalName": "DiziYo",
@@ -621,7 +621,7 @@
   },
   {
     "url": "https://raw.githubusercontent.com/aytzey/cs-kraptor/builds/SetFilmIzle.cs3",
-    "status": 1,
+    "status": 0,
     "version": 42,
     "name": "SetFilmIzle",
     "internalName": "SetFilmIzle",

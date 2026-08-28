@@ -2,7 +2,7 @@
 Bu depo test CloudStream deposudur; yalnızca Türkçe film/dizi eklentilerini ve test seçtiği kaynakları barındırır. Canlı yayın, NSFW ve yabancı dil içerikli eklentiler kullanıcı tercihi gereği listeye alınmamıştır.
 
 ## Durum
-- **Son doğrulama:** 2026-08-28 · **37 eklenti** (36 açık + 1 kapalı (Full4kizle); indirilebilir, hash/boyut doğrulanmış)
+- **Son doğrulama:** 2026-08-28 · **37 eklenti** (32 açık + 5 kapalı (Full4kizle, DiziFilmORG, DiziPal, DiziYo, SetFilmIzle); indirilebilir, hash/boyut doğrulanmış)
 - **Kural:** bozuk eklenti silinmez, `status:0` yapılır (bkz. Kurulum)
 - **Delete-zone:** silinen eklentiler yeniden eklenmez (bkz. Silinen Eklentiler)
 
@@ -199,6 +199,27 @@ Bu eklentiler listeye **eklenmez**; yeniden ekleme kararı yalnızca kullanıcı
 **Canlı yayın / maç (kullanıcı hiçbir halükarda istemiyor):** InatBox, NeonSpor, RecTV, Streamed, CricifyProvider, GinikoCanli, KickTR, Youtube
 **Diğer ("kesinlikle istemiyorum" / kişisel tercih):** Filmmirasım, SeiCode, YTS, YeniKaynak, YesilCamTv, MirrorVerse, Vavoo, WebDramaTurkey, Syncler, Torrential, BelgeselX, CizgiMax, CizgiveDizi, KultFilmler, RareFilmm, TmdbProvider, EnglishW, TurkishW
 **Türkçe/Türkiye filtresi (yabancı dil içerikli):** Esheaq, Krmzy, YoTurkish, DoramasLatinoX, Dubbindo, Flixlatam, Henaojara, Gnulahd, JPFilms, KissKH, LayarKaca, Movix, OK, Sokuja, Subsplease, Supercartoons, Wcoflix, Yablom, DocumentaryArea, Iwatchtheoffice, FullRaces, FootReplays, Filmzal
+
+## Duplicate / Çakışan Eklentiler
+
+Aynı isim/kökten farklı repo/build'lerde gelen ve yalnızca 1 tanesi listede tutulan eklentiler. Her gruptan sadece 1 tanesi `plugins.json`'da yer alır; diğer(leri) duplicate olarak eklenmez, repobuild güncellendiğinde kontrol edilir.
+
+| Grup | Seçilen (Aktif) | Versiyon | Kaynak | Duplicate (Eklenmedi / Çalışmıyor) | Duplicate Kaynak | Durum / Not |
+|------|---------------------|----------|--------|--------------------------------------------------------|------------------|-------------|
+| DiziPal grubu | DiziPalOriginal | v84 | feroxx/Kekik-cloudstream | DiziPal | aytzey/cs-kraptor v89 | **Çalışmıyor** — repobuild gelince kontrol edilecek |
+| DiziPal grubu | DiziPalOrijinal | v45 | aytzey/cs-kraptor | DiziPal (aynı grup) | aytzey v89 | Çalışmıyor, Original/Orijinal çalışıyor |
+| DiziYo / DiziYou | DiziYou | v25 | feroxx/Kekik-cloudstream | DiziYo | aytzey v74 | **Çalışmıyor** — repobuild gelince kontrol |
+| DiziYo / DiziYou | DiziYo (aytzey) | v74 | aytzey/cs-kraptor | DiziYo (blackhope) | blackhope v1 | Duplicate, aytzey tercih edildi |
+| DiziLife | DiziLife | v58 | aytzey/cs-kraptor | DiziLife | blackhope v2 | Duplicate, aytzey tercih edildi |
+| DiziMom | DiziMom | v61 | aytzey/cs-kraptor | DiziMom | blackhope v3 | Duplicate, aytzey tercih edildi |
+| FilmEkseni | FilmEkseni | v50 | aytzey/cs-kraptor | FilmEkseni | blackhope v1 | Duplicate, aytzey tercih edildi |
+| FilmHane | FilmHane | v43 | aytzey/cs-kraptor | FilmHane | blackhope v1 | Duplicate, aytzey tercih edildi |
+| WebteIzle | WebteIzle | v53 | aytzey/cs-kraptor | Webteizle | blackhope v1 | Duplicate, aytzey tercih edildi |
+| DiziFilmORG | - | - | - | DiziFilmORG | aytzey v22 | **Çalışmıyor** — repobuild gelince kontrol |
+| SetFilmIzle | - | - | - | SetFilmIzle | aytzey v42 | **Çalışmıyor** — repobuild gelince kontrol |
+
+> **Not:** `DiziFilmORG`, `DiziPal`, `DiziYo`, `SetFilmIzle` şu an çalışmıyor olarak işaretlendi; aytzey/blackhope repolarında build güncellendiğinde veya farklı domainle yeniden eklendiğinde kontrol edilip gerekirse `status` güncellenecek veya değiştirilecek. Duplicate tablosu güncellenebilir.
+
 
 ## Güncelleme
 Yeni bir değişiklik yapıldığında:
