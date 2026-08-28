@@ -198,9 +198,9 @@ Repolar güncellendiğinde (yeni build yayınlandığında (GitHub uzerinden tak
 ## Silinen Eklentiler (delete-zone)
 Bu eklentiler listeye **eklenmez**; yeniden ekleme kararı yalnızca kullanıcı verir. Listede NSFW (+18) hiç yer almadı; canlı yayın/maç eklentileri istenmedi. Bozuk eklentiler silinmez, `status:0` yapılır (bkz. Kurulum). "Site açılmıyor" gerekçesiyle silinenler **geri dönüşlüdür**: site düzelirse tekrar denenebilir.
 
-**Anime/Asya içerikli (kullanıcı anime istemiyor):** AnimeciX, Animeler, Animely, AnimPow, Anizium, OnePaceTr, OpenAnime, TrAnimeIzle, TurkAnime, AsyaAnimeleri, AsyaFanatiklerim, AsyaWatch, DiziAsia, DiziAsya, DiziKorea, Koredizi, AnimeAV, AnimeWorld, AnimeYTX, Latanime, DramaDizilerim, Dramaizle, AsyaMinik
+**Anime/Asya içerikli (kullanıcı anime istemiyor):** AnimeciX, Animeler, Animely, AnimPow, Anizium, OnePaceTr, OpenAnime, TrAnimeIzle, TurkAnime, AsyaAnimeleri, AsyaFanatiklerim, AsyaWatch, DiziAsia, DiziAsya, DiziKorea, Koredizi, AnimeAV, AnimeWorld, AnimeYTX, Latanime, DramaDizilerim, Dramaizle, AsyaMinik, TRanimaci
 **Canlı yayın / maç (kullanıcı hiçbir halükarda istemiyor):** InatBox, NeonSpor, RecTV, Streamed, CricifyProvider, GinikoCanli, KickTR, Youtube, TVGarden, WatchWrestling
-**Diğer ("kesinlikle istemiyorum" / kişisel tercih):** Filmmirasım, SeiCode, YTS, YeniKaynak, YesilCamTv, MirrorVerse, Vavoo, WebDramaTurkey, Syncler, Torrential, BelgeselX, CizgiMax, CizgiveDizi, KultFilmler, RareFilmm, TmdbProvider, EnglishW, TurkishW, Cloud-Sync, BasketballReplays, UgurFilm, Watch2Movies, WebdramaTurkey2
+**Diğer ("kesinlikle istemiyorum" / kişisel tercih):** Filmmirasım, SeiCode, YTS, YeniKaynak, YesilCamTv, MirrorVerse, Vavoo, WebDramaTurkey, Syncler, Torrential, BelgeselX, CizgiMax, CizgiveDizi, KultFilmler, RareFilmm, TmdbProvider, EnglishW, TurkishW, Cloud-Sync, BasketballReplays, UgurFilm, Watch2Movies, WebdramaTurkey2, TLCtr, TRasyalog
 **Türkçe/Türkiye filtresi (yabancı dil içerikli):** Esheaq, Krmzy, YoTurkish, DoramasLatinoX, Dubbindo, Flixlatam, Henaojara, Gnulahd, JPFilms, KissKH, LayarKaca, Movix, OK, Sokuja, Subsplease, Supercartoons, Wcoflix, Yablom, DocumentaryArea, Iwatchtheoffice, FullRaces, FootReplays, Filmzal
 
 ## Duplicate / Çakışan Eklentiler
@@ -244,7 +244,7 @@ CloudStream tarafında depo yenilendiğinde yeni liste otomatik çekilir. Kaynak
 Bu bölüm otomatik üretildi (2026-08-28) — tüm kaynak repolardaki 107 eklenti (Istenmeyenler ve ozel-liste hariç) alfabetik, site domain ve durum bilgisiyle.
 
 Aynı isim/kökten farklı repo/build'lerde gelen ve yalnızca 1 tanesi listede tutulan eklentiler için aynı mantık geçerlidir: Her gruptan sadece 1 tanesi `plugins.json`'da yer alır; diğer(leri) duplicate olarak eklenmez, repobuild güncellendiğinde kontrol edilir. Renkler: 🟩 Çalışan (yeşil), 🟨 Çalışmayan (sarı), 🟧 Duplicate (turuncu), 🟥 İstenmeyen/Ignore (kırmızı), 🟦 Eklenebilir (mavi).
-Toplam kayit: 101 (Istenmeyenler ve ozel-liste hariç, sadece kaynak repolar)
+Toplam kayit: 95 (Istenmeyenler ve ozel-liste hariç, sadece kaynak repolar)
 
 | # | Eklenti | Kaynak | Site (domain) | v | Kaynak Tarih | Bizim Tarih | Durum |
 |---|---------|--------|---------------|---|---|----------------|---------------|
@@ -335,21 +335,15 @@ Toplam kayit: 101 (Istenmeyenler ve ozel-liste hariç, sadece kaynak repolar)
 | 85 | 🟩 Sinewix | ilkelkullanici/ilkel-cloudstream | play-lh.googleusercontent.com | 2 | 2026-06-11 | 2026-08-22 | 🟩 Çalışıyor |
 | 86 | 🟩 SineWix | aytzey/cs-kraptor | play-lh.googleusercontent.com | 33 | 2026-07-15 | - | 🟩 Çalışıyor |
 | 87 | 🟩 Sinezy | aytzey/cs-kraptor | sinezy.fit | 40 | 2026-07-14 | 2026-08-28 | 🟩 Çalışıyor |
-| 88 | 🟦 TLCtr | feroxx/Kekik-cloudstream | www.tlctv.com.tr | 19 | 2025-04-22 | - | 🟦 Eklenebilir |
-| 89 | 🟦 TLCtr | ilkelkullanici/ilkel-cloudstream | www.tlctv.com.tr | 19 | 2026-06-11 | - | 🟦 Eklenebilir |
-| 90 | 🟦 TRanimaci | feroxx/Kekik-cloudstream | tranimaci.com | 17 | 2025-07-04 | - | 🟦 Eklenebilir |
-| 91 | 🟦 TRanimaci | ilkelkullanici/ilkel-cloudstream | tranimaci.com | 17 | 2026-06-11 | - | 🟦 Eklenebilir |
-| 92 | 🟦 TRasyalog | feroxx/Kekik-cloudstream | asyalog.co | 65 | 2026-07-19 | - | 🟦 Eklenebilir |
-| 93 | 🟦 TRasyalog | ilkelkullanici/ilkel-cloudstream | asyalog.com | 64 | 2026-06-11 | - | 🟦 Eklenebilir |
-| 94 | 🟩 Turkdizileri | aytzey/cs-kraptor | i.imgur.com | 33 | 2026-07-15 | 2026-08-28 | 🟩 Çalışıyor |
-| 95 | 🟩 TvDiziler | aytzey/cs-kraptor | tvdiziler.cc | 18 | 2026-07-15 | 2026-08-28 | 🟩 Çalışıyor |
-| 96 | 🟩 WebteIzle | feroxx/Kekik-cloudstream | webteizle3.xyz | 20 | 2026-08-27 | 2026-08-28 | 🟩 Çalışıyor |
-| 97 | 🟩 WebteIzle | ilkelkullanici/ilkel-cloudstream | webteizle2.com | 17 | 2026-06-11 | 2026-08-28 | 🟨 Çalışmıyor (eski versiyon webteizle2.com ölü, yeni webteizle1.xyz/3.xyz çalışıyor) |
-| 98 | 🟩 Webteizle | blackhope01/cloudstream-plugins | webteizle3.xyz | 1 | 2026-08-25 | - | 🟩 Çalışıyor |
-| 99 | 🟩 WebteIzle | aytzey/cs-kraptor | webteizle1.xyz | 53 | 2025-08-14 | 2026-08-28 | 🟩 Çalışıyor |
-| 100 | 🟩 WFilmizle | aytzey/cs-kraptor | wfilmizle.bar | 23 | 2026-07-24 | 2026-08-28 | 🟩 Çalışıyor |
-| 101 | 🟩 YabanciDizi | aytzey/cs-kraptor | yabancidizi.so | 18 | 2025-08-14 | 2026-08-28 | 🟩 Çalışıyor |
-## Istenmeyenler (Delete-Zone) - 71 unique
+| 88 | 🟩 Turkdizileri | aytzey/cs-kraptor | i.imgur.com | 33 | 2026-07-15 | 2026-08-28 | 🟩 Çalışıyor |
+| 89 | 🟩 TvDiziler | aytzey/cs-kraptor | tvdiziler.cc | 18 | 2026-07-15 | 2026-08-28 | 🟩 Çalışıyor |
+| 90 | 🟩 WebteIzle | feroxx/Kekik-cloudstream | webteizle3.xyz | 20 | 2026-08-27 | 2026-08-28 | 🟩 Çalışıyor |
+| 91 | 🟩 WebteIzle | ilkelkullanici/ilkel-cloudstream | webteizle2.com | 17 | 2026-06-11 | 2026-08-28 | 🟨 Çalışmıyor (eski versiyon webteizle2.com ölü, yeni webteizle1.xyz/3.xyz çalışıyor) |
+| 92 | 🟩 Webteizle | blackhope01/cloudstream-plugins | webteizle3.xyz | 1 | 2026-08-25 | - | 🟩 Çalışıyor |
+| 93 | 🟩 WebteIzle | aytzey/cs-kraptor | webteizle1.xyz | 53 | 2025-08-14 | 2026-08-28 | 🟩 Çalışıyor |
+| 94 | 🟩 WFilmizle | aytzey/cs-kraptor | wfilmizle.bar | 23 | 2026-07-24 | 2026-08-28 | 🟩 Çalışıyor |
+| 95 | 🟩 YabanciDizi | aytzey/cs-kraptor | yabancidizi.so | 18 | 2025-08-14 | 2026-08-28 | 🟩 Çalışıyor |
+## Istenmeyenler (Delete-Zone) - 74 unique
 
 | Eklenti | Kaynak Ornek | Site | Dil | Tur |
 |---------|--------------|------|-----|-----|
@@ -407,28 +401,25 @@ Toplam kayit: 101 (Istenmeyenler ve ozel-liste hariç, sadece kaynak repolar)
 | 🟥 Streamed | Kraptor123/Cs-Karma | streamed.pk | en | Live |
 | 🟥 Subsplease | Kraptor123/Cs-Karma | subsplease.org | en | Anime |
 | 🟥 Supercartoons | Kraptor123/Cs-Karma | i.imgur.com | en | Cartoon |
+| 🟥 TLCtr | feroxx/Kekik-cloudstream | www.tlctv.com.tr | tr | Movie |
 | 🟥 TmdbProvider | blackhope01/cloudstream-plugins | www.diziyo.so | tr | Movie,TvSeries |
+| 🟥 TRanimaci | feroxx/Kekik-cloudstream | tranimaci.com | tr | Anime |
 | 🟥 TrAnimeIzle | aytzey/cs-kraptor | www.tranimeizle.io | tr | Anime |
+| 🟥 TRasyalog | feroxx/Kekik-cloudstream | asyalog.co | tr | TvSeries |
 | 🟥 TurkAnime | feroxx/Kekik-cloudstream | www.turkanime.co | tr | Anime |
 | 🟥 TurkishW | ctnkyaumt/cstest | themoviedb.org | tr | Movie,TvSeries,Anime,Live |
+| 🟥 TVGarden | Kraptor123/Cs-Karma | tv.garden | en | Live |
+| 🟥 UgurFilm | ilkelkullanici/ilkel-cloudstream | ugurfilm7.com | tr | Movie |
+| 🟥 Watch2Movies | feroxx/Kekik-cloudstream | movies2watch.watch | en | Movie,TvSeries |
+| 🟥 WatchWrestling | Kraptor123/Cs-Karma | instapro.ac | en | Live |
 | 🟥 Wcoflix | Kraptor123/Cs-Karma | www.wcoflix.tv | en | Anime,Cartoon |
 | 🟥 WebDramaTurkey | aytzey/cs-kraptor | webdramaturkey.org | tr | AsianDrama |
+| 🟥 WebdramaTurkey2 | feroxx/Kekik-cloudstream | webdramaturkey2.com | tr | AsianDrama,Movie,Anime,Others |
 | 🟥 Yablom | Kraptor123/Cs-Karma | yablom.com | fr | Movie |
 | 🟥 YeniKaynak | aytzey/cs-kraptor | www.yenikaynak.com | tr | Movie,TvSeries |
 | 🟥 YesilCamTv | aytzey/cs-kraptor | yesilcamtv.com.tr | tr | Movie |
 | 🟥 YoTurkish | Kraptor123/Cs-Karma | yoturkish.to | en | TvSeries |
 | 🟥 Youtube | aytzey/cs-kraptor | www.youtube.com | tr | Movie,Live,Music,TvSeries |
 | 🟥 YTS | aytzey/cs-kraptor | en.yts-official.mx | tr | Torrent |
-
-
-## Yasal Uyarı ve Sorumluluk Reddi (Disclaimer)
-Bu depo kişisel arşivleme amacıyla oluşturulmuştur; hiçbir ticari amacı yoktur. Bu depo (ve GitHub sunucuları) hiçbir video, ses dosyası, medya veya telif hakkıyla korunan materyal barındırmaz, kopyalamaz veya dağıtmaz. Bu depo yalnızca internette herkese açık olarak paylaşılan üçüncü taraf eklentilerin (`.cs3`) doğrudan GitHub RAW adreslerini derleyen metin tabanlı bir JSON dizinidir ("Yalnızca Endeks"). Listelenen eklentilerin kodları, işleyişleri veya hangi web sitelerinden veri çektikleri üzerinde bu deponun hiçbir kontrolü, sahipliği veya sorumluluğu yoktur; tüm sorumluluk eklentilerin orijinal geliştiricilerine ve veriyi barındıran kaynak web sitelerine aittir. Bu depo yalnızca bağlantıları listeleyen bir köprü görevi gördüğü için telif hakkı ihlali iddialarının muhatabı değildir; içerik kaldırma talepleri (DMCA) doğrudan içerikleri sunan kaynak web sitelerine veya eklentilerin orijinal GitHub depolarına yapılmalıdır. Bu depo, 5846 sayılı Fikir ve Sanat Eserleri Kanunu ve 5651 sayılı Kanun kapsamında da eser barındırmaz, çoğaltmaz veya iletmez; yalnızca kamuya açık kaynaklardaki `.cs3` dosyalarına bağlantı sağlar. 5651 sayılı Kanunun 4. maddesinin ikinci fıkrası gereği içerik sağlayıcı, bağlantı sağladığı başkasına ait içerikten sorumlu değildir; ancak aynı maddenin istisnası saklıdır: sunuş biçiminden bağlantı verilen içeriğin benimsendiği ve kullanıcının o içeriğe ulaşmasının amaçlandığı açıkça belli ise sorumluluk doğabilir. Bu depo, listedeki hiçbir eklentiyi veya eklentilerin veri çektiği kaynakları benimsemez ve tavsiye etmez; liste salt teknik bir indekstir. Hak sahipleri 5651 sayılı Kanunun 9. maddesi uyarınca uyarı yöntemiyle bildirimde bulunursa ilgili bağlantı derhal kaldırılır.
-
-This repository is created for personal archiving purposes and has no commercial intent. This repository does not host, store, copy, or distribute any video, audio, media files, or copyrighted material; it serves merely as a text-based JSON index containing direct links to third-party `.cs3` plugins already publicly available on the internet ("Index Only"). The owner of this repository does not develop, host, or control any of the listed plugins, their source code, operation, or the websites these plugins scrape; all liability lies strictly with the original plugin developers and the respective websites hosting the media. As this repository only provides a compilation of text-based URLs, it is not liable for copyright infringement; any DMCA takedown requests must be directed to the actual websites hosting the copyrighted content or to the original developers' repositories. Under Turkish law (FSEK No. 5846 and Law No. 5651), this repository does not host, reproduce, or communicate any work; it merely provides links to `.cs3` files publicly available on the internet. Under Article 4/2 of Law No. 5651, a content provider is not liable for third-party content to which it merely provides a link; however, the exception in that provision is reserved: liability may arise where the presentation clearly shows that the linked content is adopted and that users are intended to reach it. This repository does not adopt or recommend any of the listed plugins or the sources they use; the list is a purely technical index. If rights holders send a notice under Article 9 of Law No. 5651, the relevant link will be removed promptly
-| 🟥 TVGarden | Kraptor123/Cs-Karma | tv.garden | en | Live |
-| 🟥 UgurFilm | ilkelkullanici/ilkel-cloudstream | ugurfilm7.com | tr | Movie |
-| 🟥 Watch2Movies | feroxx/Kekik-cloudstream | movies2watch.watch | en | Movie,TvSeries |
-| 🟥 WatchWrestling | Kraptor123/Cs-Karma | instapro.ac | en | Live |
-| 🟥 WebdramaTurkey2 | feroxx/Kekik-cloudstream | webdramaturkey2.com | tr | AsianDrama,Movie,Anime,Others |
 
 .
