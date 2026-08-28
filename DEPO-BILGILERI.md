@@ -227,7 +227,7 @@ CloudStream tarafında depo yenilendiğinde yeni liste otomatik çekilir. Kaynak
 Bu bölüm otomatik üretildi (2026-08-28) — tüm kaynak repolardaki 107 eklenti (Istenmeyenler ve ozel-liste hariç) alfabetik, site domain ve durum bilgisiyle.
 
 Aynı isim/kökten farklı repo/build'lerde gelen ve yalnızca 1 tanesi listede tutulan eklentiler için aynı mantık geçerlidir: Her gruptan sadece 1 tanesi `plugins.json`'da yer alır; diğer(leri) duplicate olarak eklenmez, repobuild güncellendiğinde kontrol edilir. Renkler: 🟩 Çalışan (yeşil), 🟨 Çalışmayan (sarı), 🟧 Duplicate (turuncu), 🟥 İstenmeyen/Ignore (kırmızı), 🟦 Eklenebilir (mavi).
-Toplam kayit: 91 (Istenmeyenler ve ozel-liste hariç, sadece kaynak repolar)
+Toplam kayit: 87 (Istenmeyenler ve ozel-liste hariç, sadece kaynak repolar)
 
 | # | Eklenti | Kaynak | Site (domain) | v | Kaynak Tarih | Bizim Tarih | Durum |
 |---|---------|--------|---------------|---|---|----------------|---------------|
@@ -310,18 +310,15 @@ Toplam kayit: 91 (Istenmeyenler ve ozel-liste hariç, sadece kaynak repolar)
 | 77 | 🟧 Sinewix | ilkelkullanici/ilkel-cloudstream | [play-lh.googleusercontent.com](https://play-lh.googleusercontent.com) | 2 | 2026-06-11 | - | 🟧 Duplicate (feroxx 2026-08-23 tercih edildi) |
 | 78 | 🟧 SineWix | aytzey/cs-kraptor | [play-lh.googleusercontent.com](https://play-lh.googleusercontent.com) | 33 | 2026-07-15 | - | 🟧 Duplicate (feroxx 2026-08-23 tercih edildi) |
 | 79 | 🟩 Sinezy | aytzey/cs-kraptor | [sinezy.fit](https://sinezy.fit) | 40 | 2026-07-14 | 2026-08-28 | 🟩 Çalışıyor |
-| 80 | 🟧 TLCtr | feroxx/Kekik-cloudstream | [www.tlctv.com.tr](https://www.tlctv.com.tr) | 19 | 2025-04-22 | - | 🟧 Duplicate (ilkelkullanici 2026-06-11 tercih edildi) |
-| 81 | 🟦 TLCtr | ilkelkullanici/ilkel-cloudstream | [www.tlctv.com.tr](https://www.tlctv.com.tr) | 19 | 2026-06-11 | - | 🟦 Eklenebilir |
-| 82 | 🟦 TRasyalog | feroxx/Kekik-cloudstream | [asyalog.co](https://asyalog.co) | 65 | 2026-07-19 | - | 🟦 Eklenebilir |
-| 83 | 🟧 TRasyalog | ilkelkullanici/ilkel-cloudstream | [asyalog.com](https://asyalog.com) | 64 | 2026-06-11 | - | 🟧 Duplicate (feroxx 2026-07-19 tercih edildi) |
-| 84 | 🟩 Turkdizileri | aytzey/cs-kraptor | [i.imgur.com](https://i.imgur.com) | 33 | 2026-07-15 | 2026-08-28 | 🟩 Çalışıyor |
-| 85 | 🟩 TvDiziler | aytzey/cs-kraptor | [tvdiziler.cc](https://tvdiziler.cc) | 18 | 2026-07-15 | 2026-08-28 | 🟩 Çalışıyor |
-| 86 | 🟩 WebteIzle | feroxx/Kekik-cloudstream | [webteizle3.xyz](https://webteizle3.xyz) | 20 | 2026-08-27 | - | 🟩 Çalışıyor |
-| 87 | 🟧 WebteIzle | ilkelkullanici/ilkel-cloudstream | [webteizle2.com](https://webteizle2.com) | 17 | 2026-06-11 | - | 🟧 Duplicate (feroxx 2026-08-27 tercih edildi) |
-| 88 | 🟧 Webteizle | blackhope01/cloudstream-plugins | [webteizle3.xyz](https://webteizle3.xyz) | 1 | 2026-08-25 | - | 🟧 Duplicate (feroxx 2026-08-27 tercih edildi) |
-| 89 | 🟧 WebteIzle | aytzey/cs-kraptor | [webteizle1.xyz](https://webteizle1.xyz) | 53 | 2025-08-14 | - | 🟧 Duplicate (feroxx 2026-08-27 tercih edildi) |
-| 90 | 🟩 WFilmizle | aytzey/cs-kraptor | [wfilmizle.bar](https://wfilmizle.bar) | 23 | 2026-07-24 | 2026-08-28 | 🟩 Çalışıyor |
-| 91 | 🟩 YabanciDizi | aytzey/cs-kraptor | [yabancidizi.so](https://yabancidizi.so) | 18 | 2025-08-14 | 2026-08-28 | 🟩 Çalışıyor |## Istenmeyenler (Delete-Zone) - 79 unique
+| 80 | 🟩 Turkdizileri | aytzey/cs-kraptor | [i.imgur.com](https://i.imgur.com) | 33 | 2026-07-15 | 2026-08-28 | 🟩 Çalışıyor |
+| 81 | 🟩 TvDiziler | aytzey/cs-kraptor | [tvdiziler.cc](https://tvdiziler.cc) | 18 | 2026-07-15 | 2026-08-28 | 🟩 Çalışıyor |
+| 82 | 🟩 WebteIzle | feroxx/Kekik-cloudstream | [webteizle3.xyz](https://webteizle3.xyz) | 20 | 2026-08-27 | - | 🟩 Çalışıyor |
+| 83 | 🟧 WebteIzle | ilkelkullanici/ilkel-cloudstream | [webteizle2.com](https://webteizle2.com) | 17 | 2026-06-11 | - | 🟧 Duplicate (feroxx 2026-08-27 tercih edildi) |
+| 84 | 🟧 Webteizle | blackhope01/cloudstream-plugins | [webteizle3.xyz](https://webteizle3.xyz) | 1 | 2026-08-25 | - | 🟧 Duplicate (feroxx 2026-08-27 tercih edildi) |
+| 85 | 🟧 WebteIzle | aytzey/cs-kraptor | [webteizle1.xyz](https://webteizle1.xyz) | 53 | 2025-08-14 | - | 🟧 Duplicate (feroxx 2026-08-27 tercih edildi) |
+| 86 | 🟩 WFilmizle | aytzey/cs-kraptor | [wfilmizle.bar](https://wfilmizle.bar) | 23 | 2026-07-24 | 2026-08-28 | 🟩 Çalışıyor |
+| 87 | 🟩 YabanciDizi | aytzey/cs-kraptor | [yabancidizi.so](https://yabancidizi.so) | 18 | 2025-08-14 | 2026-08-28 | 🟩 Çalışıyor |
+## Istenmeyenler (Delete-Zone) - 79 unique
 
 | Eklenti | Kaynak Ornek | Site | Dil | Tur |
 |---------|--------------|------|-----|-----|
