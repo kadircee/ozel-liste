@@ -43,24 +43,24 @@
     "fileHash": "sha256-8ea11d5478e217810dffff1b813cca032774caed3edbb2fbbeb37d924d5c6a08"
   },
   {
-    "url": "https://raw.githubusercontent.com/aytzey/cs-kraptor/builds/Ddizi.cs3",
+    "url": "https://raw.githubusercontent.com/feroxx/Kekik-cloudstream/builds/Ddizi.cs3",
     "status": 1,
-    "version": 19,
+    "version": 22,
     "name": "Ddizi",
     "internalName": "Ddizi",
     "authors": [
-      "kraptor"
+      "keyiflerolsun"
     ],
-    "description": "Ddizi, dizi izle, dizi seyret, yerli dizi izle, canlı dizi, türk dizi izle, dizi izle full, diziizle, eski diziler.",
-    "fileSize": 36196,
-    "repositoryUrl": "https://github.com/aytzey/cs-kraptor",
+    "description": "DDizi.im için Cloudstream eklentisi",
+    "fileSize": 20110,
+    "repositoryUrl": "https://github.com/feroxx/Kekik-cloudstream",
     "language": "tr",
     "tvTypes": [
       "TvSeries"
     ],
     "iconUrl": "https://www.ddizi.im/images/logo.png",
     "apiVersion": 1,
-    "fileHash": "sha256-4e20618c5b65b5ee28f58db98889d48d1245d06f9ee5028663d8d66988c9abf8"
+    "fileHash": "sha256-47e75d5eb583ed98fb54324a73028da5f35775e910f3e6a5e78cd00effa786a9"
   },
   {
     "url": "https://raw.githubusercontent.com/feroxx/Kekik-cloudstream/builds/DiziYou.cs3",
@@ -124,17 +124,18 @@
     "fileHash": "sha256-3150a6212f052ad843a8b9e67d65c82b35078f502bb9f5032b1af808d87b862e"
   },
   {
-    "url": "https://raw.githubusercontent.com/MRTDEVM/cloudstream-turkce/builds/Hdfilmcehennemi.cs3",
+    "url": "https://raw.githubusercontent.com/feroxx/Kekik-cloudstream/builds/HDFilmCehennemi.cs3",
     "status": 1,
-    "version": 8,
-    "name": "Hdfilmcehennemi",
-    "internalName": "Hdfilmcehennemi",
+    "version": 48,
+    "name": "HDFilmCehennemi",
+    "internalName": "HDFilmCehennemi",
     "authors": [
-      "CloudStream User"
+      "hexated",
+      "keyiflerolsun"
     ],
-    "description": "HDFilmCehennemi Turkce Film ve Dizi Saglayicisi",
-    "fileSize": 26700,
-    "repositoryUrl": "https://github.com/MRTDEVM/cloudstream-turkce",
+    "description": "Türkiye'nin en hızlı hd film izleme sitesi",
+    "fileSize": 31661,
+    "repositoryUrl": "https://github.com/feroxx/Kekik-cloudstream",
     "language": "tr",
     "tvTypes": [
       "Movie",
@@ -142,10 +143,10 @@
     ],
     "iconUrl": "https://www.hdfilmcehennemi.nl/favicon.ico",
     "apiVersion": 1,
-    "fileHash": "sha256-87a9083a8a6ee61d90b9c5376acefb41e1f4f194fc0ad7d107dfaa0792e75684"
+    "fileHash": "sha256-d3edf0a3cce476d7a5b850950c0fe467102cfacc890da86c5fc39eaecd470c86"
   },
   {
-    "url": "https://raw.githubusercontent.com/ilkelkullanici/ilkel-cloudstream/builds/SinemaCX.cs3",
+    "url": "https://raw.githubusercontent.com/feroxx/Kekik-cloudstream/builds/SinemaCX.cs3",
     "status": 1,
     "version": 24,
     "name": "SinemaCX",
@@ -154,61 +155,58 @@
       "keyiflerolsun"
     ],
     "description": "Güncel ve en iyi yabancı filmleri yüksek görüntü kalitesinde, Türkçe dublaj ve altyazı seçenekleriyle filmleri full izleyin.",
-    "fileSize": 16693,
-    "repositoryUrl": "https://github.com/ilkelkullanici/ilkel-cloudstream",
+    "fileSize": 16707,
+    "repositoryUrl": "https://github.com/feroxx/Kekik-cloudstream",
     "language": "tr",
     "tvTypes": [
       "Movie"
     ],
     "iconUrl": "https://www.google.com/s2/favicons?domain=www.sinema.cx&sz=128",
     "apiVersion": 1,
-    "fileHash": "sha256-3c496ff118452705b240bc4e2ab887efc5c1496897d0a0bf851db40d0ff04a4c"
+    "fileHash": "sha256-a190ac05f8aea8e02626447814c076b6442ed2854794634d07878c2728be06d9"
   },
   {
-    "url": "https://raw.githubusercontent.com/aytzey/cs-kraptor/builds/SineWix.cs3",
+    "url": "https://raw.githubusercontent.com/feroxx/Kekik-cloudstream/builds/Sinewix.cs3",
     "status": 1,
-    "version": 33,
-    "name": "SineWix",
-    "internalName": "SineWix",
+    "version": 2,
+    "name": "Sinewix",
+    "internalName": "Sinewix",
     "authors": [
-      "kraptor",
-      "ByAyzen"
+      "patr0n",
+      "keyiflerolsun"
     ],
-    "description": "SineWix - Ücretsiz Film, Dizi ve Anime İzleme Uygulaması 5000+ HD İçerik, Türkçe Altyazılı, Otaku Dostu Anime Arşivi, Premium Kalite Yabancı Yapımlar",
-    "fileSize": 77299,
-    "repositoryUrl": "https://github.com/aytzey/cs-kraptor",
+    "description": "Sinewix | Ücretsiz Film - Dizi - Anime İzleme Uygulaması",
+    "fileSize": 26760,
+    "repositoryUrl": "https://github.com/feroxx/Kekik-cloudstream",
     "language": "tr",
     "tvTypes": [
       "Movie",
       "TvSeries",
-      "Anime",
-      "AsianDrama",
-      "Cartoon"
+      "Anime"
     ],
     "iconUrl": "https://play-lh.googleusercontent.com/brwGNmr7IjA_MKk_TTPs0va10hdKE_bD_a1lnKoiMuCayW98EHpRv55edA6aEoJlmwfX=w240-h480",
     "apiVersion": 1,
-    "fileHash": "sha256-8155d0c87480fd1c28da228acea89a6c79c13a546a8df49cf5063a54f7922772"
+    "fileHash": "sha256-b006775c37981e0b7ffd95ef11bc1c5dbf69504cbec8fe5928d8f41b005091f4"
   },
   {
-    "url": "https://raw.githubusercontent.com/ilkelkullanici/ilkel-cloudstream/builds/SezonlukDizi.cs3",
+    "url": "https://raw.githubusercontent.com/blackhope01/cloudstream-plugins/builds/SezonlukDizi.cs3",
     "status": 1,
-    "version": 8,
+    "version": 1,
     "name": "SezonlukDizi",
     "internalName": "SezonlukDizi",
     "authors": [
-      "keyiflerolsun",
-      "JustRelaxable"
+      "blackhope01"
     ],
     "description": "Güncel ve eski dizileri en iyi görüntü kalitesiyle bulabileceğiniz yabancı dizi izleme siteniz.",
-    "fileSize": 21648,
-    "repositoryUrl": "https://github.com/ilkelkullanici/ilkel-cloudstream",
+    "fileSize": 31821,
+    "repositoryUrl": "https://github.com/blackhope01/cloudstream-plugins",
     "language": "tr",
     "tvTypes": [
       "TvSeries"
     ],
     "iconUrl": "https://www.google.com/s2/favicons?domain=sezonlukdizi6.com&sz=128",
     "apiVersion": 1,
-    "fileHash": "sha256-930ff881fa9b35ad8bc1f662ddfafd20f37349b10eecff6c028f9cdbd4a9dedf"
+    "fileHash": "sha256-43e3d5cb3af55a6f7075f03b07755be46ebd0ff3dc7be0d9e3843b3558c62056"
   },
   {
     "url": "https://raw.githubusercontent.com/blackhope01/cloudstream-plugins/builds/JetFilmizle.cs3",
