@@ -135,7 +135,7 @@ def main():
     for p in listed:
         listed_by_norm[norm(p.get('internalName', ''))] = p
 
-    flips, closed, yeniler, elenen_yeni, baglar, guard = [], [], [], [], [], []
+    flips, closed, yeniler, elenen_yeni, baglar, guard, orphan = [], [], [], [], [], [], []
     for key in sorted(pool):
         grp = sorted(pool[key], key=lambda x: x[2], reverse=True)
         top_tarih = grp[0][2]
@@ -146,7 +146,20 @@ def main():
             cur_repo = (m.group(1) + '/' + m.group(2)) if m else '?'
             cur_hist = [g for g in grp if g[0] == cur_repo]
             cur_tarih = cur_hist[0][2] if cur_hist else None
-            if cur_tarih and top_tarih > cur_tarih:
+            if cur_tarih is None:
+                # ORPHAN: listedeki kopyanin kaynagi bu grupta yok (rename/case-kaymasi).
+                # Sessiz gecme: grup yine de degerlendirilir, karar sorulur.
+                orphan.append('%s: listede %s ama grupta yok (grup: %s)' % (
+                    cur.get('internalName'), cur_repo, ', '.join('%s %s' % (r, t) for r, _, t in grp)))
+                if len(kazananlar) > 1:
+                    baglar.append('%s (orphan-tie): %s' % (cur.get('internalName'), ', '.join('%s %s' % (r, t) for r, _, t in kazananlar)))
+                else:
+                    w = kazananlar[0]
+                    if cur.get('status') == 0:
+                        closed.append('%s: kaynak belirsiz -> %s %s (status:0, sorulacak)' % (cur.get('internalName'), w[0], top_tarih))
+                    else:
+                        flips.append((cur, w))
+            elif top_tarih > cur_tarih:
                 w = kazananlar[0]
                 if len(kazananlar) > 1:
                     baglar.append('%s: %s' % (cur.get('internalName'), ', '.join('%s %s' % (r, t) for r, _, t in kazananlar)))
@@ -181,10 +194,12 @@ def main():
     print('\n'.join('  ' + c for c in elenen_yeni) or '  (yok)')
     print('=== TIE SORULACAK (%d) ===' % len(baglar))
     print('\n'.join('  ' + c for c in baglar) or '  (yok)')
+    print('=== ORPHAN (listedeki kaynak grupta yok) (%d) ===' % len(orphan))
+    print('\n'.join('  ' + c for c in orphan) or '  (yok)')
 
     action = flips + [(None, w) for w in yeniler]
     if not args.apply:
-        if action or closed or baglar or elenen_yeni:
+        if action or closed or baglar or elenen_yeni or orphan:
             print('\n--apply siz calisti, yazilmadi (exit 1).')
             sys.exit(1)
         print('\nYapilacak is yok.')
