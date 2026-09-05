@@ -2,7 +2,7 @@
 Bu depo test CloudStream deposudur; yalnızca Türkçe film/dizi eklentilerini ve test seçtiği kaynakları barındırır. Canlı yayın, NSFW ve yabancı dil içerikli eklentiler kullanıcı tercihi gereği listeye alınmamıştır.
 
 ## Durum
-- **Son doğrulama:** 2026-09-05 · **40 eklenti** (30 açık + 10 kapalı (AltiYuzAltmisAltiFilmIzle, DiziBox, DiziFilmORG, DiziMom, DiziPal, FilmBip, Full4kizle, FullHDFilm, FullHDFilmizlesene, SetFilmIzle))); indirilebilir, hash/boyut doğrulanmış)
+- **Son doğrulama:** 2026-09-05 · **40 eklenti** (34 açık + 6 kapalı (AltiYuzAltmisAltiFilmIzle, DiziFilmORG, FilmBip, Full4kizle, FullHDFilm, SetFilmIzle))); indirilebilir, hash/boyut doğrulanmış)
 - **Kural:** bozuk eklenti silinmez, `status:0` yapılır (bkz. Kurulum)
 - **Delete-zone:** silinen eklentiler yeniden eklenmez (bkz. Silinen Eklentiler)
 
@@ -169,6 +169,7 @@ Kaynak `builds/plugins.json` adresi, listedeki `.cs3` adresinden türetilir (`ht
 | YAML doğrulama `ModuleNotFoundError: No module named 'yaml'` | Python'da PyYAML kurulu değildi | `python -m pip install pyyaml` ile kuruldu; doğrulama `yaml.safe_load` ile geçti |
 | YAML doğrulamada `KeyError: 'on'` | PyYAML YAML 1.1'de `on:` anahtarını bool `True`'ya çevirir (GitHub Actions YAML 1.2 kullanır ve `on`'u string kabul eder) | Gerçek hata değil; GitHub Actions bu dosyayı doğru ayrıştırır (workflow dosyası sorunsuz çalışır) |
 | plt-stream v47→v55 + DiziPalOriginal v84→v86 + DiziMom v56→v58 hash/boyut uyuşmazlığı (2026-09-05) | Kaynak repolar güncellenmiş; listedeki eski hash/boyut CloudStream’te hash mismatch veriyordu | update.py ile senkronlandı, jsDelivr purge 5/5 OK; Dizipod authors trim koruması geri yazıldı |
+| 4 kapalı açıldı (DiziBox/DiziMom/DiziPal/FullHDFilmizlesene) + WebteIzle typo-kopyaya geçildi (2026-09-05) | Tarih Takip Kuralı: kaynaklar ilerledi, kullanıcı onayı ile açıldı/değiştirildi | 5 kayıt hash doğrulamalı senkronlandı (status 0→1 açılanlar dahil), jsDelivr purge 6/6 OK; UgurFilm yasaklıya eklendi |
 | Full4kizle kaynağın plugins.json’ından düşmüş (.cs3 404) | Cs-Karma tarafında kayıt yok | Silme yok kuralı: kayıt status:0 ile korunuyor; kaynakta yeniden belirirse update.py yakalar |
 
 ### Önemli Not
@@ -210,9 +211,9 @@ Toplam kayit: 87 (Istenmeyenler ve ozel-liste hariç, sadece kaynak repolar)
 | 2 | 🟩 Ddizi | [feroxx/Kekik-cloudstream](https://github.com/feroxx/Kekik-cloudstream) | [www.ddizi.im](https://www.ddizi.im) | 22 | 2026-09-02 | 2026-09-02 | 🟩 Çalışıyor |  |
 | 3 | 🟧 Ddizi | [ilkelkullanici/ilkel-cloudstream](https://github.com/ilkelkullanici/ilkel-cloudstream) | [www.ddizi.im](https://www.ddizi.im) | 22 | 2026-06-11 | 2026-08-28 | 🟧 Duplicate (feroxx 2026-09-02 tercih edildi) |
 | 4 | 🟧 Ddizi | [aytzey/cs-kraptor](https://github.com/aytzey/cs-kraptor) | [www.ddizi.im](https://www.ddizi.im) | 19 | 2026-07-14 | 2026-08-28 | 🟧 Duplicate (feroxx 2026-09-02 tercih edildi) |
-| 5 | 🟨 DiziBox | [feroxx/Kekik-cloudstream](https://github.com/feroxx/Kekik-cloudstream) | [www.dizibox.live](https://www.dizibox.live) | 23 | 2026-09-02 | 2026-09-02 | 🟨 Çalışmıyor (son ölü: 2026-08-22, bu build veya başka build güncellendiğinde kontrol) |  |
-| 6 | 🟨 DiziBox | [ilkelkullanici/ilkel-cloudstream](https://github.com/ilkelkullanici/ilkel-cloudstream) | [www.dizibox.live](https://www.dizibox.live) | 23 | 2026-06-11 | 2026-08-28 | 🟨 Çalışmıyor (son ölü: 2026-08-22, bu build veya başka build güncellendiğinde kontrol) |
-| 7 | 🟨 DiziBox | [aytzey/cs-kraptor](https://github.com/aytzey/cs-kraptor) | [www.dizibox.de](https://www.dizibox.de) | 37 | 2026-07-14 | 2026-07-14 | 🟨 Çalışmıyor (son ölü: 2026-08-22, bu build veya başka build güncellendiğinde kontrol) |  |
+| 5 | 🟩 DiziBox | [feroxx/Kekik-cloudstream](https://github.com/feroxx/Kekik-cloudstream) | [www.dizibox.live](https://www.dizibox.live) | 23 | 2026-09-02 | 2026-09-02 | 🟩 Çalışıyor |  |
+| 6 | 🟧 DiziBox | [ilkelkullanici/ilkel-cloudstream](https://github.com/ilkelkullanici/ilkel-cloudstream) | [www.dizibox.live](https://www.dizibox.live) | 23 | 2026-06-11 | 2026-08-28 | 🟧 Duplicate (feroxx 2026-09-02 tercih edildi) |
+| 7 | 🟧 DiziBox | [aytzey/cs-kraptor](https://github.com/aytzey/cs-kraptor) | [www.dizibox.de](https://www.dizibox.de) | 37 | 2026-07-14 | 2026-07-14 | 🟧 Duplicate (feroxx 2026-09-02 tercih edildi) |  |
 | 8 | 🟨 DiziFilmORG | [aytzey/cs-kraptor](https://github.com/aytzey/cs-kraptor) | [dizifilm.org](https://dizifilm.org) | 22 | 2026-07-24 | 2026-08-28 | 🟨 Çalışmıyor (son ölü: 2026-08-22, bu build veya başka build güncellendiğinde kontrol) |
 | 9 | 🟩 Dizigecesi | [aytzey/cs-kraptor](https://github.com/aytzey/cs-kraptor) | [dizigecesi.com](https://dizigecesi.com) | 4 | 2026-07-15 | 2026-08-28 | 🟩 Çalışıyor |
 | 10 | 🟩 DiziLife | [blackhope01/cloudstream-plugins](https://github.com/blackhope01/cloudstream-plugins) | [dizi73.life](https://dizi73.life) | 2 | 2026-09-03 | 2026-09-03 | 🟩 Çalışıyor |  |
@@ -220,13 +221,13 @@ Toplam kayit: 87 (Istenmeyenler ve ozel-liste hariç, sadece kaynak repolar)
 | 12 | 🟩 Dizilla | [feroxx/Kekik-cloudstream](https://github.com/feroxx/Kekik-cloudstream) | [dizilla.club](https://dizilla.club) | 92 | 2026-09-02 | 2026-09-02 | 🟩 Çalışıyor |  |
 | 13 | 🟧 Dizilla | [ilkelkullanici/ilkel-cloudstream](https://github.com/ilkelkullanici/ilkel-cloudstream) | [dizilla.club](https://dizilla.club) | 92 | 2026-06-11 | 2026-08-28 | 🟧 Duplicate (feroxx 2026-08-23 tercih edildi) |
 | 14 | 🟧 Dizilla | [aytzey/cs-kraptor](https://github.com/aytzey/cs-kraptor) | [dizilla.to](https://dizilla.to) | 111 | 2026-08-05 | 2026-08-05 | 🟧 Duplicate (feroxx 2026-08-23 tercih edildi) |  |
-| 15 | 🟨 DiziMom | [feroxx/Kekik-cloudstream](https://github.com/feroxx/Kekik-cloudstream) | [www.dizimom.plus](https://www.dizimom.plus) | 58 | 2026-09-02 | 2026-09-05 | 🟨 Çalışmıyor (son ölü: 2026-08-22, bu build veya başka build güncellendiğinde kontrol) |
-| 16 | 🟨 DiziMom | [ilkelkullanici/ilkel-cloudstream](https://github.com/ilkelkullanici/ilkel-cloudstream) | [www.dizimom.plus](https://www.dizimom.plus) | 43 | 2026-08-28 | 2026-08-28 | 🟨 Çalışmıyor (son ölü: 2026-08-22, bu build veya başka build güncellendiğinde kontrol) |
-| 17 | 🟨 DiziMom | [blackhope01/cloudstream-plugins](https://github.com/blackhope01/cloudstream-plugins) | [www.dizimom.surf](https://www.dizimom.surf) | 3 | 2026-09-03 | 2026-09-03 | 🟨 Çalışmıyor (son ölü: 2026-08-22, bu build veya başka build güncellendiğinde kontrol) |  |
-| 18 | 🟨 DiziMom | [aytzey/cs-kraptor](https://github.com/aytzey/cs-kraptor) | [www.dizimom.mom](https://www.dizimom.mom) | 61 | 2026-07-15 | 2026-07-15 | 🟨 Çalışmıyor (son ölü: 2026-08-22, bu build veya başka build güncellendiğinde kontrol) |  |
-| 19 | 🟨 DiziPal | [feroxx/Kekik-cloudstream](https://github.com/feroxx/Kekik-cloudstream) | [dizipal1563.com](https://dizipal1563.com) | 104 | 2026-09-02 | 2026-09-02 | 🟨 Çalışmıyor (son ölü: 2026-08-22, bu build veya başka build güncellendiğinde kontrol) |  |
-| 20 | 🟨 DiziPal | [ilkelkullanici/ilkel-cloudstream](https://github.com/ilkelkullanici/ilkel-cloudstream) | [dizipal952.com](https://dizipal952.com) | 90 | 2026-08-28 | 2026-08-28 | 🟨 Çalışmıyor (son ölü: 2026-08-22, bu build veya başka build güncellendiğinde kontrol) |
-| 21 | 🟨 DiziPal | [aytzey/cs-kraptor](https://github.com/aytzey/cs-kraptor) | [dizipal.im](https://dizipal.im) | 89 | 2026-07-14 | 2026-07-14 | 🟨 Çalışmıyor (son ölü: 2026-08-22, bu build veya başka build güncellendiğinde kontrol) |  |
+| 15 | 🟧 DiziMom | [feroxx/Kekik-cloudstream](https://github.com/feroxx/Kekik-cloudstream) | [www.dizimom.plus](https://www.dizimom.plus) | 58 | 2026-09-02 | 2026-09-05 | 🟧 Duplicate (blackhope01 2026-09-03 tercih edildi) |
+| 16 | 🟧 DiziMom | [ilkelkullanici/ilkel-cloudstream](https://github.com/ilkelkullanici/ilkel-cloudstream) | [www.dizimom.plus](https://www.dizimom.plus) | 43 | 2026-08-28 | 2026-08-28 | 🟧 Duplicate (blackhope01 2026-09-03 tercih edildi) |
+| 17 | 🟩 DiziMom | [blackhope01/cloudstream-plugins](https://github.com/blackhope01/cloudstream-plugins) | [www.dizimom.surf](https://www.dizimom.surf) | 3 | 2026-09-03 | 2026-09-03 | 🟩 Çalışıyor |  |
+| 18 | 🟧 DiziMom | [aytzey/cs-kraptor](https://github.com/aytzey/cs-kraptor) | [www.dizimom.mom](https://www.dizimom.mom) | 61 | 2026-07-15 | 2026-07-15 | 🟧 Duplicate (blackhope01 2026-09-03 tercih edildi) |  |
+| 19 | 🟩 DiziPal | [feroxx/Kekik-cloudstream](https://github.com/feroxx/Kekik-cloudstream) | [dizipal1563.com](https://dizipal1563.com) | 104 | 2026-09-02 | 2026-09-02 | 🟩 Çalışıyor |  |
+| 20 | 🟧 DiziPal | [ilkelkullanici/ilkel-cloudstream](https://github.com/ilkelkullanici/ilkel-cloudstream) | [dizipal952.com](https://dizipal952.com) | 90 | 2026-08-28 | 2026-08-28 | 🟧 Duplicate (feroxx 2026-09-02 tercih edildi) |
+| 21 | 🟧 DiziPal | [aytzey/cs-kraptor](https://github.com/aytzey/cs-kraptor) | [dizipal.im](https://dizipal.im) | 89 | 2026-07-14 | 2026-07-14 | 🟧 Duplicate (feroxx 2026-09-02 tercih edildi) |  |
 | 22 | 🟩 DiziPalOriginal | [feroxx/Kekik-cloudstream](https://github.com/feroxx/Kekik-cloudstream) | [chessplyimages.cfd](https://chessplyimages.cfd) | 86 | 2026-09-02 | 2026-09-05 | 🟩 Çalışıyor |
 | 23 | 🟧 DiziPalOriginal | [ilkelkullanici/ilkel-cloudstream](https://github.com/ilkelkullanici/ilkel-cloudstream) | [dizipal2036.com](https://dizipal2036.com) | 66 | 2026-08-28 | 2026-08-28 | 🟧 Duplicate (feroxx 2026-09-02 tercih edildi — eşit tarih, site canlılık eşit) |
 | 24 | 🟩 DiziPalOrijinal | [aytzey/cs-kraptor](https://github.com/aytzey/cs-kraptor) | [dizipal932.com](https://dizipal932.com) | 45 | 2026-08-05 | 2026-08-28 | 🟩 Çalışıyor |
@@ -252,10 +253,10 @@ Toplam kayit: 87 (Istenmeyenler ve ozel-liste hariç, sadece kaynak repolar)
 | 44 | 🟨 Full4kizle | [Kraptor123/Cs-Karma](https://github.com/Kraptor123/Cs-Karma) | [plusizle.net](https://plusizle.net) | 20 | 2026-08-27 | 2026-08-22 | 🟨 Çalışmıyor (son ölü: 2026-08-22, bu build veya başka build güncellendiğinde kontrol) |
 | 45 | 🟨 FullHDFilm | [feroxx/Kekik-cloudstream](https://github.com/feroxx/Kekik-cloudstream) | [hdfilm.us](https://hdfilm.us) | 36 | 2026-09-02 | 2026-09-02 | 🟨 Çalışıyor (geçici — tekrar değerlendirilecek, son ölü: 2026-08-22) |  |
 | 46 | 🟨 FullHDFilm | [ilkelkullanici/ilkel-cloudstream](https://github.com/ilkelkullanici/ilkel-cloudstream) | [fullhdfilm.us](https://fullhdfilm.us) | 36 | 2026-06-11 | - | 🟨 Çalışmıyor (son ölü: 2026-08-22, bu build veya başka build güncellendiğinde kontrol) |
-| 47 | 🟨 FullHDFilmizlesene | [feroxx/Kekik-cloudstream](https://github.com/feroxx/Kekik-cloudstream) | [www.fullhdfilmizlesene.de](https://www.fullhdfilmizlesene.de) | 33 | 2026-09-02 | 2026-09-02 | 🟨 Çalışmıyor (son ölü: 2026-08-22, bu build veya başka build güncellendiğinde kontrol) |  |
-| 48 | 🟨 FullHDFilmizlesene | [ilkelkullanici/ilkel-cloudstream](https://github.com/ilkelkullanici/ilkel-cloudstream) | [www.fullhdfilmizlesene.de](https://www.fullhdfilmizlesene.de) | 29 | 2026-08-28 | 2026-08-28 | 🟨 Çalışmıyor (son ölü: 2026-08-22, bu build veya başka build güncellendiğinde kontrol) |
-| 49 | 🟨 FullHDFilmizlesene | [MRTDEVM/cloudstream-turkce](https://github.com/MRTDEVM/cloudstream-turkce) | [www.fullhdfilmizlesene.now](https://www.fullhdfilmizlesene.now) | 8 | 2026-08-21 | 2026-08-28 | 🟨 Çalışmıyor (son ölü: 2026-08-22, bu build veya başka build güncellendiğinde kontrol) |
-| 50 | 🟨 FullHDFilmizlesene | [aytzey/cs-kraptor](https://github.com/aytzey/cs-kraptor) | [www.fullhdfilmizlesene.de](https://www.fullhdfilmizlesene.de) | 72 | 2026-08-05 | 2026-08-05 | 🟨 Çalışmıyor (son ölü: 2026-08-22, bu build veya başka build güncellendiğinde kontrol) |  |
+| 47 | 🟩 FullHDFilmizlesene | [feroxx/Kekik-cloudstream](https://github.com/feroxx/Kekik-cloudstream) | [www.fullhdfilmizlesene.de](https://www.fullhdfilmizlesene.de) | 33 | 2026-09-02 | 2026-09-02 | 🟩 Çalışıyor |  |
+| 48 | 🟧 FullHDFilmizlesene | [ilkelkullanici/ilkel-cloudstream](https://github.com/ilkelkullanici/ilkel-cloudstream) | [www.fullhdfilmizlesene.de](https://www.fullhdfilmizlesene.de) | 29 | 2026-08-28 | 2026-08-28 | 🟧 Duplicate (feroxx 2026-09-02 tercih edildi) |
+| 49 | 🟧 FullHDFilmizlesene | [MRTDEVM/cloudstream-turkce](https://github.com/MRTDEVM/cloudstream-turkce) | [www.fullhdfilmizlesene.now](https://www.fullhdfilmizlesene.now) | 8 | 2026-08-21 | 2026-08-28 | 🟧 Duplicate (feroxx 2026-09-02 tercih edildi) |
+| 50 | 🟧 FullHDFilmizlesene | [aytzey/cs-kraptor](https://github.com/aytzey/cs-kraptor) | [www.fullhdfilmizlesene.de](https://www.fullhdfilmizlesene.de) | 72 | 2026-08-05 | 2026-08-05 | 🟧 Duplicate (feroxx 2026-09-02 tercih edildi) |  |
 | 51 | 🟩 HDFilmCehennemi | [feroxx/Kekik-cloudstream](https://github.com/feroxx/Kekik-cloudstream) | [hdfilmcehennemi.com](https://hdfilmcehennemi.com) | 48 | 2026-09-02 | 2026-09-02 | 🟩 Çalışıyor |  |
 | 52 | 🟧 HDFilmCehennemi | [ilkelkullanici/ilkel-cloudstream](https://github.com/ilkelkullanici/ilkel-cloudstream) | [hdfilmcehennemi.com](https://hdfilmcehennemi.com) | 47 | 2026-06-11 | 2026-08-28 | 🟧 Duplicate (feroxx 2026-09-02 tercih edildi) |
 | 53 | 🟧 HDFilmCehennemi | [MRTDEVM/cloudstream-turkce](https://github.com/MRTDEVM/cloudstream-turkce) | [www.hdfilmcehennemi.nl](https://www.hdfilmcehennemi.nl) | 8 | 2026-08-21 | 2026-08-28 | 🟧 Duplicate (feroxx 2026-09-02 tercih edildi) |
@@ -287,7 +288,7 @@ Toplam kayit: 87 (Istenmeyenler ve ozel-liste hariç, sadece kaynak repolar)
 | 79 | 🟩 Sinezy | [aytzey/cs-kraptor](https://github.com/aytzey/cs-kraptor) | [sinezy.fit](https://sinezy.fit) | 40 | 2026-07-14 | 2026-08-28 | 🟩 Çalışıyor |
 | 80 | 🟩 Turkdizileri | [aytzey/cs-kraptor](https://github.com/aytzey/cs-kraptor) | [turkdizileri.cc](https://turkdizileri.cc) | 33 | 2026-07-15 | 2026-08-28 | 🟩 Çalışıyor |
 | 81 | 🟩 TvDiziler | [aytzey/cs-kraptor](https://github.com/aytzey/cs-kraptor) | [tvdiziler.cc](https://tvdiziler.cc) | 18 | 2026-07-15 | 2026-08-28 | 🟩 Çalışıyor |
-| 82 | 🟩 Webteizle | [feroxx/Kekik-cloudstream](https://github.com/feroxx/Kekik-cloudstream) | [webteizle3.xyz](https://webteizle3.xyz) | 20 | 2026-09-02 | 2026-09-02 | 🟩 Çalışıyor |  |
+| 82 | 🟩 WebteIzle | [feroxx/Kekik-cloudstream](https://github.com/feroxx/Kekik-cloudstream) | [webteizle3.xyz](https://webteizle3.xyz) | 20 | 2026-09-02 | 2026-09-02 | 🟩 Çalışıyor |  |
 | 83 | 🟧 Webteizle | [ilkelkullanici/ilkel-cloudstream](https://github.com/ilkelkullanici/ilkel-cloudstream) | [webteizle2.com](https://webteizle2.com) | 17 | 2026-06-11 | 2026-08-28 | 🟧 Duplicate (feroxx 2026-09-02 tercih edildi) |
 | 84 | 🟧 Webteizle | [blackhope01/cloudstream-plugins](https://github.com/blackhope01/cloudstream-plugins) | [webteizle3.xyz](https://webteizle3.xyz) | 1 | 2026-09-03 | 2026-09-03 | 🟧 Duplicate (feroxx 2026-09-02 tercih edildi) |  |
 | 85 | 🟧 Webteizle | [aytzey/cs-kraptor](https://github.com/aytzey/cs-kraptor) | [webteizle1.xyz](https://webteizle1.xyz) | 53 | 2026-07-15 | 2026-07-15 | 🟧 Duplicate (feroxx 2026-09-02 tercih edildi) |  |
@@ -350,10 +351,13 @@ Toplam kayit: 87 (Istenmeyenler ve ozel-liste hariç, sadece kaynak repolar)
 | 🟥 Streamed | [Kraptor123/Cs-Karma](https://github.com/Kraptor123/Cs-Karma) | [streamed.pk](https://streamed.pk) | en | Live |
 | 🟥 Subsplease | [Kraptor123/Cs-Karma](https://github.com/Kraptor123/Cs-Karma) | [subsplease.org](https://subsplease.org) | en | Anime |
 | 🟥 Supercartoons | [Kraptor123/Cs-Karma](https://github.com/Kraptor123/Cs-Karma) | [i.imgur.com](https://i.imgur.com) | en | Cartoon |
+| 🟥 TLCtr | [feroxx/Kekik-cloudstream](https://github.com/feroxx/Kekik-cloudstream) | [tlctv.com.tr](https://tlctv.com.tr) | tr | Movie |
+| 🟥 TRasyalog | [feroxx/Kekik-cloudstream](https://github.com/feroxx/Kekik-cloudstream) | [asyalog.co](https://asyalog.co) | tr | TvSeries |
 | 🟥 TmdbProvider | [blackhope01/cloudstream-plugins](https://github.com/blackhope01/cloudstream-plugins) | [www.diziyo.so](https://www.diziyo.so) | tr | Movie,TvSeries |
 | 🟥 TrAnimeIzle | [aytzey/cs-kraptor](https://github.com/aytzey/cs-kraptor) | [www.tranimeizle.io](https://www.tranimeizle.io) | tr | Anime |
 | 🟥 TurkAnime | [feroxx/Kekik-cloudstream](https://github.com/feroxx/Kekik-cloudstream) | [www.turkanime.co](https://www.turkanime.co) | tr | Anime |
 | 🟥 TurkishW | [ctnkyaumt/cstest](https://github.com/ctnkyaumt/cstest) | [themoviedb.org](https://themoviedb.org) | tr | Movie,TvSeries,Anime,Live |
+| 🟥 UgurFilm | [ilkelkullanici/ilkel-cloudstream](https://github.com/ilkelkullanici/ilkel-cloudstream) | [ugurfilm7.com](https://ugurfilm7.com) | tr | Movie |
 | 🟥 Wcoflix | [Kraptor123/Cs-Karma](https://github.com/Kraptor123/Cs-Karma) | [www.wcoflix.tv](https://www.wcoflix.tv) | en | Anime,Cartoon |
 | 🟥 WebDramaTurkey | [aytzey/cs-kraptor](https://github.com/aytzey/cs-kraptor) | [webdramaturkey.org](https://webdramaturkey.org) | tr | AsianDrama |
 | 🟥 Yablom | [Kraptor123/Cs-Karma](https://github.com/Kraptor123/Cs-Karma) | [yablom.com](https://yablom.com) | fr | Movie |

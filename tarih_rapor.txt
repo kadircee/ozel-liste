@@ -1,0 +1,86 @@
+1 | AltiYuzAltmisAltiFilmIzle | ilkelkullanici/ilkel-cloudstream | AltiYuzAltmisAltiFilmIzle.cs3 | tablo=2026-06-11 kaynak=2026-06-11 
+2 | Ddizi | feroxx/Kekik-cloudstream | Ddizi.cs3 | tablo=2026-04-01 kaynak=2026-09-02 ILERLEDI
+3 | Ddizi | ilkelkullanici/ilkel-cloudstream | Ddizi.cs3 | tablo=2026-06-11 kaynak=2026-06-11 
+4 | Ddizi | aytzey/cs-kraptor | Ddizi.cs3 | tablo=2026-07-14 kaynak=2026-07-14 
+5 | DiziBox | feroxx/Kekik-cloudstream | DiziBox.cs3 | tablo=2025-10-27 kaynak=2026-09-02 ILERLEDI
+6 | DiziBox | ilkelkullanici/ilkel-cloudstream | DiziBox.cs3 | tablo=2026-06-11 kaynak=2026-06-11 
+7 | DiziBox | aytzey/cs-kraptor | DiziBox.cs3 | tablo=2025-08-14 kaynak=2026-07-14 ILERLEDI
+8 | DiziFilmORG | aytzey/cs-kraptor | DiziFilmORG.cs3 | tablo=2026-07-24 kaynak=2026-07-24 
+9 | Dizigecesi | aytzey/cs-kraptor | Dizigecesi.cs3 | tablo=2026-07-15 kaynak=2026-07-15 
+10 | DiziLife | blackhope01/cloudstream-plugins | DiziLife.cs3 | tablo=2026-08-28 kaynak=2026-09-03 ILERLEDI
+11 | DiziLife | aytzey/cs-kraptor | DiziLife.cs3 | tablo=2026-07-24 kaynak=2026-07-24 
+12 | Dizilla | feroxx/Kekik-cloudstream | Dizilla.cs3 | tablo=2026-08-23 kaynak=2026-09-02 ILERLEDI
+13 | Dizilla | ilkelkullanici/ilkel-cloudstream | Dizilla.cs3 | tablo=2026-06-11 kaynak=2026-06-11 
+14 | Dizilla | aytzey/cs-kraptor | Dizilla.cs3 | tablo=2025-08-14 kaynak=2026-08-05 ILERLEDI
+15 | DiziMom | feroxx/Kekik-cloudstream | DiziMom.cs3 | tablo=2026-09-02 kaynak=2026-09-02 
+16 | DiziMom | ilkelkullanici/ilkel-cloudstream | DiziMom.cs3 | tablo=2026-08-28 kaynak=2026-06-11 
+17 | DiziMom | blackhope01/cloudstream-plugins | DiziMom.cs3 | tablo=2026-08-28 kaynak=2026-09-03 ILERLEDI
+18 | DiziMom | aytzey/cs-kraptor | DiziMom.cs3 | tablo=2025-08-14 kaynak=2026-07-15 ILERLEDI
+19 | DiziPal | feroxx/Kekik-cloudstream | DiziPal.cs3 | tablo=2026-08-22 kaynak=2026-09-02 ILERLEDI
+20 | DiziPal | ilkelkullanici/ilkel-cloudstream | DiziPal.cs3 | tablo=2026-08-28 kaynak=2026-06-11 
+21 | DiziPal | aytzey/cs-kraptor | DiziPal.cs3 | tablo=2025-08-14 kaynak=2026-07-14 ILERLEDI
+22 | DiziPalOriginal | feroxx/Kekik-cloudstream | DiziPalOriginal.cs3 | tablo=2026-09-02 kaynak=2026-09-02 
+23 | DiziPalOriginal | ilkelkullanici/ilkel-cloudstream | DiziPalOriginal.cs3 | tablo=2026-08-28 kaynak=2026-06-11 
+24 | DiziPalOrijinal | aytzey/cs-kraptor | DiziPalOrijinal.cs3 | tablo=2026-08-05 kaynak=2026-08-05 
+25 | Dizipod | aytzey/cs-kraptor | Dizipod.cs3 | tablo=2026-07-24 kaynak=2026-07-24 
+26 | DiziYo | blackhope01/cloudstream-plugins | DiziYo.cs3 | tablo=2026-08-25 kaynak=2026-09-03 ILERLEDI
+27 | DiziYo | aytzey/cs-kraptor | DiziYo.cs3 | tablo=2025-08-14 kaynak=2026-07-14 ILERLEDI
+28 | DiziYou | feroxx/Kekik-cloudstream | DiziYou.cs3 | tablo=2026-07-20 kaynak=2026-09-02 ILERLEDI
+29 | DiziYou | ilkelkullanici/ilkel-cloudstream | DiziYou.cs3 | tablo=2026-06-11 kaynak=2026-06-11 
+30 | DiziYou | aytzey/cs-kraptor | DiziYou.cs3 | tablo=2025-08-14 kaynak=2026-07-15 ILERLEDI
+31 | FilmBip | ilkelkullanici/ilkel-cloudstream | FilmBip.cs3 | tablo=2026-06-11 kaynak=2026-06-11 
+32 | FilmEkseni | blackhope01/cloudstream-plugins | FilmEkseni.cs3 | tablo=2026-08-25 kaynak=2026-09-03 ILERLEDI
+33 | FilmEkseni | aytzey/cs-kraptor | FilmEkseni.cs3 | tablo=2025-08-14 kaynak=2026-07-15 ILERLEDI
+34 | FilmHane | blackhope01/cloudstream-plugins | FilmHane.cs3 | tablo=2026-08-25 kaynak=2026-09-03 ILERLEDI
+35 | FilmHane | aytzey/cs-kraptor | FilmHane.cs3 | tablo=2025-08-14 kaynak=2026-07-15 ILERLEDI
+36 | FilmMakinesi | feroxx/Kekik-cloudstream | FilmMakinesi.cs3 | tablo=2026-08-23 kaynak=2026-09-02 ILERLEDI
+37 | FilmMakinesi | ilkelkullanici/ilkel-cloudstream | FilmMakinesi.cs3 | tablo=2026-06-11 kaynak=2026-06-11 
+38 | FilmMakinesi | MRTDEVM/cloudstream-turkce | FilmMakinesi.cs3 | tablo=2026-08-21 kaynak=2026-08-21 
+39 | FilmMakinesi | blackhope01/cloudstream-plugins | FilmMakinesi.cs3 | tablo=2026-08-25 kaynak=2026-09-03 ILERLEDI
+40 | FilmMakinesi | aytzey/cs-kraptor | FilmMakinesi.cs3 | tablo=2025-08-14 kaynak=2026-07-15 ILERLEDI
+41 | FilmModu | feroxx/Kekik-cloudstream | FilmModu.cs3 | tablo=2026-07-20 kaynak=2026-09-02 ILERLEDI
+42 | FilmModu | ilkelkullanici/ilkel-cloudstream | FilmModu.cs3 | tablo=2026-06-11 kaynak=2026-06-11 
+43 | FilmModu | aytzey/cs-kraptor | FilmModu.cs3 | tablo=2025-08-14 kaynak=2026-07-14 ILERLEDI
+45 | FullHDFilm | feroxx/Kekik-cloudstream | FullHDFilm.cs3 | tablo=2026-07-20 kaynak=2026-09-02 ILERLEDI
+46 | FullHDFilm | ilkelkullanici/ilkel-cloudstream | FullHDFilm.cs3 | tablo=2026-06-11 kaynak=2026-06-11 
+47 | FullHDFilmizlesene | feroxx/Kekik-cloudstream | FullHDFilmizlesene.cs3 | tablo=2026-08-22 kaynak=2026-09-02 ILERLEDI
+48 | FullHDFilmizlesene | ilkelkullanici/ilkel-cloudstream | FullHDFilmizlesene.cs3 | tablo=2026-08-28 kaynak=2026-06-11 
+49 | FullHDFilmizlesene | MRTDEVM/cloudstream-turkce | FullHDFilmizlesene.cs3 | tablo=2026-08-21 kaynak=2026-08-21 
+50 | FullHDFilmizlesene | aytzey/cs-kraptor | FullHDFilmizlesene.cs3 | tablo=2025-08-14 kaynak=2026-08-05 ILERLEDI
+51 | Hdfilmcehennemi | feroxx/Kekik-cloudstream | HDFilmCehennemi.cs3 | tablo=2026-07-19 kaynak=2026-09-02 ILERLEDI
+52 | Hdfilmcehennemi | ilkelkullanici/ilkel-cloudstream | HDFilmCehennemi.cs3 | tablo=2026-06-11 kaynak=2026-06-11 
+53 | Hdfilmcehennemi | MRTDEVM/cloudstream-turkce | Hdfilmcehennemi.cs3 | tablo=2026-08-21 kaynak=2026-08-21 
+54 | Hdfilmcehennemi | aytzey/cs-kraptor | HDFilmCehennemi.cs3 | tablo=2025-08-14 kaynak=2026-07-24 ILERLEDI
+55 | HDFilmDelisi | feroxx/Kekik-cloudstream | HDFilmDelisi.cs3 | tablo=2026-08-27 kaynak=2026-09-02 ILERLEDI
+56 | HDFilmDelisi | aytzey/cs-kraptor | HDFilmDelisi.cs3 | tablo=2026-07-15 kaynak=2026-07-15 
+57 | HDFilmizle | aytzey/cs-kraptor | HDFilmizle.cs3 | tablo=2026-08-05 kaynak=2026-07-26 
+58 | JetFilmizle | feroxx/Kekik-cloudstream | JetFilmizle.cs3 | tablo=2026-08-23 kaynak=2026-09-02 ILERLEDI
+59 | JetFilmizle | ilkelkullanici/ilkel-cloudstream | JetFilmizle.cs3 | tablo=2026-06-11 kaynak=2026-06-11 
+60 | JetFilmizle | blackhope01/cloudstream-plugins | JetFilmizle.cs3 | tablo=2026-08-25 kaynak=2026-09-03 ILERLEDI
+61 | JetFilmizle | aytzey/cs-kraptor | JetFilmizle.cs3 | tablo=2025-08-14 kaynak=2026-07-15 ILERLEDI
+62 | KraptorPlus | aytzey/cs-kraptor | KraptorPlus.cs3 | tablo=2026-08-04 kaynak=2026-08-04 
+63 | LoveFilm | blackhope01/cloudstream-plugins | LoveFilm.cs3 | tablo=2026-08-25 kaynak=2026-09-03 ILERLEDI
+64 | plt-stream | pltmustafa/plt-stream | plt-stream.cs3 | tablo=2026-09-03 kaynak=2026-09-03 
+65 | SelcukFlix | aytzey/cs-kraptor | SelcukFlix.cs3 | tablo=2026-07-15 kaynak=2026-07-15 
+66 | SetFilmIzle | feroxx/Kekik-cloudstream | SetFilmIzle.cs3 | tablo=2026-07-22 kaynak=2026-09-02 ILERLEDI
+67 | SetFilmIzle | ilkelkullanici/ilkel-cloudstream | SetFilmIzle.cs3 | tablo=2026-06-11 kaynak=2026-06-11 
+68 | SetFilmIzle | aytzey/cs-kraptor | SetFilmIzle.cs3 | tablo=2025-08-14 kaynak=2026-08-04 ILERLEDI
+69 | SezonlukDizi | feroxx/Kekik-cloudstream | SezonlukDizi.cs3 | tablo=2026-07-15 kaynak=2026-09-02 ILERLEDI
+70 | SezonlukDizi | ilkelkullanici/ilkel-cloudstream | SezonlukDizi.cs3 | tablo=2026-08-28 kaynak=2026-06-11 
+71 | SezonlukDizi | blackhope01/cloudstream-plugins | SezonlukDizi.cs3 | tablo=2026-08-25 kaynak=2026-09-03 ILERLEDI
+72 | SezonlukDizi | aytzey/cs-kraptor | SezonlukDizi.cs3 | tablo=2025-08-14 kaynak=2026-07-15 ILERLEDI
+73 | SinemaCX | feroxx/Kekik-cloudstream | SinemaCX.cs3 | tablo=2026-04-24 kaynak=2026-09-02 ILERLEDI
+74 | SinemaCX | ilkelkullanici/ilkel-cloudstream | SinemaCX.cs3 | tablo=2026-06-11 kaynak=2026-06-11 
+75 | SinemaCX | aytzey/cs-kraptor | SinemaCX.cs3 | tablo=2025-08-14 kaynak=2026-07-14 ILERLEDI
+76 | SineWix | feroxx/Kekik-cloudstream | Sinewix.cs3 | tablo=2026-08-23 kaynak=2026-09-02 ILERLEDI
+77 | SineWix | ilkelkullanici/ilkel-cloudstream | Sinewix.cs3 | tablo=2026-06-11 kaynak=2026-06-11 
+78 | SineWix | aytzey/cs-kraptor | SineWix.cs3 | tablo=2026-07-15 kaynak=2026-07-15 
+79 | Sinezy | aytzey/cs-kraptor | Sinezy.cs3 | tablo=2026-07-14 kaynak=2026-07-14 
+80 | Turkdizileri | aytzey/cs-kraptor | Turkdizileri.cs3 | tablo=2026-07-15 kaynak=2026-07-15 
+81 | TvDiziler | aytzey/cs-kraptor | TvDiziler.cs3 | tablo=2026-07-15 kaynak=2026-07-15 
+82 | Webteizle | feroxx/Kekik-cloudstream | WebteIzle.cs3 | tablo=2026-08-27 kaynak=2026-09-02 ILERLEDI
+83 | Webteizle | ilkelkullanici/ilkel-cloudstream | WebteIzle.cs3 | tablo=2026-06-11 kaynak=2026-06-11 
+84 | Webteizle | blackhope01/cloudstream-plugins | Webteizle.cs3 | tablo=2026-08-25 kaynak=2026-09-03 ILERLEDI
+85 | Webteizle | aytzey/cs-kraptor | WebteIzle.cs3 | tablo=2025-08-14 kaynak=2026-07-15 ILERLEDI
+86 | WFilmizle | aytzey/cs-kraptor | WFilmizle.cs3 | tablo=2026-07-24 kaynak=2026-07-24 
+87 | YabanciDizi | aytzey/cs-kraptor | YabanciDizi.cs3 | tablo=2025-08-14 kaynak=2026-07-15 ILERLEDI

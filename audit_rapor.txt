@@ -1,0 +1,35 @@
+﻿yasakli sayisi: 68
+kaynak repo: 8
+ATLANDI ctnkyaumt/cstest/Filmmiras²m.cs3: tarih alinamadi ('ascii' codec can't encode character '\u0131' in position 61: ordinal not in range(128))
+havuzda grup: 123
+
+=== FLIP (0) ===
+=== KAPALI SORULACAK (4) ===
+  DiziBox: ilkelkullanici/ilkel-cloudstream 2026-06-11 -> feroxx/Kekik-cloudstream 2026-09-02 (status:0, sorulacak)
+  DiziMom: feroxx/Kekik-cloudstream 2026-09-02 -> blackhope01/cloudstream-plugins 2026-09-03 (status:0, sorulacak)
+  DiziPal: ilkelkullanici/ilkel-cloudstream 2026-06-11 -> feroxx/Kekik-cloudstream 2026-09-02 (status:0, sorulacak)
+  FullHDFilmizlesene: ilkelkullanici/ilkel-cloudstream 2026-06-11 -> feroxx/Kekik-cloudstream 2026-09-02 (status:0, sorulacak)
+=== YENI SITE (2) ===
+  UgurFilm (ilkelkullanici/ilkel-cloudstream) 2026-06-11
+  WebteIzle (feroxx/Kekik-cloudstream) 2026-09-02
+=== FILTRE-DISI YENI (16) ===
+  BasketballReplays (Kraptor123/Cs-Karma): dil=en tur=['Live']
+  CanliTV (feroxx/Kekik-cloudstream): dil=tr tur=['Live']
+  Cloud-Sync (pltmustafa/plt-stream): dil=tr tur=['All']
+  F1FullRaces (Kraptor123/Cs-Karma): dil=en tur=['Live']
+  Footballia (Kraptor123/Cs-Karma): dil=en tur=['Live']
+  KoreanTurk (ilkelkullanici/ilkel-cloudstream): dil=tr tur=['AsianDrama']
+  Nekokun (Kraptor123/Cs-Karma): dil=id tur=['Anime']
+  OnShort (Kraptor123/Cs-Karma): dil=en tur=['TvSeries']
+  plt-party (pltmustafa/plt-stream): dil=tr tur=['All']
+  plt-tv (pltmustafa/plt-stream): dil=tr tur=['Live']
+  trakt-sync (pltmustafa/plt-stream): dil=tr tur=['All']
+  TRanimaci (feroxx/Kekik-cloudstream): dil=tr tur=['Anime']
+  TVGarden (Kraptor123/Cs-Karma): dil=en tur=['Live']
+  Watch2Movies (feroxx/Kekik-cloudstream): dil=en tur=['Movie', 'TvSeries']
+  WatchWrestling (Kraptor123/Cs-Karma): dil=en tur=['Live']
+  WebdramaTurkey2 (feroxx/Kekik-cloudstream): dil=tr tur=['Anime', 'AsianDrama', 'Movie', 'Others']
+=== TIE SORULACAK (0) ===
+  (yok)
+
+--apply siz calisti, yazilmadi (exit 1).

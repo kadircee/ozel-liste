@@ -230,24 +230,24 @@
     "fileHash": "sha256-6396427508fbce27ef8ffeb56ac73436ef9ea4ecf9c8f01e74681ea167ed0d01"
   },
   {
-    "url": "https://raw.githubusercontent.com/ilkelkullanici/ilkel-cloudstream/builds/FullHDFilmizlesene.cs3",
-    "status": 0,
-    "version": 29,
+    "url": "https://raw.githubusercontent.com/feroxx/Kekik-cloudstream/builds/FullHDFilmizlesene.cs3",
+    "status": 1,
+    "version": 33,
     "name": "FullHDFilmizlesene",
     "internalName": "FullHDFilmizlesene",
     "authors": [
       "keyiflerolsun"
     ],
     "description": "Sinema zevkini evinize kadar getirdik. Türkiye'nin lider Film sitesinde, en yeni filmleri Full HD izleyin.",
-    "fileSize": 40663,
-    "repositoryUrl": "https://github.com/ilkelkullanici/ilkel-cloudstream",
+    "fileSize": 40117,
+    "repositoryUrl": "https://github.com/feroxx/Kekik-cloudstream",
     "language": "tr",
     "tvTypes": [
       "Movie"
     ],
     "iconUrl": "https://www.google.com/s2/favicons?domain=www.fullhdfilmizlesene.de&sz=128",
     "apiVersion": 1,
-    "fileHash": "sha256-ebb53b2a989c8142fb7ba0ba4caab214a42c5c3f61905dff936c9886156c8e69"
+    "fileHash": "sha256-8f2cff5f9fc87f38d415b65c30c7ad3b7c9a5d26f03d8e73b072ff520b499253"
   },
   {
     "url": "https://raw.githubusercontent.com/feroxx/Kekik-cloudstream/builds/DiziPalOriginal.cs3",
@@ -293,8 +293,8 @@
     "fileHash": "sha256-20329159ede070b4f6535bb501c5d4276262247574f27ef9740cdf2ab7175a95"
   },
   {
-    "url": "https://raw.githubusercontent.com/ilkelkullanici/ilkel-cloudstream/builds/DiziBox.cs3",
-    "status": 0,
+    "url": "https://raw.githubusercontent.com/feroxx/Kekik-cloudstream/builds/DiziBox.cs3",
+    "status": 1,
     "version": 23,
     "name": "DiziBox",
     "internalName": "DiziBox",
@@ -302,15 +302,15 @@
       "keyiflerolsun"
     ],
     "description": "Yabancı Dizi izle, Tüm yabancı dizilerin yeni ve eski sezonlarını full hd izleyebileceğiniz elit site.",
-    "fileSize": 22870,
-    "repositoryUrl": "https://github.com/ilkelkullanici/ilkel-cloudstream",
+    "fileSize": 22623,
+    "repositoryUrl": "https://github.com/feroxx/Kekik-cloudstream",
     "language": "tr",
     "tvTypes": [
       "TvSeries"
     ],
     "iconUrl": "https://www.google.com/s2/favicons?domain=www.dizibox.live&sz=128",
     "apiVersion": 1,
-    "fileHash": "sha256-49fee65d7ef8ce4f952e196c74da903c3d8440b5deaf9382730d9fb0062b6c4d"
+    "fileHash": "sha256-a64febe1430e7d417f57244e311b38a0a87d580114e3ea2d70bf4b2d2622197e"
   },
   {
     "url": "https://raw.githubusercontent.com/aytzey/cs-kraptor/builds/DiziFilmORG.cs3",
@@ -396,29 +396,30 @@
     "fileHash": "sha256-25a5164a8a92dece1f5993e4ddd7be8399f53c92ebf7448177712fa51b853827"
   },
   {
-    "url": "https://raw.githubusercontent.com/feroxx/Kekik-cloudstream/builds/DiziMom.cs3",
-    "status": 0,
-    "version": 58,
+    "url": "https://raw.githubusercontent.com/blackhope01/cloudstream-plugins/builds/DiziMom.cs3",
+    "status": 1,
+    "version": 4,
     "name": "DiziMom",
     "internalName": "DiziMom",
     "authors": [
-      "keyiflerolsun"
+      "blackhope01"
     ],
     "description": "Binlerce yerli yabancı dizi arşivi, tüm sezonlar, kesintisiz bölümler. Sadece dizi izle, Dizimom heryerde seninle!",
-    "fileSize": 34833,
-    "repositoryUrl": "https://github.com/feroxx/Kekik-cloudstream",
+    "fileSize": 26748,
+    "repositoryUrl": "https://github.com/blackhope01/cloudstream-plugins",
     "language": "tr",
     "tvTypes": [
+      "Movie",
       "TvSeries"
     ],
     "iconUrl": "https://www.google.com/s2/favicons?domain=www.dizimom.plus&sz=128",
     "apiVersion": 1,
-    "fileHash": "sha256-6f0d38ac6872a9b51d6d558f560289474459d69b8f346c218e29f1d8a63070d9"
+    "fileHash": "sha256-1e814d44124810c9c0ec13820a3fc9463aba3e5b7fde231cc2af6653140fbc37"
   },
   {
-    "url": "https://raw.githubusercontent.com/ilkelkullanici/ilkel-cloudstream/builds/DiziPal.cs3",
-    "status": 0,
-    "version": 90,
+    "url": "https://raw.githubusercontent.com/feroxx/Kekik-cloudstream/builds/DiziPal.cs3",
+    "status": 1,
+    "version": 106,
     "name": "DiziPal",
     "internalName": "DiziPal",
     "authors": [
@@ -426,8 +427,8 @@
       "muratcesmecioglu"
     ],
     "description": "en yeni dizileri güvenli ve hızlı şekilde sunar.",
-    "fileSize": 27732,
-    "repositoryUrl": "https://github.com/ilkelkullanici/ilkel-cloudstream",
+    "fileSize": 29473,
+    "repositoryUrl": "https://github.com/feroxx/Kekik-cloudstream",
     "language": "tr",
     "tvTypes": [
       "TvSeries",
@@ -435,7 +436,7 @@
     ],
     "iconUrl": "https://www.google.com/s2/favicons?domain=https://dizipal952.com&sz=128",
     "apiVersion": 1,
-    "fileHash": "sha256-f757d37095e7b14e041dca43f9d992d3e1a5acf8648c493b3e9d90fe5d0a254b"
+    "fileHash": "sha256-8455c789c3f261c6c3f5367abf52eb294c87427d31a965a7ac99a1dbac384d6e"
   },
   {
     "url": "https://raw.githubusercontent.com/aytzey/cs-kraptor/builds/DiziPalOrijinal.cs3",
@@ -697,25 +698,24 @@
     "fileHash": "sha256-f844e8b349462cb5407a6f219fb1894bb7582853adaf49ddfe8267e98139de0d"
   },
   {
-    "url": "https://raw.githubusercontent.com/blackhope01/cloudstream-plugins/builds/Webteizle.cs3",
+    "url": "https://raw.githubusercontent.com/feroxx/Kekik-cloudstream/builds/WebteIzle.cs3",
     "status": 1,
-    "version": 1,
-    "name": "Webteizle",
-    "internalName": "Webteizle",
+    "version": 20,
+    "name": "WebteIzle",
+    "internalName": "WebteIzle",
     "authors": [
-      "blackhope01"
+      "keyiflerolsun"
     ],
     "description": "Her türlü filmi ister dublaj ister altyazılı, en kaliteli bir şekilde izleyebileceğiniz arşivi en geniş gerçek film izleme siteniz.",
-    "fileSize": 28924,
-    "repositoryUrl": "https://github.com/blackhope01/cloudstream-plugins",
+    "fileSize": 24121,
+    "repositoryUrl": "https://github.com/feroxx/Kekik-cloudstream",
     "language": "tr",
     "tvTypes": [
-      "Movie",
-      "TvSeries"
+      "Movie"
     ],
     "iconUrl": "https://www.google.com/s2/favicons?domain=https://webteizle3.xyz&sz=128",
     "apiVersion": 1,
-    "fileHash": "sha256-163fc89b68c30065cdfdf4afc027167fad047c92e7e6b3025a7e1716ed670e78"
+    "fileHash": "sha256-f7a8d287c87279a07a74ca627f62a12169a073bd1ff20870915bdd8fb7fb181f"
   },
   {
     "url": "https://raw.githubusercontent.com/aytzey/cs-kraptor/builds/WFilmizle.cs3",
