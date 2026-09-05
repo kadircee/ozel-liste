@@ -2,7 +2,7 @@
 Bu depo test CloudStream deposudur; yalnızca Türkçe film/dizi eklentilerini ve test seçtiği kaynakları barındırır. Canlı yayın, NSFW ve yabancı dil içerikli eklentiler kullanıcı tercihi gereği listeye alınmamıştır.
 
 ## Durum
-- **Son doğrulama:** 2026-08-28 · **40 eklenti** (30 açık + 10 kapalı (AltiYuzAltmisAltiFilmIzle, DiziBox, DiziFilmORG, DiziMom, DiziPal, FilmBip, Full4kizle, FullHDFilm, FullHDFilmizlesene, SetFilmIzle))); indirilebilir, hash/boyut doğrulanmış)
+- **Son doğrulama:** 2026-09-05 · **40 eklenti** (30 açık + 10 kapalı (AltiYuzAltmisAltiFilmIzle, DiziBox, DiziFilmORG, DiziMom, DiziPal, FilmBip, Full4kizle, FullHDFilm, FullHDFilmizlesene, SetFilmIzle))); indirilebilir, hash/boyut doğrulanmış)
 - **Kural:** bozuk eklenti silinmez, `status:0` yapılır (bkz. Kurulum)
 - **Delete-zone:** silinen eklentiler yeniden eklenmez (bkz. Silinen Eklentiler)
 
@@ -32,7 +32,6 @@ Kısa kod yalnızca harf/rakam/`!_-` içerebilir; `!` ile başlayanlar `py.md` s
 ozel-liste/
 ├── repo.json            → CloudStream'in açtığı depo tanımı
 ├── plugins.json         → eklenti listesi (40 eklenti)
-├── verify.py            → yapısal + ağ kontrollü doğrulama script'i (--deep ile .cs3 içinden gerçek çekim domaini kontrolü; --health ile ölmüş eklentilere otomatik status:0; sadece standart kütüphane, Python 3)
 ├── update.py            → kaynak depolardan güncel verileri senkronize eden script (--check rapor modu dahil)
 ├── backups/            → temizlenmiş CloudStream veri yedeği örneği (kişisel veri yok)
 └── DEPO-BILGILERI.md    → bu doküman
@@ -101,8 +100,8 @@ Eskiden kullanılan / hiç kullanılmayan kaynaklar:
 
 **1a. Eşit tarihli kaynaklar (tie-breaker) — VERSİYON NUMARASI HİÇBİR AŞAMADA KULLANILMAZ:**
 İki veya daha fazla kaynağın aynı güncelleme tarihine sahip olduğu durumlarda sırasıyla şu kriterler uygulanır:
-1. Site canlılığı — `verify.py --deep` ile çekim domaini testi yapılır; ölü/parking domain'e sahip olan elenir.
-2. Hâlâ eşitse (ikisi de canlıysa) — `verify.py --health`/`--deep` çıktısındaki hız/güvenilirlik sinyaline (HTTP yanıt süresi, hata oranı) bakılır; net bir sinyal yoksa kullanıcıya sorulur, otomatik karar verilmez.
+1. Site canlılığı elle kontrol edilir (site açılıyor mu?); açılmayan elenir.
+2. Hâlâ eşitse kullanıcıya sorulur, otomatik karar verilmez.
 Versiyon numarası bu tie-breaker'ın HİÇBİR adımında kriter olarak kullanılmaz — ne düşük ne yüksek versiyon tercih nedeni sayılır.
 
 **2. Tablo bakımı — `Tüm Repolar` sadece `tr` + `Movie/TvSeries/Documentary` içerir:**
@@ -111,55 +110,30 @@ Versiyon numarası bu tie-breaker'ın HİÇBİR adımında kriter olarak kullan�
 - `kadircee/ozel-liste` kaynak değil derleme olduğu için `Tüm Repolar`'da yer almaz.
 - `Istenmeyenler` metin + tablo aynı anda tutulmaz; tek tablo (`71→74`) yeterlidir, `Silinen Eklentiler` metin listesi sadece not bırakır.
 
-**3. Durum renkleri — `verify.py --deep` çekim domaini baz alır, icon domain değil:**
-- `SinemaCX` icon `sinema.cx` DNS ölü olsa da çekim `sinema.gg` 200 olduğu için `verify` çalışıyor sayar.
+**3. Durum renkleri — Tarih Takip Kuralı + kullanıcı bildirimi baz alır:**
+- İkon domaininin ölü görünmesi tek başına karar nedeni değildir (ör. `SinemaCX`: ikon `sinema.cx` ölü görünebilir ama eklenti veriyi başka domainden çekiyor olabilir) — karar tarihe + kullanıcı testine göre verilir.
 - GitHub markdown `style` strip ettiği için renkler `span` değil emoji ile verilir: `🟩 Çalışıyor` / `🟨 Çalışmıyor` / `🟧 Duplicate` / `🟥 İstenmeyen` / `🟦 Eklenebilir`; `Eklenti` kolonuna da eklenir (dar ekranda `Durum` sağa kaydığı için).
-- `status:0` silme değil; `Tekrar Kontrol`/`Istenmeyenler` ile izlenir, `verify --health` sadece kesin ölüde karar verir.
-- **Özel durum:** `Eklenti` 🟦 (Eklenebilir) iken `Durum` 🟨 (Çalışmıyor) olabilir — örnek `AltiYuzAltmisAltiFilmIzle` `ilkel v1` `666filmizle.site` eklenebilir olarak listede ama site ölü olduğu için durum sarıdır. Bu durumda `Eklenti` mavi kalır, `Durum` sarı olur; bu fark rehberde not edilir ve `verify --deep` ile site canlılığı ayrıca izlenir.
+- `status:0` silme değil; tarihi izlenir; kaynak ilerlediyse kullanıcıya sorulur, "kapalı kalsın" derse Bizim Tarih yine eşitlenir, otomatik açılış yok.
+- **Özel durum:** `Eklenti` 🟦 (Eklenebilir) iken `Durum` 🟨 (Çalışmıyor) olabilir — örnek `AltiYuzAltmisAltiFilmIzle` `ilkel v1` `666filmizle.site` eklenebilir olarak listede ama site ölü olduğu için durum sarıdır. Bu durumda `Eklenti` mavi kalır, `Durum` sarı olur; bu fark rehberde not edilir ve site canlılığı Tarih Takip Kuralı’na göre izlenir.
 
 
 
 
 
-## Yapısal Kontrol (verify.py)
-```bash
-python verify.py               # yapısal + ağ kontrolleri (varsayılan)
-python verify.py --offline     # yalnızca yapısal kontroller
-python verify.py --deep        # + .cs3 içinden gerçek çekim domainlerini çıkarıp test eder (uyarı üretir, karar vermez)
-python verify.py --health      # + cekim domainleri TAMAMEN olmus eklentilere status:0 uygular (otomatik karar modu)
-```
-`verify.py` (yalnızca standart kütüphane, harici bağımlılık yok):
+## Tarih Takip Kuralı (tek kural)
 
-**Yapısal kontroller (her iki modda):**
-- JSON syntax geçerliliği ve `repo.json` `pluginLists` varlığı
-- `internalName`, `url`, `fileHash` alanlarında yinelenme olmaması
-- Zorunlu alanların varlığı ve tip tutarlılığı (`status` 0-3: 0=kapalı, 1=açık, 2=yavaş, 3=sadece beta; `version`, `apiVersion` int; `authors` liste)
-- `url` uzantısının `.cs3` olması
-- `fileHash`'in `sha256-` + 64 hex formatında olması
-- `tvTypes` geçerliliği: `Movie, TvSeries, Anime, Live, AsianDrama, Others, Documentary, AnimeMovie, OVA, Cartoon`
-- `language` ISO uyumluluğu, `description`/`name`/yazar boşlukları; `iconUrl` içinde `%size%` yer tutucusu uyarı üretir (bu depo ikonları normalize eder: `%size%` → `sz=128`)
+Tablodaki her satırda iki tarih vardır: **Kaynak Tarih** (kaynak deponun `builds` branch'inde o `.cs3` dosyasına dokunan son commit'in tarihi) ve **Bizim Tarih** (bizim o kaynağı en son benimsediğimiz tarih). Bütün olay bu iki tarihin karşılaştırmasıdır:
 
-**Ağ kontrolleri (varsayılan modda):**
-- Her eklentinin `.cs3` dosyası indirilir; HTTP durumu, `fileSize` ve `fileHash` (SHA-256) uyumu doğrulanır
-- `iconUrl` adresine HEAD/GET atılır (HTTP 200 şartı)
-- Kaynak depo geçici erişilemezse "atlanabilir" kabul edilir (uyarı); dosya **404** ise hata sayılır
+- **Kaynak Tarih > Bizim Tarih** → kaynak ilerlemiş demektir. `update.py` ile senkronize et, sonra satırdaki `Bizim Tarih`'i `Kaynak Tarih`'e eşitle. Versiyon numarasına bakılmaz.
+- **Kaynak Tarih == Bizim Tarih** → yapacak iş yok.
+- **Kapalı satırlar (`status:0`)**: `Kaynak Tarih` izlenmeye devam eder. Kaynak Tarih Bizim Tarih'i geçmişse kullanıcıya sorulur (kaynak düzelmiş olabilir). Kullanıcı "kapalı kalsın" derse `status` değişmez AMA `Bizim Tarih` yine de `Kaynak Tarih`'e eşitlenir — ki aynı soru her seferinde tekrar sorulmasın; kaynak bir kez daha ilerleyene kadar o satır susar. `status:1`'e dönüş her zaman manueldir.
 
-**Derin çekim domain kontrolü (`--deep`, deneysel):**
-- Her eklentinin `.cs3` arşivi açılır, `classes.dex` içinden ASCII hostname adayları çıkarılır (bilinen TLD listesi + filtreler)
-- Çıkan adaylar DNS + HTTP ile test edilir; `[SITE]` uyarısı üretilir
-- İkon domaini **yerine** eklentinin gerçekten veri çektiği domainler izlenir → yanlış alarm riski düşüktür
-  (ör. SinemaCX ikon domaini `sinema.cx` DNS'te ölü görünüyordu ama eklenti asıl veriyi canlı olan `sinema.gg`'den çekiyor)
-- Eklentinin birden fazla kaynağından en az biri ayaktaysa sorun sayılmaz; hepsi yanıt vermiyorsa uyarı üretilir
-- Domainler dinamik üretilen eklentilerde (FilmMakinesi, DiziYou gibi) aday çıkmaz, o eklenti için geçersiz sayılır
+**Durum renkleri** tarihten + kullanıcı bildiriminden çıkar (araç yok, çalışmıyorsa kullanıcı söyler):
+- 🟩 Çalışıyor: `Kaynak Tarih == Bizim Tarih` ve kullanıcıdan "çalışmıyor" bildirimi yok.
+- 🟨 Çalışmıyor: kullanıcı "çalışmıyor" dedi.
+- 🟧 Duplicate / 🟥 İstenmeyen / 🟦 Eklenebilir (anlamları aynı).
 
-Not: **Bu script eklentilerin "çalıştığını" doğrulamaz.** Eklentinin gerçekten film/dizi açıp oynatması yalnızca CloudStream üzerinde kullanıcının testiyle anlaşılır. `--deep` modu site kapanışlarını erken yakalamak için yapılan en derin sunucu tarafı kontrolüdür; bot engelleri ve bölgesel farklar nedeniyle karar için referans alınmaz, yalnızca uyarı üretir.
-
-**Otomatik `status:0` (`--health`):**
-- `--deep`'in aksine bu mod **karar verir**: aktif eklentinin `.cs3`'ünden çıkarılan çekim domainlerinin **tamamı** kesin ölü ise eklentiyi `plugins.json`'da `status:0` yapar (CloudStream yenilemede eklentiyi devre dışı bırakır).
-- Kesin ölü kriterleri: DNS çözülemiyor, ana sayfa 404/410, TLS hatası (http de ölü), veya sayfa **domain-parking "satılık" sayfası** (title/içerikte `satılıktır`, `for sale`, `Kaynaklar ve Bilgiler`, dan.com/afternic/nicsell vb. işaretler). Bunlar `--deep`'in kör noktasıydı: parking sayfası HTTP 200 döndürdüğü için "ayakta" sanılıyordu (666, FullHD örneği).
-- **Yanlış pozitife kapalı:** en az bir domain ayaktaysa veya herhangi bir domain `unknown` (zaman aşımı, bot engeli 403, belirsiz) ise **dokunulmaz**. Dinamik domainli eklentilerde (FilmMakinesi, DiziYou…) domain çıkmadığı için hiçbir zaman otomatik kapatılmaz.
-- `status:1`'e (yeniden açma) **asla** otomatik dönülmez — bunu yalnızca kullanıcı yapar. Bu yüzden yanlış kapatma riski düşüktür ve geri dönüşü kolaydır.
-- Elle `python verify.py --health` komutuyla çalıştırılır (otomatik çalışmaz).
+`verify.py` 2026-09-05'te kaldırıldı: ağ taraması yavaştı ve ürettiği uyarılar karara dönüşmüyordu. Doğruluk artık iki şeye dayanır: tarih takibi + kullanıcının cihazdaki gerçek testi.
 
 ## Kaynak Senkronizasyonu (update.py)
 ```bash
@@ -168,7 +142,7 @@ python update.py            # farkları uygular, plugins.json'u günceller
 ```
 Kaynak `builds/plugins.json` adresi, listedeki `.cs3` adresinden türetilir (`https://raw.githubusercontent.com/<owner>/<repo>/builds/<Isim>.cs3` → aynı klasördeki `plugins.json`). Senkronize edilen alanlar: `version, fileSize, fileHash, description, authors, language, tvTypes`. `iconUrl` bilinçli olarak senkronize **edilmez** — bu depo ikon adreslerini normalize eder (kaynaktaki `%size%` yer tutucuları sabit `sz=128`'e çevrilir) ve kaynak güncellemesi bu düzeltmeyi geri almasın.
 
-> **Not:** Bu depo **otomatik hiçbir şey çalıştırmaz** (workflow dosyası yalnızca manuel tetikleme (workflow_dispatch) için tutulur; cron/otomatik tetikleyici kapalıdır). Kaynak senkronu (`update.py`), site sağlık kontrolü (`verify.py --deep`/`--health`) ve status değişiklikleri yalnızca **elle** yapılır. `[ATLANDI]` sayısı, kaynak depo bazında toplu kapanışın (ör. cs-kraptor kapanışı: 29 eklenti tek seferde 404) erken işaretidir.
+> **Not:** Bu depo **otomatik hiçbir şey çalıştırmaz** (workflow dosyası yalnızca manuel tetikleme (workflow_dispatch) için tutulur; cron/otomatik tetikleyici kapalıdır). Kaynak senkronu (`update.py`) ve status değişiklikleri yalnızca **elle** yapılır. `[ATLANDI]` sayısı, kaynak depo bazında toplu kapanışın (ör. cs-kraptor kapanışı: 29 eklenti tek seferde 404) erken işaretidir.
 
 ## Karşılaşılan Hatalar ve Çözümleri
 | Hata | Neden | Çözüm |
@@ -194,10 +168,11 @@ Kaynak `builds/plugins.json` adresi, listedeki `.cs3` adresinden türetilir (`ht
 | `git push` çıktısında kırmızı `NativeCommandError` görünüyordu | PowerShell, git'in stderr'e yazdığı ilerleme satırlarını hata sanıyor | Gerçek hata değil — çıktının sonunda `fb7f710..6aea63d main -> main` görülüyorsa push başarılı demektir |
 | YAML doğrulama `ModuleNotFoundError: No module named 'yaml'` | Python'da PyYAML kurulu değildi | `python -m pip install pyyaml` ile kuruldu; doğrulama `yaml.safe_load` ile geçti |
 | YAML doğrulamada `KeyError: 'on'` | PyYAML YAML 1.1'de `on:` anahtarını bool `True`'ya çevirir (GitHub Actions YAML 1.2 kullanır ve `on`'u string kabul eder) | Gerçek hata değil; GitHub Actions bu dosyayı doğru ayrıştırır (workflow dosyası sorunsuz çalışır) |
-| `verify.py --health` yanlış eklenti kapatabilir mi (tasarım) | Eski `--deep` HTTP 200 kontrolü parking sayfasını "ayakta" sanabiliyordu (666/FullHD yanlış pozitifi) | `--health` sayfa içeriği/title ile parking tespiti ekledi, **kesin ölü** (DNS/404/TLS/parking) dışında karar vermiyor; `unknown` veya canlı domain varsa dokunmuyor. Test: 6 parking/legit vaka + gerçek 666filmizle.site `dead` sınıflandı; 13 aktif eklenti tarandı, yanlış kapanma yok |
+| plt-stream v47→v55 + DiziPalOriginal v84→v86 + DiziMom v56→v58 hash/boyut uyuşmazlığı (2026-09-05) | Kaynak repolar güncellenmiş; listedeki eski hash/boyut CloudStream’te hash mismatch veriyordu | update.py ile senkronlandı, jsDelivr purge 5/5 OK; Dizipod authors trim koruması geri yazıldı |
+| Full4kizle kaynağın plugins.json’ından düşmüş (.cs3 404) | Cs-Karma tarafında kayıt yok | Silme yok kuralı: kayıt status:0 ile korunuyor; kaynakta yeniden belirirse update.py yakalar |
 
 ### Önemli Not
-Repolar güncellendiğinde (yeni build yayınlandığında (GitHub uzerinden takip edilir)), bu listedeki ölü siteler otomatik olarak kontrol edilmeli ve çalışıyorsa tekrar eklenebilir.
+Repolar güncellendiğinde (yeni build yayınlandığında (GitHub uzerinden takip edilir)), Kaynak Tarih ilerlediğinde satır Tarih Takip Kuralı'na göre güncellenir; kapalı (status:0) satırda kaynak ilerlediyse kullanıcıya sorulur, otomatik açılış yapılmaz.
 
 ## Silinen Eklentiler (delete-zone)
 Bu eklentiler listeye **eklenmez**; yeniden ekleme kararı yalnızca kullanıcı verir. Listede NSFW (+18) hiç yer almadı; canlı yayın/maç eklentileri istenmedi. Bozuk eklentiler silinmez, `status:0` yapılır (bkz. Kurulum). "Site açılmıyor" gerekçesiyle silinenler **geri dönüşlüdür**: site düzelirse tekrar denenebilir.
@@ -207,12 +182,11 @@ Bu eklentiler listeye **eklenmez**; yeniden ekleme kararı yalnızca kullanıcı
 ## Güncelleme
 Yeni bir değişiklik yapıldığında:
 ```bash
-python verify.py --offline      # önce yapısal doğrula
-python update.py --check        # kaynak farkı var mı bak (exit 1 = var)
+python update.py --check    # kaynak farkı var mı bak (exit 1 = var)
 python update.py                # gerekirse kaynak verilerini senkronize et
-python verify.py --health       # ölmüş eklentileri status:0 yap (elle tetikleme)
-python verify.py --deep         # senkronizasyon sonrası ağ + gerçek çekim domaini kontrolü
-git add plugins.json
+# DEPO-BILGILERI.md: Kaynak Tarih'i ilerleyen satırlarda Bizim Tarih'i eşitle (Tarih Takip Kuralı)
+# status:0 status'una dokunma; kaynak ilerlediyse sor, "kapalı kalsın" derse Bizim Tarih'i yine eşitle
+git add plugins.json DEPO-BILGILERI.md
 git -c user.name="kadircee" -c user.email="kadircee@users.noreply.github.com" \
     commit -m "plugins.json: aciklama"
 git push
@@ -221,7 +195,7 @@ Push sonrası jsDelivr önbelleği için:
 ```
 https://purge.jsdelivr.net/gh/kadircee/ozel-liste@main/plugins.json
 ```
-CloudStream tarafında depo yenilendiğinde yeni liste otomatik çekilir. Kaynak senkronu ve site sağlığı **otomatik değildir** (workflow dosyası yalnızca manuel tetikleme içindir, cron kapalı): kaynak bir eklentiyi güncellediğinde listedeki hash/boyut **elle** `update.py` çalıştırılarak senkronlanır, kaynak site ölürse eklenti **elle** `verify.py --health` (veya `--deep`) çalıştırılarak `status:0` yapılır. `status:1`'e (yeniden açma) otomatik dönülmez; site geri geldiyse `plugins.json`'da ilgili eklentinin `status`'u elle `1` yapılır. Güncelleme öncesi `verify.py --offline` ve `update.py --check` ile kontrol etmek iyi alışkanlıktır.
+CloudStream tarafında depo yenilendiğinde yeni liste otomatik çekilir. Kaynak senkronu ve site sağlığı **otomatik değildir** (workflow dosyası yalnızca manuel tetikleme içindir, cron kapalı): kaynak bir eklentiyi güncellediğinde listedeki hash/boyut **elle** `update.py` çalıştırılarak senkronlanır, eklenti çalışmıyorsa kullanıcı bildirir, `status` elle `0` yapılır. `status:1`'e (yeniden açma) otomatik dönülmez; site geri geldiyse `plugins.json`'da ilgili eklentinin `status`'u elle `1` yapılır. Güncelleme öncesi `update.py --check` ile kontrol etmek iyi alışkanlıktır.
 
 ## Tüm Repolar - Alfabetik Liste
 
@@ -246,14 +220,14 @@ Toplam kayit: 87 (Istenmeyenler ve ozel-liste hariç, sadece kaynak repolar)
 | 12 | 🟩 Dizilla | [feroxx/Kekik-cloudstream](https://github.com/feroxx/Kekik-cloudstream) | [dizilla.club](https://dizilla.club) | 92 | 2026-08-23 | 2026-08-28 | 🟩 Çalışıyor |
 | 13 | 🟧 Dizilla | [ilkelkullanici/ilkel-cloudstream](https://github.com/ilkelkullanici/ilkel-cloudstream) | [dizilla.club](https://dizilla.club) | 92 | 2026-06-11 | 2026-08-28 | 🟧 Duplicate (feroxx 2026-08-23 tercih edildi) |
 | 14 | 🟧 Dizilla | [aytzey/cs-kraptor](https://github.com/aytzey/cs-kraptor) | [dizilla.to](https://dizilla.to) | 111 | 2025-08-14 | 2026-08-28 | 🟧 Duplicate (feroxx 2026-08-23 tercih edildi) |
-| 15 | 🟨 DiziMom | [feroxx/Kekik-cloudstream](https://github.com/feroxx/Kekik-cloudstream) | [www.dizimom.plus](https://www.dizimom.plus) | 56 | 2026-08-28 | 2026-08-28 | 🟨 Çalışmıyor (son ölü: 2026-08-22, bu build veya başka build güncellendiğinde kontrol) |
+| 15 | 🟨 DiziMom | [feroxx/Kekik-cloudstream](https://github.com/feroxx/Kekik-cloudstream) | [www.dizimom.plus](https://www.dizimom.plus) | 58 | 2026-09-02 | 2026-09-05 | 🟨 Çalışmıyor (son ölü: 2026-08-22, bu build veya başka build güncellendiğinde kontrol) |
 | 16 | 🟨 DiziMom | [ilkelkullanici/ilkel-cloudstream](https://github.com/ilkelkullanici/ilkel-cloudstream) | [www.dizimom.plus](https://www.dizimom.plus) | 43 | 2026-08-28 | 2026-08-28 | 🟨 Çalışmıyor (son ölü: 2026-08-22, bu build veya başka build güncellendiğinde kontrol) |
 | 17 | 🟨 DiziMom | [blackhope01/cloudstream-plugins](https://github.com/blackhope01/cloudstream-plugins) | [www.dizimom.surf](https://www.dizimom.surf) | 3 | 2026-08-28 | 2026-08-28 | 🟨 Çalışmıyor (son ölü: 2026-08-22, bu build veya başka build güncellendiğinde kontrol) |
 | 18 | 🟨 DiziMom | [aytzey/cs-kraptor](https://github.com/aytzey/cs-kraptor) | [www.dizimom.mom](https://www.dizimom.mom) | 61 | 2025-08-14 | 2026-08-28 | 🟨 Çalışmıyor (son ölü: 2026-08-22, bu build veya başka build güncellendiğinde kontrol) |
 | 19 | 🟨 DiziPal | [feroxx/Kekik-cloudstream](https://github.com/feroxx/Kekik-cloudstream) | [dizipal1563.com](https://dizipal1563.com) | 104 | 2026-08-22 | 2026-08-28 | 🟨 Çalışmıyor (son ölü: 2026-08-22, bu build veya başka build güncellendiğinde kontrol) |
 | 20 | 🟨 DiziPal | [ilkelkullanici/ilkel-cloudstream](https://github.com/ilkelkullanici/ilkel-cloudstream) | [dizipal952.com](https://dizipal952.com) | 90 | 2026-08-28 | 2026-08-28 | 🟨 Çalışmıyor (son ölü: 2026-08-22, bu build veya başka build güncellendiğinde kontrol) |
 | 21 | 🟨 DiziPal | [aytzey/cs-kraptor](https://github.com/aytzey/cs-kraptor) | [dizipal.im](https://dizipal.im) | 89 | 2025-08-14 | 2026-08-28 | 🟨 Çalışmıyor (son ölü: 2026-08-22, bu build veya başka build güncellendiğinde kontrol) |
-| 22 | 🟩 DiziPalOriginal | [feroxx/Kekik-cloudstream](https://github.com/feroxx/Kekik-cloudstream) | [chessplyimages.cfd](https://chessplyimages.cfd) | 84 | 2026-08-28 | 2026-08-28 | 🟩 Çalışıyor |
+| 22 | 🟩 DiziPalOriginal | [feroxx/Kekik-cloudstream](https://github.com/feroxx/Kekik-cloudstream) | [chessplyimages.cfd](https://chessplyimages.cfd) | 86 | 2026-09-02 | 2026-09-05 | 🟩 Çalışıyor |
 | 23 | 🟧 DiziPalOriginal | [ilkelkullanici/ilkel-cloudstream](https://github.com/ilkelkullanici/ilkel-cloudstream) | [dizipal2036.com](https://dizipal2036.com) | 66 | 2026-08-28 | 2026-08-28 | 🟧 Duplicate (feroxx 2026-08-28 tercih edildi — eşit tarih, site canlılık eşit) |
 | 24 | 🟩 DiziPalOrijinal | [aytzey/cs-kraptor](https://github.com/aytzey/cs-kraptor) | [dizipal932.com](https://dizipal932.com) | 45 | 2026-08-05 | 2026-08-28 | 🟩 Çalışıyor |
 | 25 | 🟩 Dizipod | [aytzey/cs-kraptor](https://github.com/aytzey/cs-kraptor) | [dizipod.com](https://dizipod.com) | 12 | 2026-07-24 | 2026-08-28 | 🟩 Çalışıyor |
@@ -295,7 +269,7 @@ Toplam kayit: 87 (Istenmeyenler ve ozel-liste hariç, sadece kaynak repolar)
 | 61 | 🟧 JetFilmizle | [aytzey/cs-kraptor](https://github.com/aytzey/cs-kraptor) | [jetfilmizle.de](https://jetfilmizle.de) | 62 | 2025-08-14 | 2026-08-28 | 🟧 Duplicate (blackhope01 2026-08-25 tercih edildi) |
 | 62 | 🟩 KraptorPlus | [aytzey/cs-kraptor](https://github.com/aytzey/cs-kraptor) | [github.com/aytzey/cs-kraptor](https://github.com/aytzey/cs-kraptor) | 86 | 2026-08-04 | 2026-08-28 | 🟩 Çalışıyor |
 | 63 | 🟩 LoveFilm | [blackhope01/cloudstream-plugins](https://github.com/blackhope01/cloudstream-plugins) | [lovefilmizle.net](https://lovefilmizle.net) | 1 | 2026-08-25 | 2026-08-28 | 🟩 Çalışıyor |
-| 64 | 🟩 plt-stream | [pltmustafa/plt-stream](https://github.com/pltmustafa/plt-stream) | [github.com/pltmustafa/plt-stream](https://github.com/pltmustafa/plt-stream) | 47 | 2026-08-24 | 2026-08-22 | 🟩 Çalışıyor |
+| 64 | 🟩 plt-stream | [pltmustafa/plt-stream](https://github.com/pltmustafa/plt-stream) | [github.com/pltmustafa/plt-stream](https://github.com/pltmustafa/plt-stream) | 55 | 2026-09-03 | 2026-09-05 | 🟩 Çalışıyor |
 | 65 | 🟩 SelcukFlix | [aytzey/cs-kraptor](https://github.com/aytzey/cs-kraptor) | [selcukflix.com](https://selcukflix.com) | 49 | 2026-07-15 | 2026-08-28 | 🟩 Çalışıyor |
 | 66 | 🟨 SetFilmIzle | [feroxx/Kekik-cloudstream](https://github.com/feroxx/Kekik-cloudstream) | [www.setfilmizle.uk](https://www.setfilmizle.uk) | 30 | 2026-07-22 | 2026-08-28 | 🟨 Çalışmıyor (son ölü: 2026-08-22, bu build veya başka build güncellendiğinde kontrol) |
 | 67 | 🟨 SetFilmIzle | [ilkelkullanici/ilkel-cloudstream](https://github.com/ilkelkullanici/ilkel-cloudstream) | [www.setfilmizle.nl](https://www.setfilmizle.nl) | 28 | 2026-06-11 | 2026-08-28 | 🟨 Çalışmıyor (son ölü: 2026-08-22, bu build veya başka build güncellendiğinde kontrol) |

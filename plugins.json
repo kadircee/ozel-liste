@@ -23,14 +23,14 @@
   {
     "url": "https://raw.githubusercontent.com/pltmustafa/plt-stream/builds/plt-stream.cs3",
     "status": 1,
-    "version": 47,
+    "version": 55,
     "name": "plt-stream",
     "internalName": "plt-stream",
     "authors": [
       "pltmustafa"
     ],
     "description": "plt-stream - Birden fazla siteden içerik sağlayan bir eklenti",
-    "fileSize": 458620,
+    "fileSize": 483892,
     "repositoryUrl": "https://github.com/pltmustafa/plt-stream",
     "language": "tr",
     "tvTypes": [
@@ -40,7 +40,7 @@
     ],
     "iconUrl": "https://raw.githubusercontent.com/pltmustafa/plt-stream/master/icon.png",
     "apiVersion": 1,
-    "fileHash": "sha256-aa3cbe54cc86254fe2047817df994a52c8869d4001b12f028ec8d734210dc1b2"
+    "fileHash": "sha256-8ea11d5478e217810dffff1b813cca032774caed3edbb2fbbeb37d924d5c6a08"
   },
   {
     "url": "https://raw.githubusercontent.com/aytzey/cs-kraptor/builds/Ddizi.cs3",
@@ -254,7 +254,7 @@
   {
     "url": "https://raw.githubusercontent.com/feroxx/Kekik-cloudstream/builds/DiziPalOriginal.cs3",
     "status": 1,
-    "version": 84,
+    "version": 86,
     "name": "DiziPalOriginal",
     "internalName": "DiziPalOriginal",
     "authors": [
@@ -262,7 +262,7 @@
       "muratcesmecioglu"
     ],
     "description": "en yeni dizileri güvenli ve hızlı şekilde sunar.",
-    "fileSize": 25010,
+    "fileSize": 25014,
     "repositoryUrl": "https://github.com/feroxx/Kekik-cloudstream",
     "language": "tr",
     "tvTypes": [
@@ -271,7 +271,7 @@
     ],
     "iconUrl": "https://chessplyimages.cfd/uploads/site/favicon-32x32.png",
     "apiVersion": 1,
-    "fileHash": "sha256-a3dcdf5a554fd934b9f31132ac63507bd8f871c814ec7798dccc9923b5e81b35"
+    "fileHash": "sha256-c12d0f05dbda11d93e89796adcec655e4e282d9161ec1394e567c44c15c64240"
   },
   {
     "url": "https://raw.githubusercontent.com/feroxx/Kekik-cloudstream/builds/HDFilmDelisi.cs3",
@@ -400,14 +400,14 @@
   {
     "url": "https://raw.githubusercontent.com/feroxx/Kekik-cloudstream/builds/DiziMom.cs3",
     "status": 0,
-    "version": 56,
+    "version": 58,
     "name": "DiziMom",
     "internalName": "DiziMom",
     "authors": [
       "keyiflerolsun"
     ],
     "description": "Binlerce yerli yabancı dizi arşivi, tüm sezonlar, kesintisiz bölümler. Sadece dizi izle, Dizimom heryerde seninle!",
-    "fileSize": 34844,
+    "fileSize": 34833,
     "repositoryUrl": "https://github.com/feroxx/Kekik-cloudstream",
     "language": "tr",
     "tvTypes": [
@@ -415,7 +415,7 @@
     ],
     "iconUrl": "https://www.google.com/s2/favicons?domain=www.dizimom.plus&sz=128",
     "apiVersion": 1,
-    "fileHash": "sha256-cada7dde976ccbe3d28d6d3c525893c8e4267c1aa0d35b6a2cef0daf864874b3"
+    "fileHash": "sha256-6f0d38ac6872a9b51d6d558f560289474459d69b8f346c218e29f1d8a63070d9"
   },
   {
     "url": "https://raw.githubusercontent.com/ilkelkullanici/ilkel-cloudstream/builds/DiziPal.cs3",
