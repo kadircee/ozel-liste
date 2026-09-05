@@ -199,7 +199,7 @@ CloudStream tarafında depo yenilendiğinde yeni liste otomatik çekilir. Kaynak
 
 ## Tüm Repolar - Alfabetik Liste
 
-Bu bölüm otomatik üretildi (2026-08-28) — tüm kaynak repolardaki 87 eklenti (Istenmeyenler ve ozel-liste hariç) alfabetik, site domain ve durum bilgisiyle.
+Bu bölüm 2026-08-28’de üretildi; 2026-09-05’te 3 satır Tarih Takip Kuralı’na göre güncellendi (15, 22, 64) — tüm kaynak repolardaki 87 eklenti (Istenmeyenler ve ozel-liste hariç) alfabetik, site domain ve durum bilgisiyle.
 
 Aynı isim/kökten farklı repo/build'lerde gelen ve yalnızca 1 tanesi listede tutulan eklentiler için aynı mantık geçerlidir: Her gruptan sadece 1 tanesi `plugins.json`'da yer alır; diğer(leri) duplicate olarak eklenmez, repobuild güncellendiğinde kontrol edilir. Renkler: 🟩 Çalışan (yeşil), 🟨 Çalışmayan (sarı), 🟧 Duplicate (turuncu), 🟥 İstenmeyen/Ignore (kırmızı), 🟦 Eklenebilir (mavi).
 Toplam kayit: 87 (Istenmeyenler ve ozel-liste hariç, sadece kaynak repolar)
