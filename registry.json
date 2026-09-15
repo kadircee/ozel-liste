@@ -15,7 +15,7 @@
           "version": "1",
           "kaynak_tarih": "2026-06-11",
           "bizim_tarih": "2026-08-28",
-          "not": "(son ölü: 2026-08-22, bu build veya başka build güncellendiğinde kontrol)",
+          "not": "",
           "secim": "aktif"
         }
       ]
@@ -434,7 +434,7 @@
           "version": "23",
           "kaynak_tarih": "2026-09-08",
           "bizim_tarih": "2026-09-15",
-          "not": "(son ölü: 2026-08-22, bu build veya başka build güncellendiğinde kontrol)",
+          "not": "",
           "secim": "aktif"
         }
       ]
@@ -749,7 +749,7 @@
           "version": "1",
           "kaynak_tarih": "2026-09-07",
           "bizim_tarih": "2026-09-15",
-          "not": "(geçici — tekrar değerlendirilecek, son ölü: 2026-08-22); 2026-09-16 flip: tarih kurali geregi aytzey/cs-kraptor tercih edildi",
+          "not": "2026-09-16 flip: tarih kurali geregi aytzey/cs-kraptor tercih edildi",
           "secim": "duplicate"
         },
         {
@@ -955,7 +955,7 @@
           "version": "19",
           "kaynak_tarih": "2026-06-11",
           "bizim_tarih": "2026-08-28",
-          "not": "(son ölü: 2026-08-22, bu build veya başka build güncellendiğinde kontrol)",
+          "not": "",
           "secim": "aktif"
         }
       ]
@@ -1234,7 +1234,7 @@
           "version": "20",
           "kaynak_tarih": "2026-08-27",
           "bizim_tarih": "2026-08-22",
-          "not": "(son ölü: 2026-08-22, bu build veya başka build güncellendiğinde kontrol)",
+          "not": "",
           "secim": "duplicate"
         }
       ]
@@ -1253,7 +1253,7 @@
           "version": "36",
           "kaynak_tarih": "2026-09-15",
           "bizim_tarih": "2026-09-15",
-          "not": "(geçici — tekrar değerlendirilecek, son ölü: 2026-08-22)",
+          "not": "(geçici — tekrar değerlendirilecek)",
           "secim": "aktif"
         },
         {
@@ -1267,7 +1267,7 @@
           "version": "36",
           "kaynak_tarih": "2026-06-11",
           "bizim_tarih": "-",
-          "not": "(son ölü: 2026-08-22, bu build veya başka build güncellendiğinde kontrol)",
+          "not": "",
           "secim": "duplicate"
         }
       ]
@@ -1939,7 +1939,7 @@
           "version": "30",
           "kaynak_tarih": "2026-09-15",
           "bizim_tarih": "2026-09-15",
-          "not": "(son ölü: 2026-08-22, bu build veya başka build güncellendiğinde kontrol)",
+          "not": "",
           "secim": "aktif"
         },
         {
@@ -1953,7 +1953,7 @@
           "version": "28",
           "kaynak_tarih": "2026-06-11",
           "bizim_tarih": "2026-08-28",
-          "not": "(son ölü: 2026-08-22, bu build veya başka build güncellendiğinde kontrol)",
+          "not": "",
           "secim": "duplicate"
         },
         {
@@ -1967,7 +1967,7 @@
           "version": "42",
           "kaynak_tarih": "2026-09-08",
           "bizim_tarih": "2026-09-15",
-          "not": "(son ölü: 2026-08-22, bu build veya başka build güncellendiğinde kontrol)",
+          "not": "",
           "secim": "duplicate"
         }
       ]
