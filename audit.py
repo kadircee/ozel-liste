@@ -8,7 +8,9 @@ Kullanim:
 Kurallar (DEPO-BILGILERI.md Tarih Takip Kurali):
     - Anahtar = normalize(internalName): TR duzeltmeli casefold (İ->i, I->ı).
     - Yasaklilar (Istenmeyenler tablosu) sonsuza dek yasak: asla eklenmez/degistirilmez.
-    - Kapali (status:0) satirlar ve esit-tarih tie'lar OTOMATIK karar disi: sorulur.
+    - Esit-tarih tie'lar otomatik cozulur: kazananlar repo adina gore alfabetik
+      siralanir, her zaman ilki (kazananlar[0]) secilir; script durup sormaz.
+      status takibi yoktur (Pure Mirror).
     - Yeni site tercihen tr + {Movie,TvSeries,Documentary}; uymayanlar rapora duser.
     - Yazmadan once .cs3 indirilir, sha256 dogrulanir.
     - Tarihler GitHub API'den (builds branch, dosya bazinda son commit). Token:
@@ -155,11 +157,13 @@ def main():
     for p in listed:
         listed_by_norm[norm(p.get('internalName', ''))] = p
 
-    flips, closed, yeniler, elenen_yeni, baglar, guard, orphan = [], [], [], [], [], [], []
+    flips, yeniler, elenen_yeni, guard, orphan = [], [], [], [], []
     for key in sorted(pool):
         grp = sorted(pool[key], key=lambda x: x[2], reverse=True)
         top_tarih = grp[0][2]
-        kazananlar = [g for g in grp if g[2] == top_tarih]
+        # Tie-breaker (Pure Mirror): esit tarihliler repo adina gore alfabetik
+        # siralanir, HER ZAMAN ilki otomatik secilir; soru yok, bekleme yok.
+        kazananlar = sorted([g for g in grp if g[2] == top_tarih], key=lambda g: g[0])
         cur = listed_by_norm.get(key)
         if cur:
             m = re.match(r'https://raw\.githubusercontent\.com/([^/]+)/([^/]+)/builds/', cur.get('url', ''))
@@ -168,32 +172,15 @@ def main():
             cur_tarih = cur_hist[0][2] if cur_hist else None
             if cur_tarih is None:
                 # ORPHAN: listedeki kopyanin kaynagi bu grupta yok (rename/case-kaymasi).
-                # Sessiz gecme: grup yine de degerlendirilir, karar sorulur.
+                # Grup yine de degerlendirilir, kazanan otomatik secilir.
                 orphan.append('%s: listede %s ama grupta yok (grup: %s)' % (
                     cur.get('internalName'), cur_repo, ', '.join('%s %s' % (r, t) for r, _, t in grp)))
-                if len(kazananlar) > 1:
-                    baglar.append('%s (orphan-tie): %s' % (cur.get('internalName'), ', '.join('%s %s' % (r, t) for r, _, t in kazananlar)))
-                else:
-                    w = kazananlar[0]
-                    if cur.get('status') == 0:
-                        closed.append('%s: kaynak belirsiz -> %s %s (status:0, sorulacak)' % (cur.get('internalName'), w[0], top_tarih))
-                    else:
-                        flips.append((cur, w))
+                flips.append((cur, kazananlar[0]))
             elif top_tarih > cur_tarih:
-                w = kazananlar[0]
-                if len(kazananlar) > 1:
-                    baglar.append('%s: %s' % (cur.get('internalName'), ', '.join('%s %s' % (r, t) for r, _, t in kazananlar)))
-                elif cur.get('status') == 0:
-                    closed.append('%s: %s %s -> %s %s (status:0, sorulacak)' % (
-                        cur.get('internalName'), cur_repo, cur_tarih, w[0], top_tarih))
-                else:
-                    flips.append((cur, w))
+                flips.append((cur, kazananlar[0]))
         else:
             if key in banned:
                 guard.append('%s yasakli, kaynaklarda goruldu ama eleniyor' % grp[0][1].get('internalName'))
-                continue
-            if len(kazananlar) > 1:
-                baglar.append('%s (yeni): %s' % (grp[0][1].get('internalName'), ', '.join('%s %s' % (r, t) for r, _, t in kazananlar)))
                 continue
             repo, it, tarih = kazananlar[0]
             tv = set(it.get('tvTypes', []))
@@ -205,15 +192,11 @@ def main():
     print('\n=== FLIP (%d) ===' % len(flips))
     for cur, (repo, it, tarih) in flips:
         print('  %s: %s -> %s %s' % (cur.get('internalName'), cur.get('url', '').split('/')[3:5], repo, tarih))
-    print('=== KAPALI SORULACAK (%d) ===' % len(closed))
-    print('\n'.join('  ' + c for c in closed) or '  (yok)')
     print('=== YENI SITE (%d) ===' % len(yeniler))
     for repo, it, tarih in yeniler:
         print('  %s (%s) %s' % (it.get('internalName'), repo, tarih))
     print('=== FILTRE-DISI YENI (%d) ===' % len(elenen_yeni))
     print('\n'.join('  ' + c for c in elenen_yeni) or '  (yok)')
-    print('=== TIE SORULACAK (%d) ===' % len(baglar))
-    print('\n'.join('  ' + c for c in baglar) or '  (yok)')
     print('=== YASAKLI-ELEME (kaynakta goruldu, delete-zone geregi elendi) (%d) ===' % len(guard))
     print('\n'.join('  ' + g for g in guard) or '  (yok)')
     print('=== ORPHAN (listedeki kaynak grupta yok) (%d) ===' % len(orphan))
@@ -221,7 +204,7 @@ def main():
 
     action = flips + [(None, w) for w in yeniler]
     if not args.apply:
-        if action or closed or baglar or elenen_yeni or orphan or guard:
+        if action or elenen_yeni or orphan or guard:
             print('\n--apply siz calisti, yazilmadi (exit 1).')
             sys.exit(1)
         print('\nYapilacak is yok.')

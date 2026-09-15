@@ -1235,7 +1235,7 @@
           "kaynak_tarih": "2026-08-27",
           "bizim_tarih": "2026-08-22",
           "not": "(son ölü: 2026-08-22, bu build veya başka build güncellendiğinde kontrol)",
-          "secim": "aktif"
+          "secim": "duplicate"
         }
       ]
     },

@@ -2,8 +2,8 @@
 Bu depo test CloudStream deposudur; yalnızca Türkçe film/dizi eklentilerini ve test seçtiği kaynakları barındırır. Canlı yayın, NSFW ve yabancı dil içerikli eklentiler kullanıcı tercihi gereği listeye alınmamıştır.
 
 ## Durum
-- **Son doğrulama:** 2026-09-16 · **40 eklenti**; indirilebilir, hash/boyut doğrulanmış. `status` dahil tüm alanlar kaynak `builds/plugins.json`'lardan birebir yansıtılır (Pure Mirror); bu depo `status` kararı vermez, site canlılığı takibi yapmaz.
-- **Doğrulama kanıtı (2026-09-16):** 40 `.cs3` tek tek indirildi → **39/40 SHA-256 + boyut + ZIP bütünlüğü doğrulandı**; yalnız `Full4kizle` kaynakta 404 (kaynak `plugins.json`'ında kayıt yok; `update.py` `[ATLANDI]` raporlar, yerel kayıt korunur). `plugins.json` ↔ `Tüm Repolar` tablosu (34 açık kayıt) kaynak repo bazında birebir uyumlu; `Tüm Repolar` 87 satır; 2026-09-16 flip sonrası `registry.py --check` temiz (0 çelişki). + boyut + ZIP bütünlüğü doğrulandı**; yalnız `Full4kizle` kaynakta 404 (kaynakta kayıt yok; yerel kayıt korunur). `plugins.json` ↔ `Tüm Repolar` tablosu (34 açık kayıt) kaynak repo bazında birebir uyumlu; `Tüm Repolar` 87 satır.
+- **Son doğrulama:** 2026-09-16 · **39 eklenti**; indirilebilir, hash/boyut doğrulanmış. `status` dahil tüm alanlar kaynak `builds/plugins.json`'lardan birebir yansıtılır (Pure Mirror); bu depo `status` kararı vermez, site canlılığı takibi yapmaz. Kaynakta bulunamayan kayıt listeden silinir, korunmaz.
+- **Doğrulama kanıtı (2026-09-16 + Pure Mirror senkronu):** 40 `.cs3` tek tek indirildi → **39/40 SHA-256 + boyut + ZIP bütünlüğü doğrulandı**; `Full4kizle` kaynak `plugins.json`'ından düştüğü için Pure Mirror gereği listeden silindi (39 kayıt kaldı). `plugins.json` ↔ `Tüm Repolar` tablosu kaynak repo bazında birebir uyumlu; `Tüm Repolar` 87 satır; `registry.py --check` temiz (0 çelişki).
 - **Delete-zone:** silinen eklentiler yeniden eklenmez (bkz. Silinen Eklentiler)
 
 ## Kurulum
@@ -94,11 +94,9 @@ Eskiden kullanılan / hiç kullanılmayan kaynaklar:
 - Per-eklenti tarih `git -C <repo> log -1 --format=%cd --date=short --all -- <Eklenti>` ile alınır; repo genel `pushed_at` değil. Aynı eklentinin birden fazla kaynaktan gelen kopyaları arasında en güncel tarihli kayıt otomatik tercih edilir; versiyon numarasının düşük/yüksek olması kararı etkilemez.
 - Örnek: `FilmMakinesi feroxx v58 (2026-08-23)` vs `blackhope01 v1 (2026-08-25)` — `blackhope01 v1` tarih olarak daha güncel olduğu için doğru şekilde tercih edildi; düşük versiyon yüksek versiyonu ezer ve bu beklenen davranıştır.
 
-**1a. Eşit tarihli kaynaklar (tie-breaker) — VERSİYON NUMARASI HİÇBİR AŞAMADA KULLANILMAZ:**
-İki veya daha fazla kaynağın aynı güncelleme tarihine sahip olduğu durumlarda sırasıyla şu kriterler uygulanır:
-1. Site canlılığı elle kontrol edilir (site açılıyor mu?); açılmayan elenir.
-2. Hâlâ eşitse kullanıcıya sorulur, otomatik karar verilmez.
-Versiyon numarası bu tie-breaker'ın HİÇBİR adımında kriter olarak kullanılmaz — ne düşük ne yüksek versiyon tercih nedeni sayılır.
+**1a. Eşit tarihli kaynaklar (tie-breaker) — OTOMATİK, SORU YOK:**
+İki veya daha fazla kaynağın aynı güncelleme tarihine sahip olduğu durumlarda repo adına göre alfabetik sıralama yapılır ve HER ZAMAN ilk sıradaki kaynak otomatik seçilir (`audit.py` bu çözümü kendisi uygular; script durup sormaz).
+Versiyon numarası bu tie-breaker'da kriter olarak kullanılmaz — ne düşük ne yüksek versiyon tercih nedeni sayılır.
 
 **2. Tablo bakımı — `Tüm Repolar` sadece `tr` + `Movie/TvSeries/Documentary` içerir:**
 - `lang != tr` veya `tvTypes` içinde `Live/Anime/Cartoon/All/AsianDrama` olanlar otomatik `İstenmeyenler`'e gider; `Dil`/`Tur` kolonları bu yüzden kaldırıldı.
@@ -137,7 +135,7 @@ Her kayıt tek eksene sahiptir:
 | Duplicate | Yarışı kaybetti, dosyada yok | yok |
 | İstenmeyen | Hiç değerlendirmeye alınmadı | yok |
 
-**Kararlar (2026-09-16):** (A) Tarih çelişkileri kurala göre uygulanır; eşit tarihli tie'larda site canlılığı + kullanıcı kararı esastır; flip, hash/boyut doğrulaması gerektirdiği için script ile ayrı adımda yapılır. (B) Aynı normalize isim = aynı grup (mutlak). (C) `Bizim Tarih`, Duplicate satırlarda referans amaçlı dondurulur, tazelenmez. (D) Tablo üretilen bloktur; değişiklik `--sync` → `--render --write` akışıyla yapılır.
+**Kararlar (2026-09-16):** (A) Tarih çelişkileri kurala göre uygulanır; eşit tarihli tie'lar repo adı alfabetik ilk kaynak seçilerek otomatik çözülür; flip, hash/boyut doğrulaması gerektirdiği için script ile ayrı adımda yapılır. (B) Aynı normalize isim = aynı grup (mutlak). (C) `Bizim Tarih`, Duplicate satırlarda referans amaçlı dondurulur, tazelenmez. (D) Tablo üretilen bloktur; değişiklik `--sync` → `--render --write` akışıyla yapılır.
 
 **Araçlar:** `python registry.py --sync` (tablolar + `plugins.json` → `registry.json`), `--check` (şema + küme + tarih; ihlalde exit 1), `--render [--write]` (tabloyu üretir). `Seçim` `plugins.json`'dan türetilir (dosyada olan = Aktif); grup başına en fazla 1 Aktif; Aktif kümesi `plugins.json` ile birebir zorunlu. Eklenti alanları (`status`, `version`, `fileSize`, `fileHash`, `description`, `authors`, `language`, `tvTypes`) kaynak `builds/plugins.json`'dan birebir yansıtılır (`update.py`).
 
@@ -148,7 +146,7 @@ python update.py            # farkları uygular, plugins.json'u günceller
 ```
 Kaynak `builds/plugins.json` adresi, listedeki `.cs3` adresinden türetilir (`https://raw.githubusercontent.com/<owner>/<repo>/builds/<Isim>.cs3` → aynı klasördeki `plugins.json`). Senkronize edilen alanlar: `status, version, fileSize, fileHash, description, authors, language, tvTypes` (Pure Mirror — kaynak ne yayınlıyorsa aynen alınır). `iconUrl` bilinçli olarak senkronize **edilmez** — bu depo ikon adreslerini normalize eder (kaynaktaki `%size%` yer tutucuları sabit `sz=128`'e çevrilir) ve kaynak güncellemesi bu düzeltmeyi geri almasın.
 
-> **Not:** Bu depo **otomatik hiçbir şey çalıştırmaz** — repoda `.github/workflows` **yoktur** (GitHub Actions hiç kurulmadı; ne `cron` ne manuel `workflow_dispatch` tetikleyicisi vardır). Kaynak senkronu (`update.py`) yalnızca **elle** yapılır. `[ATLANDI]` sayısı, kaynak depo bazında toplu kapanışın (ör. cs-kraptor kapanışı: 29 eklenti tek seferde 404) erken işaretidir.
+> **Not:** Bu depo **otomatik hiçbir şey çalıştırmaz** — repoda `.github/workflows` **yoktur** (GitHub Actions hiç kurulmadı; ne `cron` ne manuel `workflow_dispatch` tetikleyicisi vardır). Kaynak senkronu (`update.py`) yalnızca **elle** yapılır. Kaynakta bulunamayan kayıt `[SILINDI]` olarak listeden düşer; adresi türetilemeyen/teknik sebeple erişilemeyen kayıt `[ATLANDI]` olarak raporlanır. `[SILINDI]`/`[ATLANDI]` çıktısı, kaynak depo bazında toplu kapanışın (ör. cs-kraptor kapanışı: 29 eklenti tek seferde 404) erken işaretidir.
 
 ## Karşılaşılan Hatalar ve Çözümleri
 | Hata | Neden | Çözüm |
@@ -191,7 +189,7 @@ Kaynak `builds/plugins.json` adresi, listedeki `.cs3` adresinden türetilir (`ht
 Repolar güncellendiğinde (yeni build yayınlandığında (GitHub uzerinden takip edilir)), Kaynak Tarih ilerlediğinde satır Tarih Takip Kuralı'na göre güncellenir: `update.py` ile senkronize edilir (`status` dahil kaynak ne yayınlıyorsa aynen alınır), `Bizim Tarih` eşitlenir.
 
 ## Silinen Eklentiler (delete-zone)
-Bu eklentiler listeye **eklenmez**; yeniden ekleme kararı yalnızca kullanıcı verir. Listede NSFW (+18) hiç yer almadı; canlı yayın/maç eklentileri istenmedi. Kaynak `plugins.json`'ından düşen kayıtlar silinmez; `update.py` bunları `[ATLANDI]` olarak raporlar, silme kararı kullanıcıya aittir. "Site açılmıyor" gerekçesiyle silinenler **geri dönüşlüdür**: site düzelirse tekrar denenebilir.
+Bu eklentiler listeye **eklenmez**; yeniden ekleme kararı yalnızca kullanıcı verir. Listede NSFW (+18) hiç yer almadı; canlı yayın/maç eklentileri istenmedi. Kural: Pure Mirror mantığı gereği, bir kaynak kendi eklentisini kaldırırsa (404), o eklenti bizim listemizden de otomatik olarak düşer ve silinir. Bu durumda cihazınızda eski kurulu kalan eklentilerin manuel olarak silinmesi gerekir. "Site açılmıyor" gerekçesiyle silinenler **geri dönüşlüdür**: site düzelirse tekrar denenebilir.
 
 > **Not:** Ayrıntılı liste `İstenmeyenler (Delete-Zone)` tablosunda alfabetik olarak yer almaktadır.
 
@@ -266,7 +264,7 @@ Toplam kayıt: 87. Tablo `registry.json`'dan üretilir (`<!-- KAYIT-DURUMU:OTOMA
 | 41 | FilmModu | [feroxx/Kekik-cloudstream](https://github.com/feroxx/Kekik-cloudstream) | [www.filmmodu.one](https://www.filmmodu.one) | 19 | 2026-09-15 | 2026-09-15 | Aktif |  |
 | 42 | FilmModu | [ilkelkullanici/ilkel-cloudstream](https://github.com/ilkelkullanici/ilkel-cloudstream) | [www.filmmodu17.com](https://www.filmmodu17.com) | 19 | 2026-06-11 | 2026-08-22 | Duplicate | (feroxx 2026-09-02 tercih edildi) |
 | 43 | FilmModu | [aytzey/cs-kraptor](https://github.com/aytzey/cs-kraptor) | [www.filmmodu.one](https://www.filmmodu.one) | 41 | 2026-09-08 | 2026-09-15 | Duplicate | (feroxx 2026-09-15 tercih edildi) |
-| 44 | Full4kizle | [Kraptor123/Cs-Karma](https://github.com/Kraptor123/Cs-Karma) | [plusizle.net](https://plusizle.net) | 20 | 2026-08-27 | 2026-08-22 | Aktif | (son ölü: 2026-08-22, bu build veya başka build güncellendiğinde kontrol) |
+| 44 | Full4kizle | [Kraptor123/Cs-Karma](https://github.com/Kraptor123/Cs-Karma) | [plusizle.net](https://plusizle.net) | 20 | 2026-08-27 | 2026-08-22 | Duplicate | (son ölü: 2026-08-22, bu build veya başka build güncellendiğinde kontrol) |
 | 45 | FullHDFilm | [feroxx/Kekik-cloudstream](https://github.com/feroxx/Kekik-cloudstream) | [hdfilm.us](https://hdfilm.us) | 36 | 2026-09-15 | 2026-09-15 | Aktif | (geçici — tekrar değerlendirilecek, son ölü: 2026-08-22) |
 | 46 | FullHDFilm | [ilkelkullanici/ilkel-cloudstream](https://github.com/ilkelkullanici/ilkel-cloudstream) | [fullhdfilm.us](https://fullhdfilm.us) | 36 | 2026-06-11 | - | Duplicate | (son ölü: 2026-08-22, bu build veya başka build güncellendiğinde kontrol) |
 | 47 | FullHDFilmizlesene | [feroxx/Kekik-cloudstream](https://github.com/feroxx/Kekik-cloudstream) | [www.fullhdfilmizlesene.de](https://www.fullhdfilmizlesene.de) | 33 | 2026-09-15 | 2026-09-15 | Aktif |  |

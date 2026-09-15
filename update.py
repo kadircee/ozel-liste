@@ -7,7 +7,9 @@ Kaynak builds/plugins.json adresi, listedeki .cs3 url'sinden turetilir:
 
 Pure Mirror: kaynak ne yayinliyorsa birebir yansitilir. Senkronize edilen
 alanlar: status, version, fileSize, fileHash, description, authors,
-language, tvTypes. iconUrl bilinçli olarak senkronize EDILMEZ:
+language, tvTypes. Kaynakta bulunamayan eklenti (404 veya kaynak
+plugins.json'da kayit yok) yerel listeden TAMAMEN SILINIR: kaynakta
+olmayan bizde de olmaz. iconUrl bilinçli olarak senkronize EDILMEZ:
 bu depo ikon adreslerini normalize eder (kaynaktaki %size% yer tutuculari
 sabit sz=128'e cevrilir) ve kaynak guncellemesi bu duzeltmeyi geri almasin.
 
@@ -132,23 +134,30 @@ def main():
         sys.exit(1)
 
     changed = []
+    silinen = []
     missing = []
     unchanged = 0
+    kept = []
 
     for e in data:
         name = e.get("internalName", "?")
         cs3 = e.get("url", "")
         src_url = source_plugins_url(cs3)
         if not src_url:
+            # Yerel adres bozuk: kaynak dogrulanamiyor, silme; raporla ve koru.
             missing.append((name, "kaynak plugins.json url'si turetilemedi: " + cs3))
+            kept.append(e)
             continue
         try:
             src = fetch_json(src_url)
         except urllib.error.HTTPError as ex:
-            missing.append((name, "kaynak plugins.json {0}: {1}".format(ex.code, src_url)))
+            # Pure Mirror: kaynakta yok (404 dahil) -> yerelden sil.
+            silinen.append((name, "kaynak plugins.json {0}: {1}".format(ex.code, src_url)))
             continue
         except Exception as ex:
+            # Gecici erisim sorunu yokluga kanit degil: silme, raporla ve koru.
             missing.append((name, "kaynak cekilemedi: {0}".format(ex)))
+            kept.append(e)
             continue
 
         items = src if isinstance(src, list) else src.get("plugins", [])
@@ -158,7 +167,8 @@ def main():
                 match = item
                 break
         if not match:
-            missing.append((name, "kaynaktaki plugins.json icinde '{0}' bulunamadi".format(name)))
+            # Pure Mirror: kaynak listeden dusurmus -> yerelden sil.
+            silinen.append((name, "kaynaktaki plugins.json icinde '{0}' bulunamadi".format(name)))
             continue
 
         diffs = {}
@@ -178,28 +188,32 @@ def main():
             changed.append((name, diffs))
         else:
             unchanged += 1
+        kept.append(e)
+    data = kept
 
     for name, diffs in changed:
         print("[GUNCELLEME] {0}:".format(name))
         for field, (old_v, new_v) in diffs.items():
             print("    {0}: {1} -> {2}".format(field, old_v, new_v))
+    for name, reason in silinen:
+        print("[SILINDI] {0}: {1}".format(name, reason))
     for name, reason in missing:
         print("[ATLANDI] {0}: {1}".format(name, reason))
-    print("\nOzets: {0} eklenti guncel, {1} guncellenmeli, {2} erisilemedi.".format(
-        unchanged, len(changed), len(missing)))
+    print("\nOzet: {0} eklenti guncel, {1} guncellenmeli, {2} silinecek, {3} erisilemedi.".format(
+        unchanged, len(changed), len(silinen), len(missing)))
 
     if args.check:
-        if changed or missing:
+        if changed or silinen or missing:
             print("Degisiklik var; --check modunda yazilmadi.")
             sys.exit(1)
         print("Her sey guncel.")
         return
 
-    if changed:
+    if changed or silinen:
         with io.open(PLUGINS_PATH, "w", encoding="utf-8", newline="\n") as f:
             json.dump(data, f, ensure_ascii=False, indent=2)
             f.write("\n")
-        print("plugins.json guncellendi.")
+        print("plugins.json guncellendi ({0} guncelleme, {1} silme).".format(len(changed), len(silinen)))
         # Guncellenen eklentilerin + kendi plugins.json'un CDN cache'ini temizle
         updated_names = {name for name, _ in changed}
         do_purge(build_purge_list(data, updated_names=updated_names))
@@ -207,7 +221,7 @@ def main():
         print("Yazma gerekmiyor.")
 
     # --purge: degisiklik olmasa bile tum eklentilerin cache'ini zorla temizle
-    if args.purge and not changed:
+    if args.purge and not changed and not silinen:
         do_purge(build_purge_list(data, updated_names=None))
 
 
