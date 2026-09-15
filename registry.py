@@ -44,8 +44,14 @@ HEADER = ['#', 'Eklenti', 'Kaynak', 'Site (domain)', 'v', 'Kaynak Tarih', 'Bizim
 SEÇIM = ('aktif', 'duplicate', 'istenmeyen')
 SAGLIK = ('calisiyor', 'calismiyor')
 
-SECIM_TR = {'aktif': 'Aktif', 'duplicate': 'Duplicate', 'istenmeyen': 'Istenmeyen'}
-SAGLIK_TR = {'calisiyor': 'Calisiyor', 'calismiyor': 'Calismiyor', None: '-'}
+SECIM_TR = {'aktif': 'Aktif', 'duplicate': 'Duplicate', 'istenmeyen': 'İstenmeyen'}
+SAGLIK_TR = {'calisiyor': 'Çalışıyor', 'calismiyor': 'Çalışmıyor', None: '-'}
+# Hucre metni -> slug; ASCII/aksanli eski bicimler geriye uyumlu kabul edilir.
+CELL_SECIM = {'Aktif': 'aktif', 'aktif': 'aktif', 'Duplicate': 'duplicate', 'duplicate': 'duplicate',
+              'İstenmeyen': 'istenmeyen', 'Istenmeyen': 'istenmeyen', 'istenmeyen': 'istenmeyen'}
+CELL_SAGLIK = {'Çalışıyor': 'calisiyor', 'Calisiyor': 'calisiyor', 'calisiyor': 'calisiyor',
+               'Çalışmıyor': 'calismiyor', 'Calismiyor': 'calismiyor', 'calismiyor': 'calismiyor',
+               '-': None, '': None, 'n/a': None, 'N/A': None}
 
 
 def norm(s):
@@ -101,10 +107,8 @@ def parse_depo():
         r['repo'] = (re.search(r'github\.com/([^)]+)', c[2]) or [None, ''])[1]
         r['domain'] = (re.search(r'\[([^\]]+)\]', c[3]) or [None, c[3]])[1]
         if new_fmt:
-            r['secim'] = (c[7] if len(c) > 7 else '').lower()
-            r['saglik'] = (c[8] if len(c) > 8 else '').lower() or None
-            if r['saglik'] in ('-', 'n/a', 'na', '(n/a)'):
-                r['saglik'] = None
+            r['secim'] = CELL_SECIM.get((c[7] if len(c) > 7 else '').strip(), '')
+            r['saglik'] = CELL_SAGLIK.get((c[8] if len(c) > 8 else '').strip(), '')
             r['not'] = c[9] if len(c) > 9 else ''
         else:
             r['secim'], r['saglik'], r['not'] = None, None, clean_note(c[7] if len(c) > 7 else '')
@@ -154,8 +158,8 @@ def sync():
         else:
             c['secim'] = 'duplicate'
             c['saglik'] = None
-            if r['mark'] == YELLOW:   # yanlislikla saglik isareti tasiyan secimi kaybetmis satir
-                c['not'] = (c['not'] + ' | model: secim kaybetti, saglik takibi kaldirildi').strip(' |')
+            if r['mark'] == YELLOW and 'model: secim kaybetti' not in c['not']:
+                c['not'] = (c['not'] + '; model: secim kaybetti, saglik takibi kaldirildi').strip('; ')
         groups.setdefault(k, {'name': r['name'], 'candidates': []})['candidates'].append(c)
     for z in zone:
         k = norm(z['name'])
@@ -227,13 +231,19 @@ def render(reg):
 def write_block(block):
     """Uretilen tabloyu isaretli blok olarak DEPO-BILGILERI.md'ye yazar.
     Isaretci yoksa mevcut tablonun etrafina yerlestirir (tek seferlik gecis)."""
-    raw = io.open(DEPO, encoding='utf-8').read().replace('\r\n', '\n')
-    if BEGIN in raw and END in raw:
-        yeni = re.sub(re.escape(BEGIN) + r'.*?' + re.escape(END),
-                      BEGIN + '\n' + block + '\n' + END, raw, flags=re.S)
+    lines = io.open(DEPO, encoding='utf-8').read().replace('\r\n', '\n').split('\n')
+    hdr = next(i for i, l in enumerate(lines) if l.startswith('| # |'))
+    try:
+        blk_s = next(i for i, l in enumerate(lines) if l.strip() == BEGIN)
+        blk_e = next(i for i, l in enumerate(lines) if l.strip() == END)
+        if not (blk_s <= hdr <= blk_e):
+            raise StopIteration
+    except StopIteration:
+        blk_s = blk_e = None
+    if blk_s is not None:
+        lines[blk_s:blk_e + 1] = [BEGIN] + block.split('\n') + [END]
+        yeni = '\n'.join(lines)
     else:
-        lines = raw.split('\n')
-        hdr = next(i for i, l in enumerate(lines) if l.startswith('| # |'))
         last = hdr
         for i in range(hdr, len(lines)):
             if lines[i].startswith('|'):
