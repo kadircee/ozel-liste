@@ -146,7 +146,7 @@ python update.py            # farkları uygular, plugins.json'u günceller
 ```
 Kaynak `builds/plugins.json` adresi, listedeki `.cs3` adresinden türetilir (`https://raw.githubusercontent.com/<owner>/<repo>/builds/<Isim>.cs3` → aynı klasördeki `plugins.json`). Senkronize edilen alanlar: `status, version, fileSize, fileHash, description, authors, language, tvTypes` (Pure Mirror — kaynak ne yayınlıyorsa aynen alınır). `iconUrl` bilinçli olarak senkronize **edilmez** — bu depo ikon adreslerini normalize eder (kaynaktaki `%size%` yer tutucuları sabit `sz=128`'e çevrilir) ve kaynak güncellemesi bu düzeltmeyi geri almasın.
 
-> **Not:** Bu depo **otomatik hiçbir şey çalıştırmaz** — repoda `.github/workflows` **yoktur** (GitHub Actions hiç kurulmadı; ne `cron` ne manuel `workflow_dispatch` tetikleyicisi vardır). Kaynak senkronu (`update.py`) yalnızca **elle** yapılır. Kaynakta bulunamayan kayıt `[SILINDI]` olarak listeden düşer; adresi türetilemeyen/teknik sebeple erişilemeyen kayıt `[ATLANDI]` olarak raporlanır.
+> **Not:** Kaynak senkronu GitHub Actions ile otomatik çalışır (`.github/workflows/mirror.yml`: her gün 05:00 UTC + istenirse `workflow_dispatch` ile manuel tetikleme). Akış: `update.py` → `registry.py --sync --render --write --check` → değişiklik varsa otomatik commit+push. Yerelde elle çalıştırmak da mümkündür. Kaynakta bulunamayan kayıt `[SILINDI]` olarak listeden düşer; adresi türetilemeyen/teknik sebeple erişilemeyen kayıt `[ATLANDI]` olarak raporlanır.
 
 ## Karşılaşılan Hatalar ve Çözümleri
 | Hata | Neden | Çözüm |
@@ -209,7 +209,7 @@ Push sonrası jsDelivr önbelleği için:
 ```
 https://purge.jsdelivr.net/gh/kadircee/ozel-liste@main/plugins.json
 ```
-CloudStream tarafında depo yenilendiğinde yeni liste otomatik çekilir. Kaynak senkronu **otomatik değildir** — repoda `.github/workflows` yoktur (GitHub Actions hiç kurulmadı): kaynak bir eklentiyi güncellediğinde listedeki hash/boyut **elle** `update.py` çalıştırılarak senkronlanır (`status` dahil). Güncelleme öncesi `update.py --check` ile kontrol etmek iyi alışkanlıktır.
+CloudStream tarafında depo yenilendiğinde yeni liste otomatik çekilir. Kaynak senkronu her gün otomatik koşar (`.github/workflows/mirror.yml`); acil durumda yerelde **elle** de çalıştırılabilir (`python update.py`, ardından `registry.py --sync --render --write --check`). Güncelleme öncesi `update.py --check` ile kontrol etmek iyi alışkanlıktır.
 
 ## Tüm Repolar - Alfabetik Liste
 

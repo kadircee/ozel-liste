@@ -1,0 +1,44 @@
+name: mirror-senkron
+
+# Pure Mirror otomasyonu (kapsam A): kaynak senkronu + registry + tablo.
+# - schedule: her gun 05:00 UTC (GitHub tarafinda birkac dakika sarkabilir)
+# - workflow_dispatch: Actions sekmesinden tek tusla manuel tetikleme
+on:
+  schedule:
+    - cron: "0 5 * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: mirror-senkron
+  cancel-in-progress: false
+
+jobs:
+  mirror:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Kaynak senkronu (Pure Mirror)
+        run: python update.py
+      - name: Registry senkron + tablo uretimi
+        run: |
+          python registry.py --sync
+          python registry.py --render --write
+      - name: Model denetimi (gate)
+        run: python registry.py --check
+      - name: Degisiklik varsa commit+push
+        run: |
+          git config user.name "kadircee"
+          git config user.email "kadircee@users.noreply.github.com"
+          git add plugins.json registry.json DEPO-BILGILERI.md
+          if ! git diff --cached --quiet; then
+            git commit -m "otomatik mirror senkronu"
+            git push
+          else
+            echo "degisiklik yok"
+          fi
