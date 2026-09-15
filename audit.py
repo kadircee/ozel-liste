@@ -85,6 +85,8 @@ def raw_bytes(url):
 def main():
     ap = argparse.ArgumentParser(description='ozel-liste kaynak denetimi')
     ap.add_argument('--apply', action='store_true', help='guvenli durumlari uygula')
+    ap.add_argument('--check', action='store_true',
+                    help='rapor modu (varsayilan); yazma yapilmaz, degisiklik varsa exit 1')
     args = ap.parse_args()
     tok = token()
 
@@ -94,7 +96,7 @@ def main():
     banned = set()
     in_zone = False
     for line in depo.split('\n'):
-        if re.match(r'^#+\s+.*Istenmeyenler', line):
+        if re.match(r'^#+\s+.*(Istenmeyenler|İstenmeyenler)', line):
             in_zone = True
             continue
         if in_zone and line.startswith('## '):

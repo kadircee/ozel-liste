@@ -2,8 +2,8 @@
 Bu depo test CloudStream deposudur; yalnızca Türkçe film/dizi eklentilerini ve test seçtiği kaynakları barındırır. Canlı yayın, NSFW ve yabancı dil içerikli eklentiler kullanıcı tercihi gereği listeye alınmamıştır.
 
 ## Durum
-- **Son doğrulama:** 2026-09-15 · **40 eklenti** (34 açık + 6 kapalı (AltiYuzAltmisAltiFilmIzle, DiziFilmORG, FilmBip, Full4kizle, FullHDFilm, SetFilmIzle)); indirilebilir, hash/boyut doğrulanmış
-- **Doğrulama kanıtı (2026-09-15):** 40 `.cs3` tek tek indirildi → **39/40 SHA-256 + boyut + ZIP bütünlüğü doğrulandı**; yalnız `Full4kizle` kaynakta 404 (`status:0` — silme yok kuralı gereği kayıt korunuyor). `plugins.json` ↔ `Tüm Repolar` tablosu (34 açık kayıt) kaynak repo bazında birebir uyumlu; `Tüm Repolar` 87 satır.
+- **Son doğrulama:** 2026-09-16 · **40 eklenti** (34 açık + 6 kapalı (AltiYuzAltmisAltiFilmIzle, DiziFilmORG, FilmBip, Full4kizle, FullHDFilm, SetFilmIzle)); indirilebilir, hash/boyut doğrulanmış
+- **Doğrulama kanıtı (2026-09-16):** 40 `.cs3` tek tek indirildi → **39/40 SHA-256 + boyut + ZIP bütünlüğü doğrulandı**; yalnız `Full4kizle` kaynakta 404 (`status:0` — silme yok kuralı gereği kayıt korunuyor). `plugins.json` ↔ `Tüm Repolar` tablosu (34 açık kayıt) kaynak repo bazında birebir uyumlu; `Tüm Repolar` 87 satır; 2026-09-16 flip sonrası `registry.py --check` temiz (0 çelişki). + boyut + ZIP bütünlüğü doğrulandı**; yalnız `Full4kizle` kaynakta 404 (`status:0` — silme yok kuralı gereği kayıt korunuyor). `plugins.json` ↔ `Tüm Repolar` tablosu (34 açık kayıt) kaynak repo bazında birebir uyumlu; `Tüm Repolar` 87 satır.
 - **Kural:** bozuk eklenti silinmez, `status:0` yapılır (bkz. Kurulum)
 - **Delete-zone:** silinen eklentiler yeniden eklenmez (bkz. Silinen Eklentiler)
 
@@ -35,7 +35,8 @@ ozel-liste/
 ├── plugins.json         → eklenti listesi (40 eklenti)
 ├── registry.json        → makine-okur kayıt modeli (Seçim + Sağlık eksenleri)
 ├── registry.py          → model araçları (--sync / --check / --render [--write])
-├── update.py            → kaynak depolardan güncel verileri senkronize eden script (--check rapor modu dahil)
+├── audit.py             → kaynak repoları tarih bazlı denetler (--check = rapor/varsayılan, --apply = yazar)
+├── update.py            → kaynak depolardan güncel verileri senkronize eden script (--check / --purge dahil)
 ├── backups/            → temizlenmiş CloudStream veri yedeği örneği (kişisel veri yok)
 └── DEPO-BILGILERI.md    → bu doküman (tablo bloğu registry.json'dan üretilir)
 ```
@@ -120,7 +121,7 @@ Tek `Durum` sütunu kaldırıldı; yerine `Seçim` (Aktif/Duplicate) + `Sağlık
 - İkon domaininin ölü görünmesi tek başına karar nedeni değildir (ör. `SinemaCX`: ikon `sinema.cx` ölü görünebilir ama eklenti veriyi başka domainden çekiyor olabilir) — karar tarihe + kullanıcı testine göre verilir.
 - GitHub markdown `style` strip ettiği için renkler `span` değil emoji ile verilir; emoji artık **türetilmiştir**: `Seçim=Aktif`+`Sağlık=Çalışıyor` → 🟩, `Aktif`+`Çalışmıyor` → 🟨, `Seçim=Duplicate` → 🟧, `Seçim=İstenmeyen` → 🟥. `Eklenti` kolonuna da eklenir.
 - `status:0` silme değil; tarihi izlenir; kaynak ilerlediyse kullanıcıya sorulur, "kapalı kalsın" derse Bizim Tarih yine eşitlenir, otomatik açılış yok.
-- **`🟦 Eklenebilir` (geçici durum):** Yalnizca `plugins.json`'da **hic kaydi olmayan** adaylar icin kullanilir. Kaydi olan bir eklenti (or. `AltiYuzAltmisAltiFilmIzle`, `status:0`) modelde her zaman **Aktif + Çalışmıyor**'dur (emoji: 🟨); ona mavi denmez.
+- **`🟦 Eklenebilir` (geçici durum):** Yalnızca `plugins.json`'da **hiç kaydı olmayan** adaylar için kullanılır. Kaydı olan bir eklenti (ör. `AltiYuzAltmisAltiFilmIzle`, `status:0`) modelde her zaman **Aktif + Çalışmıyor**'dur (emoji: 🟨); ona mavi denmez.
 
 
 
@@ -143,23 +144,23 @@ Tablodaki her satırda iki tarih vardır: **Kaynak Tarih** (kaynak deponun `buil
 
 ## Kayıt Durumu Veri Modeli (Seçim + Sağlık)
 
-Tek `Durum` sutunu kaldirildi. Her kayit iki bagimsiz eksene sahiptir:
+Tek `Durum` sütunu kaldırıldı. Her kayıt iki bağımsız eksene sahiptir:
 
 - **Seçim:** `Aktif` (yarışı kazandı, `plugins.json`'da) / `Duplicate` (kaybetti, dosyada yok) / `İstenmeyen` (hiç yarışa girmedi).
 - **Sağlık:** `Çalışıyor` / `Çalışmıyor` / `-` (yalnızca `Aktif` kayıtlarda tanımlı; digerlerinde **zorunlu `None`**).
 
-| Seçim | Sağlık | Anlami | Renk | plugins.json |
-|---|---|---|---|---|
+| Seçim | Sağlık | Anlamı | Renk | plugins.json |
+| Aktif | Çalışıyor | Kazanan, sorunsuz kayıt | 🟩 | var, `status:1` |
 | Aktif | Çalışıyor | Kazanan, sorunsuz kayit | 🟩 | var, `status:1` |
-| Aktif | Çalışmıyor | Kazanan ama sitesi olu | 🟨 | var, `status:0` |
-| Duplicate | `-` | Yarisi kaybetti, dosyada yok | 🟧 | yok |
-| İstenmeyen | `-` | Hic degerlendirmeye alinmadi | 🟥 | yok |
+| Aktif | Çalışmıyor | Kazanan ama sitesi ölü | 🟨 | var, `status:0` |
+| Duplicate | `-` | Yarışı kaybetti, dosyada yok | 🟧 | yok |
+| İstenmeyen | `-` | Hiç değerlendirmeye alınmadı | 🟥 | yok |
 
-`🟦 Eklenebilir` ayrı, GECICI bir durumdur: `plugins.json`'da hic kaydi olmayan adaylar icindir. Kaydi olan bir eklenti asla Eklenebilir olamaz.
+`🟦 Eklenebilir` ayrı, GEÇİCİ bir durumdur: `plugins.json`'da hiç kaydı olmayan adaylar içindir. Kaydı olan bir eklenti asla Eklenebilir olamaz.
 
-**Kararlar (2026-09-15):** (A) Otomatik flip yok - tarih celiskileri `--check` raporunda karar bekler; flip, hash/boyut dogrulamasi gerektirdigi icin `update.py` ile ayrı adimda yapilir. (B) Ayni normalize isim = ayni grup (mutlak). (C) `Bizim Tarih`, Duplicate satirlarda referans amacli dondurulur, tazelenmez. (D) Tablo uretilen bloktur; degisiklik `--sync` → `--render --write` akisiyla yapilir.
+**Kararlar (2026-09-16):** (A) Tarih çelişkileri kurala göre uygulanır; eşit tarihli tie'larda site canlılığı + kullanıcı kararı esastır; flip, hash/boyut doğrulaması gerektirdiği için script ile ayrı adımda yapılır. (B) Aynı normalize isim = aynı grup (mutlak). (C) `Bizim Tarih`, Duplicate satırlarda referans amaçlı dondurulur, tazelenmez. (D) Tablo üretilen bloktur; değişiklik `--sync` → `--render --write` akışıyla yapılır.
 
-**Araclar:** `python registry.py --sync` (tablolar + `plugins.json` → `registry.json`), `--check` (sema + kume + tarih; ihlalde exit 1), `--render [--write]` (tabloyu uretir). `Seçim` `plugins.json`'dan turetilir (dosyada olan = Aktif; `Sağlık` = `status`'tan); grup basina en fazla 1 Aktif; Aktif kumesi `plugins.json` ile birebir zorunlu.
+**Araçlar:** `python registry.py --sync` (tablolar + `plugins.json` → `registry.json`), `--check` (şema + küme + tarih; ihlalde exit 1), `--render [--write]` (tabloyu üretir). `Seçim` `plugins.json`'dan türetilir (dosyada olan = Aktif; `Sağlık` = `status`'tan); grup başına en fazla 1 Aktif; Aktif kümesi `plugins.json` ile birebir zorunlu.
 
 ## Kaynak Senkronizasyonu (update.py)
 ```bash
@@ -199,9 +200,9 @@ Kaynak `builds/plugins.json` adresi, listedeki `.cs3` adresinden türetilir (`ht
 | Full4kizle kaynağın plugins.json’ından düşmüş (.cs3 404) | Cs-Karma tarafında kayıt yok | Silme yok kuralı: kayıt status:0 ile korunuyor; kaynakta yeniden belirirse update.py yakalar |
 | 18 eklenti senkronu (2026-09-15: aytzey 12 + feroxx 4 + blackhope 1 + plt 1) + DiziMom v4/Tablo v3 farki kapatildi | Kaynak repolar ilerlemis (aytzey 09-08 domain rewrite mass-bump, feroxx 09-15 rebuild, blackhope 09-07, plt 09-14); DiziFilmORG status:0 korunarak v23'e senkronlandi, Full4kizle kaynakta yok (ATLANDI, status:0 korunuyor) | update.py ile senkronlandi (Dizipod authors trim geri yazildi), jsDelivr purge 19/19 OK; DiziFilmORG kapali tutuldu, Bizim Tarih esitlendi |
 | Webteizle-group audit FLIP vermedi (2026-09-05) | blackhope Webteizle (09-03) listedeki feroxx WebteIzle (09-02)’den yeniydi ama case-farki (Izle/izle) gruplari ayirdi + listedeki kaynak grupta olmayinca script sessiz gecti | Liste blackhope’a cevrildi (hash dogrulamali); audit.py’a ORPHAN raporu eklendi, sessiz gecis kapatildi |
-| Kayıt Durumu modeli gecisi (2026-09-15): 3 satir otomatik `Duplicate`'a cekildi (FullHDFilm ilkel, SetFilmIzle ilkel/aytzey) | Bu kayitlarin `plugins.json`'da karsiligi yoktu ama `Çalışmıyor` isareti tasiyordu (secim+saglik tek hucrede karismisti) | `registry.py` `Seçim`'i `plugins.json`'dan turetiyor; 3 satir Duplicate/`-` oldu; `aktif == plugins.json (40)` zorunlu |
-| Uretilen `Not` hucresindeki `|` (pipe) tabloyu boluyordu (2026-09-15) | Not metnine ayrac olarak ` \| ` yazilinca markdown hucre bolunuyor, `--sync` idempotent olmuyordu | Ayrac `;` oldu, yazimda pipe kacisi (`/`) eklendi; idempotency testiyle dogrulandi |
-| 9 flip beklemede kaldi (2026-09-15 raporu) | Aktif kaynak, Tarih Takip Kurali'na gore en yeni degildi (blackhope 09-07 tercih edilmisti); Linux oturumu hazirladi ama push etmedi | 2026-09-16'da kaynak builds'ten hash/boyut/ZIP dogrulamali uygulandi; 4 aytzey + 5 feroxx; Webteizle -> WebteIzle CASE birlesmesi yapildi; jsDelivr purge 10/10 OK |
+| Kayıt Durumu modeli geçişi (2026-09-15): 3 satır otomatik `Duplicate`'a çekildi (FullHDFilm ilkel, SetFilmIzle ilkel/aytzey) | Bu kayıtların `plugins.json`'da karşılığı yoktu ama `Çalışmıyor` işareti taşıyordu (seçim+sağlık tek hücrede karışıyordu) | `registry.py` `Seçim`'i `plugins.json`'dan türetiyor; 3 satır Duplicate/`-` oldu; `aktif == plugins.json (40)` zorunlu |
+| Üretilen `Not` hücresindeki `|` (pipe) tabloyu bölüyordu (2026-09-15) | Not metnine ayraç olarak ` \| ` yazılınca markdown hücre bölünüyor, `--sync` idempotent olmuyordu | Ayraç `;` oldu, yazımda pipe kaçışı (`/`) eklendi; idempotency testiyle doğrulandı |
+| 9 flip beklemede kalmıştı (2026-09-15 raporu) | Aktif kaynak, Tarih Takip Kuralı'na göre en yeni değildi (blackhope 09-07 tercih edilmişti); paralel oturum hazırlamış ama push etmemişti | 2026-09-16'da kaynak builds'ten hash/boyut/ZIP doğrulamalı uygulandı; 4 aytzey + 5 feroxx; Webteizle → WebteIzle CASE birleşmesi yapıldı; jsDelivr purge 10/10 OK |
 | `## İstenmeyenler` başlığı tablo satırının içine yapışmıştı (2026-09-15) | Başlık kendi satırına taşınmadan 87. satırın son hücresine yazılmıştı; GitHub başlığı render etmiyor, satır 7→8 hücreye kayıyordu, delete-zone bölümünün görünür başlığı yoktu | Başlık kendi satırına alındı; `audit.py` yasaklı listesi artık satır içi eşleşme tesadüfüne değil gerçek başlığa dayanıyor |
 | `audit.py` içindeki `guard` listesi hiç yazdırılmıyordu (2026-09-15) | Satır 138'de başlatılıp 173'te dolduruluyordu ama rapora basılmıyordu → "yasaklı, kaynakta görüldü ama elendi" sinyali sessizdi (ORPHAN'da kapatılan sessiz geçişin aynısı) | `=== YASAKLI-ELEME ===` bloğu rapora eklendi ve `--check` exit koşuluna dahil edildi |
 | `audit.py` Türkçe karakterli `.cs3` adında `'ascii' codec can't encode character '\u0131'` veriyordu (Filmmirasım) | GitHub API adresi percent-encode edilmiyordu; urllib ASCII dışı karakteri taşıyamıyor → eklenti denetim havuzundan **sessizce** düşüyor, tarihi hiç takip edilmiyordu | `percent_encode()` (update.py ile aynı mantık) `api_json`'a eklendi + `import urllib.parse` |
@@ -223,7 +224,7 @@ python registry.py --check  # model denetimi: sema + kume + tarih (exit 1 = ihla
 python update.py                # gerekirse kaynak verilerini senkronize et
 # DEPO-BILGILERI.md: Kaynak Tarih'i ilerleyen satırlarda Bizim Tarih'i eşitle (Tarih Takip Kuralı)
 # status:0 status'una dokunma; kaynak ilerlediyse sor, "kapalı kalsın" derse Bizim Tarih'i yine eşitle
-git add plugins.json DEPO-BILGILERI.md
+git add plugins.json DEPO-BILGILERI.md registry.json registry.py
 git -c user.name="kadircee" -c user.email="kadircee@users.noreply.github.com" \
     commit -m "plugins.json: aciklama"
 git push
@@ -232,17 +233,17 @@ Push sonrası jsDelivr önbelleği için:
 ```
 https://purge.jsdelivr.net/gh/kadircee/ozel-liste@main/plugins.json
 ```
-CloudStream tarafında depo yenilendiğinde yeni liste otomatik çekilir. Kaynak senkronu ve site sağlığı **otomatik değildir** (workflow dosyası yalnızca manuel tetikleme içindir, cron kapalı): kaynak bir eklentiyi güncellediğinde listedeki hash/boyut **elle** `update.py` çalıştırılarak senkronlanır, eklenti çalışmıyorsa kullanıcı bildirir, `status` elle `0` yapılır. `status:1`'e (yeniden açma) otomatik dönülmez; site geri geldiyse `plugins.json`'da ilgili eklentinin `status`'u elle `1` yapılır. Güncelleme öncesi `update.py --check` ile kontrol etmek iyi alışkanlıktır.
+CloudStream tarafında depo yenilendiğinde yeni liste otomatik çekilir. Kaynak senkronu ve site sağlığı **otomatik değildir** — repoda `.github/workflows` yoktur (GitHub Actions hiç kurulmadı): kaynak bir eklentiyi güncellediğinde listedeki hash/boyut **elle** `update.py` çalıştırılarak senkronlanır, eklenti çalışmıyorsa kullanıcı bildirir, `status` elle `0` yapılır. `status:1`'e (yeniden açma) otomatik dönülmez; site geri geldiyse `plugins.json`'da ilgili eklentinin `status`'u elle `1` yapılır. Güncelleme öncesi `update.py --check` ile kontrol etmek iyi alışkanlıktır.
 
 ## Tüm Repolar - Alfabetik Liste
 
-Bu bölüm 2026-08-28’de üretildi; 2026-09-05’te 45 satırın Kaynak/Bizim Tarih’i Tarih Takip Kuralı’na göre güncellendi; 2026-09-15’te 18 eklenti senkronize edildi (aytzey 09-08 domain-rewrite bump, feroxx 09-15 rebuild, blackhope 09-07 build, plt-stream 09-14), tum feroxx/aytzey/blackhope/plt satirlarinin Kaynak/Bizim Tarih’i esitlendi — tüm kaynak repolardaki 87 eklenti (İstenmeyenler ve ozel-liste hariç) alfabetik, site domain ve durum bilgisiyle.
+Bu bölüm 2026-08-28'de üretildi; 2026-09-05'te 45 satırın Kaynak/Bizim Tarih'i Tarih Takip Kuralı'na göre güncellendi; 2026-09-15'te 18 eklenti senkronize edildi (aytzey 09-08 domain-rewrite bump, feroxx 09-15 rebuild, blackhope 09-07 build, plt-stream 09-14), tüm feroxx/aytzey/blackhope/plt satırlarının Kaynak/Bizim Tarih'i eşitlendi — tüm kaynak repolardaki 87 eklenti (İstenmeyenler ve ozel-liste hariç) alfabetik, site domain ve durum bilgisiyle.
 
-Aynı isim/kökten farkli kaynaklarda gelen kayitlar `Seçim`/`Sağlık` sütunlarında izlenir: her gruptan 1 tanesi `plugins.json`'da yer alır (`Aktif`); digerleri `Duplicate`tir, `Sağlık` `-` olur. Renkler: 🟩 Çalışan, 🟨 Çalışmayan, 🟧 Duplicate, 🟥 İstenmeyen, 🟦 Eklenebilir (geçici aday).
-Toplam kayit: 87. Tablo `registry.json`'dan uretilir (`<!-- KAYIT-DURUMU:OTOMATIK-BASLANGIC -->` arasi; elle duzenleme) - degisiklik `--sync` → `--render --write` ile yapilir. 2026-09-16: 9 kayit tarih kuralina gore flip edildi (4 aytzey 09-08: DiziLife/DiziYo/FilmEkseni/FilmHane; 5 feroxx 09-15: DiziMom/FilmMakinesi/JetFilmizle/SezonlukDizi/WebteIzle), hash/boyut kaynak dogrulamali; Bizim Tarih = Kaynak Tarih; Webteizle grubu WebteIzle'de birlesti.
+Aynı isim/kökten farklı kaynaklarda gelen kayıtlar `Seçim`/`Sağlık` sütunlarında izlenir: her gruptan 1 tanesi `plugins.json`'da yer alır (`Aktif`); diğerleri `Duplicate`'tir, `Sağlık` `-` olur. Renkler: 🟩 Çalışan, 🟨 Çalışmayan, 🟧 Duplicate, 🟥 İstenmeyen, 🟦 Eklenebilir (geçici aday).
+Toplam kayıt: 87. Tablo `registry.json`'dan üretilir (`<!-- KAYIT-DURUMU:OTOMATIK-BASLANGIC -->` arası; elle düzenleme) — değişiklik `--sync` → `--render --write` ile yapılır. 2026-09-16: 9 kayıt tarih kuralına göre flip edildi (4 aytzey 09-08: DiziLife/DiziYo/FilmEkseni/FilmHane; 5 feroxx 09-15: DiziMom/FilmMakinesi/JetFilmizle/SezonlukDizi/WebteIzle), hash/boyut kaynak doğrulamalı; Bizim Tarih = Kaynak Tarih; Webteizle grubu WebteIzle'de birleşti.
 
 <!-- KAYIT-DURUMU:OTOMATIK-BASLANGIC -->
-| # | Eklenti | Kaynak | Site (domain) | v | Kaynak Tarih | Bizim Tarih | Secim | Saglik | Not |
+| # | Eklenti | Kaynak | Site (domain) | v | Kaynak Tarih | Bizim Tarih | Seçim | Sağlık | Not |
 |---|---|---|---|---|---|---|---|---|---|
 | 1 | 🟨 AltiYuzAltmisAltiFilmIzle | [ilkelkullanici/ilkel-cloudstream](https://github.com/ilkelkullanici/ilkel-cloudstream) | [666filmizle.site](https://666filmizle.site) | 1 | 2026-06-11 | 2026-08-28 | Aktif | Çalışmıyor | (son ölü: 2026-08-22, bu build veya başka build güncellendiğinde kontrol) |
 | 2 | 🟩 Ddizi | [feroxx/Kekik-cloudstream](https://github.com/feroxx/Kekik-cloudstream) | [www.ddizi.im](https://www.ddizi.im) | 22 | 2026-09-15 | 2026-09-15 | Aktif | Çalışıyor |  |
@@ -333,7 +334,7 @@ Toplam kayit: 87. Tablo `registry.json`'dan uretilir (`<!-- KAYIT-DURUMU:OTOMATI
 | 87 | 🟩 YabanciDizi | [aytzey/cs-kraptor](https://github.com/aytzey/cs-kraptor) | [yabancidizi.so](https://yabancidizi.so) | 19 | 2026-09-08 | 2026-09-15 | Aktif | Çalışıyor |  |
 <!-- KAYIT-DURUMU:OTOMATIK-SON -->
 
-## Istenmeyenler (Delete-Zone) - 69 unique
+## İstenmeyenler (Delete-Zone) - 69 unique
 
 | Eklenti | Kaynak Ornek | Site | Dil | Tur |
 |---------|--------------|------|-----|-----|

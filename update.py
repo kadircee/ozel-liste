@@ -163,6 +163,10 @@ def main():
             if field not in match:
                 continue
             new_val = match[field]
+            if field == 'authors' and isinstance(new_val, list):
+                # kaynakta bas/son bosluklu yazar adlari gelir (or. 'ByAyzen ');
+                # bu depo trim edilmis tutar (iconUrl kurali gibi normalizasyon)
+                new_val = [a.strip() for a in new_val if isinstance(a, str)]
             old_val = e.get(field)
             if old_val != new_val:
                 diffs[field] = (old_val, new_val)

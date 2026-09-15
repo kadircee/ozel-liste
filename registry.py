@@ -40,7 +40,7 @@ RED = '\U0001F7E5'
 BLUE = '\U0001F7E6'
 
 HEADER = ['#', 'Eklenti', 'Kaynak', 'Site (domain)', 'v', 'Kaynak Tarih', 'Bizim Tarih',
-          'Secim', 'Saglik', 'Not']
+          'Seçim', 'Sağlık', 'Not']
 SEÇIM = ('aktif', 'duplicate', 'istenmeyen')
 SAGLIK = ('calisiyor', 'calismiyor')
 
@@ -92,8 +92,9 @@ def parse_depo():
     Tablo iki formati da desteklenir (eski tek 'Durum' / yeni Secim+Saglik+Not)."""
     lines = io.open(DEPO, encoding='utf-8').read().replace('\r\n', '\n').split('\n')
     hdr = next(i for i, l in enumerate(lines) if l.startswith('| # |'))
-    new_fmt = 'Secim' in lines[hdr]
-    zone = next(i for i, l in enumerate(lines) if re.match(r'^#+\s+.*Istenmeyenler', l))
+    new_fmt = ('Seçim' in lines[hdr]) or ('Secim' in lines[hdr])
+    zone = next(i for i, l in enumerate(lines)
+                if re.match(r'^#+\s+.*(Istenmeyenler|İstenmeyenler)', l))
     liste = []
     for i in range(hdr, zone):
         l = lines[i]
