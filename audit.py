@@ -12,6 +12,12 @@ Kurallar (DEPO-BILGILERI.md Tarih Takip Kurali):
       siralanir, her zaman ilki (kazananlar[0]) secilir; script durup sormaz.
       status takibi yoktur (Pure Mirror).
     - Yeni site tercihen tr + {Movie,TvSeries,Documentary}; uymayanlar rapora duser.
+    - plugins.json'da yasakli kayit kalmissa ihlal raporu verilir (exit 1).
+    - --check: yalnizca aksiyon (flip/yeni), orphan ve ihlal exit 1 uretir;
+      filtre-disi ve yasakli-eleme kalici bilgi olarak raporlanir.
+    - --apply bitiminde registry.py --sync --render --write otomatik cagrilir
+      (yeni kayitlar icin tablo satiri elle eklenmeli).
+    - Ag istekleri 429/5xx/gecici hatalarda backoff'lu yeniden denenir (3 deneme).
     - Yazmadan once .cs3 indirilir, sha256 dogrulanir.
     - Tarihler GitHub API'den (builds branch, dosya bazinda son commit). Token:
       GITHUB_TOKEN env, yoksa `gh auth token` ciktisi.
@@ -24,11 +30,13 @@ import os
 import re
 import subprocess
 import sys
+import time
 import urllib.parse
 import urllib.request
 
 REPO_DIR = os.path.dirname(os.path.abspath(__file__))
 PLUGINS_PATH = os.path.join(REPO_DIR, 'plugins.json')
+REGISTRY_PATH = os.path.join(REPO_DIR, 'registry.json')
 DEPO_PATH = os.path.join(REPO_DIR, 'DEPO-BILGILERI.md')
 API = 'https://api.github.com'
 RAW = 'https://raw.githubusercontent.com/%s/builds/plugins.json'
@@ -55,32 +63,55 @@ def token():
 
 
 def percent_encode(url):
-    """GitHub API adresinde Turkce karakter olabilir. Dosya adi audit'te QUERY
-    icinde (`?path=Filmmirasim.cs3`), update.py'de PATH icinde; ikisi de kodlanir.
-    urllib ASCII disi karakteri tasiyamadigi icin bu adim zorunludur."""
+    """Turkce/ozel karakterli adresler icin cift-kodlamasiz quoted URL uretir:
+    once unquote (hazir %XX cozulur), sonra quote (ham karakter kodlanir).
+    GitHub API adresinde dosya adi QUERY icinde (`?path=...cs3`), .cs3
+    indirmede PATH icinde olabilir; ikisi de kodlanir. urllib ASCII disi
+    karakteri tasiyamadigi icin bu adim zorunludur."""
     parts = urllib.parse.urlsplit(url)
-    path = urllib.parse.quote(parts.path, safe='/%._~-')
-    query = urllib.parse.quote(parts.query, safe='=&%._~-')
+    path = urllib.parse.quote(urllib.parse.unquote(parts.path), safe='/%._~-')
+    query = urllib.parse.quote(urllib.parse.unquote(parts.query), safe='=&%._~-')
     return urllib.parse.urlunsplit((parts.scheme, parts.netloc, path, query, parts.fragment))
+
+
+def _open(req, timeout):
+    """429/5xx/gecici ag hatalarinda backoff'lu yeniden deneme (en fazla 3 deneme).
+    401/404 gibi kesin hatalarda beklemeden firlatir."""
+    delay = 2
+    for i in range(3):
+        try:
+            return urllib.request.urlopen(req, timeout=timeout)
+        except urllib.error.HTTPError as ex:
+            if ex.code in (429, 500, 502, 503, 504) and i < 2:
+                time.sleep(delay)
+                delay *= 2
+                continue
+            raise
+        except Exception:
+            if i < 2:
+                time.sleep(delay)
+                delay *= 2
+                continue
+            raise
 
 
 def api_json(url, tok):
     req = urllib.request.Request(percent_encode(url), headers={'Authorization': 'Bearer ' + tok,
                                                'Accept': 'application/vnd.github+json',
                                                'User-Agent': UA})
-    with urllib.request.urlopen(req, timeout=30) as r:
+    with _open(req, timeout=30) as r:
         return json.loads(r.read().decode('utf-8'))
 
 
 def raw_json(url):
-    req = urllib.request.Request(url, headers={'User-Agent': UA})
-    with urllib.request.urlopen(req, timeout=60) as r:
+    req = urllib.request.Request(percent_encode(url), headers={'User-Agent': UA})
+    with _open(req, timeout=60) as r:
         return json.loads(r.read().decode('utf-8'))
 
 
 def raw_bytes(url):
-    req = urllib.request.Request(url, headers={'User-Agent': UA})
-    with urllib.request.urlopen(req, timeout=120) as r:
+    req = urllib.request.Request(percent_encode(url), headers={'User-Agent': UA})
+    with _open(req, timeout=120) as r:
         return r.read()
 
 
@@ -116,10 +147,19 @@ def main():
               '(delete-zone korumasi devre disi kalirdi; durduruldu)')
         sys.exit(2)
 
-    # Kaynak evren: tablo Kaynak sutunu + plugins.json url'leri
+    # Kaynak evren: makine-okur registry.json (birincil) + plugins.json url'leri.
+    # registry.json okunamazsa DEPO-BILGILERI.md Kaynak sutununa dusulur.
     repos = set()
-    for m in re.finditer(r'\[.+?\]\(https://github\.com/([^/\)]+)/([^/\)]+)\)', depo):
-        repos.add(m.group(1) + '/' + m.group(2))
+    try:
+        reg = json.load(io.open(REGISTRY_PATH, encoding='utf-8'))
+        for g in reg['groups'].values():
+            for c in g['candidates']:
+                if c.get('source'):
+                    repos.add(c['source'])
+    except Exception as ex:
+        print('UYARI: registry.json okunamadi (%s); DEPO-BILGILERI.md taraniyor' % ex)
+        for m in re.finditer(r'\[.+?\]\(https://github\.com/([^/\)]+)/([^/\)]+)\)', depo):
+            repos.add(m.group(1) + '/' + m.group(2))
     listed = json.load(io.open(PLUGINS_PATH, encoding='utf-8'))
     for p in listed:
         m = re.match(r'https://raw\.githubusercontent\.com/([^/]+)/([^/]+)/builds/', p.get('url', ''))
@@ -140,7 +180,7 @@ def main():
         for it in items:
             if not isinstance(it, dict) or not it.get('internalName'):
                 continue
-            fn = it.get('url', '').rsplit('/', 1)[-1]
+            fn = urllib.parse.unquote(it.get('url', '').rsplit('/', 1)[-1])
             if not fn.endswith('.cs3'):
                 continue
             try:
@@ -157,7 +197,7 @@ def main():
     for p in listed:
         listed_by_norm[norm(p.get('internalName', ''))] = p
 
-    flips, yeniler, elenen_yeni, guard, orphan = [], [], [], [], []
+    flips, yeniler, elenen_yeni, guard, orphan, ihlal = [], [], [], [], [], []
     for key in sorted(pool):
         grp = sorted(pool[key], key=lambda x: x[2], reverse=True)
         top_tarih = grp[0][2]
@@ -166,6 +206,11 @@ def main():
         kazananlar = sorted([g for g in grp if g[2] == top_tarih], key=lambda g: g[0])
         cur = listed_by_norm.get(key)
         if cur:
+            if key in banned:
+                # YASAKLI-IHLAL: delete-zone'daki kayit plugins.json'da kalmis.
+                # Flip uygulanmaz; listeden cikarma insan karari bekler.
+                ihlal.append('%s yasakli ama plugins.json\'da duruyor (listeden cikarilmali)' % cur.get('internalName'))
+                continue
             m = re.match(r'https://raw\.githubusercontent\.com/([^/]+)/([^/]+)/builds/', cur.get('url', ''))
             cur_repo = (m.group(1) + '/' + m.group(2)) if m else '?'
             cur_hist = [g for g in grp if g[0] == cur_repo]
@@ -201,23 +246,42 @@ def main():
     print('\n'.join('  ' + g for g in guard) or '  (yok)')
     print('=== ORPHAN (listedeki kaynak grupta yok) (%d) ===' % len(orphan))
     print('\n'.join('  ' + c for c in orphan) or '  (yok)')
+    print('=== YASAKLI-IHLAL (delete-zone kaydi listede) (%d) ===' % len(ihlal))
+    print('\n'.join('  ' + c for c in ihlal) or '  (yok)')
 
     action = flips + [(None, w) for w in yeniler]
     if not args.apply:
-        if action or elenen_yeni or orphan or guard:
-            print('\n--apply siz calisti, yazilmadi (exit 1).')
+        # CI/CD dostu: kalici bilgi (filtre-disi, yasakli-eleme) exit uretmez;
+        # yalnizca aksiyon, orphan ve ihlal dondurur.
+        if action or orphan or ihlal:
+            print('\n--apply siz calisti, aksiyon gerekiyor (exit 1).')
             sys.exit(1)
         print('\nYapilacak is yok.')
         return
 
-    # --apply: sadece flips + yeniler, hash dogrulamali
+    # --apply: sadece flips + yeniler, hash dogrulamali.
+    # Tek eklentideki hata (indirilemedi/hash tutmadi) tum kosuyu durdurmaz:
+    # hatali kayit atlanir, rapora duser.
     data = listed
+    hatali = []
     for cur, (repo, it, tarih) in flips:
-        blob = raw_bytes(it['url'])
-        assert 'sha256-' + hashlib.sha256(blob).hexdigest() == it['fileHash'] and len(blob) == it['fileSize'], \
-            'hash/boyut tutmadi: %s' % it.get('internalName')
-        for f in ['url', 'version', 'fileSize', 'fileHash', 'description', 'authors', 'language', 'tvTypes']:
-            cur[f] = it[f]
+        try:
+            blob = raw_bytes(it['url'])
+            if 'sha256-' + hashlib.sha256(blob).hexdigest() != it['fileHash'] or len(blob) != it['fileSize']:
+                raise ValueError('hash/boyut tutmadi')
+        except Exception as ex:
+            hatali.append('%s (%s): %s' % (it.get('internalName'), repo, ex))
+            continue
+        # status ve apiVersion dahil tum alanlar yeni kaynaktan aktarilir;
+        # kaynakta olmayan alan yereli ezmez.
+        for f in ['url', 'version', 'fileSize', 'fileHash', 'description', 'authors', 'language', 'tvTypes', 'status', 'apiVersion']:
+            if f in it:
+                cur[f] = it[f]
+        if 'iconUrl' in it:
+            icon = it['iconUrl'] or ''
+            if '%size%' in icon:
+                icon = icon.replace('%size%', 'sz=128')
+            cur['iconUrl'] = icon
         cur['repositoryUrl'] = 'https://github.com/' + repo
         if cur.get('internalName') != it.get('internalName'):
             print('CASE %s -> %s' % (cur.get('internalName'), it.get('internalName')))
@@ -225,9 +289,13 @@ def main():
             cur['name'] = it.get('name', it.get('internalName'))
         print('UYGULANDI flip %s -> %s' % (cur.get('internalName'), repo))
     for _, (repo, it, tarih) in yeniler:
-        blob = raw_bytes(it['url'])
-        assert 'sha256-' + hashlib.sha256(blob).hexdigest() == it['fileHash'] and len(blob) == it['fileSize'], \
-            'hash/boyut tutmadi: %s' % it.get('internalName')
+        try:
+            blob = raw_bytes(it['url'])
+            if 'sha256-' + hashlib.sha256(blob).hexdigest() != it['fileHash'] or len(blob) != it['fileSize']:
+                raise ValueError('hash/boyut tutmadi')
+        except Exception as ex:
+            hatali.append('%s (%s, yeni): %s' % (it.get('internalName'), repo, ex))
+            continue
         icon = it.get('iconUrl', '')
         if '%size%' in icon:
             icon = icon.replace('%size%', 'sz=128')
@@ -239,9 +307,25 @@ def main():
                      'iconUrl': icon, 'apiVersion': it.get('apiVersion', 3), 'fileHash': it.get('fileHash')})
         print('UYGULANDI yeni %s (%s)' % (it.get('internalName'), repo))
     data.sort(key=lambda p: (p.get('internalName') or '').casefold())
-    json.dump(data, io.open(PLUGINS_PATH, 'w', encoding='utf-8', newline='\n'), ensure_ascii=False, indent=2)
-    io.open(PLUGINS_PATH, 'a', encoding='utf-8').write('\n')
-    print('plugins.json yazildi; tablo yamasi + purge elle/sonraki adim.')
+    # Atomik yazma: once gecici dosyaya, sonra os.replace (yarim yazim olmaz).
+    tmp = PLUGINS_PATH + '.tmp'
+    json.dump(data, io.open(tmp, 'w', encoding='utf-8', newline='\n'), ensure_ascii=False, indent=2)
+    io.open(tmp, 'a', encoding='utf-8').write('\n')
+    os.replace(tmp, PLUGINS_PATH)
+    print('plugins.json yazildi.')
+    if hatali:
+        print('=== HATALI-ATLANDI (indirilemedi/hash tutmadi) (%d) ===' % len(hatali))
+        print('\n'.join('  ' + c for c in hatali))
+    try:
+        subprocess.run([sys.executable, os.path.join(REPO_DIR, 'registry.py'),
+                        '--sync', '--render', '--write'], check=True)
+        print('registry.json ve DEPO-BILGILERI.md otomatik senkronize edildi.')
+    except Exception as ex:
+        print('UYARI: registry senkronizasyonu tetiklenemedi: %s' % ex)
+    print('Not: yeni kayitlar icin tablo satiri elle eklenmeli; jsDelivr purge sonraki adim.')
+    if hatali:
+        print('HATALI kayitlar vardi (exit 1).')
+        sys.exit(1)
 
 
 if __name__ == '__main__':

@@ -24,6 +24,7 @@ import json
 import os
 import re
 import sys
+import time
 import urllib.error
 import urllib.parse
 import urllib.request
@@ -51,10 +52,33 @@ def percent_encode(url):
     return urllib.parse.urlunsplit((parts.scheme, parts.netloc, path, parts.query, parts.fragment))
 
 
+def fetch_with_retry(op, tries=3):
+    """429/5xx/gecici ag hatalarinda backoff'lu yeniden deneme (en fazla 3 deneme).
+    404/401 gibi kesin hatalarda beklemeden firlatir."""
+    delay = 2
+    for i in range(tries):
+        try:
+            return op()
+        except urllib.error.HTTPError as ex:
+            if ex.code in (429, 500, 502, 503, 504) and i < tries - 1:
+                time.sleep(delay)
+                delay *= 2
+                continue
+            raise
+        except Exception:
+            if i < tries - 1:
+                time.sleep(delay)
+                delay *= 2
+                continue
+            raise
+
+
 def fetch_json(url):
-    req = urllib.request.Request(percent_encode(url), headers={"User-Agent": USER_AGENT})
-    with urllib.request.urlopen(req, timeout=NET_TIMEOUT) as resp:
-        return json.loads(resp.read().decode("utf-8"))
+    def _get():
+        req = urllib.request.Request(percent_encode(url), headers={"User-Agent": USER_AGENT})
+        with urllib.request.urlopen(req, timeout=NET_TIMEOUT) as resp:
+            return json.loads(resp.read().decode("utf-8"))
+    return fetch_with_retry(_get)
 
 
 def source_plugins_url(cs3_url):
@@ -151,8 +175,14 @@ def main():
         try:
             src = fetch_json(src_url)
         except urllib.error.HTTPError as ex:
-            # Pure Mirror: kaynakta yok (404 dahil) -> yerelden sil.
-            silinen.append((name, "kaynak plugins.json {0}: {1}".format(ex.code, src_url)))
+            if ex.code == 404:
+                # Pure Mirror: kaynakta yok -> yerelden sil (yoklugun kaniti).
+                silinen.append((name, "kaynak plugins.json {0}: {1}".format(ex.code, src_url)))
+                continue
+            # 404 disi kalici HTTP hatasi (403/5xx retry sonrasi): yokluk kaniti
+            # degil; gozetimsiz silmemek icin silme, raporla ve koru.
+            missing.append((name, "kaynak plugins.json kalici hata {0}: {1}".format(ex.code, src_url)))
+            kept.append(e)
             continue
         except Exception as ex:
             # Gecici erisim sorunu yokluga kanit degil: silme, raporla ve koru.
@@ -210,9 +240,12 @@ def main():
         return
 
     if changed or silinen:
-        with io.open(PLUGINS_PATH, "w", encoding="utf-8", newline="\n") as f:
+        # Atomik yazma: once gecici dosyaya, sonra os.replace (yarim yazim olmaz).
+        tmp = PLUGINS_PATH + ".tmp"
+        with io.open(tmp, "w", encoding="utf-8", newline="\n") as f:
             json.dump(data, f, ensure_ascii=False, indent=2)
             f.write("\n")
+        os.replace(tmp, PLUGINS_PATH)
         print("plugins.json guncellendi ({0} guncelleme, {1} silme).".format(len(changed), len(silinen)))
         # Guncellenen eklentilerin + kendi plugins.json'un CDN cache'ini temizle
         updated_names = {name for name, _ in changed}
