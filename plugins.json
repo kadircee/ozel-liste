@@ -314,7 +314,7 @@
   },
   {
     "url": "https://raw.githubusercontent.com/aytzey/cs-kraptor/builds/DiziFilmORG.cs3",
-    "status": 0,
+    "status": 1,
     "version": 23,
     "name": "DiziFilmORG",
     "internalName": "DiziFilmORG",
@@ -619,7 +619,7 @@
   },
   {
     "url": "https://raw.githubusercontent.com/feroxx/Kekik-cloudstream/builds/SetFilmIzle.cs3",
-    "status": 0,
+    "status": 1,
     "version": 30,
     "name": "SetFilmIzle",
     "internalName": "SetFilmIzle",
@@ -760,7 +760,7 @@
   },
   {
     "url": "https://raw.githubusercontent.com/blackhope01/cloudstream-plugins/builds/LoveFilm.cs3",
-    "status": 1,
+    "status": 0,
     "version": 1,
     "name": "LoveFilm",
     "internalName": "LoveFilm",
@@ -781,7 +781,7 @@
   },
   {
     "url": "https://raw.githubusercontent.com/ilkelkullanici/ilkel-cloudstream/builds/AltiYuzAltmisAltiFilmIzle.cs3",
-    "status": 0,
+    "status": 1,
     "version": 1,
     "name": "AltiYuzAltmisAltiFilmIzle",
     "internalName": "AltiYuzAltmisAltiFilmIzle",
@@ -801,7 +801,7 @@
   },
   {
     "url": "https://raw.githubusercontent.com/ilkelkullanici/ilkel-cloudstream/builds/FilmBip.cs3",
-    "status": 0,
+    "status": 1,
     "version": 19,
     "name": "FilmBip",
     "internalName": "FilmBip",
@@ -821,7 +821,7 @@
   },
   {
     "url": "https://raw.githubusercontent.com/feroxx/Kekik-cloudstream/builds/FullHDFilm.cs3",
-    "status": 0,
+    "status": 1,
     "version": 36,
     "name": "FullHDFilm",
     "internalName": "FullHDFilm",

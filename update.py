@@ -5,8 +5,9 @@ Kaynak builds/plugins.json adresi, listedeki .cs3 url'sinden turetilir:
     https://raw.githubusercontent.com/<owner>/<repo>/builds/<Isim>.cs3
     -> https://raw.githubusercontent.com/<owner>/<repo>/builds/plugins.json
 
-Senkronize edilen alanlar: version, fileSize, fileHash, description,
-authors, language, tvTypes. iconUrl bilinçli olarak senkronize EDILMEZ:
+Pure Mirror: kaynak ne yayinliyorsa birebir yansitilir. Senkronize edilen
+alanlar: status, version, fileSize, fileHash, description, authors,
+language, tvTypes. iconUrl bilinçli olarak senkronize EDILMEZ:
 bu depo ikon adreslerini normalize eder (kaynaktaki %size% yer tutuculari
 sabit sz=128'e cevrilir) ve kaynak guncellemesi bu duzeltmeyi geri almasin.
 
@@ -33,7 +34,9 @@ USER_AGENT = "Mozilla/5.0 (ozel-liste-update)"
 # iconUrl bilinçli olarak senkronize edilmiyor: bu depo ikon adreslerini normalize
 # ediyor (kaynaktaki %size% yer tutucuları sabit sz=128'e çevriliyor). Kaynak
 # güncellemesi bu düzeltmeyi geri almasın diye sync alanları dışında tutulur.
-SYNC_FIELDS = ["version", "fileSize", "fileHash", "description", "authors", "language", "tvTypes"]
+# status BILINCLI olarak senkronize EDILIR (Pure Mirror): kaynak ne yayinliyorsa
+# (1, 0, ...) aynen alinir; manuel status korumasi yoktur.
+SYNC_FIELDS = ["status", "version", "fileSize", "fileHash", "description", "authors", "language", "tvTypes"]
 
 # Bu deponun kendi plugins.json adresi (jsDelivr purge için)
 OWN_REPO = "kadircee/ozel-liste"

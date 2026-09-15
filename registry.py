@@ -1,11 +1,13 @@
 # -*- coding: utf-8 -*-
-"""Kayit Durumu Veri Modeli (Secim + Saglik) araclari.
+"""Kayit Durumu Veri Modeli (Secim) araclari — Zero-Maintenance / Pure Mirror.
 
-Model: her kayit iki BAGIMSIZ eksene sahiptir.
+Model: her kayit tek eksene sahiptir.
     Secim  : aktif | duplicate | istenmeyen   -> plugins.json'a giriyor mu?
-    Saglik : calisiyor | calismiyor | None    -> yalnizca secim=aktif icin tanimli
-Kural: secim != aktif ise saglik zorunlu olarak None (validasyonla garanti edilir).
 Kazanan: grup icinde en buyuk kaynak_tarih (Tarih Takip Kurali; versiyon kriter degil).
+
+`status` (acik/kapali) bilgisi kaynaga aittir: update.py kaynagin
+builds/plugins.json dosyasinda ne yayinliyorsa onu birebir yansitir
+(Pure Mirror). Bu depo site canliligi (Saglik) takibi yapmaz.
 
 Kaynaklar:
     registry.json      -> makine-okur asil kayit (bu arac uretir)
@@ -33,53 +35,24 @@ REGISTRY = os.path.join(REPO_DIR, 'registry.json')
 BEGIN = '<!-- KAYIT-DURUMU:OTOMATIK-BASLANGIC -->'
 END = '<!-- KAYIT-DURUMU:OTOMATIK-SON -->'
 
-GREEN = '\U0001F7E9'
-YELLOW = '\U0001F7E8'
-ORANGE = '\U0001F7E7'
-RED = '\U0001F7E5'
-BLUE = '\U0001F7E6'
-
 HEADER = ['#', 'Eklenti', 'Kaynak', 'Site (domain)', 'v', 'Kaynak Tarih', 'Bizim Tarih',
-          'Seçim', 'Sağlık', 'Not']
+          'Seçim', 'Not']
 SEÇIM = ('aktif', 'duplicate', 'istenmeyen')
-SAGLIK = ('calisiyor', 'calismiyor')
 
 SECIM_TR = {'aktif': 'Aktif', 'duplicate': 'Duplicate', 'istenmeyen': 'İstenmeyen'}
-SAGLIK_TR = {'calisiyor': 'Çalışıyor', 'calismiyor': 'Çalışmıyor', None: '-'}
 # Hucre metni -> slug; ASCII/aksanli eski bicimler geriye uyumlu kabul edilir.
 CELL_SECIM = {'Aktif': 'aktif', 'aktif': 'aktif', 'Duplicate': 'duplicate', 'duplicate': 'duplicate',
               'İstenmeyen': 'istenmeyen', 'Istenmeyen': 'istenmeyen', 'istenmeyen': 'istenmeyen'}
-CELL_SAGLIK = {'Çalışıyor': 'calisiyor', 'Calisiyor': 'calisiyor', 'calisiyor': 'calisiyor',
-               'Çalışmıyor': 'calismiyor', 'Calismiyor': 'calismiyor', 'calismiyor': 'calismiyor',
-               '-': None, '': None, 'n/a': None, 'N/A': None}
 
 
 def norm(s):
     return (s or '').replace('\u0130', 'i').replace('I', '\u0131').casefold()
 
 
-def mark_of(text):
-    for m in (GREEN, YELLOW, ORANGE, RED, BLUE):
-        if m in text[:3]:
-            return m
-    return ''
-
-
-def emoji_of(c):
-    if c['secim'] == 'istenmeyen':
-        return RED
-    if c['secim'] == 'duplicate':
-        return ORANGE
-    return GREEN if c['saglik'] == 'calisiyor' else YELLOW
-
-
 def clean_note(text):
-    """Eski tek 'Durum' hucresinden serbest metni ayiklar (gosterge emojisi ve
-    durum kelimesi cikarilir; parantezli gecmis notu korunur)."""
-    t = text or ''
-    for m in (GREEN, YELLOW, ORANGE, RED, BLUE):
-        t = t.replace(m, '')
-    t = t.strip()
+    """Eski tek 'Durum' hucresinden serbest metni ayiklar (bastaki gosterge
+    isaretleri ve durum kelimesi cikarilir; parantezli gecmis notu korunur)."""
+    t = re.sub(r'^[^\w\(]+', '', text or '').strip()
     for w in ('\u00c7al\u0131\u015f\u0131yor', '\u00c7al\u0131\u015fm\u0131yor', 'Duplicate',
               '\u0130stenmeyen', 'Eklenebilir'):
         if t.lower().startswith(w.lower()):
@@ -89,10 +62,12 @@ def clean_note(text):
 
 def parse_depo():
     """DEPO-BILGILERI.md'yi okur: liste satirlari + Istenmeyenler tablosu.
-    Tablo iki formati da desteklenir (eski tek 'Durum' / yeni Secim+Saglik+Not)."""
+    Tablo uc formati da okuyabilir (eski tek 'Durum' / 10 sutunlu Secim+Saglik+Not /
+    9 sutunlu Secim+Not); uretim her zaman 9 sutunludur."""
     lines = io.open(DEPO, encoding='utf-8').read().replace('\r\n', '\n').split('\n')
     hdr = next(i for i, l in enumerate(lines) if l.startswith('| # |'))
     new_fmt = ('Seçim' in lines[hdr]) or ('Secim' in lines[hdr])
+    has_saglik = ('Sağlık' in lines[hdr]) or ('Saglik' in lines[hdr])
     zone = next(i for i, l in enumerate(lines)
                 if re.match(r'^#+\s+.*(Istenmeyenler|İstenmeyenler)', l))
     liste = []
@@ -104,23 +79,28 @@ def parse_depo():
         c = [x.strip() for x in l.strip().strip('|').split('|')]
         r = {'line': i + 1, 'order': int(m.group(1)), 'name_cell': c[1],
              'name': re.sub(r'^[^A-Za-z0-9]+', '', c[1]), 'repo_cell': c[2], 'site_cell': c[3],
-             'version': c[4], 'kaynak_tarih': c[5], 'bizim_tarih': c[6], 'mark': mark_of(c[1])}
+             'version': c[4], 'kaynak_tarih': c[5], 'bizim_tarih': c[6]}
         r['repo'] = (re.search(r'github\.com/([^)]+)', c[2]) or [None, ''])[1]
         r['domain'] = (re.search(r'\[([^\]]+)\]', c[3]) or [None, c[3]])[1]
         if new_fmt:
             r['secim'] = CELL_SECIM.get((c[7] if len(c) > 7 else '').strip(), '')
-            r['saglik'] = CELL_SAGLIK.get((c[8] if len(c) > 8 else '').strip(), '')
-            r['not'] = c[9] if len(c) > 9 else ''
+            if has_saglik:
+                # Gecis: eski 10 sutunlu tablo (Saglik sutunu yoksayilir).
+                r['not'] = c[9] if len(c) > 9 else ''
+            else:
+                r['not'] = c[8] if len(c) > 8 else ''
         else:
-            r['secim'], r['saglik'], r['not'] = None, None, clean_note(c[7] if len(c) > 7 else '')
+            r['secim'], r['not'] = None, clean_note(c[7] if len(c) > 7 else '')
         liste.append(r)
     zone_rows = []
     for i in range(zone, len(lines)):
         l = lines[i]
         if i > zone and l.startswith('## '):
             break
-        if l.startswith('| ') and RED in l[:6] and 'Eklenti' not in l:
+        if l.startswith('| ') and 'Eklenti' not in l:
             c = [x.strip() for x in l.strip().strip('|').split('|')]
+            if len(c) < 3:
+                continue
             zone_rows.append({'name': re.sub(r'^[^A-Za-z0-9]+', '', c[0]),
                               'repo': (re.search(r'github\.com/([^)]+)', c[1]) or [None, ''])[1],
                               'domain': (re.search(r'\[([^\]]+)\]', c[2]) or [None, c[2]])[1],
@@ -135,14 +115,13 @@ def plugins_index():
     idx = {}
     for p in data:
         repo = (re.match(r'https://raw\.githubusercontent\.com/([^/]+/[^/]+)/builds/', p.get('url', '')) or [None, ''])[1]
-        idx.setdefault(norm(p.get('internalName')), []).append(
-            {'repo': repo, 'status': p.get('status'), 'version': p.get('version')})
+        idx.setdefault(norm(p.get('internalName')), []).append({'repo': repo})
     return idx, data
 
 
 def sync():
     """Tablolar + plugins.json -> registry sozlugu. 'Aktif' kumesi plugins.json'dan
-    TURETILIR: dosyada olan kayit aktif (saglik=status), olmayan duplicate."""
+    TURETILIR: dosyada olan kayit aktif, olmayan duplicate. Saglik/status izlenmez."""
     liste, zone, _ = parse_depo()
     idx, _ = plugins_index()
     groups = {}
@@ -153,21 +132,14 @@ def sync():
              'version': r['version'], 'kaynak_tarih': r['kaynak_tarih'], 'bizim_tarih': r['bizim_tarih'],
              'not': r['not']}
         hit = [h for h in idx.get(k, []) if h['repo'] == r['repo']]
-        if hit:
-            c['secim'] = 'aktif'
-            c['saglik'] = 'calisiyor' if hit[0]['status'] == 1 else 'calismiyor'
-        else:
-            c['secim'] = 'duplicate'
-            c['saglik'] = None
-            if r['mark'] == YELLOW and 'model: secim kaybetti' not in c['not']:
-                c['not'] = (c['not'] + '; model: secim kaybetti, saglik takibi kaldirildi').strip('; ')
+        c['secim'] = 'aktif' if hit else 'duplicate'
         groups.setdefault(k, {'name': r['name'], 'candidates': []})['candidates'].append(c)
     for z in zone:
         k = norm(z['name'])
         groups.setdefault(k, {'name': z['name'], 'candidates': []})['candidates'].append(
             {'name': z['name'], 'listed': False, 'source': z['repo'], 'source_cell': z['repo_cell'],
              'site_cell': z['site_cell'], 'domain': z['domain'], 'version': None,
-             'kaynak_tarih': None, 'bizim_tarih': None, 'secim': 'istenmeyen', 'saglik': None,
+             'kaynak_tarih': None, 'bizim_tarih': None, 'secim': 'istenmeyen',
              'not': (z['dil'] + ' ' + z['tur']).strip()})
     return {'version': 1, 'groups': {k: groups[k] for k in sorted(groups)}}
 
@@ -187,12 +159,6 @@ def validate(reg):
         for c in g['candidates']:
             if c['secim'] not in SEÇIM:
                 errors.append('%s/%s: gecersiz secim %r' % (g['name'], c.get('source'), c['secim']))
-                continue
-            if c['secim'] == 'aktif':
-                if c['saglik'] not in SAGLIK:
-                    errors.append('%s/%s: Aktif ama saglik tanimsiz' % (g['name'], c.get('source')))
-            elif c['saglik'] is not None:
-                errors.append('%s/%s: secim=%s ama saglik dolu (None olmali)' % (g['name'], c.get('source'), c['secim']))
         listed = [c for c in g['candidates'] if c.get('listed') and c['kaynak_tarih']]
         if listed and aktif:
             en = max(c['kaynak_tarih'] for c in listed)
@@ -200,18 +166,14 @@ def validate(reg):
                 conflicts.append((g['name'], aktif[0]['source'], aktif[0]['kaynak_tarih'], en))
     # kume denetimi: aktif kayitlar == plugins.json
     idx, _ = plugins_index()
-    reg_aktif = {(k, c['source']): c for k, g in reg['groups'].items()
+    reg_aktif = {(k, c['source']) for k, g in reg['groups'].items()
                  for c in g['candidates'] if c['secim'] == 'aktif'}
-    pj = {(k, h['repo']): h for k, hs in idx.items() for h in hs}
+    pj = {(k, h['repo']) for k, hs in idx.items() for h in hs}
     for key in sorted(set(pj) | set(reg_aktif)):
         if key not in reg_aktif:
             errors.append('plugins.json\'da var ama registry\'de Aktif yok: %s (%s)' % key)
         elif key not in pj:
             errors.append('registry\'de Aktif ama plugins.json\'da yok: %s (%s)' % key)
-        else:
-            beklenen = 'calisiyor' if pj[key]['status'] == 1 else 'calismiyor'
-            if reg_aktif[key]['saglik'] != beklenen:
-                errors.append('%s: saglik=%s ama plugins.json status=%s' % (key[0], reg_aktif[key]['saglik'], pj[key]['status']))
     return errors, conflicts
 
 
@@ -222,10 +184,10 @@ def render(reg):
 
     out = ['| ' + ' | '.join(HEADER) + ' |', '|' + '|'.join(['---'] * len(HEADER)) + '|']
     for c in liste_rows(reg):
-        out.append('| %d | %s %s | %s | %s | %s | %s | %s | %s | %s | %s |' % (
-            c['order'], emoji_of(c), cell(c['name']), cell(c['source_cell']), cell(c['site_cell']),
+        out.append('| %d | %s | %s | %s | %s | %s | %s | %s | %s |' % (
+            c['order'], cell(c['name']), cell(c['source_cell']), cell(c['site_cell']),
             cell(c['version']), cell(c['kaynak_tarih']), cell(c['bizim_tarih']),
-            SECIM_TR[c['secim']], SAGLIK_TR[c['saglik']], cell(c['not'])))
+            SECIM_TR[c['secim']], cell(c['not'])))
     return '\n'.join(out)
 
 
@@ -266,7 +228,7 @@ def save_registry(reg):
 
 
 def drift(reg):
-    """Tablo (yeni format) registry ile ayni mi? Elle duzenleme/uyusmazlik raporu."""
+    """Tablo registry ile ayni mi? Yalnizca secim ekseni denetlenir."""
     liste, _, new_fmt = parse_depo()
     if not new_fmt:
         return None
@@ -276,14 +238,14 @@ def drift(reg):
         c = reg_rows.get(r['order'])
         if not c:
             out.append('tablo satir %d (%s): registry\'de yok' % (r['order'], r['name']))
-        elif r['secim'] != c['secim'] or (r['saglik'] or None) != (c['saglik'] or None):
-            out.append('tablo satir %d (%s): tablo=%s/%s registry=%s/%s' % (
-                r['order'], r['name'], r['secim'], r['saglik'], c['secim'], c['saglik']))
+        elif r['secim'] != c['secim']:
+            out.append('tablo satir %d (%s): tablo=%s registry=%s' % (
+                r['order'], r['name'], r['secim'], c['secim']))
     return out
 
 
 def main():
-    ap = argparse.ArgumentParser(description='Kayit Durumu Veri Modeli (Secim + Saglik) araclari')
+    ap = argparse.ArgumentParser(description='Kayit Durumu Veri Modeli (Secim) araclari — Pure Mirror')
     ap.add_argument('--sync', action='store_true', help='tablolar + plugins.json -> registry.json')
     ap.add_argument('--check', action='store_true', help='sema + kume + tarih denetimi (ihlalde exit 1)')
     ap.add_argument('--render', action='store_true', help='tabloyu uretir (dosyaya yazmaz)')
@@ -315,7 +277,7 @@ def main():
                 for e in errors:
                     print('  IHLAL: ' + e)
             else:
-                print('  OK: sema gecerli (secim != aktif -> saglik = None); aktif kumesi plugins.json ile birebir')
+                print('  OK: sema gecerli; aktif kumesi plugins.json ile birebir')
             d = drift(reg)
             if d:
                 print('=== TABLO <-> REGISTRY UYUSMAZLIGI (%d) ===' % len(d))

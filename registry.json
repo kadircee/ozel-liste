@@ -16,8 +16,7 @@
           "kaynak_tarih": "2026-06-11",
           "bizim_tarih": "2026-08-28",
           "not": "(son ölü: 2026-08-22, bu build veya başka build güncellendiğinde kontrol)",
-          "secim": "aktif",
-          "saglik": "calismiyor"
+          "secim": "aktif"
         }
       ]
     },
@@ -35,7 +34,6 @@
           "kaynak_tarih": null,
           "bizim_tarih": null,
           "secim": "istenmeyen",
-          "saglik": null,
           "not": "mx Anime"
         }
       ]
@@ -54,7 +52,6 @@
           "kaynak_tarih": null,
           "bizim_tarih": null,
           "secim": "istenmeyen",
-          "saglik": null,
           "not": "tr Anime"
         }
       ]
@@ -73,7 +70,6 @@
           "kaynak_tarih": null,
           "bizim_tarih": null,
           "secim": "istenmeyen",
-          "saglik": null,
           "not": "tr Anime"
         }
       ]
@@ -92,7 +88,6 @@
           "kaynak_tarih": null,
           "bizim_tarih": null,
           "secim": "istenmeyen",
-          "saglik": null,
           "not": "tr Anime,AnimeMovie,OVA"
         }
       ]
@@ -111,7 +106,6 @@
           "kaynak_tarih": null,
           "bizim_tarih": null,
           "secim": "istenmeyen",
-          "saglik": null,
           "not": "it Anime"
         }
       ]
@@ -130,7 +124,6 @@
           "kaynak_tarih": null,
           "bizim_tarih": null,
           "secim": "istenmeyen",
-          "saglik": null,
           "not": "mx Anime"
         }
       ]
@@ -149,7 +142,6 @@
           "kaynak_tarih": null,
           "bizim_tarih": null,
           "secim": "istenmeyen",
-          "saglik": null,
           "not": "tr Anime"
         }
       ]
@@ -168,7 +160,6 @@
           "kaynak_tarih": null,
           "bizim_tarih": null,
           "secim": "istenmeyen",
-          "saglik": null,
           "not": "tr AnimeMovie,Anime"
         }
       ]
@@ -187,7 +178,6 @@
           "kaynak_tarih": null,
           "bizim_tarih": null,
           "secim": "istenmeyen",
-          "saglik": null,
           "not": "tr Anime"
         }
       ]
@@ -206,7 +196,6 @@
           "kaynak_tarih": null,
           "bizim_tarih": null,
           "secim": "istenmeyen",
-          "saglik": null,
           "not": "tr AsianDrama"
         }
       ]
@@ -225,7 +214,6 @@
           "kaynak_tarih": null,
           "bizim_tarih": null,
           "secim": "istenmeyen",
-          "saglik": null,
           "not": "tr AsianDrama"
         }
       ]
@@ -244,7 +232,6 @@
           "kaynak_tarih": null,
           "bizim_tarih": null,
           "secim": "istenmeyen",
-          "saglik": null,
           "not": "tr AsianDrama"
         }
       ]
@@ -263,7 +250,6 @@
           "kaynak_tarih": null,
           "bizim_tarih": null,
           "secim": "istenmeyen",
-          "saglik": null,
           "not": "tr Documentary"
         }
       ]
@@ -282,7 +268,6 @@
           "kaynak_tarih": null,
           "bizim_tarih": null,
           "secim": "istenmeyen",
-          "saglik": null,
           "not": "tr Cartoon,Anime,Movie"
         }
       ]
@@ -301,7 +286,6 @@
           "kaynak_tarih": null,
           "bizim_tarih": null,
           "secim": "istenmeyen",
-          "saglik": null,
           "not": "tr Cartoon"
         }
       ]
@@ -321,8 +305,7 @@
           "kaynak_tarih": "2026-09-15",
           "bizim_tarih": "2026-09-15",
           "not": "",
-          "secim": "aktif",
-          "saglik": "calisiyor"
+          "secim": "aktif"
         },
         {
           "name": "Ddizi",
@@ -336,8 +319,7 @@
           "kaynak_tarih": "2026-06-11",
           "bizim_tarih": "2026-08-28",
           "not": "(feroxx 2026-09-02 tercih edildi)",
-          "secim": "duplicate",
-          "saglik": null
+          "secim": "duplicate"
         },
         {
           "name": "Ddizi",
@@ -351,8 +333,7 @@
           "kaynak_tarih": "2026-09-08",
           "bizim_tarih": "2026-09-15",
           "not": "(feroxx 2026-09-15 tercih edildi)",
-          "secim": "duplicate",
-          "saglik": null
+          "secim": "duplicate"
         }
       ]
     },
@@ -370,7 +351,6 @@
           "kaynak_tarih": null,
           "bizim_tarih": null,
           "secim": "istenmeyen",
-          "saglik": null,
           "not": "tr AsianDrama"
         }
       ]
@@ -389,7 +369,6 @@
           "kaynak_tarih": null,
           "bizim_tarih": null,
           "secim": "istenmeyen",
-          "saglik": null,
           "not": "tr AsianDrama"
         }
       ]
@@ -409,8 +388,7 @@
           "kaynak_tarih": "2026-09-15",
           "bizim_tarih": "2026-09-15",
           "not": "",
-          "secim": "aktif",
-          "saglik": "calisiyor"
+          "secim": "aktif"
         },
         {
           "name": "DiziBox",
@@ -424,8 +402,7 @@
           "kaynak_tarih": "2026-06-11",
           "bizim_tarih": "2026-08-28",
           "not": "(feroxx 2026-09-02 tercih edildi)",
-          "secim": "duplicate",
-          "saglik": null
+          "secim": "duplicate"
         },
         {
           "name": "DiziBox",
@@ -439,8 +416,7 @@
           "kaynak_tarih": "2026-09-08",
           "bizim_tarih": "2026-09-15",
           "not": "(feroxx 2026-09-15 tercih edildi)",
-          "secim": "duplicate",
-          "saglik": null
+          "secim": "duplicate"
         }
       ]
     },
@@ -459,8 +435,7 @@
           "kaynak_tarih": "2026-09-08",
           "bizim_tarih": "2026-09-15",
           "not": "(son ölü: 2026-08-22, bu build veya başka build güncellendiğinde kontrol)",
-          "secim": "aktif",
-          "saglik": "calismiyor"
+          "secim": "aktif"
         }
       ]
     },
@@ -479,8 +454,7 @@
           "kaynak_tarih": "2026-09-08",
           "bizim_tarih": "2026-09-15",
           "not": "",
-          "secim": "aktif",
-          "saglik": "calisiyor"
+          "secim": "aktif"
         }
       ]
     },
@@ -498,7 +472,6 @@
           "kaynak_tarih": null,
           "bizim_tarih": null,
           "secim": "istenmeyen",
-          "saglik": null,
           "not": "tr AsianDrama"
         }
       ]
@@ -518,8 +491,7 @@
           "kaynak_tarih": "2026-09-07",
           "bizim_tarih": "2026-09-15",
           "not": "2026-09-16 flip: tarih kurali geregi aytzey/cs-kraptor tercih edildi",
-          "secim": "duplicate",
-          "saglik": null
+          "secim": "duplicate"
         },
         {
           "name": "DiziLife",
@@ -533,8 +505,7 @@
           "kaynak_tarih": "2026-09-08",
           "bizim_tarih": "2026-09-08",
           "not": "(blackhope01 2026-09-07 tercih edildi)",
-          "secim": "aktif",
-          "saglik": "calisiyor"
+          "secim": "aktif"
         }
       ]
     },
@@ -553,8 +524,7 @@
           "kaynak_tarih": "2026-09-15",
           "bizim_tarih": "2026-09-15",
           "not": "",
-          "secim": "aktif",
-          "saglik": "calisiyor"
+          "secim": "aktif"
         },
         {
           "name": "Dizilla",
@@ -568,8 +538,7 @@
           "kaynak_tarih": "2026-06-11",
           "bizim_tarih": "2026-08-28",
           "not": "(feroxx 2026-09-02 tercih edildi)",
-          "secim": "duplicate",
-          "saglik": null
+          "secim": "duplicate"
         },
         {
           "name": "Dizilla",
@@ -583,8 +552,7 @@
           "kaynak_tarih": "2026-09-08",
           "bizim_tarih": "2026-09-15",
           "not": "(feroxx 2026-09-15 tercih edildi)",
-          "secim": "duplicate",
-          "saglik": null
+          "secim": "duplicate"
         }
       ]
     },
@@ -603,8 +571,7 @@
           "kaynak_tarih": "2026-09-15",
           "bizim_tarih": "2026-09-15",
           "not": "(blackhope01 2026-09-07 tercih edildi)",
-          "secim": "aktif",
-          "saglik": "calisiyor"
+          "secim": "aktif"
         },
         {
           "name": "DiziMom",
@@ -618,8 +585,7 @@
           "kaynak_tarih": "2026-08-28",
           "bizim_tarih": "2026-08-28",
           "not": "(blackhope01 2026-09-03 tercih edildi)",
-          "secim": "duplicate",
-          "saglik": null
+          "secim": "duplicate"
         },
         {
           "name": "DiziMom",
@@ -633,8 +599,7 @@
           "kaynak_tarih": "2026-09-07",
           "bizim_tarih": "2026-09-15",
           "not": "2026-09-16 flip: tarih kurali geregi feroxx/Kekik-cloudstream tercih edildi",
-          "secim": "duplicate",
-          "saglik": null
+          "secim": "duplicate"
         },
         {
           "name": "DiziMom",
@@ -648,8 +613,7 @@
           "kaynak_tarih": "2026-09-08",
           "bizim_tarih": "2026-09-15",
           "not": "(blackhope01 2026-09-07 tercih edildi)",
-          "secim": "duplicate",
-          "saglik": null
+          "secim": "duplicate"
         }
       ]
     },
@@ -668,8 +632,7 @@
           "kaynak_tarih": "2026-09-15",
           "bizim_tarih": "2026-09-15",
           "not": "",
-          "secim": "aktif",
-          "saglik": "calisiyor"
+          "secim": "aktif"
         },
         {
           "name": "DiziPal",
@@ -683,8 +646,7 @@
           "kaynak_tarih": "2026-08-28",
           "bizim_tarih": "2026-08-28",
           "not": "(feroxx 2026-09-02 tercih edildi)",
-          "secim": "duplicate",
-          "saglik": null
+          "secim": "duplicate"
         },
         {
           "name": "DiziPal",
@@ -698,8 +660,7 @@
           "kaynak_tarih": "2026-09-08",
           "bizim_tarih": "2026-09-15",
           "not": "(feroxx 2026-09-15 tercih edildi)",
-          "secim": "duplicate",
-          "saglik": null
+          "secim": "duplicate"
         }
       ]
     },
@@ -718,8 +679,7 @@
           "kaynak_tarih": "2026-09-15",
           "bizim_tarih": "2026-09-15",
           "not": "",
-          "secim": "aktif",
-          "saglik": "calisiyor"
+          "secim": "aktif"
         },
         {
           "name": "DiziPalOriginal",
@@ -733,8 +693,7 @@
           "kaynak_tarih": "2026-08-28",
           "bizim_tarih": "2026-08-28",
           "not": "(feroxx 2026-09-02 tercih edildi)",
-          "secim": "duplicate",
-          "saglik": null
+          "secim": "duplicate"
         }
       ]
     },
@@ -753,8 +712,7 @@
           "kaynak_tarih": "2026-09-08",
           "bizim_tarih": "2026-09-15",
           "not": "",
-          "secim": "aktif",
-          "saglik": "calisiyor"
+          "secim": "aktif"
         }
       ]
     },
@@ -773,8 +731,7 @@
           "kaynak_tarih": "2026-09-08",
           "bizim_tarih": "2026-09-15",
           "not": "",
-          "secim": "aktif",
-          "saglik": "calisiyor"
+          "secim": "aktif"
         }
       ]
     },
@@ -793,8 +750,7 @@
           "kaynak_tarih": "2026-09-07",
           "bizim_tarih": "2026-09-15",
           "not": "(geçici — tekrar değerlendirilecek, son ölü: 2026-08-22); 2026-09-16 flip: tarih kurali geregi aytzey/cs-kraptor tercih edildi",
-          "secim": "duplicate",
-          "saglik": null
+          "secim": "duplicate"
         },
         {
           "name": "DiziYo",
@@ -808,8 +764,7 @@
           "kaynak_tarih": "2026-09-08",
           "bizim_tarih": "2026-09-08",
           "not": "(blackhope01 2026-09-07 tercih edildi)",
-          "secim": "aktif",
-          "saglik": "calisiyor"
+          "secim": "aktif"
         }
       ]
     },
@@ -828,8 +783,7 @@
           "kaynak_tarih": "2026-09-15",
           "bizim_tarih": "2026-09-15",
           "not": "",
-          "secim": "aktif",
-          "saglik": "calisiyor"
+          "secim": "aktif"
         },
         {
           "name": "DiziYou",
@@ -843,8 +797,7 @@
           "kaynak_tarih": "2026-06-11",
           "bizim_tarih": "2026-08-22",
           "not": "(feroxx 2026-09-02 tercih edildi)",
-          "secim": "duplicate",
-          "saglik": null
+          "secim": "duplicate"
         },
         {
           "name": "DiziYou",
@@ -858,8 +811,7 @@
           "kaynak_tarih": "2026-09-08",
           "bizim_tarih": "2026-09-15",
           "not": "(feroxx 2026-09-15 tercih edildi)",
-          "secim": "duplicate",
-          "saglik": null
+          "secim": "duplicate"
         }
       ]
     },
@@ -877,7 +829,6 @@
           "kaynak_tarih": null,
           "bizim_tarih": null,
           "secim": "istenmeyen",
-          "saglik": null,
           "not": "en Documentary"
         }
       ]
@@ -896,7 +847,6 @@
           "kaynak_tarih": null,
           "bizim_tarih": null,
           "secim": "istenmeyen",
-          "saglik": null,
           "not": "mx AsianDrama"
         }
       ]
@@ -915,7 +865,6 @@
           "kaynak_tarih": null,
           "bizim_tarih": null,
           "secim": "istenmeyen",
-          "saglik": null,
           "not": "tr TvSeries"
         }
       ]
@@ -934,7 +883,6 @@
           "kaynak_tarih": null,
           "bizim_tarih": null,
           "secim": "istenmeyen",
-          "saglik": null,
           "not": "tr AsianDrama"
         }
       ]
@@ -953,7 +901,6 @@
           "kaynak_tarih": null,
           "bizim_tarih": null,
           "secim": "istenmeyen",
-          "saglik": null,
           "not": "id AsianDrama"
         }
       ]
@@ -972,7 +919,6 @@
           "kaynak_tarih": null,
           "bizim_tarih": null,
           "secim": "istenmeyen",
-          "saglik": null,
           "not": "en Movie,TvSeries"
         }
       ]
@@ -991,7 +937,6 @@
           "kaynak_tarih": null,
           "bizim_tarih": null,
           "secim": "istenmeyen",
-          "saglik": null,
           "not": "ar Movie,TvSeries"
         }
       ]
@@ -1011,8 +956,7 @@
           "kaynak_tarih": "2026-06-11",
           "bizim_tarih": "2026-08-28",
           "not": "(son ölü: 2026-08-22, bu build veya başka build güncellendiğinde kontrol)",
-          "secim": "aktif",
-          "saglik": "calismiyor"
+          "secim": "aktif"
         }
       ]
     },
@@ -1031,8 +975,7 @@
           "kaynak_tarih": "2026-09-07",
           "bizim_tarih": "2026-09-15",
           "not": "2026-09-16 flip: tarih kurali geregi aytzey/cs-kraptor tercih edildi",
-          "secim": "duplicate",
-          "saglik": null
+          "secim": "duplicate"
         },
         {
           "name": "FilmEkseni",
@@ -1046,8 +989,7 @@
           "kaynak_tarih": "2026-09-08",
           "bizim_tarih": "2026-09-08",
           "not": "(blackhope01 2026-09-07 tercih edildi)",
-          "secim": "aktif",
-          "saglik": "calisiyor"
+          "secim": "aktif"
         }
       ]
     },
@@ -1066,8 +1008,7 @@
           "kaynak_tarih": "2026-09-07",
           "bizim_tarih": "2026-09-15",
           "not": "2026-09-16 flip: tarih kurali geregi aytzey/cs-kraptor tercih edildi",
-          "secim": "duplicate",
-          "saglik": null
+          "secim": "duplicate"
         },
         {
           "name": "FilmHane",
@@ -1081,8 +1022,7 @@
           "kaynak_tarih": "2026-09-08",
           "bizim_tarih": "2026-09-08",
           "not": "(blackhope01 2026-09-07 tercih edildi)",
-          "secim": "aktif",
-          "saglik": "calisiyor"
+          "secim": "aktif"
         }
       ]
     },
@@ -1101,8 +1041,7 @@
           "kaynak_tarih": "2026-09-15",
           "bizim_tarih": "2026-09-15",
           "not": "(blackhope01 2026-09-07 tercih edildi)",
-          "secim": "aktif",
-          "saglik": "calisiyor"
+          "secim": "aktif"
         },
         {
           "name": "FilmMakinesi",
@@ -1116,8 +1055,7 @@
           "kaynak_tarih": "2026-06-11",
           "bizim_tarih": "2026-08-28",
           "not": "(blackhope01 2026-09-03 tercih edildi)",
-          "secim": "duplicate",
-          "saglik": null
+          "secim": "duplicate"
         },
         {
           "name": "FilmMakinesi",
@@ -1131,8 +1069,7 @@
           "kaynak_tarih": "2026-08-21",
           "bizim_tarih": "2026-08-28",
           "not": "(blackhope01 2026-09-03 tercih edildi)",
-          "secim": "duplicate",
-          "saglik": null
+          "secim": "duplicate"
         },
         {
           "name": "FilmMakinesi",
@@ -1146,8 +1083,7 @@
           "kaynak_tarih": "2026-09-07",
           "bizim_tarih": "2026-09-15",
           "not": "2026-09-16 flip: tarih kurali geregi feroxx/Kekik-cloudstream tercih edildi",
-          "secim": "duplicate",
-          "saglik": null
+          "secim": "duplicate"
         },
         {
           "name": "FilmMakinesi",
@@ -1161,8 +1097,7 @@
           "kaynak_tarih": "2026-09-08",
           "bizim_tarih": "2026-09-15",
           "not": "(blackhope01 2026-09-07 tercih edildi)",
-          "secim": "duplicate",
-          "saglik": null
+          "secim": "duplicate"
         }
       ]
     },
@@ -1180,7 +1115,6 @@
           "kaynak_tarih": null,
           "bizim_tarih": null,
           "secim": "istenmeyen",
-          "saglik": null,
           "not": "tr Documentary"
         }
       ]
@@ -1200,8 +1134,7 @@
           "kaynak_tarih": "2026-09-15",
           "bizim_tarih": "2026-09-15",
           "not": "",
-          "secim": "aktif",
-          "saglik": "calisiyor"
+          "secim": "aktif"
         },
         {
           "name": "FilmModu",
@@ -1215,8 +1148,7 @@
           "kaynak_tarih": "2026-06-11",
           "bizim_tarih": "2026-08-22",
           "not": "(feroxx 2026-09-02 tercih edildi)",
-          "secim": "duplicate",
-          "saglik": null
+          "secim": "duplicate"
         },
         {
           "name": "FilmModu",
@@ -1230,8 +1162,7 @@
           "kaynak_tarih": "2026-09-08",
           "bizim_tarih": "2026-09-15",
           "not": "(feroxx 2026-09-15 tercih edildi)",
-          "secim": "duplicate",
-          "saglik": null
+          "secim": "duplicate"
         }
       ]
     },
@@ -1249,7 +1180,6 @@
           "kaynak_tarih": null,
           "bizim_tarih": null,
           "secim": "istenmeyen",
-          "saglik": null,
           "not": "az Movie"
         }
       ]
@@ -1268,7 +1198,6 @@
           "kaynak_tarih": null,
           "bizim_tarih": null,
           "secim": "istenmeyen",
-          "saglik": null,
           "not": "mx Movie"
         }
       ]
@@ -1287,7 +1216,6 @@
           "kaynak_tarih": null,
           "bizim_tarih": null,
           "secim": "istenmeyen",
-          "saglik": null,
           "not": "en Others"
         }
       ]
@@ -1307,8 +1235,7 @@
           "kaynak_tarih": "2026-08-27",
           "bizim_tarih": "2026-08-22",
           "not": "(son ölü: 2026-08-22, bu build veya başka build güncellendiğinde kontrol)",
-          "secim": "aktif",
-          "saglik": "calismiyor"
+          "secim": "aktif"
         }
       ]
     },
@@ -1327,8 +1254,7 @@
           "kaynak_tarih": "2026-09-15",
           "bizim_tarih": "2026-09-15",
           "not": "(geçici — tekrar değerlendirilecek, son ölü: 2026-08-22)",
-          "secim": "aktif",
-          "saglik": "calismiyor"
+          "secim": "aktif"
         },
         {
           "name": "FullHDFilm",
@@ -1342,8 +1268,7 @@
           "kaynak_tarih": "2026-06-11",
           "bizim_tarih": "-",
           "not": "(son ölü: 2026-08-22, bu build veya başka build güncellendiğinde kontrol)",
-          "secim": "duplicate",
-          "saglik": null
+          "secim": "duplicate"
         }
       ]
     },
@@ -1362,8 +1287,7 @@
           "kaynak_tarih": "2026-09-15",
           "bizim_tarih": "2026-09-15",
           "not": "",
-          "secim": "aktif",
-          "saglik": "calisiyor"
+          "secim": "aktif"
         },
         {
           "name": "FullHDFilmizlesene",
@@ -1377,8 +1301,7 @@
           "kaynak_tarih": "2026-08-28",
           "bizim_tarih": "2026-08-28",
           "not": "(feroxx 2026-09-02 tercih edildi)",
-          "secim": "duplicate",
-          "saglik": null
+          "secim": "duplicate"
         },
         {
           "name": "FullHDFilmizlesene",
@@ -1392,8 +1315,7 @@
           "kaynak_tarih": "2026-08-21",
           "bizim_tarih": "2026-08-28",
           "not": "(feroxx 2026-09-02 tercih edildi)",
-          "secim": "duplicate",
-          "saglik": null
+          "secim": "duplicate"
         },
         {
           "name": "FullHDFilmizlesene",
@@ -1407,8 +1329,7 @@
           "kaynak_tarih": "2026-09-08",
           "bizim_tarih": "2026-09-15",
           "not": "(feroxx 2026-09-15 tercih edildi)",
-          "secim": "duplicate",
-          "saglik": null
+          "secim": "duplicate"
         }
       ]
     },
@@ -1426,7 +1347,6 @@
           "kaynak_tarih": null,
           "bizim_tarih": null,
           "secim": "istenmeyen",
-          "saglik": null,
           "not": "en Movie"
         }
       ]
@@ -1445,7 +1365,6 @@
           "kaynak_tarih": null,
           "bizim_tarih": null,
           "secim": "istenmeyen",
-          "saglik": null,
           "not": "tr Live"
         }
       ]
@@ -1464,7 +1383,6 @@
           "kaynak_tarih": null,
           "bizim_tarih": null,
           "secim": "istenmeyen",
-          "saglik": null,
           "not": "mx Movie,Anime,TvSeries"
         }
       ]
@@ -1484,8 +1402,7 @@
           "kaynak_tarih": "2026-09-15",
           "bizim_tarih": "2026-09-15",
           "not": "",
-          "secim": "aktif",
-          "saglik": "calisiyor"
+          "secim": "aktif"
         },
         {
           "name": "HDFilmCehennemi",
@@ -1499,8 +1416,7 @@
           "kaynak_tarih": "2026-06-11",
           "bizim_tarih": "2026-08-28",
           "not": "(feroxx 2026-09-02 tercih edildi)",
-          "secim": "duplicate",
-          "saglik": null
+          "secim": "duplicate"
         },
         {
           "name": "HDFilmCehennemi",
@@ -1514,8 +1430,7 @@
           "kaynak_tarih": "2026-08-21",
           "bizim_tarih": "2026-08-28",
           "not": "(feroxx 2026-09-02 tercih edildi)",
-          "secim": "duplicate",
-          "saglik": null
+          "secim": "duplicate"
         },
         {
           "name": "HDFilmCehennemi",
@@ -1529,8 +1444,7 @@
           "kaynak_tarih": "2026-09-08",
           "bizim_tarih": "2026-09-15",
           "not": "(feroxx 2026-09-15 tercih edildi)",
-          "secim": "duplicate",
-          "saglik": null
+          "secim": "duplicate"
         }
       ]
     },
@@ -1549,8 +1463,7 @@
           "kaynak_tarih": "2026-09-15",
           "bizim_tarih": "2026-09-15",
           "not": "",
-          "secim": "aktif",
-          "saglik": "calisiyor"
+          "secim": "aktif"
         },
         {
           "name": "HDFilmDelisi",
@@ -1564,8 +1477,7 @@
           "kaynak_tarih": "2026-09-08",
           "bizim_tarih": "2026-09-15",
           "not": "(feroxx 2026-09-15 tercih edildi)",
-          "secim": "duplicate",
-          "saglik": null
+          "secim": "duplicate"
         }
       ]
     },
@@ -1584,8 +1496,7 @@
           "kaynak_tarih": "2026-09-08",
           "bizim_tarih": "2026-09-15",
           "not": "",
-          "secim": "aktif",
-          "saglik": "calisiyor"
+          "secim": "aktif"
         }
       ]
     },
@@ -1603,7 +1514,6 @@
           "kaynak_tarih": null,
           "bizim_tarih": null,
           "secim": "istenmeyen",
-          "saglik": null,
           "not": "mx Anime,AnimeMovie"
         }
       ]
@@ -1623,8 +1533,7 @@
           "kaynak_tarih": "2026-09-15",
           "bizim_tarih": "2026-09-15",
           "not": "(blackhope01 2026-09-07 tercih edildi)",
-          "secim": "aktif",
-          "saglik": "calisiyor"
+          "secim": "aktif"
         },
         {
           "name": "JetFilmizle",
@@ -1638,8 +1547,7 @@
           "kaynak_tarih": "2026-06-11",
           "bizim_tarih": "2026-08-28",
           "not": "(blackhope01 2026-09-03 tercih edildi)",
-          "secim": "duplicate",
-          "saglik": null
+          "secim": "duplicate"
         },
         {
           "name": "JetFilmizle",
@@ -1653,8 +1561,7 @@
           "kaynak_tarih": "2026-09-07",
           "bizim_tarih": "2026-09-15",
           "not": "2026-09-16 flip: tarih kurali geregi feroxx/Kekik-cloudstream tercih edildi",
-          "secim": "duplicate",
-          "saglik": null
+          "secim": "duplicate"
         },
         {
           "name": "JetFilmizle",
@@ -1668,8 +1575,7 @@
           "kaynak_tarih": "2026-09-08",
           "bizim_tarih": "2026-09-15",
           "not": "(blackhope01 2026-09-07 tercih edildi)",
-          "secim": "duplicate",
-          "saglik": null
+          "secim": "duplicate"
         }
       ]
     },
@@ -1687,7 +1593,6 @@
           "kaynak_tarih": null,
           "bizim_tarih": null,
           "secim": "istenmeyen",
-          "saglik": null,
           "not": "en AsianDrama"
         }
       ]
@@ -1706,7 +1611,6 @@
           "kaynak_tarih": null,
           "bizim_tarih": null,
           "secim": "istenmeyen",
-          "saglik": null,
           "not": "tr Live"
         }
       ]
@@ -1725,7 +1629,6 @@
           "kaynak_tarih": null,
           "bizim_tarih": null,
           "secim": "istenmeyen",
-          "saglik": null,
           "not": "en AsianDrama"
         }
       ]
@@ -1745,8 +1648,7 @@
           "kaynak_tarih": "2026-09-08",
           "bizim_tarih": "2026-09-15",
           "not": "",
-          "secim": "aktif",
-          "saglik": "calisiyor"
+          "secim": "aktif"
         }
       ]
     },
@@ -1764,7 +1666,6 @@
           "kaynak_tarih": null,
           "bizim_tarih": null,
           "secim": "istenmeyen",
-          "saglik": null,
           "not": "ar TvSeries"
         }
       ]
@@ -1783,7 +1684,6 @@
           "kaynak_tarih": null,
           "bizim_tarih": null,
           "secim": "istenmeyen",
-          "saglik": null,
           "not": "tr Movie,TvSeries"
         }
       ]
@@ -1802,7 +1702,6 @@
           "kaynak_tarih": null,
           "bizim_tarih": null,
           "secim": "istenmeyen",
-          "saglik": null,
           "not": "mx Movie"
         }
       ]
@@ -1821,7 +1720,6 @@
           "kaynak_tarih": null,
           "bizim_tarih": null,
           "secim": "istenmeyen",
-          "saglik": null,
           "not": "id Movie,TvSeries"
         }
       ]
@@ -1841,8 +1739,7 @@
           "kaynak_tarih": "2026-09-07",
           "bizim_tarih": "2026-09-15",
           "not": "",
-          "secim": "aktif",
-          "saglik": "calisiyor"
+          "secim": "aktif"
         }
       ]
     },
@@ -1860,7 +1757,6 @@
           "kaynak_tarih": null,
           "bizim_tarih": null,
           "secim": "istenmeyen",
-          "saglik": null,
           "not": "tr Movie,TvSeries"
         }
       ]
@@ -1879,7 +1775,6 @@
           "kaynak_tarih": null,
           "bizim_tarih": null,
           "secim": "istenmeyen",
-          "saglik": null,
           "not": "fr Movie,TvSeries,Anime"
         }
       ]
@@ -1898,7 +1793,6 @@
           "kaynak_tarih": null,
           "bizim_tarih": null,
           "secim": "istenmeyen",
-          "saglik": null,
           "not": "ru Movie,TvSeries"
         }
       ]
@@ -1917,7 +1811,6 @@
           "kaynak_tarih": null,
           "bizim_tarih": null,
           "secim": "istenmeyen",
-          "saglik": null,
           "not": "tr Anime"
         }
       ]
@@ -1936,7 +1829,6 @@
           "kaynak_tarih": null,
           "bizim_tarih": null,
           "secim": "istenmeyen",
-          "saglik": null,
           "not": "tr Anime,AnimeMovie"
         }
       ]
@@ -1956,8 +1848,7 @@
           "kaynak_tarih": "2026-09-14",
           "bizim_tarih": "2026-09-15",
           "not": "",
-          "secim": "aktif",
-          "saglik": "calisiyor"
+          "secim": "aktif"
         }
       ]
     },
@@ -1975,7 +1866,6 @@
           "kaynak_tarih": null,
           "bizim_tarih": null,
           "secim": "istenmeyen",
-          "saglik": null,
           "not": "en Movie"
         }
       ]
@@ -1994,7 +1884,6 @@
           "kaynak_tarih": null,
           "bizim_tarih": null,
           "secim": "istenmeyen",
-          "saglik": null,
           "not": "tr Movie,Live,TvSeries"
         }
       ]
@@ -2013,7 +1902,6 @@
           "kaynak_tarih": null,
           "bizim_tarih": null,
           "secim": "istenmeyen",
-          "saglik": null,
           "not": "tr Anime"
         }
       ]
@@ -2033,8 +1921,7 @@
           "kaynak_tarih": "2026-09-08",
           "bizim_tarih": "2026-09-15",
           "not": "",
-          "secim": "aktif",
-          "saglik": "calisiyor"
+          "secim": "aktif"
         }
       ]
     },
@@ -2053,8 +1940,7 @@
           "kaynak_tarih": "2026-09-15",
           "bizim_tarih": "2026-09-15",
           "not": "(son ölü: 2026-08-22, bu build veya başka build güncellendiğinde kontrol)",
-          "secim": "aktif",
-          "saglik": "calismiyor"
+          "secim": "aktif"
         },
         {
           "name": "SetFilmIzle",
@@ -2068,8 +1954,7 @@
           "kaynak_tarih": "2026-06-11",
           "bizim_tarih": "2026-08-28",
           "not": "(son ölü: 2026-08-22, bu build veya başka build güncellendiğinde kontrol)",
-          "secim": "duplicate",
-          "saglik": null
+          "secim": "duplicate"
         },
         {
           "name": "SetFilmIzle",
@@ -2083,8 +1968,7 @@
           "kaynak_tarih": "2026-09-08",
           "bizim_tarih": "2026-09-15",
           "not": "(son ölü: 2026-08-22, bu build veya başka build güncellendiğinde kontrol)",
-          "secim": "duplicate",
-          "saglik": null
+          "secim": "duplicate"
         }
       ]
     },
@@ -2103,8 +1987,7 @@
           "kaynak_tarih": "2026-09-15",
           "bizim_tarih": "2026-09-15",
           "not": "(blackhope01 2026-09-07 tercih edildi)",
-          "secim": "aktif",
-          "saglik": "calisiyor"
+          "secim": "aktif"
         },
         {
           "name": "SezonlukDizi",
@@ -2118,8 +2001,7 @@
           "kaynak_tarih": "2026-08-28",
           "bizim_tarih": "2026-08-28",
           "not": "(blackhope01 2026-09-03 tercih edildi)",
-          "secim": "duplicate",
-          "saglik": null
+          "secim": "duplicate"
         },
         {
           "name": "SezonlukDizi",
@@ -2133,8 +2015,7 @@
           "kaynak_tarih": "2026-09-07",
           "bizim_tarih": "2026-09-15",
           "not": "2026-09-16 flip: tarih kurali geregi feroxx/Kekik-cloudstream tercih edildi",
-          "secim": "duplicate",
-          "saglik": null
+          "secim": "duplicate"
         },
         {
           "name": "SezonlukDizi",
@@ -2148,8 +2029,7 @@
           "kaynak_tarih": "2026-09-08",
           "bizim_tarih": "2026-09-15",
           "not": "(blackhope01 2026-09-07 tercih edildi)",
-          "secim": "duplicate",
-          "saglik": null
+          "secim": "duplicate"
         }
       ]
     },
@@ -2168,8 +2048,7 @@
           "kaynak_tarih": "2026-09-15",
           "bizim_tarih": "2026-09-15",
           "not": "",
-          "secim": "aktif",
-          "saglik": "calisiyor"
+          "secim": "aktif"
         },
         {
           "name": "SinemaCX",
@@ -2183,8 +2062,7 @@
           "kaynak_tarih": "2026-06-11",
           "bizim_tarih": "2026-08-28",
           "not": "(feroxx 2026-09-02 tercih edildi)",
-          "secim": "duplicate",
-          "saglik": null
+          "secim": "duplicate"
         },
         {
           "name": "SinemaCX",
@@ -2198,8 +2076,7 @@
           "kaynak_tarih": "2026-09-08",
           "bizim_tarih": "2026-09-15",
           "not": "(feroxx 2026-09-15 tercih edildi)",
-          "secim": "duplicate",
-          "saglik": null
+          "secim": "duplicate"
         }
       ]
     },
@@ -2218,8 +2095,7 @@
           "kaynak_tarih": "2026-09-15",
           "bizim_tarih": "2026-09-15",
           "not": "",
-          "secim": "aktif",
-          "saglik": "calisiyor"
+          "secim": "aktif"
         },
         {
           "name": "Sinewix",
@@ -2233,8 +2109,7 @@
           "kaynak_tarih": "2026-06-11",
           "bizim_tarih": "2026-08-28",
           "not": "(feroxx 2026-09-02 tercih edildi)",
-          "secim": "duplicate",
-          "saglik": null
+          "secim": "duplicate"
         },
         {
           "name": "Sinewix",
@@ -2248,8 +2123,7 @@
           "kaynak_tarih": "2026-09-08",
           "bizim_tarih": "2026-09-15",
           "not": "(feroxx 2026-09-15 tercih edildi)",
-          "secim": "duplicate",
-          "saglik": null
+          "secim": "duplicate"
         }
       ]
     },
@@ -2268,8 +2142,7 @@
           "kaynak_tarih": "2026-09-08",
           "bizim_tarih": "2026-09-15",
           "not": "",
-          "secim": "aktif",
-          "saglik": "calisiyor"
+          "secim": "aktif"
         }
       ]
     },
@@ -2287,7 +2160,6 @@
           "kaynak_tarih": null,
           "bizim_tarih": null,
           "secim": "istenmeyen",
-          "saglik": null,
           "not": "id Anime,AnimeMovie"
         }
       ]
@@ -2306,7 +2178,6 @@
           "kaynak_tarih": null,
           "bizim_tarih": null,
           "secim": "istenmeyen",
-          "saglik": null,
           "not": "en Live"
         }
       ]
@@ -2325,7 +2196,6 @@
           "kaynak_tarih": null,
           "bizim_tarih": null,
           "secim": "istenmeyen",
-          "saglik": null,
           "not": "en Anime"
         }
       ]
@@ -2344,7 +2214,6 @@
           "kaynak_tarih": null,
           "bizim_tarih": null,
           "secim": "istenmeyen",
-          "saglik": null,
           "not": "en Cartoon"
         }
       ]
@@ -2363,7 +2232,6 @@
           "kaynak_tarih": null,
           "bizim_tarih": null,
           "secim": "istenmeyen",
-          "saglik": null,
           "not": "tr Movie"
         }
       ]
@@ -2382,7 +2250,6 @@
           "kaynak_tarih": null,
           "bizim_tarih": null,
           "secim": "istenmeyen",
-          "saglik": null,
           "not": "tr Movie,TvSeries"
         }
       ]
@@ -2401,7 +2268,6 @@
           "kaynak_tarih": null,
           "bizim_tarih": null,
           "secim": "istenmeyen",
-          "saglik": null,
           "not": "tr Anime"
         }
       ]
@@ -2420,7 +2286,6 @@
           "kaynak_tarih": null,
           "bizim_tarih": null,
           "secim": "istenmeyen",
-          "saglik": null,
           "not": "tr TvSeries"
         }
       ]
@@ -2439,7 +2304,6 @@
           "kaynak_tarih": null,
           "bizim_tarih": null,
           "secim": "istenmeyen",
-          "saglik": null,
           "not": "tr Anime"
         }
       ]
@@ -2459,8 +2323,7 @@
           "kaynak_tarih": "2026-09-08",
           "bizim_tarih": "2026-09-15",
           "not": "",
-          "secim": "aktif",
-          "saglik": "calisiyor"
+          "secim": "aktif"
         }
       ]
     },
@@ -2478,7 +2341,6 @@
           "kaynak_tarih": null,
           "bizim_tarih": null,
           "secim": "istenmeyen",
-          "saglik": null,
           "not": "tr Movie,TvSeries,Anime,Live"
         }
       ]
@@ -2498,8 +2360,7 @@
           "kaynak_tarih": "2026-09-08",
           "bizim_tarih": "2026-09-15",
           "not": "",
-          "secim": "aktif",
-          "saglik": "calisiyor"
+          "secim": "aktif"
         }
       ]
     },
@@ -2517,7 +2378,6 @@
           "kaynak_tarih": null,
           "bizim_tarih": null,
           "secim": "istenmeyen",
-          "saglik": null,
           "not": "tr Movie"
         }
       ]
@@ -2536,7 +2396,6 @@
           "kaynak_tarih": null,
           "bizim_tarih": null,
           "secim": "istenmeyen",
-          "saglik": null,
           "not": "en Anime,Cartoon"
         }
       ]
@@ -2555,7 +2414,6 @@
           "kaynak_tarih": null,
           "bizim_tarih": null,
           "secim": "istenmeyen",
-          "saglik": null,
           "not": "tr AsianDrama"
         }
       ]
@@ -2575,8 +2433,7 @@
           "kaynak_tarih": "2026-09-15",
           "bizim_tarih": "2026-09-15",
           "not": "(blackhope 2026-09-07 tercih edildi)",
-          "secim": "aktif",
-          "saglik": "calisiyor"
+          "secim": "aktif"
         },
         {
           "name": "WebteIzle",
@@ -2590,8 +2447,7 @@
           "kaynak_tarih": "2026-06-11",
           "bizim_tarih": "2026-08-28",
           "not": "(blackhope 2026-09-03 tercih edildi)",
-          "secim": "duplicate",
-          "saglik": null
+          "secim": "duplicate"
         },
         {
           "name": "WebteIzle",
@@ -2605,8 +2461,7 @@
           "kaynak_tarih": "2026-09-07",
           "bizim_tarih": "2026-09-15",
           "not": "2026-09-16 flip: tarih kurali geregi feroxx/Kekik-cloudstream tercih edildi",
-          "secim": "duplicate",
-          "saglik": null
+          "secim": "duplicate"
         },
         {
           "name": "WebteIzle",
@@ -2620,8 +2475,7 @@
           "kaynak_tarih": "2026-09-08",
           "bizim_tarih": "2026-09-15",
           "not": "(blackhope 2026-09-07 tercih edildi)",
-          "secim": "duplicate",
-          "saglik": null
+          "secim": "duplicate"
         }
       ]
     },
@@ -2640,8 +2494,7 @@
           "kaynak_tarih": "2026-09-08",
           "bizim_tarih": "2026-09-15",
           "not": "",
-          "secim": "aktif",
-          "saglik": "calisiyor"
+          "secim": "aktif"
         }
       ]
     },
@@ -2660,8 +2513,7 @@
           "kaynak_tarih": "2026-09-08",
           "bizim_tarih": "2026-09-15",
           "not": "",
-          "secim": "aktif",
-          "saglik": "calisiyor"
+          "secim": "aktif"
         }
       ]
     },
@@ -2679,7 +2531,6 @@
           "kaynak_tarih": null,
           "bizim_tarih": null,
           "secim": "istenmeyen",
-          "saglik": null,
           "not": "fr Movie"
         }
       ]
@@ -2698,7 +2549,6 @@
           "kaynak_tarih": null,
           "bizim_tarih": null,
           "secim": "istenmeyen",
-          "saglik": null,
           "not": "tr Movie,TvSeries"
         }
       ]
@@ -2717,7 +2567,6 @@
           "kaynak_tarih": null,
           "bizim_tarih": null,
           "secim": "istenmeyen",
-          "saglik": null,
           "not": "tr Movie"
         }
       ]
@@ -2736,7 +2585,6 @@
           "kaynak_tarih": null,
           "bizim_tarih": null,
           "secim": "istenmeyen",
-          "saglik": null,
           "not": "en TvSeries"
         }
       ]
@@ -2755,7 +2603,6 @@
           "kaynak_tarih": null,
           "bizim_tarih": null,
           "secim": "istenmeyen",
-          "saglik": null,
           "not": "tr Movie,Live,Music,TvSeries"
         }
       ]
@@ -2774,7 +2621,6 @@
           "kaynak_tarih": null,
           "bizim_tarih": null,
           "secim": "istenmeyen",
-          "saglik": null,
           "not": "tr Torrent"
         }
       ]
@@ -2793,7 +2639,6 @@
           "kaynak_tarih": null,
           "bizim_tarih": null,
           "secim": "istenmeyen",
-          "saglik": null,
           "not": "tr Movie,TvSeries,Live"
         }
       ]
@@ -2812,7 +2657,6 @@
           "kaynak_tarih": null,
           "bizim_tarih": null,
           "secim": "istenmeyen",
-          "saglik": null,
           "not": "en Movie"
         }
       ]
