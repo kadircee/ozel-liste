@@ -104,7 +104,7 @@ Versiyon numarası bu tie-breaker'da kriter olarak kullanılmaz — ne düşük 
 - `Site (domain)` her zaman `[domain](https://domain)` linkli olmalı (tıklanabilir).
 - `kadircee/ozel-liste` kaynak değil derleme olduğu için `Tüm Repolar`'da yer almaz.
 - `İstenmeyenler` metin + tablo aynı anda tutulmaz; tek tablo yeterlidir, `Silinen Eklentiler` metin listesi sadece not bırakır.
-- **Yasaklı sayısı tek doğruluk kaynağıdır:** tablodaki `🟥` satır sayısı = başlıkta yazan sayı = `audit.py` çıktısındaki `yasakli sayisi` (2026-09-15: **69**). Üçü elle eşitlenir. Başlık (`## İstenmeyenler ...`) **kendi satırında** olmalıdır; tablo satırına yapıştırılırsa GitHub başlığı render etmez ve `audit.py` yasaklı listesini bulamaz → boş liste tespit edilip **`exit 2` ile durdurulur** (sessiz geçiş yok).
+- **Yasaklı sayısı tek doğruluk kaynağıdır:** İstenmeyenler tablosundaki satır sayısı = başlıkta yazan sayı = `audit.py` çıktısındaki `yasakli sayisi` (2026-09-15: **69**). Üçü elle eşitlenir. Başlık (`## İstenmeyenler ...`) **kendi satırında** olmalıdır; tablo satırına yapıştırılırsa GitHub başlığı render etmez ve `audit.py` yasaklı listesini bulamaz → boş liste tespit edilip **`exit 2` ile durdurulur** (sessiz geçiş yok).
 
 **3. Kayıt durumu — tek eksen (Seçim):**
 Model yalnızca `Seçim` ekseninden oluşur: `Aktif` (yarışı kazandı, `plugins.json`'da) / `Duplicate` (kaybetti, dosyada yok) / `İstenmeyen` (hiç yarışa girmedi) (bkz. **Kayıt Durumu Modeli**). `status` bilgisi kaynağa bırakılmıştır — kaynak ne yayınlıyorsa (`1`, `0`, …) `update.py` ile birebir yansıtılır; bu depo site canlılığı takibi yapmaz.
@@ -146,7 +146,7 @@ python update.py            # farkları uygular, plugins.json'u günceller
 ```
 Kaynak `builds/plugins.json` adresi, listedeki `.cs3` adresinden türetilir (`https://raw.githubusercontent.com/<owner>/<repo>/builds/<Isim>.cs3` → aynı klasördeki `plugins.json`). Senkronize edilen alanlar: `status, version, fileSize, fileHash, description, authors, language, tvTypes` (Pure Mirror — kaynak ne yayınlıyorsa aynen alınır). `iconUrl` bilinçli olarak senkronize **edilmez** — bu depo ikon adreslerini normalize eder (kaynaktaki `%size%` yer tutucuları sabit `sz=128`'e çevrilir) ve kaynak güncellemesi bu düzeltmeyi geri almasın.
 
-> **Not:** Bu depo **otomatik hiçbir şey çalıştırmaz** — repoda `.github/workflows` **yoktur** (GitHub Actions hiç kurulmadı; ne `cron` ne manuel `workflow_dispatch` tetikleyicisi vardır). Kaynak senkronu (`update.py`) yalnızca **elle** yapılır. Kaynakta bulunamayan kayıt `[SILINDI]` olarak listeden düşer; adresi türetilemeyen/teknik sebeple erişilemeyen kayıt `[ATLANDI]` olarak raporlanır. `[SILINDI]`/`[ATLANDI]` çıktısı, kaynak depo bazında toplu kapanışın (ör. cs-kraptor kapanışı: 29 eklenti tek seferde 404) erken işaretidir.
+> **Not:** Bu depo **otomatik hiçbir şey çalıştırmaz** — repoda `.github/workflows` **yoktur** (GitHub Actions hiç kurulmadı; ne `cron` ne manuel `workflow_dispatch` tetikleyicisi vardır). Kaynak senkronu (`update.py`) yalnızca **elle** yapılır. Kaynakta bulunamayan kayıt `[SILINDI]` olarak listeden düşer; adresi türetilemeyen/teknik sebeple erişilemeyen kayıt `[ATLANDI]` olarak raporlanır.
 
 ## Karşılaşılan Hatalar ve Çözümleri
 | Hata | Neden | Çözüm |
@@ -189,7 +189,7 @@ Kaynak `builds/plugins.json` adresi, listedeki `.cs3` adresinden türetilir (`ht
 Repolar güncellendiğinde (yeni build yayınlandığında (GitHub uzerinden takip edilir)), Kaynak Tarih ilerlediğinde satır Tarih Takip Kuralı'na göre güncellenir: `update.py` ile senkronize edilir (`status` dahil kaynak ne yayınlıyorsa aynen alınır), `Bizim Tarih` eşitlenir.
 
 ## Silinen Eklentiler (delete-zone)
-Bu eklentiler listeye **eklenmez**; yeniden ekleme kararı yalnızca kullanıcı verir. Listede NSFW (+18) hiç yer almadı; canlı yayın/maç eklentileri istenmedi. Kural: Pure Mirror mantığı gereği, bir kaynak kendi eklentisini kaldırırsa (404), o eklenti bizim listemizden de otomatik olarak düşer ve silinir. Bu durumda cihazınızda eski kurulu kalan eklentilerin manuel olarak silinmesi gerekir. "Site açılmıyor" gerekçesiyle silinenler **geri dönüşlüdür**: site düzelirse tekrar denenebilir.
+Bu eklentiler listeye **eklenmez**; yeniden ekleme kararı yalnızca kullanıcı verir. Listede NSFW (+18) hiç yer almadı; canlı yayın/maç eklentileri istenmedi. Kural: Pure Mirror mantığı gereği, kaynak depo bir eklentiyi kaldırırsa (404), o eklenti bizim listemizden de update.py tarafından OTOMATİK OLARAK SİLİNİR. Bu durumda cihazınızda kurulu kalan bozuk eklentilerin manuel temizlenmesi gerekir. "Site açılmıyor" gerekçesiyle silinenler **geri dönüşlüdür**: site düzelirse tekrar denenebilir.
 
 > **Not:** Ayrıntılı liste `İstenmeyenler (Delete-Zone)` tablosunda alfabetik olarak yer almaktadır.
 
