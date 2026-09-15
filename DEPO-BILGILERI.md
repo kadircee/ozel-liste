@@ -2,7 +2,8 @@
 Bu depo test CloudStream deposudur; yalnızca Türkçe film/dizi eklentilerini ve test seçtiği kaynakları barındırır. Canlı yayın, NSFW ve yabancı dil içerikli eklentiler kullanıcı tercihi gereği listeye alınmamıştır.
 
 ## Durum
-- **Son doğrulama:** 2026-09-15 · **40 eklenti** (34 açık + 6 kapalı (AltiYuzAltmisAltiFilmIzle, DiziFilmORG, FilmBip, Full4kizle, FullHDFilm, SetFilmIzle))); indirilebilir, hash/boyut doğrulanmış)
+- **Son doğrulama:** 2026-09-15 · **40 eklenti** (34 açık + 6 kapalı (AltiYuzAltmisAltiFilmIzle, DiziFilmORG, FilmBip, Full4kizle, FullHDFilm, SetFilmIzle)); indirilebilir, hash/boyut doğrulanmış
+- **Doğrulama kanıtı (2026-09-15):** 40 `.cs3` tek tek indirildi → **39/40 SHA-256 + boyut + ZIP bütünlüğü doğrulandı**; yalnız `Full4kizle` kaynakta 404 (`status:0` — silme yok kuralı gereği kayıt korunuyor). `plugins.json` ↔ `Tüm Repolar` tablosu (34 açık kayıt) kaynak repo bazında birebir uyumlu; `Tüm Repolar` 87 satır.
 - **Kural:** bozuk eklenti silinmez, `status:0` yapılır (bkz. Kurulum)
 - **Delete-zone:** silinen eklentiler yeniden eklenmez (bkz. Silinen Eklentiler)
 
@@ -106,9 +107,11 @@ Versiyon numarası bu tie-breaker'ın HİÇBİR adımında kriter olarak kullan�
 
 **2. Tablo bakımı — `Tüm Repolar` sadece `tr` + `Movie/TvSeries/Documentary` içerir:**
 - `lang != tr` veya `tvTypes` içinde `Live/Anime/Cartoon/All/AsianDrama` olanlar otomatik `Istenmeyenler`'e gider; `Dil`/`Tur` kolonları bu yüzden kaldırıldı.
+- **İstisna — paket (çoklu-kaynak) eklentileri:** `KraptorPlus`, `Sinewix`, `Dizipod` (ve kapalı `Full4kizle`) kaynak metadata'sında `Anime/AsianDrama/Cartoon` etiketi taşır ama **bunlar anime/kategori eklentisi değildir** — bunlar sadece **bizim istisnamız** (çoklu-kaynak/paket yapısı, kullanıcı onaylı) olarak listede tutulur. Kural **yalnızca yeni adaylara** uygulanır; bu kayıtlar zaten listede olduğu için `audit.py` filtresine takılmaz ve `Istenmeyenler`'e taşınmaz.
 - `Site (domain)` her zaman `[domain](https://domain)` linkli olmalı (tıklanabilir).
 - `kadircee/ozel-liste` kaynak değil derleme olduğu için `Tüm Repolar`'da yer almaz.
-- `Istenmeyenler` metin + tablo aynı anda tutulmaz; tek tablo (`71→74`) yeterlidir, `Silinen Eklentiler` metin listesi sadece not bırakır.
+- `Istenmeyenler` metin + tablo aynı anda tutulmaz; tek tablo yeterlidir, `Silinen Eklentiler` metin listesi sadece not bırakır.
+- **Yasaklı sayısı tek doğruluk kaynağıdır:** tablodaki `🟥` satır sayısı = başlıkta yazan sayı = `audit.py` çıktısındaki `yasakli sayisi` (2026-09-15: **69**). Üçü elle eşitlenir. Başlık (`## Istenmeyenler ...`) **kendi satırında** olmalıdır; tablo satırına yapıştırılırsa GitHub başlığı render etmez ve `audit.py` yasaklı listesini bulamaz → boş liste tespit edilip **`exit 2` ile durdurulur** (sessiz geçiş yok).
 
 **3. Durum renkleri — Tarih Takip Kuralı + kullanıcı bildirimi baz alır:**
 - İkon domaininin ölü görünmesi tek başına karar nedeni değildir (ör. `SinemaCX`: ikon `sinema.cx` ölü görünebilir ama eklenti veriyi başka domainden çekiyor olabilir) — karar tarihe + kullanıcı testine göre verilir.
@@ -142,7 +145,7 @@ python update.py            # farkları uygular, plugins.json'u günceller
 ```
 Kaynak `builds/plugins.json` adresi, listedeki `.cs3` adresinden türetilir (`https://raw.githubusercontent.com/<owner>/<repo>/builds/<Isim>.cs3` → aynı klasördeki `plugins.json`). Senkronize edilen alanlar: `version, fileSize, fileHash, description, authors, language, tvTypes`. `iconUrl` bilinçli olarak senkronize **edilmez** — bu depo ikon adreslerini normalize eder (kaynaktaki `%size%` yer tutucuları sabit `sz=128`'e çevrilir) ve kaynak güncellemesi bu düzeltmeyi geri almasın.
 
-> **Not:** Bu depo **otomatik hiçbir şey çalıştırmaz** (workflow dosyası yalnızca manuel tetikleme (workflow_dispatch) için tutulur; cron/otomatik tetikleyici kapalıdır). Kaynak senkronu (`update.py`) ve status değişiklikleri yalnızca **elle** yapılır. `[ATLANDI]` sayısı, kaynak depo bazında toplu kapanışın (ör. cs-kraptor kapanışı: 29 eklenti tek seferde 404) erken işaretidir.
+> **Not:** Bu depo **otomatik hiçbir şey çalıştırmaz** — repoda `.github/workflows` **yoktur** (GitHub Actions hiç kurulmadı; ne `cron` ne manuel `workflow_dispatch` tetikleyicisi vardır). Kaynak senkronu (`update.py`) ve status değişiklikleri yalnızca **elle** yapılır. `[ATLANDI]` sayısı, kaynak depo bazında toplu kapanışın (ör. cs-kraptor kapanışı: 29 eklenti tek seferde 404) erken işaretidir.
 
 ## Karşılaşılan Hatalar ve Çözümleri
 | Hata | Neden | Çözüm |
@@ -167,12 +170,16 @@ Kaynak `builds/plugins.json` adresi, listedeki `.cs3` adresinden türetilir (`ht
 | jsDelivr dönüşüm formatı karışıyordu | Doğru format `cdn.jsdelivr.net/gh/<owner>/<repo>@<branch>/<path>` — `@` **repo adından sonra** gelir (branch'ten önce); `repo@branch` yazılmadığında 404 alınıyordu | Format netleştirildi: `https://cdn.jsdelivr.net/gh/kadircee/ozel-liste@main/plugins.json`; purge de aynı biçimi kullanır |
 | `git push` çıktısında kırmızı `NativeCommandError` görünüyordu | PowerShell, git'in stderr'e yazdığı ilerleme satırlarını hata sanıyor | Gerçek hata değil — çıktının sonunda `fb7f710..6aea63d main -> main` görülüyorsa push başarılı demektir |
 | YAML doğrulama `ModuleNotFoundError: No module named 'yaml'` | Python'da PyYAML kurulu değildi | `python -m pip install pyyaml` ile kuruldu; doğrulama `yaml.safe_load` ile geçti |
-| YAML doğrulamada `KeyError: 'on'` | PyYAML YAML 1.1'de `on:` anahtarını bool `True`'ya çevirir (GitHub Actions YAML 1.2 kullanır ve `on`'u string kabul eder) | Gerçek hata değil; GitHub Actions bu dosyayı doğru ayrıştırır (workflow dosyası sorunsuz çalışır) |
+| YAML doğrulamada `KeyError: 'on'` | PyYAML YAML 1.1'de `on:` anahtarını bool `True`'ya çevirir (GitHub Actions YAML 1.2 kullanır ve `on`'u string kabul eder) | Gerçek hata değil; GitHub Actions bu dosyayı doğru ayrıştırır. **Not (2026-09-15):** bu kayıt geçmişe aittir — ilgili workflow dosyası bugün depoda **yoktur**, `.github/workflows` hiç commitlenmemiştir |
 | plt-stream v47→v55 + DiziPalOriginal v84→v86 + DiziMom v56→v58 hash/boyut uyuşmazlığı (2026-09-05) | Kaynak repolar güncellenmiş; listedeki eski hash/boyut CloudStream’te hash mismatch veriyordu | update.py ile senkronlandı, jsDelivr purge 5/5 OK; Dizipod authors trim koruması geri yazıldı |
 | 4 kapalı açıldı (DiziBox/DiziMom/DiziPal/FullHDFilmizlesene) + WebteIzle typo-kopyaya geçildi (2026-09-05) | Tarih Takip Kuralı: kaynaklar ilerledi, kullanıcı onayı ile açıldı/değiştirildi | 5 kayıt hash doğrulamalı senkronlandı (status 0→1 açılanlar dahil), jsDelivr purge 6/6 OK; UgurFilm yasaklıya eklendi |
 | Full4kizle kaynağın plugins.json’ından düşmüş (.cs3 404) | Cs-Karma tarafında kayıt yok | Silme yok kuralı: kayıt status:0 ile korunuyor; kaynakta yeniden belirirse update.py yakalar |
 | 18 eklenti senkronu (2026-09-15: aytzey 12 + feroxx 4 + blackhope 1 + plt 1) + DiziMom v4/Tablo v3 farki kapatildi | Kaynak repolar ilerlemis (aytzey 09-08 domain rewrite mass-bump, feroxx 09-15 rebuild, blackhope 09-07, plt 09-14); DiziFilmORG status:0 korunarak v23'e senkronlandi, Full4kizle kaynakta yok (ATLANDI, status:0 korunuyor) | update.py ile senkronlandi (Dizipod authors trim geri yazildi), jsDelivr purge 19/19 OK; DiziFilmORG kapali tutuldu, Bizim Tarih esitlendi |
 | Webteizle-group audit FLIP vermedi (2026-09-05) | blackhope Webteizle (09-03) listedeki feroxx WebteIzle (09-02)’den yeniydi ama case-farki (Izle/izle) gruplari ayirdi + listedeki kaynak grupta olmayinca script sessiz gecti | Liste blackhope’a cevrildi (hash dogrulamali); audit.py’a ORPHAN raporu eklendi, sessiz gecis kapatildi |
+| `## Istenmeyenler` başlığı tablo satırının içine yapışmıştı (2026-09-15) | Başlık kendi satırına taşınmadan 87. satırın son hücresine yazılmıştı; GitHub başlığı render etmiyor, satır 7→8 hücreye kayıyordu, delete-zone bölümünün görünür başlığı yoktu | Başlık kendi satırına alındı; `audit.py` yasaklı listesi artık satır içi eşleşme tesadüfüne değil gerçek başlığa dayanıyor |
+| `audit.py` içindeki `guard` listesi hiç yazdırılmıyordu (2026-09-15) | Satır 138'de başlatılıp 173'te dolduruluyordu ama rapora basılmıyordu → "yasaklı, kaynakta görüldü ama elendi" sinyali sessizdi (ORPHAN'da kapatılan sessiz geçişin aynısı) | `=== YASAKLI-ELEME ===` bloğu rapora eklendi ve `--check` exit koşuluna dahil edildi |
+| `audit.py` Türkçe karakterli `.cs3` adında `'ascii' codec can't encode character '\u0131'` veriyordu (Filmmirasım) | GitHub API adresi percent-encode edilmiyordu; urllib ASCII dışı karakteri taşıyamıyor → eklenti denetim havuzundan **sessizce** düşüyor, tarihi hiç takip edilmiyordu | `percent_encode()` (update.py ile aynı mantık) `api_json`'a eklendi + `import urllib.parse` |
+| Delete-zone sayısı üç yerde üç farklıydı: tablo başlığı `79 unique`, "Tablo bakımı" maddesi `71→74`, gerçek `69` (2026-09-15) | Sayı elle yazılıyordu ve `audit.py` çıktısıyla karşılaştırılmıyordu | İkisi de **69**'a çekildi; kural eklendi: başlıktaki sayı = kırmızı (🟥) satır sayısı = `audit.py` `yasakli sayisi` |
 
 ### Önemli Not
 Repolar güncellendiğinde (yeni build yayınlandığında (GitHub uzerinden takip edilir)), Kaynak Tarih ilerlediğinde satır Tarih Takip Kuralı'na göre güncellenir; kapalı (status:0) satırda kaynak ilerlediyse kullanıcıya sorulur, otomatik açılış yapılmaz.
@@ -295,7 +302,9 @@ Toplam kayit: 87 (Istenmeyenler ve ozel-liste hariç, sadece kaynak repolar)
 | 84 | 🟩 Webteizle | [blackhope01/cloudstream-plugins](https://github.com/blackhope01/cloudstream-plugins) | [webteizle3.xyz](https://webteizle3.xyz) | 1 | 2026-09-07 | 2026-09-15 | 🟩 Çalışıyor |  |
 | 85 | 🟧 Webteizle | [aytzey/cs-kraptor](https://github.com/aytzey/cs-kraptor) | [webteizle1.xyz](https://webteizle1.xyz) | 53 | 2026-09-08 | 2026-09-15 | 🟧 Duplicate (blackhope 2026-09-07 tercih edildi) |  |
 | 86 | 🟩 WFilmizle | [aytzey/cs-kraptor](https://github.com/aytzey/cs-kraptor) | [wfilmizle.bar](https://wfilmizle.bar) | 24 | 2026-09-08 | 2026-09-15 | 🟩 Çalışıyor |
-| 87 | 🟩 YabanciDizi | [aytzey/cs-kraptor](https://github.com/aytzey/cs-kraptor) | [yabancidizi.so](https://yabancidizi.so) | 19 | 2026-09-08 | 2026-09-15 | 🟩 Çalışıyor | ## Istenmeyenler (Delete-Zone) - 79 unique |
+| 87 | 🟩 YabanciDizi | [aytzey/cs-kraptor](https://github.com/aytzey/cs-kraptor) | [yabancidizi.so](https://yabancidizi.so) | 19 | 2026-09-08 | 2026-09-15 | 🟩 Çalışıyor |
+
+## Istenmeyenler (Delete-Zone) - 69 unique
 
 | Eklenti | Kaynak Ornek | Site | Dil | Tur |
 |---------|--------------|------|-----|-----|

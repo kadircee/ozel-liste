@@ -22,6 +22,7 @@ import os
 import re
 import subprocess
 import sys
+import urllib.parse
 import urllib.request
 
 REPO_DIR = os.path.dirname(os.path.abspath(__file__))
@@ -51,8 +52,18 @@ def token():
     sys.exit(2)
 
 
+def percent_encode(url):
+    """GitHub API adresinde Turkce karakter olabilir. Dosya adi audit'te QUERY
+    icinde (`?path=Filmmirasim.cs3`), update.py'de PATH icinde; ikisi de kodlanir.
+    urllib ASCII disi karakteri tasiyamadigi icin bu adim zorunludur."""
+    parts = urllib.parse.urlsplit(url)
+    path = urllib.parse.quote(parts.path, safe='/%._~-')
+    query = urllib.parse.quote(parts.query, safe='=&%._~-')
+    return urllib.parse.urlunsplit((parts.scheme, parts.netloc, path, query, parts.fragment))
+
+
 def api_json(url, tok):
-    req = urllib.request.Request(url, headers={'Authorization': 'Bearer ' + tok,
+    req = urllib.request.Request(percent_encode(url), headers={'Authorization': 'Bearer ' + tok,
                                                'Accept': 'application/vnd.github+json',
                                                'User-Agent': UA})
     with urllib.request.urlopen(req, timeout=30) as r:
@@ -83,7 +94,7 @@ def main():
     banned = set()
     in_zone = False
     for line in depo.split('\n'):
-        if re.search(r'#+ .*Istenmeyenler', line):
+        if re.match(r'^#+\s+.*Istenmeyenler', line):
             in_zone = True
             continue
         if in_zone and line.startswith('## '):
@@ -93,6 +104,13 @@ def main():
             if m and not m.group(1).startswith('Eklenti') and not set(m.group(1)) <= set('-| '):
                 banned.add(norm(re.sub(r'^[^\w]+', '', m.group(1)).strip()))
     print('yasakli sayisi: %d' % len(banned))
+    if not banned:
+        # Fail-loud: baslik tablo satirina yapistirilirsa (bkz. DEPO-BILGILERI.md
+        # "Yasakli sayisi tek dogruluk kaynagidir") yasakli listesi sessizce bosalir
+        # ve delete-zone korumasi devre disi kalir. Bos liste = dur.
+        print('HATA: yasakli listesi BOS cikti — "## Istenmeyenler" basligi kendi satirinda mi? '
+              '(delete-zone korumasi devre disi kalirdi; durduruldu)')
+        sys.exit(2)
 
     # Kaynak evren: tablo Kaynak sutunu + plugins.json url'leri
     repos = set()
@@ -194,12 +212,14 @@ def main():
     print('\n'.join('  ' + c for c in elenen_yeni) or '  (yok)')
     print('=== TIE SORULACAK (%d) ===' % len(baglar))
     print('\n'.join('  ' + c for c in baglar) or '  (yok)')
+    print('=== YASAKLI-ELEME (kaynakta goruldu, delete-zone geregi elendi) (%d) ===' % len(guard))
+    print('\n'.join('  ' + g for g in guard) or '  (yok)')
     print('=== ORPHAN (listedeki kaynak grupta yok) (%d) ===' % len(orphan))
     print('\n'.join('  ' + c for c in orphan) or '  (yok)')
 
     action = flips + [(None, w) for w in yeniler]
     if not args.apply:
-        if action or closed or baglar or elenen_yeni or orphan:
+        if action or closed or baglar or elenen_yeni or orphan or guard:
             print('\n--apply siz calisti, yazilmadi (exit 1).')
             sys.exit(1)
         print('\nYapilacak is yok.')
