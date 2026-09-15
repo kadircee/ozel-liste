@@ -517,9 +517,9 @@
           "version": "2",
           "kaynak_tarih": "2026-09-07",
           "bizim_tarih": "2026-09-15",
-          "not": "",
-          "secim": "aktif",
-          "saglik": "calisiyor"
+          "not": "2026-09-16 flip: tarih kurali geregi aytzey/cs-kraptor tercih edildi",
+          "secim": "duplicate",
+          "saglik": null
         },
         {
           "name": "DiziLife",
@@ -531,10 +531,10 @@
           "domain": "dizi18.life",
           "version": "58",
           "kaynak_tarih": "2026-09-08",
-          "bizim_tarih": "2026-09-15",
+          "bizim_tarih": "2026-09-08",
           "not": "(blackhope01 2026-09-07 tercih edildi)",
-          "secim": "duplicate",
-          "saglik": null
+          "secim": "aktif",
+          "saglik": "calisiyor"
         }
       ]
     },
@@ -603,8 +603,8 @@
           "kaynak_tarih": "2026-09-15",
           "bizim_tarih": "2026-09-15",
           "not": "(blackhope01 2026-09-07 tercih edildi)",
-          "secim": "duplicate",
-          "saglik": null
+          "secim": "aktif",
+          "saglik": "calisiyor"
         },
         {
           "name": "DiziMom",
@@ -632,9 +632,9 @@
           "version": "4",
           "kaynak_tarih": "2026-09-07",
           "bizim_tarih": "2026-09-15",
-          "not": "",
-          "secim": "aktif",
-          "saglik": "calisiyor"
+          "not": "2026-09-16 flip: tarih kurali geregi feroxx/Kekik-cloudstream tercih edildi",
+          "secim": "duplicate",
+          "saglik": null
         },
         {
           "name": "DiziMom",
@@ -792,9 +792,9 @@
           "version": "1",
           "kaynak_tarih": "2026-09-07",
           "bizim_tarih": "2026-09-15",
-          "not": "(geçici — tekrar değerlendirilecek, son ölü: 2026-08-22)",
-          "secim": "aktif",
-          "saglik": "calisiyor"
+          "not": "(geçici — tekrar değerlendirilecek, son ölü: 2026-08-22); 2026-09-16 flip: tarih kurali geregi aytzey/cs-kraptor tercih edildi",
+          "secim": "duplicate",
+          "saglik": null
         },
         {
           "name": "DiziYo",
@@ -806,10 +806,10 @@
           "domain": "diziyo.so",
           "version": "74",
           "kaynak_tarih": "2026-09-08",
-          "bizim_tarih": "2026-09-15",
+          "bizim_tarih": "2026-09-08",
           "not": "(blackhope01 2026-09-07 tercih edildi)",
-          "secim": "duplicate",
-          "saglik": null
+          "secim": "aktif",
+          "saglik": "calisiyor"
         }
       ]
     },
@@ -1030,9 +1030,9 @@
           "version": "1",
           "kaynak_tarih": "2026-09-07",
           "bizim_tarih": "2026-09-15",
-          "not": "",
-          "secim": "aktif",
-          "saglik": "calisiyor"
+          "not": "2026-09-16 flip: tarih kurali geregi aytzey/cs-kraptor tercih edildi",
+          "secim": "duplicate",
+          "saglik": null
         },
         {
           "name": "FilmEkseni",
@@ -1044,10 +1044,10 @@
           "domain": "filmekseni.net",
           "version": "50",
           "kaynak_tarih": "2026-09-08",
-          "bizim_tarih": "2026-09-15",
+          "bizim_tarih": "2026-09-08",
           "not": "(blackhope01 2026-09-07 tercih edildi)",
-          "secim": "duplicate",
-          "saglik": null
+          "secim": "aktif",
+          "saglik": "calisiyor"
         }
       ]
     },
@@ -1065,9 +1065,9 @@
           "version": "1",
           "kaynak_tarih": "2026-09-07",
           "bizim_tarih": "2026-09-15",
-          "not": "",
-          "secim": "aktif",
-          "saglik": "calisiyor"
+          "not": "2026-09-16 flip: tarih kurali geregi aytzey/cs-kraptor tercih edildi",
+          "secim": "duplicate",
+          "saglik": null
         },
         {
           "name": "FilmHane",
@@ -1079,10 +1079,10 @@
           "domain": "filmhane.shop",
           "version": "43",
           "kaynak_tarih": "2026-09-08",
-          "bizim_tarih": "2026-09-15",
+          "bizim_tarih": "2026-09-08",
           "not": "(blackhope01 2026-09-07 tercih edildi)",
-          "secim": "duplicate",
-          "saglik": null
+          "secim": "aktif",
+          "saglik": "calisiyor"
         }
       ]
     },
@@ -1101,8 +1101,8 @@
           "kaynak_tarih": "2026-09-15",
           "bizim_tarih": "2026-09-15",
           "not": "(blackhope01 2026-09-07 tercih edildi)",
-          "secim": "duplicate",
-          "saglik": null
+          "secim": "aktif",
+          "saglik": "calisiyor"
         },
         {
           "name": "FilmMakinesi",
@@ -1145,9 +1145,9 @@
           "version": "2",
           "kaynak_tarih": "2026-09-07",
           "bizim_tarih": "2026-09-15",
-          "not": "",
-          "secim": "aktif",
-          "saglik": "calisiyor"
+          "not": "2026-09-16 flip: tarih kurali geregi feroxx/Kekik-cloudstream tercih edildi",
+          "secim": "duplicate",
+          "saglik": null
         },
         {
           "name": "FilmMakinesi",
@@ -1623,8 +1623,8 @@
           "kaynak_tarih": "2026-09-15",
           "bizim_tarih": "2026-09-15",
           "not": "(blackhope01 2026-09-07 tercih edildi)",
-          "secim": "duplicate",
-          "saglik": null
+          "secim": "aktif",
+          "saglik": "calisiyor"
         },
         {
           "name": "JetFilmizle",
@@ -1652,9 +1652,9 @@
           "version": "1",
           "kaynak_tarih": "2026-09-07",
           "bizim_tarih": "2026-09-15",
-          "not": "",
-          "secim": "aktif",
-          "saglik": "calisiyor"
+          "not": "2026-09-16 flip: tarih kurali geregi feroxx/Kekik-cloudstream tercih edildi",
+          "secim": "duplicate",
+          "saglik": null
         },
         {
           "name": "JetFilmizle",
@@ -2103,8 +2103,8 @@
           "kaynak_tarih": "2026-09-15",
           "bizim_tarih": "2026-09-15",
           "not": "(blackhope01 2026-09-07 tercih edildi)",
-          "secim": "duplicate",
-          "saglik": null
+          "secim": "aktif",
+          "saglik": "calisiyor"
         },
         {
           "name": "SezonlukDizi",
@@ -2132,9 +2132,9 @@
           "version": "1",
           "kaynak_tarih": "2026-09-07",
           "bizim_tarih": "2026-09-15",
-          "not": "",
-          "secim": "aktif",
-          "saglik": "calisiyor"
+          "not": "2026-09-16 flip: tarih kurali geregi feroxx/Kekik-cloudstream tercih edildi",
+          "secim": "duplicate",
+          "saglik": null
         },
         {
           "name": "SezonlukDizi",
@@ -2560,11 +2560,11 @@
         }
       ]
     },
-    "webteizle": {
-      "name": "Webteizle",
+    "webteızle": {
+      "name": "WebteIzle",
       "candidates": [
         {
-          "name": "Webteizle",
+          "name": "WebteIzle",
           "listed": true,
           "order": 82,
           "source": "feroxx/Kekik-cloudstream",
@@ -2575,11 +2575,11 @@
           "kaynak_tarih": "2026-09-15",
           "bizim_tarih": "2026-09-15",
           "not": "(blackhope 2026-09-07 tercih edildi)",
-          "secim": "duplicate",
-          "saglik": null
+          "secim": "aktif",
+          "saglik": "calisiyor"
         },
         {
-          "name": "Webteizle",
+          "name": "WebteIzle",
           "listed": true,
           "order": 83,
           "source": "ilkelkullanici/ilkel-cloudstream",
@@ -2594,7 +2594,7 @@
           "saglik": null
         },
         {
-          "name": "Webteizle",
+          "name": "WebteIzle",
           "listed": true,
           "order": 84,
           "source": "blackhope01/cloudstream-plugins",
@@ -2604,12 +2604,12 @@
           "version": "1",
           "kaynak_tarih": "2026-09-07",
           "bizim_tarih": "2026-09-15",
-          "not": "",
-          "secim": "aktif",
-          "saglik": "calisiyor"
+          "not": "2026-09-16 flip: tarih kurali geregi feroxx/Kekik-cloudstream tercih edildi",
+          "secim": "duplicate",
+          "saglik": null
         },
         {
-          "name": "Webteizle",
+          "name": "WebteIzle",
           "listed": true,
           "order": 85,
           "source": "aytzey/cs-kraptor",
