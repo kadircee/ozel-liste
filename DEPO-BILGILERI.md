@@ -218,30 +218,54 @@ Bu bölüm 2026-08-28'de üretildi; 2026-09-05'te 45 satırın Kaynak/Bizim Tari
 Aynı isim/kökten farklı kaynaklarda gelen kayıtlar `Seçim` ile izlenir: her gruptan 1 tanesi `plugins.json`'da yer alır (`Aktif`); diğerleri `Duplicate`'tir. `status` bilgisi kaynağa aittir, tabloda izlenmez — kaynak ne yayınlıyorsa `plugins.json`'a aynen yansır.
 Toplam kayıt: 87. Tablo `registry.json`'dan üretilir (`<!-- KAYIT-DURUMU:OTOMATIK-BASLANGIC -->
 <!-- KAYIT-DURUMU:OTOMATIK-BASLANGIC -->
+<!-- KAYIT-DURUMU:OTOMATIK-BASLANGIC -->
+<!-- KAYIT-DURUMU:OTOMATIK-BASLANGIC -->
 | # | Eklenti | Kaynak | Site (domain) | v | Kaynak Tarih | Bizim Tarih | Seçim | Not |
 |---|---|---|---|---|---|---|---|---|
+| 0 | DiziLife | [lepotane/MRC-builds](https://github.com/lepotane/MRC-builds) | [raw.githubusercontent.com](https://raw.githubusercontent.com/lepotane/MRC-builds/builds/DiziLife.cs3) | 1 | 2026-09-16 | 2026-09-16 | Aktif |  |
+| 0 | DiziYo | [lepotane/MRC-builds](https://github.com/lepotane/MRC-builds) | [raw.githubusercontent.com](https://raw.githubusercontent.com/lepotane/MRC-builds/builds/DiziYo.cs3) | 5 | 2026-09-16 | 2026-09-16 | Aktif |  |
+| 0 | FilmEkseni | [lepotane/MRC-builds](https://github.com/lepotane/MRC-builds) | [raw.githubusercontent.com](https://raw.githubusercontent.com/lepotane/MRC-builds/builds/FilmEkseni.cs3) | 1 | 2026-09-16 | 2026-09-16 | Aktif |  |
+| 0 | LoveFilm | [lepotane/MRC-builds](https://github.com/lepotane/MRC-builds) | [raw.githubusercontent.com](https://raw.githubusercontent.com/lepotane/MRC-builds/builds/LoveFilm.cs3) | 2 | 2026-09-16 | 2026-09-16 | Aktif |  |
+| 0 | Webteizle | [lepotane/MRC-builds](https://github.com/lepotane/MRC-builds) | [raw.githubusercontent.com](https://raw.githubusercontent.com/lepotane/MRC-builds/builds/Webteizle.cs3) | 2 | 2026-09-16 | 2026-09-16 | Aktif |  |
 | 1 | AltiYuzAltmisAltiFilmIzle | [ilkelkullanici/ilkel-cloudstream](https://github.com/ilkelkullanici/ilkel-cloudstream) | [altiyuzaltmisaltifilmizle](https://altiyuzaltmisaltifilmizle.site) | 1 | 2026-09-16 | 2026-09-16 | Aktif |  |
+| 1 | DiziGom | [lepotane/MRC-builds](https://github.com/lepotane/MRC-builds) | [dizigom.site](https://dizigom.site) | 3 | 2026-09-16 | 2026-09-16 | Aktif |  |
 | 2 | Ddizi | [feroxx/Kekik-cloudstream](https://github.com/feroxx/Kekik-cloudstream) | [ddizi](https://ddizi.site) | 22 | 2026-09-16 | 2026-09-16 | Aktif |  |
+| 2 | DiziMag | [lepotane/MRC-builds](https://github.com/lepotane/MRC-builds) | [dizimag.site](https://dizimag.site) | 2 | 2026-09-15 | 2026-09-15 | Aktif |  |
 | 3 | DiziBox | [feroxx/Kekik-cloudstream](https://github.com/feroxx/Kekik-cloudstream) | [dizibox](https://dizibox.site) | 23 | 2026-09-16 | 2026-09-16 | Aktif |  |
-| 4 | DiziLife | [blackhope01/cloudstream-plugins](https://github.com/blackhope01/cloudstream-plugins) | [dizilife](https://dizilife.site) | 2 | 2026-09-16 | 2026-09-16 | Aktif |  |
+| 3 | DiziPal1578 | [neoser1984/cloudstream-extensions](https://github.com/neoser1984/cloudstream-extensions) | [dizipal1578.site](https://dizipal1578.site) | 1 | 2026-08-30 | 2026-08-30 | Aktif |  |
+| 4 | DiziLife | [blackhope01/cloudstream-plugins](https://github.com/blackhope01/cloudstream-plugins) | [dizilife](https://dizilife.site) | 2 | 2026-09-16 | 2026-09-16 | Duplicate |  |
+| 4 | DiziPal2121 | [neoser1984/cloudstream-extensions](https://github.com/neoser1984/cloudstream-extensions) | [dizipal2121.site](https://dizipal2121.site) | 1 | 2026-08-30 | 2026-08-30 | Aktif |  |
 | 5 | Dizilla | [feroxx/Kekik-cloudstream](https://github.com/feroxx/Kekik-cloudstream) | [dizilla](https://dizilla.site) | 92 | 2026-09-16 | 2026-09-16 | Aktif |  |
+| 5 | DiziPalOrijinal | [lepotane/MRC-builds](https://github.com/lepotane/MRC-builds) | [dizipalorijinal.site](https://dizipalorijinal.site) | 4 | 2026-09-16 | 2026-09-16 | Aktif |  |
 | 6 | DiziMom | [feroxx/Kekik-cloudstream](https://github.com/feroxx/Kekik-cloudstream) | [dizimom](https://dizimom.site) | 58 | 2026-09-16 | 2026-09-16 | Aktif |  |
+| 6 | DiziWatch | [lepotane/MRC-builds](https://github.com/lepotane/MRC-builds) | [diziwatch.site](https://diziwatch.site) | 3 | 2026-09-15 | 2026-09-15 | Aktif |  |
 | 7 | DiziPal | [feroxx/Kekik-cloudstream](https://github.com/feroxx/Kekik-cloudstream) | [dizipal](https://dizipal.site) | 108 | 2026-09-16 | 2026-09-16 | Aktif |  |
+| 7 | FilmIzyon | [lepotane/MRC-builds](https://github.com/lepotane/MRC-builds) | [filmizyon.site](https://filmizyon.site) | 2 | 2026-09-15 | 2026-09-15 | Aktif |  |
 | 8 | DiziPalOriginal | [feroxx/Kekik-cloudstream](https://github.com/feroxx/Kekik-cloudstream) | [dizipaloriginal](https://dizipaloriginal.site) | 92 | 2026-09-16 | 2026-09-16 | Aktif |  |
+| 8 | FullHDIzle | [lepotane/MRC-builds](https://github.com/lepotane/MRC-builds) | [fullhdizle.site](https://fullhdizle.site) | 4 | 2026-09-15 | 2026-09-15 | Aktif |  |
 | 9 | DiziPod | [feroxx/Kekik-cloudstream](https://github.com/feroxx/Kekik-cloudstream) | [dizipod](https://dizipod.site) | 3 | 2026-09-16 | 2026-09-16 | Aktif |  |
-| 10 | DiziYo | [blackhope01/cloudstream-plugins](https://github.com/blackhope01/cloudstream-plugins) | [diziyo](https://diziyo.site) | 1 | 2026-09-16 | 2026-09-16 | Aktif |  |
+| 9 | HdFilmCehennemi2 | [lepotane/MRC-builds](https://github.com/lepotane/MRC-builds) | [hdfilmcehennemi2.site](https://hdfilmcehennemi2.site) | 2 | 2026-09-16 | 2026-09-16 | Aktif |  |
+| 10 | DiziYo | [blackhope01/cloudstream-plugins](https://github.com/blackhope01/cloudstream-plugins) | [diziyo](https://diziyo.site) | 1 | 2026-09-16 | 2026-09-16 | Duplicate |  |
+| 10 | HDFilmDiziIzle | [neoser1984/cloudstream-extensions](https://github.com/neoser1984/cloudstream-extensions) | [hdfilmdiziizle.site](https://hdfilmdiziizle.site) | 1 | 2026-08-30 | 2026-08-30 | Aktif |  |
 | 11 | DiziYou | [feroxx/Kekik-cloudstream](https://github.com/feroxx/Kekik-cloudstream) | [diziyou](https://diziyou.site) | 26 | 2026-09-16 | 2026-09-16 | Aktif |  |
+| 11 | HDFilmizle | [neoser1984/cloudstream-extensions](https://github.com/neoser1984/cloudstream-extensions) | [hdfilmizle.site](https://hdfilmizle.site) | 1 | 2026-08-30 | 2026-08-30 | Aktif |  |
 | 12 | FilmBip | [ilkelkullanici/ilkel-cloudstream](https://github.com/ilkelkullanici/ilkel-cloudstream) | [filmbip](https://filmbip.site) | 19 | 2026-09-16 | 2026-09-16 | Aktif |  |
-| 13 | FilmEkseni | [blackhope01/cloudstream-plugins](https://github.com/blackhope01/cloudstream-plugins) | [filmekseni](https://filmekseni.site) | 1 | 2026-09-16 | 2026-09-16 | Aktif |  |
+| 12 | HDFilmIzle | [Ripplay/cloudstream-repo](https://github.com/Ripplay/cloudstream-repo) | [hdfilmizle.site](https://hdfilmizle.site) | 8 | 2026-08-24 | 2026-08-24 | Aktif |  |
+| 13 | FilmEkseni | [blackhope01/cloudstream-plugins](https://github.com/blackhope01/cloudstream-plugins) | [filmekseni](https://filmekseni.site) | 1 | 2026-09-16 | 2026-09-16 | Duplicate |  |
+| 13 | Sinefy | [lepotane/MRC-builds](https://github.com/lepotane/MRC-builds) | [sinefy.site](https://sinefy.site) | 1 | 2026-09-15 | 2026-09-15 | Aktif |  |
 | 14 | FilmHane | [blackhope01/cloudstream-plugins](https://github.com/blackhope01/cloudstream-plugins) | [filmhane](https://filmhane.site) | 1 | 2026-09-16 | 2026-09-16 | Aktif |  |
+| 14 | Sinezy | [lepotane/MRC-builds](https://github.com/lepotane/MRC-builds) | [sinezy.site](https://sinezy.site) | 3 | 2026-09-15 | 2026-09-15 | Aktif |  |
 | 15 | FilmMakinesi | [feroxx/Kekik-cloudstream](https://github.com/feroxx/Kekik-cloudstream) | [filmmakinesi](https://filmmakinesi.site) | 59 | 2026-09-16 | 2026-09-16 | Aktif |  |
+| 15 | TrDiziIzle | [neoser1984/cloudstream-extensions](https://github.com/neoser1984/cloudstream-extensions) | [trdiziizle.site](https://trdiziizle.site) | 1 | 2026-08-30 | 2026-08-30 | Aktif |  |
 | 16 | FilmModu | [feroxx/Kekik-cloudstream](https://github.com/feroxx/Kekik-cloudstream) | [filmmodu](https://filmmodu.site) | 19 | 2026-09-16 | 2026-09-16 | Aktif |  |
+| 16 | TvDiziler | [lepotane/MRC-builds](https://github.com/lepotane/MRC-builds) | [tvdiziler.site](https://tvdiziler.site) | 2 | 2026-09-15 | 2026-09-15 | Aktif |  |
 | 17 | FullHDFilm | [feroxx/Kekik-cloudstream](https://github.com/feroxx/Kekik-cloudstream) | [fullhdfilm](https://fullhdfilm.site) | 36 | 2026-09-16 | 2026-09-16 | Aktif |  |
+| 17 | YabanciDizi | [lepotane/MRC-builds](https://github.com/lepotane/MRC-builds) | [yabancidizi.site](https://yabancidizi.site) | 2 | 2026-09-15 | 2026-09-15 | Aktif |  |
 | 18 | FullHDFilmizlesene | [feroxx/Kekik-cloudstream](https://github.com/feroxx/Kekik-cloudstream) | [fullhdfilmizlesene](https://fullhdfilmizlesene.site) | 33 | 2026-09-16 | 2026-09-16 | Aktif |  |
 | 19 | HDFilmCehennemi | [feroxx/Kekik-cloudstream](https://github.com/feroxx/Kekik-cloudstream) | [hdfilmcehennemi](https://hdfilmcehennemi.site) | 48 | 2026-09-16 | 2026-09-16 | Aktif |  |
 | 20 | HDFilmDelisi | [feroxx/Kekik-cloudstream](https://github.com/feroxx/Kekik-cloudstream) | [hdfilmdelisi](https://hdfilmdelisi.site) | 1 | 2026-09-16 | 2026-09-16 | Aktif |  |
 | 21 | JetFilmizle | [feroxx/Kekik-cloudstream](https://github.com/feroxx/Kekik-cloudstream) | [jetfilmizle](https://jetfilmizle.site) | 47 | 2026-09-16 | 2026-09-16 | Aktif |  |
-| 22 | LoveFilm | [blackhope01/cloudstream-plugins](https://github.com/blackhope01/cloudstream-plugins) | [lovefilm](https://lovefilm.site) | 1 | 2026-09-16 | 2026-09-16 | Aktif |  |
+| 22 | LoveFilm | [blackhope01/cloudstream-plugins](https://github.com/blackhope01/cloudstream-plugins) | [lovefilm](https://lovefilm.site) | 1 | 2026-09-16 | 2026-09-16 | Duplicate |  |
 | 23 | plt-stream | [pltmustafa/plt-stream](https://github.com/pltmustafa/plt-stream) | [plt-stream](https://plt-stream.site) | 58 | 2026-09-16 | 2026-09-16 | Aktif |  |
 | 24 | SelcukFlix | [feroxx/Kekik-cloudstream](https://github.com/feroxx/Kekik-cloudstream) | [selcukflix](https://selcukflix.site) | 2 | 2026-09-16 | 2026-09-16 | Aktif |  |
 | 25 | SetFilmIzle | [feroxx/Kekik-cloudstream](https://github.com/feroxx/Kekik-cloudstream) | [setfilmizle](https://setfilmizle.site) | 30 | 2026-09-16 | 2026-09-16 | Aktif |  |
@@ -249,7 +273,7 @@ Toplam kayıt: 87. Tablo `registry.json`'dan üretilir (`<!-- KAYIT-DURUMU:OTOMA
 | 27 | SinemaCX | [feroxx/Kekik-cloudstream](https://github.com/feroxx/Kekik-cloudstream) | [sinemacx](https://sinemacx.site) | 24 | 2026-09-16 | 2026-09-16 | Aktif |  |
 | 28 | Sinewix | [feroxx/Kekik-cloudstream](https://github.com/feroxx/Kekik-cloudstream) | [sinewix](https://sinewix.site) | 2 | 2026-09-16 | 2026-09-16 | Aktif |  |
 | 29 | WebteIzle | [feroxx/Kekik-cloudstream](https://github.com/feroxx/Kekik-cloudstream) | [webteizle](https://webteizle.site) | 21 | 2026-09-16 | 2026-09-16 | Aktif |  |
-| 30 | Webteizle | [blackhope01/cloudstream-plugins](https://github.com/blackhope01/cloudstream-plugins) | [webteizle](https://webteizle.site) | 1 | 2026-09-16 | 2026-09-16 | Aktif |  |
+| 30 | Webteizle | [blackhope01/cloudstream-plugins](https://github.com/blackhope01/cloudstream-plugins) | [webteizle](https://webteizle.site) | 1 | 2026-09-16 | 2026-09-16 | Duplicate |  |
 | 31 | OwnedSites | [Ripplay/cloudstream-repo](https://github.com/Ripplay/cloudstream-repo) | [dizibal.com](https://dizibal.com) | 2 | 2026-08-24 | 2026-08-24 | Aktif | Paket sağlayıcı: TrDiziİzle, DiziBal, DiziRella, DiziBol, FilmIzzle, LiderFilmİzle ve DiziFilmİzle |
 <!-- KAYIT-DURUMU:OTOMATIK-SON -->
 

@@ -364,6 +364,25 @@
         }
       ]
     },
+    "dizigom": {
+      "name": "DiziGom",
+      "candidates": [
+        {
+          "name": "DiziGom",
+          "listed": true,
+          "order": 1,
+          "source": "lepotane/MRC-builds",
+          "source_cell": "[lepotane/MRC-builds](https://github.com/lepotane/MRC-builds)",
+          "site_cell": "[dizigom.site](https://dizigom.site)",
+          "domain": "dizigom.site",
+          "version": "3",
+          "kaynak_tarih": "2026-09-16",
+          "bizim_tarih": "2026-09-16",
+          "not": "",
+          "secim": "aktif"
+        }
+      ]
+    },
     "dizikorea": {
       "name": "DiziKorea",
       "candidates": [
@@ -397,6 +416,20 @@
           "kaynak_tarih": "2026-09-16",
           "bizim_tarih": "2026-09-16",
           "not": "",
+          "secim": "duplicate"
+        },
+        {
+          "name": "DiziLife",
+          "listed": true,
+          "order": 0,
+          "source": "lepotane/MRC-builds",
+          "source_cell": "[lepotane/MRC-builds](https://github.com/lepotane/MRC-builds)",
+          "site_cell": "[raw.githubusercontent.com](https://raw.githubusercontent.com/lepotane/MRC-builds/builds/DiziLife.cs3)",
+          "domain": "raw.githubusercontent.com",
+          "version": "1",
+          "kaynak_tarih": "2026-09-16",
+          "bizim_tarih": "2026-09-16",
+          "not": "",
           "secim": "aktif"
         }
       ]
@@ -415,6 +448,25 @@
           "version": "92",
           "kaynak_tarih": "2026-09-16",
           "bizim_tarih": "2026-09-16",
+          "not": "",
+          "secim": "aktif"
+        }
+      ]
+    },
+    "dizimag": {
+      "name": "DiziMag",
+      "candidates": [
+        {
+          "name": "DiziMag",
+          "listed": true,
+          "order": 2,
+          "source": "lepotane/MRC-builds",
+          "source_cell": "[lepotane/MRC-builds](https://github.com/lepotane/MRC-builds)",
+          "site_cell": "[dizimag.site](https://dizimag.site)",
+          "domain": "dizimag.site",
+          "version": "2",
+          "kaynak_tarih": "2026-09-15",
+          "bizim_tarih": "2026-09-15",
           "not": "",
           "secim": "aktif"
         }
@@ -458,6 +510,44 @@
         }
       ]
     },
+    "dizipal1578": {
+      "name": "DiziPal1578",
+      "candidates": [
+        {
+          "name": "DiziPal1578",
+          "listed": true,
+          "order": 3,
+          "source": "neoser1984/cloudstream-extensions",
+          "source_cell": "[neoser1984/cloudstream-extensions](https://github.com/neoser1984/cloudstream-extensions)",
+          "site_cell": "[dizipal1578.site](https://dizipal1578.site)",
+          "domain": "dizipal1578.site",
+          "version": "1",
+          "kaynak_tarih": "2026-08-30",
+          "bizim_tarih": "2026-08-30",
+          "not": "",
+          "secim": "aktif"
+        }
+      ]
+    },
+    "dizipal2121": {
+      "name": "DiziPal2121",
+      "candidates": [
+        {
+          "name": "DiziPal2121",
+          "listed": true,
+          "order": 4,
+          "source": "neoser1984/cloudstream-extensions",
+          "source_cell": "[neoser1984/cloudstream-extensions](https://github.com/neoser1984/cloudstream-extensions)",
+          "site_cell": "[dizipal2121.site](https://dizipal2121.site)",
+          "domain": "dizipal2121.site",
+          "version": "1",
+          "kaynak_tarih": "2026-08-30",
+          "bizim_tarih": "2026-08-30",
+          "not": "",
+          "secim": "aktif"
+        }
+      ]
+    },
     "dizipaloriginal": {
       "name": "DiziPalOriginal",
       "candidates": [
@@ -470,6 +560,25 @@
           "site_cell": "[dizipaloriginal](https://dizipaloriginal.site)",
           "domain": "dizipaloriginal",
           "version": "92",
+          "kaynak_tarih": "2026-09-16",
+          "bizim_tarih": "2026-09-16",
+          "not": "",
+          "secim": "aktif"
+        }
+      ]
+    },
+    "dizipalorijinal": {
+      "name": "DiziPalOrijinal",
+      "candidates": [
+        {
+          "name": "DiziPalOrijinal",
+          "listed": true,
+          "order": 5,
+          "source": "lepotane/MRC-builds",
+          "source_cell": "[lepotane/MRC-builds](https://github.com/lepotane/MRC-builds)",
+          "site_cell": "[dizipalorijinal.site](https://dizipalorijinal.site)",
+          "domain": "dizipalorijinal.site",
+          "version": "4",
           "kaynak_tarih": "2026-09-16",
           "bizim_tarih": "2026-09-16",
           "not": "",
@@ -496,6 +605,25 @@
         }
       ]
     },
+    "diziwatch": {
+      "name": "DiziWatch",
+      "candidates": [
+        {
+          "name": "DiziWatch",
+          "listed": true,
+          "order": 6,
+          "source": "lepotane/MRC-builds",
+          "source_cell": "[lepotane/MRC-builds](https://github.com/lepotane/MRC-builds)",
+          "site_cell": "[diziwatch.site](https://diziwatch.site)",
+          "domain": "diziwatch.site",
+          "version": "3",
+          "kaynak_tarih": "2026-09-15",
+          "bizim_tarih": "2026-09-15",
+          "not": "",
+          "secim": "aktif"
+        }
+      ]
+    },
     "diziyo": {
       "name": "DiziYo",
       "candidates": [
@@ -508,6 +636,20 @@
           "site_cell": "[diziyo](https://diziyo.site)",
           "domain": "diziyo",
           "version": "1",
+          "kaynak_tarih": "2026-09-16",
+          "bizim_tarih": "2026-09-16",
+          "not": "",
+          "secim": "duplicate"
+        },
+        {
+          "name": "DiziYo",
+          "listed": true,
+          "order": 0,
+          "source": "lepotane/MRC-builds",
+          "source_cell": "[lepotane/MRC-builds](https://github.com/lepotane/MRC-builds)",
+          "site_cell": "[raw.githubusercontent.com](https://raw.githubusercontent.com/lepotane/MRC-builds/builds/DiziYo.cs3)",
+          "domain": "raw.githubusercontent.com",
+          "version": "5",
           "kaynak_tarih": "2026-09-16",
           "bizim_tarih": "2026-09-16",
           "not": "",
@@ -694,6 +836,20 @@
           "kaynak_tarih": "2026-09-16",
           "bizim_tarih": "2026-09-16",
           "not": "",
+          "secim": "duplicate"
+        },
+        {
+          "name": "FilmEkseni",
+          "listed": true,
+          "order": 0,
+          "source": "lepotane/MRC-builds",
+          "source_cell": "[lepotane/MRC-builds](https://github.com/lepotane/MRC-builds)",
+          "site_cell": "[raw.githubusercontent.com](https://raw.githubusercontent.com/lepotane/MRC-builds/builds/FilmEkseni.cs3)",
+          "domain": "raw.githubusercontent.com",
+          "version": "1",
+          "kaynak_tarih": "2026-09-16",
+          "bizim_tarih": "2026-09-16",
+          "not": "",
           "secim": "aktif"
         }
       ]
@@ -791,6 +947,25 @@
         }
       ]
     },
+    "filmızyon": {
+      "name": "FilmIzyon",
+      "candidates": [
+        {
+          "name": "FilmIzyon",
+          "listed": true,
+          "order": 7,
+          "source": "lepotane/MRC-builds",
+          "source_cell": "[lepotane/MRC-builds](https://github.com/lepotane/MRC-builds)",
+          "site_cell": "[filmizyon.site](https://filmizyon.site)",
+          "domain": "filmizyon.site",
+          "version": "2",
+          "kaynak_tarih": "2026-09-15",
+          "bizim_tarih": "2026-09-15",
+          "not": "",
+          "secim": "aktif"
+        }
+      ]
+    },
     "flixlatam": {
       "name": "Flixlatam",
       "candidates": [
@@ -860,6 +1035,25 @@
           "version": "33",
           "kaynak_tarih": "2026-09-16",
           "bizim_tarih": "2026-09-16",
+          "not": "",
+          "secim": "aktif"
+        }
+      ]
+    },
+    "fullhdızle": {
+      "name": "FullHDIzle",
+      "candidates": [
+        {
+          "name": "FullHDIzle",
+          "listed": true,
+          "order": 8,
+          "source": "lepotane/MRC-builds",
+          "source_cell": "[lepotane/MRC-builds](https://github.com/lepotane/MRC-builds)",
+          "site_cell": "[fullhdizle.site](https://fullhdizle.site)",
+          "domain": "fullhdizle.site",
+          "version": "4",
+          "kaynak_tarih": "2026-09-15",
+          "bizim_tarih": "2026-09-15",
           "not": "",
           "secim": "aktif"
         }
@@ -938,6 +1132,25 @@
         }
       ]
     },
+    "hdfilmcehennemi2": {
+      "name": "HdFilmCehennemi2",
+      "candidates": [
+        {
+          "name": "HdFilmCehennemi2",
+          "listed": true,
+          "order": 9,
+          "source": "lepotane/MRC-builds",
+          "source_cell": "[lepotane/MRC-builds](https://github.com/lepotane/MRC-builds)",
+          "site_cell": "[hdfilmcehennemi2.site](https://hdfilmcehennemi2.site)",
+          "domain": "hdfilmcehennemi2.site",
+          "version": "2",
+          "kaynak_tarih": "2026-09-16",
+          "bizim_tarih": "2026-09-16",
+          "not": "",
+          "secim": "aktif"
+        }
+      ]
+    },
     "hdfilmdelisi": {
       "name": "HDFilmDelisi",
       "candidates": [
@@ -952,6 +1165,63 @@
           "version": "1",
           "kaynak_tarih": "2026-09-16",
           "bizim_tarih": "2026-09-16",
+          "not": "",
+          "secim": "aktif"
+        }
+      ]
+    },
+    "hdfilmdiziızle": {
+      "name": "HDFilmDiziIzle",
+      "candidates": [
+        {
+          "name": "HDFilmDiziIzle",
+          "listed": true,
+          "order": 10,
+          "source": "neoser1984/cloudstream-extensions",
+          "source_cell": "[neoser1984/cloudstream-extensions](https://github.com/neoser1984/cloudstream-extensions)",
+          "site_cell": "[hdfilmdiziizle.site](https://hdfilmdiziizle.site)",
+          "domain": "hdfilmdiziizle.site",
+          "version": "1",
+          "kaynak_tarih": "2026-08-30",
+          "bizim_tarih": "2026-08-30",
+          "not": "",
+          "secim": "aktif"
+        }
+      ]
+    },
+    "hdfilmizle": {
+      "name": "HDFilmizle",
+      "candidates": [
+        {
+          "name": "HDFilmizle",
+          "listed": true,
+          "order": 11,
+          "source": "neoser1984/cloudstream-extensions",
+          "source_cell": "[neoser1984/cloudstream-extensions](https://github.com/neoser1984/cloudstream-extensions)",
+          "site_cell": "[hdfilmizle.site](https://hdfilmizle.site)",
+          "domain": "hdfilmizle.site",
+          "version": "1",
+          "kaynak_tarih": "2026-08-30",
+          "bizim_tarih": "2026-08-30",
+          "not": "",
+          "secim": "aktif"
+        }
+      ]
+    },
+    "hdfilmızle": {
+      "name": "HDFilmIzle",
+      "candidates": [
+        {
+          "name": "HDFilmIzle",
+          "listed": true,
+          "order": 12,
+          "source": "Ripplay/cloudstream-repo",
+          "source_cell": "[Ripplay/cloudstream-repo](https://github.com/Ripplay/cloudstream-repo)",
+          "site_cell": "[hdfilmizle.site](https://hdfilmizle.site)",
+          "domain": "hdfilmizle.site",
+          "version": "8",
+          "kaynak_tarih": "2026-08-24",
+          "bizim_tarih": "2026-08-24",
           "not": "",
           "secim": "aktif"
         }
@@ -1150,6 +1420,20 @@
           "site_cell": "[lovefilm](https://lovefilm.site)",
           "domain": "lovefilm",
           "version": "1",
+          "kaynak_tarih": "2026-09-16",
+          "bizim_tarih": "2026-09-16",
+          "not": "",
+          "secim": "duplicate"
+        },
+        {
+          "name": "LoveFilm",
+          "listed": true,
+          "order": 0,
+          "source": "lepotane/MRC-builds",
+          "source_cell": "[lepotane/MRC-builds](https://github.com/lepotane/MRC-builds)",
+          "site_cell": "[raw.githubusercontent.com](https://raw.githubusercontent.com/lepotane/MRC-builds/builds/LoveFilm.cs3)",
+          "domain": "raw.githubusercontent.com",
+          "version": "2",
           "kaynak_tarih": "2026-09-16",
           "bizim_tarih": "2026-09-16",
           "not": "",
@@ -1396,6 +1680,25 @@
         }
       ]
     },
+    "sinefy": {
+      "name": "Sinefy",
+      "candidates": [
+        {
+          "name": "Sinefy",
+          "listed": true,
+          "order": 13,
+          "source": "lepotane/MRC-builds",
+          "source_cell": "[lepotane/MRC-builds](https://github.com/lepotane/MRC-builds)",
+          "site_cell": "[sinefy.site](https://sinefy.site)",
+          "domain": "sinefy.site",
+          "version": "1",
+          "kaynak_tarih": "2026-09-15",
+          "bizim_tarih": "2026-09-15",
+          "not": "",
+          "secim": "aktif"
+        }
+      ]
+    },
     "sinemacx": {
       "name": "SinemaCX",
       "candidates": [
@@ -1429,6 +1732,25 @@
           "version": "2",
           "kaynak_tarih": "2026-09-16",
           "bizim_tarih": "2026-09-16",
+          "not": "",
+          "secim": "aktif"
+        }
+      ]
+    },
+    "sinezy": {
+      "name": "Sinezy",
+      "candidates": [
+        {
+          "name": "Sinezy",
+          "listed": true,
+          "order": 14,
+          "source": "lepotane/MRC-builds",
+          "source_cell": "[lepotane/MRC-builds](https://github.com/lepotane/MRC-builds)",
+          "site_cell": "[sinezy.site](https://sinezy.site)",
+          "domain": "sinezy.site",
+          "version": "3",
+          "kaynak_tarih": "2026-09-15",
+          "bizim_tarih": "2026-09-15",
           "not": "",
           "secim": "aktif"
         }
@@ -1578,6 +1900,25 @@
         }
       ]
     },
+    "trdiziızle": {
+      "name": "TrDiziIzle",
+      "candidates": [
+        {
+          "name": "TrDiziIzle",
+          "listed": true,
+          "order": 15,
+          "source": "neoser1984/cloudstream-extensions",
+          "source_cell": "[neoser1984/cloudstream-extensions](https://github.com/neoser1984/cloudstream-extensions)",
+          "site_cell": "[trdiziizle.site](https://trdiziizle.site)",
+          "domain": "trdiziizle.site",
+          "version": "1",
+          "kaynak_tarih": "2026-08-30",
+          "bizim_tarih": "2026-08-30",
+          "not": "",
+          "secim": "aktif"
+        }
+      ]
+    },
     "turkanime": {
       "name": "TurkAnime",
       "candidates": [
@@ -1611,6 +1952,25 @@
           "bizim_tarih": null,
           "secim": "istenmeyen",
           "not": "tr Movie,TvSeries,Anime,Live"
+        }
+      ]
+    },
+    "tvdiziler": {
+      "name": "TvDiziler",
+      "candidates": [
+        {
+          "name": "TvDiziler",
+          "listed": true,
+          "order": 16,
+          "source": "lepotane/MRC-builds",
+          "source_cell": "[lepotane/MRC-builds](https://github.com/lepotane/MRC-builds)",
+          "site_cell": "[tvdiziler.site](https://tvdiziler.site)",
+          "domain": "tvdiziler.site",
+          "version": "2",
+          "kaynak_tarih": "2026-09-15",
+          "bizim_tarih": "2026-09-15",
+          "not": "",
+          "secim": "aktif"
         }
       ]
     },
@@ -1683,6 +2043,20 @@
           "kaynak_tarih": "2026-09-16",
           "bizim_tarih": "2026-09-16",
           "not": "",
+          "secim": "duplicate"
+        },
+        {
+          "name": "Webteizle",
+          "listed": true,
+          "order": 0,
+          "source": "lepotane/MRC-builds",
+          "source_cell": "[lepotane/MRC-builds](https://github.com/lepotane/MRC-builds)",
+          "site_cell": "[raw.githubusercontent.com](https://raw.githubusercontent.com/lepotane/MRC-builds/builds/Webteizle.cs3)",
+          "domain": "raw.githubusercontent.com",
+          "version": "2",
+          "kaynak_tarih": "2026-09-16",
+          "bizim_tarih": "2026-09-16",
+          "not": "",
           "secim": "aktif"
         }
       ]
@@ -1701,6 +2075,25 @@
           "version": "21",
           "kaynak_tarih": "2026-09-16",
           "bizim_tarih": "2026-09-16",
+          "not": "",
+          "secim": "aktif"
+        }
+      ]
+    },
+    "yabancidizi": {
+      "name": "YabanciDizi",
+      "candidates": [
+        {
+          "name": "YabanciDizi",
+          "listed": true,
+          "order": 17,
+          "source": "lepotane/MRC-builds",
+          "source_cell": "[lepotane/MRC-builds](https://github.com/lepotane/MRC-builds)",
+          "site_cell": "[yabancidizi.site](https://yabancidizi.site)",
+          "domain": "yabancidizi.site",
+          "version": "2",
+          "kaynak_tarih": "2026-09-15",
+          "bizim_tarih": "2026-09-15",
           "not": "",
           "secim": "aktif"
         }
