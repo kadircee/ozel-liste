@@ -46,7 +46,13 @@ CELL_SECIM = {'Aktif': 'aktif', 'aktif': 'aktif', 'Duplicate': 'duplicate', 'dup
 
 
 def norm(s):
-    return (s or '').replace('\u0130', 'i').replace('I', '\u0131').casefold()
+    value = (s or '').replace('\u0130', 'i').replace('I', '\u0131').casefold()
+    # Kaynaklar WebteIzle/InatBox adlarini buyuk I ile de yayinliyor.
+    if value in {'webteizle', 'webte\u0131zle'}:
+        return 'webteizle'
+    if value in {'inatbox', '\u0131natbox'}:
+        return 'inatbox'
+    return value
 
 
 def clean_note(text):
@@ -232,10 +238,12 @@ def drift(reg):
     liste, _, new_fmt = parse_depo()
     if not new_fmt:
         return None
-    reg_rows = {(c['order']): c for c in liste_rows(reg)}
+    # Sira numaralari grup icinde tekrar edebilir; kimlik olarak ad + kaynak
+    # kullanilmazsa duplicate satirlarinin durumu yanlis eslesir.
+    reg_rows = {(norm(c['name']), c['source']): c for c in liste_rows(reg)}
     out = []
     for r in liste:
-        c = reg_rows.get(r['order'])
+        c = reg_rows.get((norm(r['name']), r['repo']))
         if not c:
             out.append('tablo satir %d (%s): registry\'de yok' % (r['order'], r['name']))
         elif r['secim'] != c['secim']:

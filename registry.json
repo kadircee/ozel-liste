@@ -421,14 +421,14 @@
         {
           "name": "DiziLife",
           "listed": true,
-          "order": 0,
+          "order": 101,
           "source": "lepotane/MRC-builds",
           "source_cell": "[lepotane/MRC-builds](https://github.com/lepotane/MRC-builds)",
-          "site_cell": "[raw.githubusercontent.com](https://raw.githubusercontent.com/lepotane/MRC-builds/builds/DiziLife.cs3)",
-          "domain": "raw.githubusercontent.com",
+          "site_cell": "[dizilife.site](https://dizilife.site)",
+          "domain": "dizilife.site",
           "version": "1",
-          "kaynak_tarih": "2026-09-16",
-          "bizim_tarih": "2026-09-16",
+          "kaynak_tarih": "2026-09-17",
+          "bizim_tarih": "2026-09-17",
           "not": "",
           "secim": "aktif"
         }
@@ -644,14 +644,14 @@
         {
           "name": "DiziYo",
           "listed": true,
-          "order": 0,
+          "order": 102,
           "source": "lepotane/MRC-builds",
           "source_cell": "[lepotane/MRC-builds](https://github.com/lepotane/MRC-builds)",
-          "site_cell": "[raw.githubusercontent.com](https://raw.githubusercontent.com/lepotane/MRC-builds/builds/DiziYo.cs3)",
-          "domain": "raw.githubusercontent.com",
+          "site_cell": "[diziyo.site](https://diziyo.site)",
+          "domain": "diziyo.site",
           "version": "5",
-          "kaynak_tarih": "2026-09-16",
-          "bizim_tarih": "2026-09-16",
+          "kaynak_tarih": "2026-09-17",
+          "bizim_tarih": "2026-09-17",
           "not": "",
           "secim": "aktif"
         }
@@ -841,14 +841,14 @@
         {
           "name": "FilmEkseni",
           "listed": true,
-          "order": 0,
+          "order": 103,
           "source": "lepotane/MRC-builds",
           "source_cell": "[lepotane/MRC-builds](https://github.com/lepotane/MRC-builds)",
-          "site_cell": "[raw.githubusercontent.com](https://raw.githubusercontent.com/lepotane/MRC-builds/builds/FilmEkseni.cs3)",
-          "domain": "raw.githubusercontent.com",
+          "site_cell": "[filmekseni.site](https://filmekseni.site)",
+          "domain": "filmekseni.site",
           "version": "1",
-          "kaynak_tarih": "2026-09-16",
-          "bizim_tarih": "2026-09-16",
+          "kaynak_tarih": "2026-09-17",
+          "bizim_tarih": "2026-09-17",
           "not": "",
           "secim": "aktif"
         }
@@ -1245,6 +1245,25 @@
         }
       ]
     },
+    "inatbox": {
+      "name": "InatBox",
+      "candidates": [
+        {
+          "name": "InatBox",
+          "listed": true,
+          "order": 104,
+          "source": "feroxx/Kekik-cloudstream",
+          "source_cell": "[feroxx/Kekik-cloudstream](https://github.com/feroxx/Kekik-cloudstream)",
+          "site_cell": "[inatbox.site](https://inatbox.site)",
+          "domain": "inatbox.site",
+          "version": "30",
+          "kaynak_tarih": "2026-09-17",
+          "bizim_tarih": "2026-09-17",
+          "not": "Kullanici istisnasi",
+          "secim": "aktif"
+        }
+      ]
+    },
     "jetfilmizle": {
       "name": "JetFilmizle",
       "candidates": [
@@ -1428,14 +1447,14 @@
         {
           "name": "LoveFilm",
           "listed": true,
-          "order": 0,
+          "order": 105,
           "source": "lepotane/MRC-builds",
           "source_cell": "[lepotane/MRC-builds](https://github.com/lepotane/MRC-builds)",
-          "site_cell": "[raw.githubusercontent.com](https://raw.githubusercontent.com/lepotane/MRC-builds/builds/LoveFilm.cs3)",
-          "domain": "raw.githubusercontent.com",
+          "site_cell": "[lovefilm.site](https://lovefilm.site)",
+          "domain": "lovefilm.site",
           "version": "2",
-          "kaynak_tarih": "2026-09-16",
-          "bizim_tarih": "2026-09-16",
+          "kaynak_tarih": "2026-09-17",
+          "bizim_tarih": "2026-09-17",
           "not": "",
           "secim": "aktif"
         }
@@ -1779,16 +1798,17 @@
       "candidates": [
         {
           "name": "Streamed",
-          "listed": false,
-          "source": "Kraptor123/Cs-Karma",
-          "source_cell": "[Kraptor123/Cs-Karma](https://github.com/Kraptor123/Cs-Karma)",
-          "site_cell": "[streamed.pk](https://streamed.pk)",
-          "domain": "streamed.pk",
-          "version": null,
-          "kaynak_tarih": null,
-          "bizim_tarih": null,
-          "secim": "istenmeyen",
-          "not": "en Live"
+          "listed": true,
+          "order": 106,
+          "source": "lepotane/MRC-builds",
+          "source_cell": "[lepotane/MRC-builds](https://github.com/lepotane/MRC-builds)",
+          "site_cell": "[streamed.site](https://streamed.site)",
+          "domain": "streamed.site",
+          "version": "1",
+          "kaynak_tarih": "2026-09-17",
+          "bizim_tarih": "2026-09-17",
+          "not": "Kullanici istisnasi",
+          "secim": "aktif"
         }
       ]
     },
@@ -2029,39 +2049,6 @@
       ]
     },
     "webteizle": {
-      "name": "Webteizle",
-      "candidates": [
-        {
-          "name": "Webteizle",
-          "listed": true,
-          "order": 30,
-          "source": "blackhope01/cloudstream-plugins",
-          "source_cell": "[blackhope01/cloudstream-plugins](https://github.com/blackhope01/cloudstream-plugins)",
-          "site_cell": "[webteizle](https://webteizle.site)",
-          "domain": "webteizle",
-          "version": "1",
-          "kaynak_tarih": "2026-09-16",
-          "bizim_tarih": "2026-09-16",
-          "not": "",
-          "secim": "duplicate"
-        },
-        {
-          "name": "Webteizle",
-          "listed": true,
-          "order": 0,
-          "source": "lepotane/MRC-builds",
-          "source_cell": "[lepotane/MRC-builds](https://github.com/lepotane/MRC-builds)",
-          "site_cell": "[raw.githubusercontent.com](https://raw.githubusercontent.com/lepotane/MRC-builds/builds/Webteizle.cs3)",
-          "domain": "raw.githubusercontent.com",
-          "version": "2",
-          "kaynak_tarih": "2026-09-16",
-          "bizim_tarih": "2026-09-16",
-          "not": "",
-          "secim": "aktif"
-        }
-      ]
-    },
-    "webteızle": {
       "name": "WebteIzle",
       "candidates": [
         {
@@ -2077,6 +2064,20 @@
           "bizim_tarih": "2026-09-16",
           "not": "",
           "secim": "aktif"
+        },
+        {
+          "name": "Webteizle",
+          "listed": true,
+          "order": 30,
+          "source": "blackhope01/cloudstream-plugins",
+          "source_cell": "[blackhope01/cloudstream-plugins](https://github.com/blackhope01/cloudstream-plugins)",
+          "site_cell": "[webteizle](https://webteizle.site)",
+          "domain": "webteizle",
+          "version": "1",
+          "kaynak_tarih": "2026-09-16",
+          "bizim_tarih": "2026-09-16",
+          "not": "",
+          "secim": "duplicate"
         }
       ]
     },
@@ -2217,24 +2218,6 @@
           "bizim_tarih": null,
           "secim": "istenmeyen",
           "not": "tr Torrent"
-        }
-      ]
-    },
-    "ınatbox": {
-      "name": "InatBox",
-      "candidates": [
-        {
-          "name": "InatBox",
-          "listed": false,
-          "source": "feroxx/Kekik-cloudstream",
-          "source_cell": "[feroxx/Kekik-cloudstream](https://github.com/feroxx/Kekik-cloudstream)",
-          "site_cell": "[blogger.googleusercontent.com](https://blogger.googleusercontent.com)",
-          "domain": "blogger.googleusercontent.com",
-          "version": null,
-          "kaynak_tarih": null,
-          "bizim_tarih": null,
-          "secim": "istenmeyen",
-          "not": "tr Movie,TvSeries,Live"
         }
       ]
     },

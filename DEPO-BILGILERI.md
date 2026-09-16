@@ -81,7 +81,7 @@ Her `plugins.json` kaydı: `.cs3` dosya adresi, SHA-256 `fileHash`, `fileSize`, 
 Eskiden kullanılan / hiç kullanılmayan kaynaklar:
 - `Kraptor123/cs-kraptor` — **KAPANDI.** Depo sıfırlandı, README'de "desteği kesmiş bulunuyorum" ibaresi var; tüm `.cs3` dosyaları 404 veriyor. Bu kaynaktan gelen 29 eklenti listeden çıkarıldı; bazıları Feroxx deposundaki canlı sürümleriyle listede.
 - `NivinCNC/CNCVerse-Cloud-Stream-Extension` — `CricifyProvider` (canlı spor) bu kaynaktan geliyordu; kullanıcı canlı spor istemediği için eklenti yok.
-- `Kraptor123/Cs-Karma` — `Streamed` (canlı spor) bu kaynaktan geliyordu; kullanıcı istemedi. Kaynaktan yalnızca `Full4kizle` kaldı.
+- `Kraptor123/Cs-Karma` — `Streamed` için eski kaldırma kararı kullanıcı istisnasıyla geçersiz kılındı; artık aktif ve canlı içerik istisnası olarak korunuyor.
 - `Kraptor123/Cs-GizliKeyif` — tamamı +18 NSFW içerikliydi (108 kayıt; NSFW olmayan kayıt yok), hiç eklenmedi.
 - `sarapcanagii/*` — `NeonSpor` (canlı) bu kaynaktan gelmişti; kullanıcı istemedi.
 - `ByAyzen/AyzenCS3` — `Syncler`, `Torrential` bu kaynaktan geliyordu; kişisel tercihle silindi.
@@ -218,15 +218,8 @@ Bu bölüm 2026-08-28'de üretildi; 2026-09-05'te 45 satırın Kaynak/Bizim Tari
 Aynı isim/kökten farklı kaynaklarda gelen kayıtlar `Seçim` ile izlenir: her gruptan 1 tanesi `plugins.json`'da yer alır (`Aktif`); diğerleri `Duplicate`'tir. `status` bilgisi kaynağa aittir, tabloda izlenmez — kaynak ne yayınlıyorsa `plugins.json`'a aynen yansır.
 Toplam kayıt: 87. Tablo `registry.json`'dan üretilir (`<!-- KAYIT-DURUMU:OTOMATIK-BASLANGIC -->
 <!-- KAYIT-DURUMU:OTOMATIK-BASLANGIC -->
-<!-- KAYIT-DURUMU:OTOMATIK-BASLANGIC -->
-<!-- KAYIT-DURUMU:OTOMATIK-BASLANGIC -->
 | # | Eklenti | Kaynak | Site (domain) | v | Kaynak Tarih | Bizim Tarih | Seçim | Not |
 |---|---|---|---|---|---|---|---|---|
-| 0 | DiziLife | [lepotane/MRC-builds](https://github.com/lepotane/MRC-builds) | [raw.githubusercontent.com](https://raw.githubusercontent.com/lepotane/MRC-builds/builds/DiziLife.cs3) | 1 | 2026-09-16 | 2026-09-16 | Aktif |  |
-| 0 | DiziYo | [lepotane/MRC-builds](https://github.com/lepotane/MRC-builds) | [raw.githubusercontent.com](https://raw.githubusercontent.com/lepotane/MRC-builds/builds/DiziYo.cs3) | 5 | 2026-09-16 | 2026-09-16 | Aktif |  |
-| 0 | FilmEkseni | [lepotane/MRC-builds](https://github.com/lepotane/MRC-builds) | [raw.githubusercontent.com](https://raw.githubusercontent.com/lepotane/MRC-builds/builds/FilmEkseni.cs3) | 1 | 2026-09-16 | 2026-09-16 | Aktif |  |
-| 0 | LoveFilm | [lepotane/MRC-builds](https://github.com/lepotane/MRC-builds) | [raw.githubusercontent.com](https://raw.githubusercontent.com/lepotane/MRC-builds/builds/LoveFilm.cs3) | 2 | 2026-09-16 | 2026-09-16 | Aktif |  |
-| 0 | Webteizle | [lepotane/MRC-builds](https://github.com/lepotane/MRC-builds) | [raw.githubusercontent.com](https://raw.githubusercontent.com/lepotane/MRC-builds/builds/Webteizle.cs3) | 2 | 2026-09-16 | 2026-09-16 | Aktif |  |
 | 1 | AltiYuzAltmisAltiFilmIzle | [ilkelkullanici/ilkel-cloudstream](https://github.com/ilkelkullanici/ilkel-cloudstream) | [altiyuzaltmisaltifilmizle](https://altiyuzaltmisaltifilmizle.site) | 1 | 2026-09-16 | 2026-09-16 | Aktif |  |
 | 1 | DiziGom | [lepotane/MRC-builds](https://github.com/lepotane/MRC-builds) | [dizigom.site](https://dizigom.site) | 3 | 2026-09-16 | 2026-09-16 | Aktif |  |
 | 2 | Ddizi | [feroxx/Kekik-cloudstream](https://github.com/feroxx/Kekik-cloudstream) | [ddizi](https://ddizi.site) | 22 | 2026-09-16 | 2026-09-16 | Aktif |  |
@@ -275,6 +268,12 @@ Toplam kayıt: 87. Tablo `registry.json`'dan üretilir (`<!-- KAYIT-DURUMU:OTOMA
 | 29 | WebteIzle | [feroxx/Kekik-cloudstream](https://github.com/feroxx/Kekik-cloudstream) | [webteizle](https://webteizle.site) | 21 | 2026-09-16 | 2026-09-16 | Aktif |  |
 | 30 | Webteizle | [blackhope01/cloudstream-plugins](https://github.com/blackhope01/cloudstream-plugins) | [webteizle](https://webteizle.site) | 1 | 2026-09-16 | 2026-09-16 | Duplicate |  |
 | 31 | OwnedSites | [Ripplay/cloudstream-repo](https://github.com/Ripplay/cloudstream-repo) | [dizibal.com](https://dizibal.com) | 2 | 2026-08-24 | 2026-08-24 | Aktif | Paket sağlayıcı: TrDiziİzle, DiziBal, DiziRella, DiziBol, FilmIzzle, LiderFilmİzle ve DiziFilmİzle |
+| 101 | DiziLife | [lepotane/MRC-builds](https://github.com/lepotane/MRC-builds) | [dizilife.site](https://dizilife.site) | 1 | 2026-09-17 | 2026-09-17 | Aktif |  |
+| 102 | DiziYo | [lepotane/MRC-builds](https://github.com/lepotane/MRC-builds) | [diziyo.site](https://diziyo.site) | 5 | 2026-09-17 | 2026-09-17 | Aktif |  |
+| 103 | FilmEkseni | [lepotane/MRC-builds](https://github.com/lepotane/MRC-builds) | [filmekseni.site](https://filmekseni.site) | 1 | 2026-09-17 | 2026-09-17 | Aktif |  |
+| 104 | InatBox | [feroxx/Kekik-cloudstream](https://github.com/feroxx/Kekik-cloudstream) | [inatbox.site](https://inatbox.site) | 30 | 2026-09-17 | 2026-09-17 | Aktif | Kullanici istisnasi |
+| 105 | LoveFilm | [lepotane/MRC-builds](https://github.com/lepotane/MRC-builds) | [lovefilm.site](https://lovefilm.site) | 2 | 2026-09-17 | 2026-09-17 | Aktif |  |
+| 106 | Streamed | [lepotane/MRC-builds](https://github.com/lepotane/MRC-builds) | [streamed.site](https://streamed.site) | 1 | 2026-09-17 | 2026-09-17 | Aktif | Kullanici istisnasi |
 <!-- KAYIT-DURUMU:OTOMATIK-SON -->
 
 ## İstenmeyenler (Delete-Zone) - 70 unique
@@ -314,7 +313,6 @@ Toplam kayıt: 87. Tablo `registry.json`'dan üretilir (`<!-- KAYIT-DURUMU:OTOMA
 | 🟥 GinikoCanli | [aytzey/cs-kraptor](https://github.com/aytzey/cs-kraptor) | [www.giniko.com](https://www.giniko.com) | tr | Live |
 | 🟥 Gnulahd | [Kraptor123/Cs-Karma](https://github.com/Kraptor123/Cs-Karma) | [ww3.gnulahd.nu](https://ww3.gnulahd.nu) | mx | Movie,Anime,TvSeries |
 | 🟥 Henaojara | [Kraptor123/Cs-Karma](https://github.com/Kraptor123/Cs-Karma) | [ww1.henaojara.net](https://ww1.henaojara.net) | mx | Anime,AnimeMovie |
-| 🟥 InatBox | [feroxx/Kekik-cloudstream](https://github.com/feroxx/Kekik-cloudstream) | [blogger.googleusercontent.com](https://blogger.googleusercontent.com) | tr | Movie,TvSeries,Live |
 | 🟥 Iwatchtheoffice | [Kraptor123/Cs-Karma](https://github.com/Kraptor123/Cs-Karma) | [iwatchtheoffice.cc](https://iwatchtheoffice.cc) | en | Movie |
 | 🟥 JPFilms | [Kraptor123/Cs-Karma](https://github.com/Kraptor123/Cs-Karma) | [jp-films.com](https://jp-films.com) | en | AsianDrama |
 | 🟥 KickTR | [aytzey/cs-kraptor](https://github.com/aytzey/cs-kraptor) | [kick.com](https://kick.com) | tr | Live |
@@ -332,7 +330,6 @@ Toplam kayıt: 87. Tablo `registry.json`'dan üretilir (`<!-- KAYIT-DURUMU:OTOMA
 | 🟥 RecTV | [feroxx/Kekik-cloudstream](https://github.com/feroxx/Kekik-cloudstream) | [rectv.org.tr](https://rectv.org.tr) | tr | Movie,Live,TvSeries |
 | 🟥 SeiCode | [aytzey/cs-kraptor](https://github.com/aytzey/cs-kraptor) | [seicode.net](https://seicode.net) | tr | Anime |
 | 🟥 Sokuja | [Kraptor123/Cs-Karma](https://github.com/Kraptor123/Cs-Karma) | [x6.sokuja.uk](https://x6.sokuja.uk) | id | Anime,AnimeMovie |
-| 🟥 Streamed | [Kraptor123/Cs-Karma](https://github.com/Kraptor123/Cs-Karma) | [streamed.pk](https://streamed.pk) | en | Live |
 | 🟥 Subsplease | [Kraptor123/Cs-Karma](https://github.com/Kraptor123/Cs-Karma) | [subsplease.org](https://subsplease.org) | en | Anime |
 | 🟥 Supercartoons | [Kraptor123/Cs-Karma](https://github.com/Kraptor123/Cs-Karma) | [i.imgur.com](https://i.imgur.com) | en | Cartoon |
 | 🟥 TLCtr | [feroxx/Kekik-cloudstream](https://github.com/feroxx/Kekik-cloudstream) | [tlctv.com.tr](https://tlctv.com.tr) | tr | Movie |

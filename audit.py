@@ -42,10 +42,19 @@ API = 'https://api.github.com'
 RAW = 'https://raw.githubusercontent.com/%s/builds/plugins.json'
 UA = 'Mozilla/5.0 (ozel-liste-audit)'
 ALLOWED_TV = {'Movie', 'TvSeries', 'Documentary'}
+# Kullanici istisnalari: normal filtre/delete-zone kurallari bu adlar icin
+# uygulanmaz. Kaynakta yayinlandiklari surece mirror edilirler.
+EXCEPTIONS = {'inatbox', 'streamed'}
 
 
 def norm(s):
-    return (s or '').replace('İ', 'i').replace('I', 'ı').casefold()
+    value = (s or '').replace('İ', 'i').replace('I', 'ı').casefold()
+    # Kaynaklar WebteIzle/InatBox adlarini buyuk I ile de yayinliyor.
+    if value in {'webteizle', 'webteızle'}:
+        return 'webteizle'
+    if value in {'inatbox', 'ınatbox'}:
+        return 'inatbox'
+    return value
 
 
 def token():
@@ -206,7 +215,7 @@ def main():
         kazananlar = sorted([g for g in grp if g[2] == top_tarih], key=lambda g: g[0])
         cur = listed_by_norm.get(key)
         if cur:
-            if key in banned:
+            if key in banned and key not in EXCEPTIONS:
                 # YASAKLI-IHLAL: delete-zone'daki kayit plugins.json'da kalmis.
                 # Flip uygulanmaz; listeden cikarma insan karari bekler.
                 ihlal.append('%s yasakli ama plugins.json\'da duruyor (listeden cikarilmali)' % cur.get('internalName'))
@@ -224,12 +233,12 @@ def main():
             elif top_tarih > cur_tarih:
                 flips.append((cur, kazananlar[0]))
         else:
-            if key in banned:
+            if key in banned and key not in EXCEPTIONS:
                 guard.append('%s yasakli, kaynaklarda goruldu ama eleniyor' % grp[0][1].get('internalName'))
                 continue
             repo, it, tarih = kazananlar[0]
             tv = set(it.get('tvTypes', []))
-            if it.get('language') == 'tr' and tv and tv <= ALLOWED_TV:
+            if key in EXCEPTIONS or (it.get('language') == 'tr' and tv and tv <= ALLOWED_TV):
                 yeniler.append((repo, it, tarih))
             else:
                 elenen_yeni.append('%s (%s): dil=%s tur=%s' % (it.get('internalName'), repo, it.get('language'), sorted(tv)))
