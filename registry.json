@@ -56,42 +56,6 @@
         }
       ]
     },
-    "animeler": {
-      "name": "Animeler",
-      "candidates": [
-        {
-          "name": "Animeler",
-          "listed": false,
-          "source": "aytzey/cs-kraptor",
-          "source_cell": "[aytzey/cs-kraptor](https://github.com/aytzey/cs-kraptor)",
-          "site_cell": "[animeler.pw](https://animeler.pw)",
-          "domain": "animeler.pw",
-          "version": null,
-          "kaynak_tarih": null,
-          "bizim_tarih": null,
-          "secim": "istenmeyen",
-          "not": "tr Anime"
-        }
-      ]
-    },
-    "animely": {
-      "name": "Animely",
-      "candidates": [
-        {
-          "name": "Animely",
-          "listed": false,
-          "source": "aytzey/cs-kraptor",
-          "source_cell": "[aytzey/cs-kraptor](https://github.com/aytzey/cs-kraptor)",
-          "site_cell": "[play-lh.googleusercontent.com](https://play-lh.googleusercontent.com)",
-          "domain": "play-lh.googleusercontent.com",
-          "version": null,
-          "kaynak_tarih": null,
-          "bizim_tarih": null,
-          "secim": "istenmeyen",
-          "not": "tr Anime,AnimeMovie,OVA"
-        }
-      ]
-    },
     "animeworld": {
       "name": "AnimeWorld",
       "candidates": [
@@ -128,42 +92,6 @@
         }
       ]
     },
-    "animpow": {
-      "name": "AnimPow",
-      "candidates": [
-        {
-          "name": "AnimPow",
-          "listed": false,
-          "source": "aytzey/cs-kraptor",
-          "source_cell": "[aytzey/cs-kraptor](https://github.com/aytzey/cs-kraptor)",
-          "site_cell": "[animpow.com](https://animpow.com)",
-          "domain": "animpow.com",
-          "version": null,
-          "kaynak_tarih": null,
-          "bizim_tarih": null,
-          "secim": "istenmeyen",
-          "not": "tr Anime"
-        }
-      ]
-    },
-    "anizium": {
-      "name": "Anizium",
-      "candidates": [
-        {
-          "name": "Anizium",
-          "listed": false,
-          "source": "aytzey/cs-kraptor",
-          "source_cell": "[aytzey/cs-kraptor](https://github.com/aytzey/cs-kraptor)",
-          "site_cell": "[anizium.co](https://anizium.co)",
-          "domain": "anizium.co",
-          "version": null,
-          "kaynak_tarih": null,
-          "bizim_tarih": null,
-          "secim": "istenmeyen",
-          "not": "tr AnimeMovie,Anime"
-        }
-      ]
-    },
     "asyaanimeleri": {
       "name": "AsyaAnimeleri",
       "candidates": [
@@ -182,50 +110,14 @@
         }
       ]
     },
-    "asyafanatiklerim": {
-      "name": "AsyaFanatiklerim",
-      "candidates": [
-        {
-          "name": "AsyaFanatiklerim",
-          "listed": false,
-          "source": "aytzey/cs-kraptor",
-          "source_cell": "[aytzey/cs-kraptor](https://github.com/aytzey/cs-kraptor)",
-          "site_cell": "[asyafanatiklerim.com](https://asyafanatiklerim.com)",
-          "domain": "asyafanatiklerim.com",
-          "version": null,
-          "kaynak_tarih": null,
-          "bizim_tarih": null,
-          "secim": "istenmeyen",
-          "not": "tr AsianDrama"
-        }
-      ]
-    },
-    "asyaminik": {
-      "name": "AsyaMinik",
-      "candidates": [
-        {
-          "name": "AsyaMinik",
-          "listed": false,
-          "source": "aytzey/cs-kraptor",
-          "source_cell": "[aytzey/cs-kraptor](https://github.com/aytzey/cs-kraptor)",
-          "site_cell": "[asyaminik.com](https://asyaminik.com)",
-          "domain": "asyaminik.com",
-          "version": null,
-          "kaynak_tarih": null,
-          "bizim_tarih": null,
-          "secim": "istenmeyen",
-          "not": "tr AsianDrama"
-        }
-      ]
-    },
     "asyawatch": {
       "name": "AsyaWatch",
       "candidates": [
         {
           "name": "AsyaWatch",
           "listed": false,
-          "source": "aytzey/cs-kraptor",
-          "source_cell": "[aytzey/cs-kraptor](https://github.com/aytzey/cs-kraptor)",
+          "source": "lepotane/MRC-builds",
+          "source_cell": "[lepotane/MRC-builds](https://github.com/lepotane/MRC-builds)",
           "site_cell": "[asyawatch.com](https://asyawatch.com)",
           "domain": "asyawatch.com",
           "version": null,
@@ -272,24 +164,6 @@
         }
       ]
     },
-    "cizgivedizi": {
-      "name": "CizgiveDizi",
-      "candidates": [
-        {
-          "name": "CizgiveDizi",
-          "listed": false,
-          "source": "aytzey/cs-kraptor",
-          "source_cell": "[aytzey/cs-kraptor](https://github.com/aytzey/cs-kraptor)",
-          "site_cell": "[cizgivedizi.com](https://cizgivedizi.com)",
-          "domain": "cizgivedizi.com",
-          "version": null,
-          "kaynak_tarih": null,
-          "bizim_tarih": null,
-          "secim": "istenmeyen",
-          "not": "tr Cartoon"
-        }
-      ]
-    },
     "ddizi": {
       "name": "Ddizi",
       "candidates": [
@@ -306,42 +180,6 @@
           "bizim_tarih": "2026-09-16",
           "not": "",
           "secim": "aktif"
-        }
-      ]
-    },
-    "diziasia": {
-      "name": "DiziAsia",
-      "candidates": [
-        {
-          "name": "DiziAsia",
-          "listed": false,
-          "source": "aytzey/cs-kraptor",
-          "source_cell": "[aytzey/cs-kraptor](https://github.com/aytzey/cs-kraptor)",
-          "site_cell": "[diziasia.com](https://diziasia.com)",
-          "domain": "diziasia.com",
-          "version": null,
-          "kaynak_tarih": null,
-          "bizim_tarih": null,
-          "secim": "istenmeyen",
-          "not": "tr AsianDrama"
-        }
-      ]
-    },
-    "diziasya": {
-      "name": "DiziAsya",
-      "candidates": [
-        {
-          "name": "DiziAsya",
-          "listed": false,
-          "source": "aytzey/cs-kraptor",
-          "source_cell": "[aytzey/cs-kraptor](https://github.com/aytzey/cs-kraptor)",
-          "site_cell": "[www.diziasya.com](https://www.diziasya.com)",
-          "domain": "www.diziasya.com",
-          "version": null,
-          "kaynak_tarih": null,
-          "bizim_tarih": null,
-          "secim": "istenmeyen",
-          "not": "tr AsianDrama"
         }
       ]
     },
@@ -935,8 +773,8 @@
         {
           "name": "Filmzal",
           "listed": false,
-          "source": "aytzey/cs-kraptor",
-          "source_cell": "[aytzey/cs-kraptor](https://github.com/aytzey/cs-kraptor)",
+          "source": "lepotane/MRC-builds",
+          "source_cell": "[lepotane/MRC-builds](https://github.com/lepotane/MRC-builds)",
           "site_cell": "[filmzal.me](https://filmzal.me)",
           "domain": "filmzal.me",
           "version": null,
@@ -1074,24 +912,6 @@
           "bizim_tarih": null,
           "secim": "istenmeyen",
           "not": "en Movie"
-        }
-      ]
-    },
-    "ginikocanli": {
-      "name": "GinikoCanli",
-      "candidates": [
-        {
-          "name": "GinikoCanli",
-          "listed": false,
-          "source": "aytzey/cs-kraptor",
-          "source_cell": "[aytzey/cs-kraptor](https://github.com/aytzey/cs-kraptor)",
-          "site_cell": "[www.giniko.com](https://www.giniko.com)",
-          "domain": "www.giniko.com",
-          "version": null,
-          "kaynak_tarih": null,
-          "bizim_tarih": null,
-          "secim": "istenmeyen",
-          "not": "tr Live"
         }
       ]
     },
@@ -1259,7 +1079,7 @@
           "version": "30",
           "kaynak_tarih": "2026-09-17",
           "bizim_tarih": "2026-09-17",
-          "not": "Kullanici istisnasi",
+          "not": "",
           "secim": "aktif"
         }
       ]
@@ -1298,24 +1118,6 @@
           "bizim_tarih": null,
           "secim": "istenmeyen",
           "not": "en AsianDrama"
-        }
-      ]
-    },
-    "kicktr": {
-      "name": "KickTR",
-      "candidates": [
-        {
-          "name": "KickTR",
-          "listed": false,
-          "source": "aytzey/cs-kraptor",
-          "source_cell": "[aytzey/cs-kraptor](https://github.com/aytzey/cs-kraptor)",
-          "site_cell": "[kick.com](https://kick.com)",
-          "domain": "kick.com",
-          "version": null,
-          "kaynak_tarih": null,
-          "bizim_tarih": null,
-          "secim": "istenmeyen",
-          "not": "tr Live"
         }
       ]
     },
@@ -1460,24 +1262,6 @@
         }
       ]
     },
-    "mirrorverse": {
-      "name": "MirrorVerse",
-      "candidates": [
-        {
-          "name": "MirrorVerse",
-          "listed": false,
-          "source": "aytzey/cs-kraptor",
-          "source_cell": "[aytzey/cs-kraptor](https://github.com/aytzey/cs-kraptor)",
-          "site_cell": "[raw.githubusercontent.com](https://raw.githubusercontent.com)",
-          "domain": "raw.githubusercontent.com",
-          "version": null,
-          "kaynak_tarih": null,
-          "bizim_tarih": null,
-          "secim": "istenmeyen",
-          "not": "tr Movie,TvSeries"
-        }
-      ]
-    },
     "movix": {
       "name": "Movix",
       "candidates": [
@@ -1511,42 +1295,6 @@
           "bizim_tarih": null,
           "secim": "istenmeyen",
           "not": "ru Movie,TvSeries"
-        }
-      ]
-    },
-    "onepacetr": {
-      "name": "OnePaceTr",
-      "candidates": [
-        {
-          "name": "OnePaceTr",
-          "listed": false,
-          "source": "aytzey/cs-kraptor",
-          "source_cell": "[aytzey/cs-kraptor](https://github.com/aytzey/cs-kraptor)",
-          "site_cell": "[www.onepacetr.net](https://www.onepacetr.net)",
-          "domain": "www.onepacetr.net",
-          "version": null,
-          "kaynak_tarih": null,
-          "bizim_tarih": null,
-          "secim": "istenmeyen",
-          "not": "tr Anime"
-        }
-      ]
-    },
-    "openanime": {
-      "name": "OpenAnime",
-      "candidates": [
-        {
-          "name": "OpenAnime",
-          "listed": false,
-          "source": "aytzey/cs-kraptor",
-          "source_cell": "[aytzey/cs-kraptor](https://github.com/aytzey/cs-kraptor)",
-          "site_cell": "[openani.me](https://openani.me)",
-          "domain": "openani.me",
-          "version": null,
-          "kaynak_tarih": null,
-          "bizim_tarih": null,
-          "secim": "istenmeyen",
-          "not": "tr Anime,AnimeMovie"
         }
       ]
     },
@@ -1621,24 +1369,6 @@
           "bizim_tarih": null,
           "secim": "istenmeyen",
           "not": "tr Movie,Live,TvSeries"
-        }
-      ]
-    },
-    "seicode": {
-      "name": "SeiCode",
-      "candidates": [
-        {
-          "name": "SeiCode",
-          "listed": false,
-          "source": "aytzey/cs-kraptor",
-          "source_cell": "[aytzey/cs-kraptor](https://github.com/aytzey/cs-kraptor)",
-          "site_cell": "[seicode.net](https://seicode.net)",
-          "domain": "seicode.net",
-          "version": null,
-          "kaynak_tarih": null,
-          "bizim_tarih": null,
-          "secim": "istenmeyen",
-          "not": "tr Anime"
         }
       ]
     },
@@ -1807,7 +1537,7 @@
           "version": "1",
           "kaynak_tarih": "2026-09-17",
           "bizim_tarih": "2026-09-17",
-          "not": "Kullanici istisnasi",
+          "not": "",
           "secim": "aktif"
         }
       ]
@@ -1881,24 +1611,6 @@
           "bizim_tarih": null,
           "secim": "istenmeyen",
           "not": "tr Movie,TvSeries"
-        }
-      ]
-    },
-    "tranimeızle": {
-      "name": "TrAnimeIzle",
-      "candidates": [
-        {
-          "name": "TrAnimeIzle",
-          "listed": false,
-          "source": "aytzey/cs-kraptor",
-          "source_cell": "[aytzey/cs-kraptor](https://github.com/aytzey/cs-kraptor)",
-          "site_cell": "[www.tranimeizle.io](https://www.tranimeizle.io)",
-          "domain": "www.tranimeizle.io",
-          "version": null,
-          "kaynak_tarih": null,
-          "bizim_tarih": null,
-          "secim": "istenmeyen",
-          "not": "tr Anime"
         }
       ]
     },
@@ -2036,8 +1748,8 @@
         {
           "name": "WebDramaTurkey",
           "listed": false,
-          "source": "aytzey/cs-kraptor",
-          "source_cell": "[aytzey/cs-kraptor](https://github.com/aytzey/cs-kraptor)",
+          "source": "neoser1984/cloudstream-extensions",
+          "source_cell": "[neoser1984/cloudstream-extensions](https://github.com/neoser1984/cloudstream-extensions)",
           "site_cell": "[webdramaturkey.org](https://webdramaturkey.org)",
           "domain": "webdramaturkey.org",
           "version": null,
@@ -2118,40 +1830,9 @@
         }
       ]
     },
-    "yenikaynak": {
-      "name": "YeniKaynak",
-      "candidates": [
-        {
-          "name": "YeniKaynak",
-          "listed": false,
-          "source": "aytzey/cs-kraptor",
-          "source_cell": "[aytzey/cs-kraptor](https://github.com/aytzey/cs-kraptor)",
-          "site_cell": "[www.yenikaynak.com](https://www.yenikaynak.com)",
-          "domain": "www.yenikaynak.com",
-          "version": null,
-          "kaynak_tarih": null,
-          "bizim_tarih": null,
-          "secim": "istenmeyen",
-          "not": "tr Movie,TvSeries"
-        }
-      ]
-    },
     "yesilcamtv": {
       "name": "YesilCamTv",
       "candidates": [
-        {
-          "name": "YesilCamTv",
-          "listed": false,
-          "source": "aytzey/cs-kraptor",
-          "source_cell": "[aytzey/cs-kraptor](https://github.com/aytzey/cs-kraptor)",
-          "site_cell": "[yesilcamtv.com.tr](https://yesilcamtv.com.tr)",
-          "domain": "yesilcamtv.com.tr",
-          "version": null,
-          "kaynak_tarih": null,
-          "bizim_tarih": null,
-          "secim": "istenmeyen",
-          "not": "tr Movie"
-        },
         {
           "name": "YesilCamTv",
           "listed": false,
@@ -2182,42 +1863,6 @@
           "bizim_tarih": null,
           "secim": "istenmeyen",
           "not": "en TvSeries"
-        }
-      ]
-    },
-    "youtube": {
-      "name": "Youtube",
-      "candidates": [
-        {
-          "name": "Youtube",
-          "listed": false,
-          "source": "aytzey/cs-kraptor",
-          "source_cell": "[aytzey/cs-kraptor](https://github.com/aytzey/cs-kraptor)",
-          "site_cell": "[www.youtube.com](https://www.youtube.com)",
-          "domain": "www.youtube.com",
-          "version": null,
-          "kaynak_tarih": null,
-          "bizim_tarih": null,
-          "secim": "istenmeyen",
-          "not": "tr Movie,Live,Music,TvSeries"
-        }
-      ]
-    },
-    "yts": {
-      "name": "YTS",
-      "candidates": [
-        {
-          "name": "YTS",
-          "listed": false,
-          "source": "aytzey/cs-kraptor",
-          "source_cell": "[aytzey/cs-kraptor](https://github.com/aytzey/cs-kraptor)",
-          "site_cell": "[en.yts-official.mx](https://en.yts-official.mx)",
-          "domain": "en.yts-official.mx",
-          "version": null,
-          "kaynak_tarih": null,
-          "bizim_tarih": null,
-          "secim": "istenmeyen",
-          "not": "tr Torrent"
         }
       ]
     },

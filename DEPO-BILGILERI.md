@@ -2,8 +2,8 @@
 Bu depo test CloudStream deposudur; yalnızca Türkçe film/dizi eklentilerini ve test seçtiği kaynakları barındırır. Canlı yayın, NSFW ve yabancı dil içerikli eklentiler kullanıcı tercihi gereği listeye alınmamıştır.
 
 ## Durum
-- **Son doğrulama:** 2026-09-16 · **39 eklenti**; indirilebilir, hash/boyut doğrulanmış. `status` dahil tüm alanlar kaynak `builds/plugins.json`'lardan birebir yansıtılır (Pure Mirror); bu depo `status` kararı vermez, site canlılığı takibi yapmaz. Kaynakta bulunamayan kayıt listeden silinir, korunmaz.
-- **Doğrulama kanıtı (2026-09-16 + Pure Mirror senkronu):** 40 `.cs3` tek tek indirildi → **39/40 SHA-256 + boyut + ZIP bütünlüğü doğrulandı**; `Full4kizle` kaynak `plugins.json`'ından düştüğü için Pure Mirror gereği listeden silindi (39 kayıt kaldı). `plugins.json` ↔ `Tüm Repolar` tablosu kaynak repo bazında birebir uyumlu; `Tüm Repolar` 87 satır; `registry.py --check` temiz (0 çelişki).
+- **Son doğrulama:** 2026-09-17 · katalog güncellendi; indirilebilir `.cs3` kayıtları hash/boyut doğrulanarak senkronize edilir. `status` dahil kaynak alanları Pure Mirror kuralıyla korunur.
+- **Doğrulama kanıtı:** 2026-09-17 · 404 kaynak temizliği ve katalog/registry senkronu tamamlandı; `update.py --check`, `registry.py --check` ve `audit.py --check` ile doğrulandı.
 - **Delete-zone:** silinen eklentiler yeniden eklenmez (bkz. Silinen Eklentiler)
 
 ## Kurulum
@@ -79,7 +79,6 @@ Her `plugins.json` kaydı: `.cs3` dosya adresi, SHA-256 `fileHash`, `fileSize`, 
 > **Not:** Kaynak repo bazında dağılım için bkz. **'Tüm Repolar - Alfabetik Liste'** tablosu (en güncel, tek kaynak). Bu özet tablo çift bakım yükü ve tutarsızlık riski nedeniyle kaldırıldı.
 
 Eskiden kullanılan / hiç kullanılmayan kaynaklar:
-- `Kraptor123/cs-kraptor` — **KAPANDI.** Depo sıfırlandı, README'de "desteği kesmiş bulunuyorum" ibaresi var; tüm `.cs3` dosyaları 404 veriyor. Bu kaynaktan gelen 29 eklenti listeden çıkarıldı; bazıları Feroxx deposundaki canlı sürümleriyle listede.
 - `NivinCNC/CNCVerse-Cloud-Stream-Extension` — `CricifyProvider` (canlı spor) bu kaynaktan geliyordu; kullanıcı canlı spor istemediği için eklenti yok.
 - `Kraptor123/Cs-Karma` — `Streamed` için eski kaldırma kararı kullanıcı istisnasıyla geçersiz kılındı; artık aktif ve canlı içerik istisnası olarak korunuyor.
 - `Kraptor123/Cs-GizliKeyif` — tamamı +18 NSFW içerikliydi (108 kayıt; NSFW olmayan kayıt yok), hiç eklenmedi.
@@ -213,10 +212,12 @@ CloudStream tarafında depo yenilendiğinde yeni liste otomatik çekilir. Kaynak
 
 ## Tüm Repolar - Alfabetik Liste
 
-Bu bölüm 2026-08-28'de üretildi; 2026-09-05'te 45 satırın Kaynak/Bizim Tarih'i Tarih Takip Kuralı'na göre güncellendi; 2026-09-15'te 18 eklenti senkronize edildi (aytzey 09-08 domain-rewrite bump, feroxx 09-15 rebuild, blackhope 09-07 build, plt-stream 09-14), tüm feroxx/aytzey/blackhope/plt satırlarının Kaynak/Bizim Tarih'i eşitlendi — tüm kaynak repolardaki 87 eklenti (İstenmeyenler ve ozel-liste hariç) alfabetik, site domain ve durum bilgisiyle.
+Bu bölüm 2026-09-17 tarihinde `registry.json` ve `plugins.json` üzerinden yeniden oluşturuldu. Liste, aktif ve duplicate kaynakları birlikte gösterir; 404 kaynak kayıtları katalogdan çıkarılmıştır.
 
-Aynı isim/kökten farklı kaynaklarda gelen kayıtlar `Seçim` ile izlenir: her gruptan 1 tanesi `plugins.json`'da yer alır (`Aktif`); diğerleri `Duplicate`'tir. `status` bilgisi kaynağa aittir, tabloda izlenmez — kaynak ne yayınlıyorsa `plugins.json`'a aynen yansır.
-Toplam kayıt: 87. Tablo `registry.json`'dan üretilir (`<!-- KAYIT-DURUMU:OTOMATIK-BASLANGIC -->
+Aynı normalize ada sahip kayıtlar tek grup olarak değerlendirilir. En güncel kaynak `Aktif`, diğer kaynaklar `Duplicate` olarak gösterilir. `status` alanı kaynak manifestinden Pure Mirror kuralıyla alınır.
+
+Toplam satır: 54 · Aktif: 49 · Duplicate: 5.
+
 <!-- KAYIT-DURUMU:OTOMATIK-BASLANGIC -->
 | # | Eklenti | Kaynak | Site (domain) | v | Kaynak Tarih | Bizim Tarih | Seçim | Not |
 |---|---|---|---|---|---|---|---|---|
@@ -271,32 +272,22 @@ Toplam kayıt: 87. Tablo `registry.json`'dan üretilir (`<!-- KAYIT-DURUMU:OTOMA
 | 101 | DiziLife | [lepotane/MRC-builds](https://github.com/lepotane/MRC-builds) | [dizilife.site](https://dizilife.site) | 1 | 2026-09-17 | 2026-09-17 | Aktif |  |
 | 102 | DiziYo | [lepotane/MRC-builds](https://github.com/lepotane/MRC-builds) | [diziyo.site](https://diziyo.site) | 5 | 2026-09-17 | 2026-09-17 | Aktif |  |
 | 103 | FilmEkseni | [lepotane/MRC-builds](https://github.com/lepotane/MRC-builds) | [filmekseni.site](https://filmekseni.site) | 1 | 2026-09-17 | 2026-09-17 | Aktif |  |
-| 104 | InatBox | [feroxx/Kekik-cloudstream](https://github.com/feroxx/Kekik-cloudstream) | [inatbox.site](https://inatbox.site) | 30 | 2026-09-17 | 2026-09-17 | Aktif | Kullanici istisnasi |
+| 104 | InatBox | [feroxx/Kekik-cloudstream](https://github.com/feroxx/Kekik-cloudstream) | [inatbox.site](https://inatbox.site) | 30 | 2026-09-17 | 2026-09-17 | Aktif |  |
 | 105 | LoveFilm | [lepotane/MRC-builds](https://github.com/lepotane/MRC-builds) | [lovefilm.site](https://lovefilm.site) | 2 | 2026-09-17 | 2026-09-17 | Aktif |  |
-| 106 | Streamed | [lepotane/MRC-builds](https://github.com/lepotane/MRC-builds) | [streamed.site](https://streamed.site) | 1 | 2026-09-17 | 2026-09-17 | Aktif | Kullanici istisnasi |
+| 106 | Streamed | [lepotane/MRC-builds](https://github.com/lepotane/MRC-builds) | [streamed.site](https://streamed.site) | 1 | 2026-09-17 | 2026-09-17 | Aktif |  |
 <!-- KAYIT-DURUMU:OTOMATIK-SON -->
 
-## İstenmeyenler (Delete-Zone) - 70 unique
+## İstenmeyenler (Delete-Zone)
 
 | Eklenti | Kaynak Ornek | Site | Dil | Tur |
 |---------|--------------|------|-----|-----|
 | 🟥 AnimeAV | [Kraptor123/Cs-Karma](https://github.com/Kraptor123/Cs-Karma) | [animeav1.com](https://animeav1.com) | mx | Anime |
 | 🟥 AnimeciX | [feroxx/Kekik-cloudstream](https://github.com/feroxx/Kekik-cloudstream) | [animecix.tv](https://animecix.tv) | tr | Anime |
-| 🟥 Animeler | [aytzey/cs-kraptor](https://github.com/aytzey/cs-kraptor) | [animeler.pw](https://animeler.pw) | tr | Anime |
-| 🟥 Animely | [aytzey/cs-kraptor](https://github.com/aytzey/cs-kraptor) | [play-lh.googleusercontent.com](https://play-lh.googleusercontent.com) | tr | Anime,AnimeMovie,OVA |
 | 🟥 AnimeWorld | [Kraptor123/Cs-Karma](https://github.com/Kraptor123/Cs-Karma) | [www.animeworld.ac](https://www.animeworld.ac) | it | Anime |
 | 🟥 AnimeYTX | [Kraptor123/Cs-Karma](https://github.com/Kraptor123/Cs-Karma) | [animeyt.cc](https://animeyt.cc) | mx | Anime |
-| 🟥 AnimPow | [aytzey/cs-kraptor](https://github.com/aytzey/cs-kraptor) | [animpow.com](https://animpow.com) | tr | Anime |
-| 🟥 Anizium | [aytzey/cs-kraptor](https://github.com/aytzey/cs-kraptor) | [anizium.co](https://anizium.co) | tr | AnimeMovie,Anime |
 | 🟥 AsyaAnimeleri | [feroxx/Kekik-cloudstream](https://github.com/feroxx/Kekik-cloudstream) | [asyaanimeleri.top](https://asyaanimeleri.top) | tr | Anime |
-| 🟥 AsyaFanatiklerim | [aytzey/cs-kraptor](https://github.com/aytzey/cs-kraptor) | [asyafanatiklerim.com](https://asyafanatiklerim.com) | tr | AsianDrama |
-| 🟥 AsyaMinik | [aytzey/cs-kraptor](https://github.com/aytzey/cs-kraptor) | [asyaminik.com](https://asyaminik.com) | tr | AsianDrama |
-| 🟥 AsyaWatch | [aytzey/cs-kraptor](https://github.com/aytzey/cs-kraptor) | [asyawatch.com](https://asyawatch.com) | tr | AsianDrama |
 | 🟥 BelgeselX | [feroxx/Kekik-cloudstream](https://github.com/feroxx/Kekik-cloudstream) | [belgeselx.com](https://belgeselx.com) | tr | Documentary |
 | 🟥 CizgiMax | [feroxx/Kekik-cloudstream](https://github.com/feroxx/Kekik-cloudstream) | [cizgimax.online](https://cizgimax.online) | tr | Cartoon,Anime,Movie |
-| 🟥 CizgiveDizi | [aytzey/cs-kraptor](https://github.com/aytzey/cs-kraptor) | [cizgivedizi.com](https://cizgivedizi.com) | tr | Cartoon |
-| 🟥 DiziAsia | [aytzey/cs-kraptor](https://github.com/aytzey/cs-kraptor) | [diziasia.com](https://diziasia.com) | tr | AsianDrama |
-| 🟥 DiziAsya | [aytzey/cs-kraptor](https://github.com/aytzey/cs-kraptor) | [www.diziasya.com](https://www.diziasya.com) | tr | AsianDrama |
 | 🟥 DiziKorea | [feroxx/Kekik-cloudstream](https://github.com/feroxx/Kekik-cloudstream) | [dizikorea.vip](https://dizikorea.vip) | tr | AsianDrama |
 | 🟥 DocumentaryArea | [Kraptor123/Cs-Karma](https://github.com/Kraptor123/Cs-Karma) | [documentaryarea.com](https://documentaryarea.com) | en | Documentary |
 | 🟥 DoramasLatinoX | [Kraptor123/Cs-Karma](https://github.com/Kraptor123/Cs-Karma) | [doramaslatinox.com](https://doramaslatinox.com) | mx | AsianDrama |
@@ -306,49 +297,39 @@ Toplam kayıt: 87. Tablo `registry.json`'dan üretilir (`<!-- KAYIT-DURUMU:OTOMA
 | 🟥 EnglishW | [ctnkyaumt/cstest](https://github.com/ctnkyaumt/cstest) | [themoviedb.org](https://themoviedb.org) | en | Movie,TvSeries |
 | 🟥 Esheaq | [Kraptor123/Cs-Karma](https://github.com/Kraptor123/Cs-Karma) | [esk.onl](https://esk.onl) | ar | Movie,TvSeries |
 | 🟥 Filmmirasım | [Kraptor123/Cs-Karma](https://github.com/Kraptor123/Cs-Karma) | [filmmirasim.ktb.gov.tr](https://filmmirasim.ktb.gov.tr) | tr | Documentary |
-| 🟥 Filmzal | [aytzey/cs-kraptor](https://github.com/aytzey/cs-kraptor) | [filmzal.me](https://filmzal.me) | az | Movie |
 | 🟥 Flixlatam | [Kraptor123/Cs-Karma](https://github.com/Kraptor123/Cs-Karma) | [flixlatam.com](https://flixlatam.com) | mx | Movie |
 | 🟥 FootReplays | [Kraptor123/Cs-Karma](https://github.com/Kraptor123/Cs-Karma) | [www.footreplays.com](https://www.footreplays.com) | en | Others |
 | 🟥 FullRaces | [Kraptor123/Cs-Karma](https://github.com/Kraptor123/Cs-Karma) | [fullraces.com](https://fullraces.com) | en | Movie |
-| 🟥 GinikoCanli | [aytzey/cs-kraptor](https://github.com/aytzey/cs-kraptor) | [www.giniko.com](https://www.giniko.com) | tr | Live |
 | 🟥 Gnulahd | [Kraptor123/Cs-Karma](https://github.com/Kraptor123/Cs-Karma) | [ww3.gnulahd.nu](https://ww3.gnulahd.nu) | mx | Movie,Anime,TvSeries |
 | 🟥 Henaojara | [Kraptor123/Cs-Karma](https://github.com/Kraptor123/Cs-Karma) | [ww1.henaojara.net](https://ww1.henaojara.net) | mx | Anime,AnimeMovie |
 | 🟥 Iwatchtheoffice | [Kraptor123/Cs-Karma](https://github.com/Kraptor123/Cs-Karma) | [iwatchtheoffice.cc](https://iwatchtheoffice.cc) | en | Movie |
 | 🟥 JPFilms | [Kraptor123/Cs-Karma](https://github.com/Kraptor123/Cs-Karma) | [jp-films.com](https://jp-films.com) | en | AsianDrama |
-| 🟥 KickTR | [aytzey/cs-kraptor](https://github.com/aytzey/cs-kraptor) | [kick.com](https://kick.com) | tr | Live |
 | 🟥 KissKH | [Kraptor123/Cs-Karma](https://github.com/Kraptor123/Cs-Karma) | [kisskh.id](https://kisskh.id) | en | AsianDrama |
 | 🟥 Krmzy | [Kraptor123/Cs-Karma](https://github.com/Kraptor123/Cs-Karma) | [krmzy.org](https://krmzy.org) | ar | TvSeries |
 | 🟥 KultFilmler | [feroxx/Kekik-cloudstream](https://github.com/feroxx/Kekik-cloudstream) | [kultfilmler.net](https://kultfilmler.net) | tr | Movie,TvSeries |
 | 🟥 Latanime | [Kraptor123/Cs-Karma](https://github.com/Kraptor123/Cs-Karma) | [latanime.org](https://latanime.org) | mx | Movie |
 | 🟥 LayarKaca | [Kraptor123/Cs-Karma](https://github.com/Kraptor123/Cs-Karma) | [tv12.lk21official.cc](https://tv12.lk21official.cc) | id | Movie,TvSeries |
-| 🟥 MirrorVerse | [aytzey/cs-kraptor](https://github.com/aytzey/cs-kraptor) | [raw.githubusercontent.com](https://raw.githubusercontent.com) | tr | Movie,TvSeries |
 | 🟥 Movix | [Kraptor123/Cs-Karma](https://github.com/Kraptor123/Cs-Karma) | [movix.fun](https://movix.fun) | fr | Movie,TvSeries,Anime |
 | 🟥 OK | [Kraptor123/Cs-Karma](https://github.com/Kraptor123/Cs-Karma) | [ok.ru](https://ok.ru) | ru | Movie,TvSeries |
-| 🟥 OnePaceTr | [aytzey/cs-kraptor](https://github.com/aytzey/cs-kraptor) | [www.onepacetr.net](https://www.onepacetr.net) | tr | Anime |
-| 🟥 OpenAnime | [aytzey/cs-kraptor](https://github.com/aytzey/cs-kraptor) | [openani.me](https://openani.me) | tr | Anime,AnimeMovie |
 | 🟥 RareFilmm | [feroxx/Kekik-cloudstream](https://github.com/feroxx/Kekik-cloudstream) | [rarefilmm.com](https://rarefilmm.com) | en | Movie |
 | 🟥 RecTV | [feroxx/Kekik-cloudstream](https://github.com/feroxx/Kekik-cloudstream) | [rectv.org.tr](https://rectv.org.tr) | tr | Movie,Live,TvSeries |
-| 🟥 SeiCode | [aytzey/cs-kraptor](https://github.com/aytzey/cs-kraptor) | [seicode.net](https://seicode.net) | tr | Anime |
 | 🟥 Sokuja | [Kraptor123/Cs-Karma](https://github.com/Kraptor123/Cs-Karma) | [x6.sokuja.uk](https://x6.sokuja.uk) | id | Anime,AnimeMovie |
 | 🟥 Subsplease | [Kraptor123/Cs-Karma](https://github.com/Kraptor123/Cs-Karma) | [subsplease.org](https://subsplease.org) | en | Anime |
 | 🟥 Supercartoons | [Kraptor123/Cs-Karma](https://github.com/Kraptor123/Cs-Karma) | [i.imgur.com](https://i.imgur.com) | en | Cartoon |
 | 🟥 TLCtr | [feroxx/Kekik-cloudstream](https://github.com/feroxx/Kekik-cloudstream) | [tlctv.com.tr](https://tlctv.com.tr) | tr | Movie |
 | 🟥 TRasyalog | [feroxx/Kekik-cloudstream](https://github.com/feroxx/Kekik-cloudstream) | [asyalog.co](https://asyalog.co) | tr | TvSeries |
 | 🟥 TmdbProvider | [blackhope01/cloudstream-plugins](https://github.com/blackhope01/cloudstream-plugins) | [www.diziyo.so](https://www.diziyo.so) | tr | Movie,TvSeries |
-| 🟥 TrAnimeIzle | [aytzey/cs-kraptor](https://github.com/aytzey/cs-kraptor) | [www.tranimeizle.io](https://www.tranimeizle.io) | tr | Anime |
 | 🟥 TurkAnime | [feroxx/Kekik-cloudstream](https://github.com/feroxx/Kekik-cloudstream) | [www.turkanime.co](https://www.turkanime.co) | tr | Anime |
 | 🟥 TurkishW | [ctnkyaumt/cstest](https://github.com/ctnkyaumt/cstest) | [themoviedb.org](https://themoviedb.org) | tr | Movie,TvSeries,Anime,Live |
 | 🟥 UgurFilm | [ilkelkullanici/ilkel-cloudstream](https://github.com/ilkelkullanici/ilkel-cloudstream) | [ugurfilm7.com](https://ugurfilm7.com) | tr | Movie |
 | 🟥 Wcoflix | [Kraptor123/Cs-Karma](https://github.com/Kraptor123/Cs-Karma) | [www.wcoflix.tv](https://www.wcoflix.tv) | en | Anime,Cartoon |
-| 🟥 WebDramaTurkey | [aytzey/cs-kraptor](https://github.com/aytzey/cs-kraptor) | [webdramaturkey.org](https://webdramaturkey.org) | tr | AsianDrama |
 | 🟥 Yablom | [Kraptor123/Cs-Karma](https://github.com/Kraptor123/Cs-Karma) | [yablom.com](https://yablom.com) | fr | Movie |
-| 🟥 YeniKaynak | [aytzey/cs-kraptor](https://github.com/aytzey/cs-kraptor) | [www.yenikaynak.com](https://www.yenikaynak.com) | tr | Movie,TvSeries |
-| 🟥 YesilCamTv | [aytzey/cs-kraptor](https://github.com/aytzey/cs-kraptor) | [yesilcamtv.com.tr](https://yesilcamtv.com.tr) | tr | Movie |
 | 🟥 YoTurkish | [Kraptor123/Cs-Karma](https://github.com/Kraptor123/Cs-Karma) | [yoturkish.to](https://yoturkish.to) | en | TvSeries |
-| 🟥 Youtube | [aytzey/cs-kraptor](https://github.com/aytzey/cs-kraptor) | [www.youtube.com](https://www.youtube.com) | tr | Movie,Live,Music,TvSeries |
-| 🟥 YTS | [aytzey/cs-kraptor](https://github.com/aytzey/cs-kraptor) | [en.yts-official.mx](https://en.yts-official.mx) | tr | Torrent |
 | 🟥 KoreFilmizle | [neoser1984/cloudstream-extensions](https://github.com/neoser1984/cloudstream-extensions) | [korefilmizle.com](https://korefilmizle.com) | tr | Movie,TvSeries |
 | 🟥 YesilCamTv | [lepotane/MRC-builds](https://github.com/lepotane/MRC-builds) | [yesilcamtv.com.tr](https://yesilcamtv.com.tr) | tr | Movie |
+| 🟥 AsyaWatch | [lepotane/MRC-builds](https://github.com/lepotane/MRC-builds) | [asyawatch.com](https://asyawatch.com) | tr | AsianDrama |
+| 🟥 Filmzal | [lepotane/MRC-builds](https://github.com/lepotane/MRC-builds) | [filmzal.me](https://filmzal.me) | az | Movie |
+| 🟥 WebDramaTurkey | [neoser1984/cloudstream-extensions](https://github.com/neoser1984/cloudstream-extensions) | [webdramaturkey.org](https://webdramaturkey.org) | tr | AsianDrama |
 ## Yasal Uyarı ve Sorumluluk Reddi (Disclaimer)
 Bu depo kişisel arşivleme amacıyla oluşturulmuştur; hiçbir ticari amacı yoktur. Bu depo (ve GitHub sunucuları) hiçbir video, ses dosyası, medya veya telif hakkıyla korunan materyal barındırmaz, kopyalamaz veya dağıtmaz. Bu depo yalnızca internette herkese açık olarak paylaşılan üçüncü taraf eklentilerin (`.cs3`) doğrudan GitHub RAW adreslerini derleyen metin tabanlı bir JSON dizinidir ("Yalnızca Endeks"). Listelenen eklentilerin kodları, işleyişleri veya hangi web sitelerinden veri çektikleri üzerinde bu deponun hiçbir kontrolü, sahipliği veya sorumluluğu yoktur; tüm sorumluluk eklentilerin orijinal geliştiricilerine ve veriyi barındıran kaynak web sitelerine aittir. Bu depo yalnızca bağlantıları listeleyen bir köprü görevi gördüğü için telif hakkı ihlali iddialarının muhatabı değildir; içerik kaldırma talepleri (DMCA) doğrudan içerikleri sunan kaynak web sitelerine veya eklentilerin orijinal GitHub depolarına yapılmalıdır. Bu depo, 5846 sayılı Fikir ve Sanat Eserleri Kanunu ve 5651 sayılı Kanun kapsamında da eser barındırmaz, çoğaltmaz veya iletmez; yalnızca kamuya açık kaynaklardaki `.cs3` dosyalarına bağlantı sağlar. 5651 sayılı Kanunun 4. maddesinin ikinci fıkrası gereği içerik sağlayıcı, bağlantı sağladığı başkasına ait içerikten sorumlu değildir; ancak aynı maddenin istisnası saklıdır: sunuş biçiminden bağlantı verilen içeriğin benimsendiği ve kullanıcının o içeriğe ulaşmasının amaçlandığı açıkça belli ise sorumluluk doğabilir. Bu depo, listedeki hiçbir eklentiyi veya eklentilerin veri çektiği kaynakları benimsemez ve tavsiye etmez; liste salt teknik bir indekstir. Hak sahipleri 5651 sayılı Kanunun 9. maddesi uyarınca uyarı yöntemiyle bildirimde bulunursa ilgili bağlantı derhal kaldırılır.
 
