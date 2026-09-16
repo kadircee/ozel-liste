@@ -288,7 +288,7 @@ def main():
             cur['internalName'] = it.get('internalName')
             cur['name'] = it.get('name', it.get('internalName'))
         print('UYGULANDI flip %s -> %s' % (cur.get('internalName'), repo))
-    for _, (repo, it, tarih) in yeniler:
+    for repo, it, tarih in yeniler:
         try:
             blob = raw_bytes(it['url'])
             if 'sha256-' + hashlib.sha256(blob).hexdigest() != it['fileHash'] or len(blob) != it['fileSize']:
