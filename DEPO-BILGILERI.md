@@ -24,8 +24,8 @@ Kısa kod yalnızca harf/rakam/`!_-` içerebilir; `!` ile başlayanlar `py.md` s
 ```
 ozel-liste/
 ├── repo.json            → CloudStream'in açtığı depo tanımı
-├── plugins.json         → eklenti listesi (40 eklenti)
-├── registry.json        → makine-okur kayıt modeli (Seçim ekseni; Pure Mirror)
+├── plugins.json         → eklenti listesi (49 aktif eklenti)
+├── registry.json        → makine-okur kayıt modeli (54 kaynak satırı; Seçim ekseni; Pure Mirror)
 ├── registry.py          → model araçları (--sync / --check / --render [--write])
 ├── audit.py             → kaynak repoları tarih bazlı denetler (--check = rapor/varsayılan, --apply = yazar)
 ├── update.py            → kaynak depolardan güncel verileri senkronize eden script (--check / --purge dahil)
@@ -97,13 +97,13 @@ Eskiden kullanılan / hiç kullanılmayan kaynaklar:
 İki veya daha fazla kaynağın aynı güncelleme tarihine sahip olduğu durumlarda repo adına göre alfabetik sıralama yapılır ve HER ZAMAN ilk sıradaki kaynak otomatik seçilir (`audit.py` bu çözümü kendisi uygular; script durup sormaz).
 Versiyon numarası bu tie-breaker'da kriter olarak kullanılmaz — ne düşük ne yüksek versiyon tercih nedeni sayılır.
 
-**2. Tablo bakımı — `Tüm Repolar` sadece `tr` + `Movie/TvSeries/Documentary` içerir:**
-- `lang != tr` veya `tvTypes` içinde `Live/Anime/Cartoon/All/AsianDrama` olanlar otomatik `İstenmeyenler`'e gider; `Dil`/`Tur` kolonları bu yüzden kaldırıldı.
+**2. Tablo bakımı — `Tüm Repolar` tüm karşılaştırılan adayları içerir:**
+- Yeni adaylar için varsayılan filtre `language == tr` ve `tvTypes ⊆ {Movie, TvSeries, Documentary}` kuralıdır. Filtre dışı adaylar tabloya alınmaz; kalıcı olarak istenmeyen seçilenler Delete-Zone’da tutulur.
 - **İstisna — paket (çoklu-kaynak) eklentileri:** `KraptorPlus`, `Sinewix`, `Dizipod` (ve kapalı `Full4kizle`) kaynak metadata'sında `Anime/AsianDrama/Cartoon` etiketi taşır ama **bunlar anime/kategori eklentisi değildir** — bunlar sadece **bizim istisnamız** (çoklu-kaynak/paket yapısı, kullanıcı onaylı) olarak listede tutulur. Kural **yalnızca yeni adaylara** uygulanır; bu kayıtlar zaten listede olduğu için `audit.py` filtresine takılmaz ve `İstenmeyenler`'e taşınmaz.
 - `Site (domain)` her zaman `[domain](https://domain)` linkli olmalı (tıklanabilir).
 - `kadircee/ozel-liste` kaynak değil derleme olduğu için `Tüm Repolar`'da yer almaz.
 - `İstenmeyenler` metin + tablo aynı anda tutulmaz; tek tablo yeterlidir, `Silinen Eklentiler` metin listesi sadece not bırakır.
-- **Yasaklı sayısı tek doğruluk kaynağıdır:** İstenmeyenler tablosundaki satır sayısı = başlıkta yazan sayı = `audit.py` çıktısındaki `yasakli sayisi` (2026-09-15: **69**). Üçü düzenli karşılaştırılır. Başlık (`## İstenmeyenler ...`) **kendi satırında** olmalıdır; tablo satırına yapıştırılırsa GitHub başlığı render etmez ve `audit.py` yasaklı listesini bulamaz → boş liste tespit edilip **`exit 2` ile durdurulur** (sessiz geçiş yok).
+- **Yasaklı sayısı tek doğruluk kaynağıdır:** İstenmeyenler tablosundaki satır sayısı = `audit.py` çıktısındaki `yasakli sayisi` = **49** (2026-09-17). Üçü düzenli karşılaştırılır. Başlık (`## İstenmeyenler ...`) **kendi satırında** olmalıdır; tablo satırına yapıştırılırsa GitHub başlığı render etmez ve `audit.py` yasaklı listesini bulamaz → boş liste tespit edilip **`exit 2` ile durdurulur** (sessiz geçiş yok).
 
 **3. Kayıt durumu — tek eksen (Seçim):**
 Model yalnızca `Seçim` ekseninden oluşur: `Aktif` (yarışı kazandı, `plugins.json`'da) / `Duplicate` (kaybetti, dosyada yok) / `İstenmeyen` (hiç yarışa girmedi) (bkz. **Kayıt Durumu Modeli**). `status` bilgisi kaynağa bırakılmıştır — kaynak ne yayınlıyorsa (`1`, `0`, …) `update.py` ile birebir yansıtılır; bu depo site canlılığı takibi yapmaz.
@@ -145,7 +145,7 @@ python update.py            # farkları uygular, plugins.json'u günceller
 ```
 Kaynak `builds/plugins.json` adresi, listedeki `.cs3` adresinden türetilir (`https://raw.githubusercontent.com/<owner>/<repo>/builds/<Isim>.cs3` → aynı klasördeki `plugins.json`). Senkronize edilen alanlar: `status, version, fileSize, fileHash, description, authors, language, tvTypes` (Pure Mirror — kaynak ne yayınlıyorsa aynen alınır). `iconUrl` bilinçli olarak senkronize **edilmez** — bu depo ikon adreslerini normalize eder (kaynaktaki `%size%` yer tutucuları sabit `sz=128`'e çevrilir) ve kaynak güncellemesi bu düzeltmeyi geri almasın.
 
-> **Not:** Kaynak senkronu GitHub Actions ile otomatik çalışır (`.github/workflows/mirror.yml`: her gün 05:00 UTC + istenirse `workflow_dispatch` ile manuel tetikleme). Akış: `update.py` → `registry.py --sync --render --write --check` → değişiklik varsa otomatik commit+push. Yerelde elle çalıştırmak da mümkündür. Kaynakta bulunamayan kayıt `[SILINDI]` olarak listeden düşer; adresi türetilemeyen/teknik sebeple erişilemeyen kayıt `[ATLANDI]` olarak raporlanır.
+> **Not:** Kaynak senkronu GitHub Actions ile otomatik çalışır (`.github/workflows/mirror.yml`: her gün 05:00 UTC ve `workflow_dispatch` ile manuel tetikleme). Akış: `update.py` → `registry.py --sync --render --write --check` → değişiklik varsa otomatik commit+push. Yerelde elle çalıştırmak da mümkündür. Kaynakta bulunamayan kayıt `[SILINDI]` olarak listeden düşer; kaynak manifesti 404 ise audit kaynağı atlar ve aktif katalogda kayıt bırakılmaz.
 
 ## Karşılaşılan Hatalar ve Çözümleri
 | Hata | Neden | Çözüm |
@@ -170,19 +170,17 @@ Kaynak `builds/plugins.json` adresi, listedeki `.cs3` adresinden türetilir (`ht
 | jsDelivr dönüşüm formatı karışıyordu | Doğru format `cdn.jsdelivr.net/gh/<owner>/<repo>@<branch>/<path>` — `@` **repo adından sonra** gelir (branch'ten önce); `repo@branch` yazılmadığında 404 alınıyordu | Format netleştirildi: `https://cdn.jsdelivr.net/gh/kadircee/ozel-liste@main/plugins.json`; purge de aynı biçimi kullanır |
 | `git push` çıktısında kırmızı `NativeCommandError` görünüyordu | PowerShell, git'in stderr'e yazdığı ilerleme satırlarını hata sanıyor | Gerçek hata değil — çıktının sonunda `fb7f710..6aea63d main → main` görülüyorsa push başarılı demektir |
 | YAML doğrulama `ModuleNotFoundError: No module named 'yaml'` | Python'da PyYAML kurulu değildi | `python -m pip install pyyaml` ile kuruldu; doğrulama `yaml.safe_load` ile geçti |
-| YAML doğrulamada `KeyError: 'on'` | PyYAML YAML 1.1'de `on:` anahtarını bool `True`'ya çevirir (GitHub Actions YAML 1.2 kullanır ve `on`'u string kabul eder) | Gerçek hata değil; GitHub Actions bu dosyayı doğru ayrıştırır. **Not (2026-09-15):** bu kayıt geçmişe aittir — ilgili workflow dosyası bugün depoda **yoktur**, `.github/workflows` hiç commitlenmemiştir |
 | plt-stream v47→v55 + DiziPalOriginal v84→v86 + DiziMom v56→v58 hash/boyut uyuşmazlığı (2026-09-05) | Kaynak repolar güncellenmiş; listedeki eski hash/boyut CloudStream’te hash mismatch veriyordu | update.py ile senkronlandı, jsDelivr purge 5/5 OK; Dizipod authors trim koruması geri yazıldı |
 | 4 kapalı açıldı (DiziBox/DiziMom/DiziPal/FullHDFilmizlesene) + WebteIzle typo-kopyaya geçildi (2026-09-05) | Tarih Takip Kuralı: kaynaklar ilerledi, kullanıcı onayı ile açıldı/değiştirildi | 5 kayıt hash doğrulamalı senkronlandı (status 0→1 açılanlar dahil), jsDelivr purge 6/6 OK; UgurFilm yasaklıya eklendi |
 | Full4kizle kaynağın plugins.json’ından düşmüş (.cs3 404) | Cs-Karma tarafında kayıt yok | Silme yok kuralı: kayıt status:0 ile korunuyor; kaynakta yeniden belirirse update.py yakalar |
 | 18 eklenti senkronu (2026-09-15: aytzey 12 + feroxx 4 + blackhope 1 + plt 1) + DiziMom v4/Tablo v3 farki kapatildi | Kaynak repolar ilerlemis (aytzey 09-08 domain rewrite mass-bump, feroxx 09-15 rebuild, blackhope 09-07, plt 09-14); DiziFilmORG status:0 korunarak v23'e senkronlandi, Full4kizle kaynakta yok (ATLANDI, status:0 korunuyor) | update.py ile senkronlandi (Dizipod authors trim geri yazildi), jsDelivr purge 19/19 OK; DiziFilmORG kapali tutuldu, Bizim Tarih esitlendi |
 | Webteizle-group audit FLIP vermedi (2026-09-05) | blackhope Webteizle (09-03) listedeki feroxx WebteIzle (09-02)’den yeniydi ama case-farki (Izle/izle) gruplari ayirdi + listedeki kaynak grupta olmayinca script sessiz gecti | Liste blackhope’a cevrildi (hash dogrulamali); audit.py’a ORPHAN raporu eklendi, sessiz gecis kapatildi |
-| Kayıt Durumu modeli geçişi (2026-09-15): 3 satır otomatik `Duplicate`'a çekildi (FullHDFilm ilkel, SetFilmIzle ilkel/aytzey) | Bu kayıtların `plugins.json`'da karşılığı yoktu ama `Çalışmıyor` işareti taşıyordu (seçim+sağlık tek hücrede karışıyordu) | `registry.py` `Seçim`'i `plugins.json`'dan türetiyor; 3 satır Duplicate/`-` oldu; `aktif == plugins.json (40)` zorunlu |
+| Kayıt Durumu modeli geçişi (2026-09-15): 3 satır otomatik `Duplicate`'a çekildi (FullHDFilm ilkel, SetFilmIzle ilkel/aytzey) | Bu kayıtların `plugins.json`'da karşılığı yoktu ama `Çalışmıyor` işareti taşıyordu (seçim+sağlık tek hücrede karışıyordu) | `registry.py` `Seçim`'i `plugins.json`'dan türetiyor; 3 satır Duplicate/`-` oldu; `aktif == plugins.json (49)` zorunlu |
 | Üretilen `Not` hücresindeki `|` (pipe) tabloyu bölüyordu (2026-09-15) | Not metnine ayraç olarak ` \| ` yazılınca markdown hücre bölünüyor, `--sync` idempotent olmuyordu | Ayraç `;` oldu, yazımda pipe kaçışı (`/`) eklendi; idempotency testiyle doğrulandı |
 | 9 flip beklemede kalmıştı (2026-09-15 raporu) | Aktif kaynak, Tarih Takip Kuralı'na göre en yeni değildi (blackhope 09-07 tercih edilmişti); paralel oturum hazırlamış ama push etmemişti | 2026-09-16'da kaynak builds'ten hash/boyut/ZIP doğrulamalı uygulandı; 4 aytzey + 5 feroxx; Webteizle → WebteIzle CASE birleşmesi yapıldı; jsDelivr purge 10/10 OK |
 | `## İstenmeyenler` başlığı tablo satırının içine yapışmıştı (2026-09-15) | Başlık kendi satırına taşınmadan 87. satırın son hücresine yazılmıştı; GitHub başlığı render etmiyor, satır 7→8 hücreye kayıyordu, delete-zone bölümünün görünür başlığı yoktu | Başlık kendi satırına alındı; `audit.py` yasaklı listesi artık satır içi eşleşme tesadüfüne değil gerçek başlığa dayanıyor |
 | `audit.py` içindeki `guard` listesi hiç yazdırılmıyordu (2026-09-15) | Satır 138'de başlatılıp 173'te dolduruluyordu ama rapora basılmıyordu → "yasaklı, kaynakta görüldü ama elendi" sinyali sessizdi (ORPHAN'da kapatılan sessiz geçişin aynısı) | `=== YASAKLI-ELEME ===` bloğu rapora eklendi ve `--check` exit koşuluna dahil edildi |
 | `audit.py` Türkçe karakterli `.cs3` adında `'ascii' codec can't encode character '\u0131'` veriyordu (Filmmirasım) | GitHub API adresi percent-encode edilmiyordu; urllib ASCII dışı karakteri taşıyamıyor → eklenti denetim havuzundan **sessizce** düşüyor, tarihi hiç takip edilmiyordu | `percent_encode()` (update.py ile aynı mantık) `api_json`'a eklendi + `import urllib.parse` |
-| Delete-zone sayısı üç yerde üç farklıydı: tablo başlığı `79 unique`, "Tablo bakımı" maddesi `71→74`, gerçek `69` (2026-09-15) | Sayı elle yazılıyordu ve `audit.py` çıktısıyla karşılaştırılmıyordu | İkisi de **69**'a çekildi; kural eklendi: başlıktaki sayı = kırmızı (🟥) satır sayısı = `audit.py` `yasakli sayisi` |
 
 ### Önemli Not
 Repolar güncellendiğinde (yeni build yayınlandığında (GitHub uzerinden takip edilir)), Kaynak Tarih ilerlediğinde satır Tarih Takip Kuralı'na göre güncellenir: `update.py` ile senkronize edilir (`status` dahil kaynak ne yayınlıyorsa aynen alınır), `Bizim Tarih` eşitlenir.
@@ -277,7 +275,7 @@ Toplam satır: 54 · Aktif: 49 · Duplicate: 5.
 | 54 | YabanciDizi | [lepotane/MRC-builds](https://github.com/lepotane/MRC-builds) | [yabancidizi.site](https://yabancidizi.site) | 2 | 2026-09-15 | 2026-09-15 | Aktif |  |
 <!-- KAYIT-DURUMU:OTOMATIK-SON -->
 
-## İstenmeyenler (Delete-Zone)
+## İstenmeyenler (Delete-Zone) - 49 unique
 
 | Eklenti | Kaynak Ornek | Site | Dil | Tur |
 |---------|--------------|------|-----|-----|
