@@ -638,27 +638,6 @@
     "fileHash": "sha256-058109b5984882aee8b490299e742346721d0415b60a749d70f737e08872e243"
   },
   {
-    "url": "https://raw.githubusercontent.com/Ripplay/cloudstream-repo/builds/HDFilmIzle.cs3",
-    "status": 1,
-    "version": 8,
-    "name": "HDFilmIzle",
-    "internalName": "HDFilmIzle",
-    "authors": [
-      "nikyokki"
-    ],
-    "description": "HDFilmizle ile Full HD izle, 1080p kalitede Yerli ve Yabancı filmlerle Türkçe dublaj veya Altyazı olarak kesintisiz film izlemenin tadını çıkarın.",
-    "fileSize": 40634,
-    "repositoryUrl": "https://github.com/Ripplay/cloudstream-repo",
-    "language": "tr",
-    "tvTypes": [
-      "Movie",
-      "TvSeries"
-    ],
-    "iconUrl": "https://www.google.com/s2/favicons?domain=hdfilmizle.ink&sz=sz=128",
-    "apiVersion": 1,
-    "fileHash": "sha256-4e85ba57f537765f3ccda701c108151c04126d42c9dde0efaeec753695dcd89d"
-  },
-  {
     "url": "https://raw.githubusercontent.com/feroxx/Kekik-cloudstream/builds/InatBox.cs3",
     "status": 1,
     "version": 30,

@@ -55,6 +55,14 @@ def norm(s):
     return value
 
 
+def group_key(name, domain):
+    """Ayni siteyi farkli internalName kullanan kaynaklarda birlestirir."""
+    d = (domain or '').lower().strip()
+    if d and d != 'raw.githubusercontent.com':
+        return 'site:' + d
+    return 'name:' + norm(name)
+
+
 def clean_note(text):
     """Eski tek 'Durum' hucresinden serbest metni ayiklar (bastaki gosterge
     isaretleri ve durum kelimesi cikarilir; parantezli gecmis notu korunur)."""
@@ -132,12 +140,12 @@ def sync():
     idx, _ = plugins_index()
     groups = {}
     for r in liste:
-        k = norm(r['name'])
+        k = group_key(r['name'], r['domain'])
         c = {'name': r['name'], 'listed': True, 'order': r['order'], 'source': r['repo'],
              'source_cell': r['repo_cell'], 'site_cell': r['site_cell'], 'domain': r['domain'],
              'version': r['version'], 'kaynak_tarih': r['kaynak_tarih'], 'bizim_tarih': r['bizim_tarih'],
              'not': r['not']}
-        hit = [h for h in idx.get(k, []) if h['repo'] == r['repo']]
+        hit = [h for h in idx.get(norm(r['name']), []) if h['repo'] == r['repo']]
         c['secim'] = 'aktif' if hit else 'duplicate'
         groups.setdefault(k, {'name': r['name'], 'candidates': []})['candidates'].append(c)
     for z in zone:
@@ -172,7 +180,7 @@ def validate(reg):
                 conflicts.append((g['name'], aktif[0]['source'], aktif[0]['kaynak_tarih'], en))
     # kume denetimi: aktif kayitlar == plugins.json
     idx, _ = plugins_index()
-    reg_aktif = {(k, c['source']) for k, g in reg['groups'].items()
+    reg_aktif = {(norm(c['name']), c['source']) for g in reg['groups'].values()
                  for c in g['candidates'] if c['secim'] == 'aktif'}
     pj = {(k, h['repo']) for k, hs in idx.items() for h in hs}
     for key in sorted(set(pj) | set(reg_aktif)):

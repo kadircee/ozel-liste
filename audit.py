@@ -57,6 +57,32 @@ def norm(s):
     return value
 
 
+def domain_from_text(value):
+    """Bir site URL/domain metninden karsilastirma anahtari cikarir."""
+    if not value:
+        return ''
+    value = value.strip()
+    if '://' not in value:
+        value = 'https://' + value
+    try:
+        host = urllib.parse.urlsplit(value).hostname or ''
+    except ValueError:
+        return ''
+    host = host.lower().strip('.')
+    if host.startswith('www.'):
+        host = host[4:]
+    return host
+
+
+def item_domain(item):
+    """Kaynak metadata'sindaki favicon/site bilgisinden domain bulur."""
+    icon = item.get('iconUrl', '')
+    match = re.search(r'(?:domain=|url=)(https?%3A%2F%2F|https?://)?([^&"\s]+)', icon, re.I)
+    if match:
+        return domain_from_text(urllib.parse.unquote(match.group(2)))
+    return domain_from_text(icon)
+
+
 def token():
     t = os.environ.get('GITHUB_TOKEN', '').strip()
     if t:
@@ -170,6 +196,21 @@ def main():
         for m in re.finditer(r'\[.+?\]\(https://github\.com/([^/\)]+)/([^/\)]+)\)', depo):
             repos.add(m.group(1) + '/' + m.group(2))
     listed = json.load(io.open(PLUGINS_PATH, encoding='utf-8'))
+    # Mevcut tabloda elle doğrulanmış domain eşleşmeleri, farklı internalName
+    # kullanan aynı siteleri (ör. HDFilmIzle) tek yarışta birleştirir.
+    domain_by_name = {}
+    try:
+        for g in reg['groups'].values():
+            for c in g['candidates']:
+                if c.get('listed') and c.get('domain'):
+                    domain_by_name[norm(c['name'])] = domain_from_text(c['domain'])
+    except Exception:
+        pass
+
+    def site_key(item):
+        return domain_by_name.get(norm(item.get('internalName', ''))) or item_domain(item) or (
+            'name:' + norm(item.get('internalName', '')))
+
     for p in listed:
         m = re.match(r'https://raw\.githubusercontent\.com/([^/]+)/([^/]+)/builds/', p.get('url', ''))
         if m:
@@ -199,12 +240,15 @@ def main():
                 print('ATLANDI %s/%s: tarih alinamadi (%s)' % (repo, fn, ex))
                 continue
             if tarih:
-                pool.setdefault(norm(it['internalName']), []).append((repo, it, tarih))
+                pool.setdefault(site_key(it), []).append((repo, it, tarih))
     print('havuzda grup: %d' % len(pool))
 
     listed_by_norm = {}
     for p in listed:
-        listed_by_norm[norm(p.get('internalName', ''))] = p
+        listed_by_norm[site_key(p)] = p
+
+    def is_banned(item):
+        return norm(item.get('internalName', '')) in banned
 
     flips, yeniler, elenen_yeni, guard, orphan, ihlal = [], [], [], [], [], []
     for key in sorted(pool):
@@ -215,7 +259,7 @@ def main():
         kazananlar = sorted([g for g in grp if g[2] == top_tarih], key=lambda g: g[0])
         cur = listed_by_norm.get(key)
         if cur:
-            if key in banned and key not in EXCEPTIONS:
+            if is_banned(grp[0][1]) and norm(grp[0][1].get('internalName', '')) not in EXCEPTIONS:
                 # YASAKLI-IHLAL: delete-zone'daki kayit plugins.json'da kalmis.
                 # Flip uygulanmaz; listeden cikarma insan karari bekler.
                 ihlal.append('%s yasakli ama plugins.json\'da duruyor (listeden cikarilmali)' % cur.get('internalName'))
@@ -233,7 +277,7 @@ def main():
             elif top_tarih > cur_tarih:
                 flips.append((cur, kazananlar[0]))
         else:
-            if key in banned and key not in EXCEPTIONS:
+            if is_banned(grp[0][1]) and norm(grp[0][1].get('internalName', '')) not in EXCEPTIONS:
                 guard.append('%s yasakli, kaynaklarda goruldu ama eleniyor' % grp[0][1].get('internalName'))
                 continue
             repo, it, tarih = kazananlar[0]

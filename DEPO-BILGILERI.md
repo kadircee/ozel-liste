@@ -253,7 +253,7 @@ Toplam satır: 54 · Aktif: 49 · Duplicate: 5.
 | 32 | HDFilmDelisi | [feroxx/Kekik-cloudstream](https://github.com/feroxx/Kekik-cloudstream) | [hdfilmdelisi](https://hdfilmdelisi.site) | 1 | 2026-09-16 | 2026-09-16 | Aktif |  |
 | 33 | HDFilmDiziIzle | [neoser1984/cloudstream-extensions](https://github.com/neoser1984/cloudstream-extensions) | [hdfilmdiziizle.site](https://hdfilmdiziizle.site) | 1 | 2026-08-30 | 2026-08-30 | Aktif |  |
 | 34 | HDFilmizle | [neoser1984/cloudstream-extensions](https://github.com/neoser1984/cloudstream-extensions) | [hdfilmizle.site](https://hdfilmizle.site) | 1 | 2026-08-30 | 2026-08-30 | Aktif |  |
-| 35 | HDFilmIzle | [Ripplay/cloudstream-repo](https://github.com/Ripplay/cloudstream-repo) | [hdfilmizle.site](https://hdfilmizle.site) | 8 | 2026-08-24 | 2026-08-24 | Aktif |  |
+| 35 | HDFilmIzle | [Ripplay/cloudstream-repo](https://github.com/Ripplay/cloudstream-repo) | [hdfilmizle.site](https://hdfilmizle.site) | 8 | 2026-08-24 | 2026-08-24 | Duplicate |  |
 | 36 | InatBox | [feroxx/Kekik-cloudstream](https://github.com/feroxx/Kekik-cloudstream) | [inatbox.site](https://inatbox.site) | 30 | 2026-09-17 | 2026-09-17 | Aktif |  |
 | 37 | JetFilmizle | [feroxx/Kekik-cloudstream](https://github.com/feroxx/Kekik-cloudstream) | [jetfilmizle](https://jetfilmizle.site) | 47 | 2026-09-16 | 2026-09-16 | Aktif |  |
 | 38 | LoveFilm | [blackhope01/cloudstream-plugins](https://github.com/blackhope01/cloudstream-plugins) | [lovefilm](https://lovefilm.site) | 1 | 2026-09-16 | 2026-09-16 | Duplicate |  |
