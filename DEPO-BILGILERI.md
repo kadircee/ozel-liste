@@ -219,7 +219,7 @@ Toplam satır: 54 · Aktif: 49 · Duplicate: 5.
 <!-- KAYIT-DURUMU:OTOMATIK-BASLANGIC -->
 | # | Eklenti | Kaynak | Site (domain) | v | Kaynak Tarih | Bizim Tarih | Seçim | Not |
 |---|---|---|---|---|---|---|---|---|
-| 1 | AltiYuzAltmisAltiFilmIzle | [ilkelkullanici/ilkel-cloudstream](https://github.com/ilkelkullanici/ilkel-cloudstream) | [altiyuzaltmisaltifilmizle](https://altiyuzaltmisaltifilmizle.site) | 1 | 2026-09-16 | 2026-09-16 | Aktif |  |
+| 1 | AltiYuzAltmisAltiFilmIzle | [ilkelkullanici/ilkel-cloudstream](https://github.com/ilkelkullanici/ilkel-cloudstream) | [altiyuzaltmisaltifilmizle](https://altiyuzaltmisaltifilmizle.site) | 1 | 2026-09-16 | 2026-09-16 | Duplicate |  |
 | 2 | Ddizi | [feroxx/Kekik-cloudstream](https://github.com/feroxx/Kekik-cloudstream) | [ddizi](https://ddizi.site) | 22 | 2026-09-16 | 2026-09-16 | Aktif |  |
 | 3 | DiziBox | [feroxx/Kekik-cloudstream](https://github.com/feroxx/Kekik-cloudstream) | [dizibox](https://dizibox.site) | 23 | 2026-09-16 | 2026-09-16 | Aktif |  |
 | 4 | DiziGom | [lepotane/MRC-builds](https://github.com/lepotane/MRC-builds) | [dizigom.site](https://dizigom.site) | 3 | 2026-09-16 | 2026-09-16 | Aktif |  |
@@ -238,7 +238,7 @@ Toplam satır: 54 · Aktif: 49 · Duplicate: 5.
 | 17 | DiziYo | [blackhope01/cloudstream-plugins](https://github.com/blackhope01/cloudstream-plugins) | [diziyo](https://diziyo.site) | 1 | 2026-09-16 | 2026-09-16 | Duplicate |  |
 | 18 | DiziYo | [lepotane/MRC-builds](https://github.com/lepotane/MRC-builds) | [diziyo.site](https://diziyo.site) | 5 | 2026-09-17 | 2026-09-17 | Aktif |  |
 | 19 | DiziYou | [feroxx/Kekik-cloudstream](https://github.com/feroxx/Kekik-cloudstream) | [diziyou](https://diziyou.site) | 26 | 2026-09-16 | 2026-09-16 | Aktif |  |
-| 20 | FilmBip | [ilkelkullanici/ilkel-cloudstream](https://github.com/ilkelkullanici/ilkel-cloudstream) | [filmbip](https://filmbip.site) | 19 | 2026-09-16 | 2026-09-16 | Aktif |  |
+| 20 | FilmBip | [ilkelkullanici/ilkel-cloudstream](https://github.com/ilkelkullanici/ilkel-cloudstream) | [filmbip](https://filmbip.site) | 19 | 2026-09-16 | 2026-09-16 | Duplicate |  |
 | 21 | FilmEkseni | [blackhope01/cloudstream-plugins](https://github.com/blackhope01/cloudstream-plugins) | [filmekseni](https://filmekseni.site) | 1 | 2026-09-16 | 2026-09-16 | Duplicate |  |
 | 22 | FilmEkseni | [lepotane/MRC-builds](https://github.com/lepotane/MRC-builds) | [filmekseni.site](https://filmekseni.site) | 1 | 2026-09-17 | 2026-09-17 | Aktif |  |
 | 23 | FilmHane | [blackhope01/cloudstream-plugins](https://github.com/blackhope01/cloudstream-plugins) | [filmhane](https://filmhane.site) | 1 | 2026-09-16 | 2026-09-16 | Aktif |  |
