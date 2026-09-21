@@ -226,7 +226,7 @@ Toplam satır: 54 · Aktif: 49 · Duplicate: 5.
 | 5 | DiziLife | [blackhope01/cloudstream-plugins](https://github.com/blackhope01/cloudstream-plugins) | [dizilife](https://dizilife.site) | 2 | 2026-09-16 | 2026-09-16 | Duplicate |  |
 | 6 | DiziLife | [lepotane/MRC-builds](https://github.com/lepotane/MRC-builds) | [dizilife.site](https://dizilife.site) | 1 | 2026-09-17 | 2026-09-17 | Aktif |  |
 | 7 | Dizilla | [feroxx/Kekik-cloudstream](https://github.com/feroxx/Kekik-cloudstream) | [dizilla](https://dizilla.site) | 92 | 2026-09-16 | 2026-09-16 | Aktif |  |
-| 8 | DiziMag | [lepotane/MRC-builds](https://github.com/lepotane/MRC-builds) | [dizimag.site](https://dizimag.site) | 2 | 2026-09-15 | 2026-09-15 | Aktif |  |
+| 8 | DiziMag | [lepotane/MRC-builds](https://github.com/lepotane/MRC-builds) | [dizimag.site](https://dizimag.site) | 2 | 2026-09-15 | 2026-09-15 | Duplicate |  |
 | 9 | DiziMom | [feroxx/Kekik-cloudstream](https://github.com/feroxx/Kekik-cloudstream) | [dizimom](https://dizimom.site) | 58 | 2026-09-16 | 2026-09-16 | Aktif |  |
 | 10 | DiziPal | [feroxx/Kekik-cloudstream](https://github.com/feroxx/Kekik-cloudstream) | [dizipal](https://dizipal.site) | 108 | 2026-09-16 | 2026-09-16 | Aktif |  |
 | 11 | DiziPal1578 | [neoser1984/cloudstream-extensions](https://github.com/neoser1984/cloudstream-extensions) | [dizipal1578.site](https://dizipal1578.site) | 1 | 2026-08-30 | 2026-08-30 | Aktif |  |
@@ -247,7 +247,7 @@ Toplam satır: 54 · Aktif: 49 · Duplicate: 5.
 | 26 | FilmIzyon | [lepotane/MRC-builds](https://github.com/lepotane/MRC-builds) | [filmizyon.site](https://filmizyon.site) | 2 | 2026-09-15 | 2026-09-15 | Aktif |  |
 | 27 | FullHDFilm | [feroxx/Kekik-cloudstream](https://github.com/feroxx/Kekik-cloudstream) | [fullhdfilm](https://fullhdfilm.site) | 36 | 2026-09-16 | 2026-09-16 | Aktif |  |
 | 28 | FullHDFilmizlesene | [feroxx/Kekik-cloudstream](https://github.com/feroxx/Kekik-cloudstream) | [fullhdfilmizlesene](https://fullhdfilmizlesene.site) | 33 | 2026-09-16 | 2026-09-16 | Aktif |  |
-| 29 | FullHDIzle | [lepotane/MRC-builds](https://github.com/lepotane/MRC-builds) | [fullhdizle.site](https://fullhdizle.site) | 4 | 2026-09-15 | 2026-09-15 | Aktif |  |
+| 29 | FullHDIzle | [lepotane/MRC-builds](https://github.com/lepotane/MRC-builds) | [fullhdizle.site](https://fullhdizle.site) | 4 | 2026-09-15 | 2026-09-15 | Duplicate |  |
 | 30 | HDFilmCehennemi | [feroxx/Kekik-cloudstream](https://github.com/feroxx/Kekik-cloudstream) | [hdfilmcehennemi](https://hdfilmcehennemi.site) | 48 | 2026-09-16 | 2026-09-16 | Aktif |  |
 | 31 | HdFilmCehennemi2 | [lepotane/MRC-builds](https://github.com/lepotane/MRC-builds) | [hdfilmcehennemi2.site](https://hdfilmcehennemi2.site) | 2 | 2026-09-16 | 2026-09-16 | Aktif |  |
 | 32 | HDFilmDelisi | [feroxx/Kekik-cloudstream](https://github.com/feroxx/Kekik-cloudstream) | [hdfilmdelisi](https://hdfilmdelisi.site) | 1 | 2026-09-16 | 2026-09-16 | Aktif |  |
@@ -259,7 +259,7 @@ Toplam satır: 54 · Aktif: 49 · Duplicate: 5.
 | 38 | LoveFilm | [blackhope01/cloudstream-plugins](https://github.com/blackhope01/cloudstream-plugins) | [lovefilm](https://lovefilm.site) | 1 | 2026-09-16 | 2026-09-16 | Duplicate |  |
 | 39 | LoveFilm | [lepotane/MRC-builds](https://github.com/lepotane/MRC-builds) | [lovefilm.site](https://lovefilm.site) | 2 | 2026-09-17 | 2026-09-17 | Aktif |  |
 | 40 | OwnedSites | [Ripplay/cloudstream-repo](https://github.com/Ripplay/cloudstream-repo) | [dizibal.com](https://dizibal.com) | 2 | 2026-08-24 | 2026-08-24 | Aktif | Paket sağlayıcı: TrDiziİzle, DiziBal, DiziRella, DiziBol, FilmIzzle, LiderFilmİzle ve DiziFilmİzle |
-| 41 | plt-stream | [pltmustafa/plt-stream](https://github.com/pltmustafa/plt-stream) | [plt-stream](https://plt-stream.site) | 58 | 2026-09-16 | 2026-09-16 | Aktif |  |
+| 41 | plt-stream | [pltmustafa/plt-stream](https://github.com/pltmustafa/plt-stream) | [plt-stream](https://plt-stream.site) | 58 | 2026-09-16 | 2026-09-16 | Duplicate |  |
 | 42 | SelcukFlix | [feroxx/Kekik-cloudstream](https://github.com/feroxx/Kekik-cloudstream) | [selcukflix](https://selcukflix.site) | 2 | 2026-09-16 | 2026-09-16 | Aktif |  |
 | 43 | SetFilmIzle | [feroxx/Kekik-cloudstream](https://github.com/feroxx/Kekik-cloudstream) | [setfilmizle](https://setfilmizle.site) | 30 | 2026-09-16 | 2026-09-16 | Aktif |  |
 | 44 | SezonlukDizi | [feroxx/Kekik-cloudstream](https://github.com/feroxx/Kekik-cloudstream) | [sezonlukdizi](https://sezonlukdizi.site) | 9 | 2026-09-16 | 2026-09-16 | Aktif |  |

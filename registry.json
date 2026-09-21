@@ -780,7 +780,7 @@
           "kaynak_tarih": "2026-09-15",
           "bizim_tarih": "2026-09-15",
           "not": "",
-          "secim": "aktif"
+          "secim": "duplicate"
         }
       ]
     },
@@ -1179,7 +1179,7 @@
           "kaynak_tarih": "2026-09-15",
           "bizim_tarih": "2026-09-15",
           "not": "",
-          "secim": "aktif"
+          "secim": "duplicate"
         }
       ]
     },
@@ -1383,7 +1383,7 @@
           "kaynak_tarih": "2026-09-16",
           "bizim_tarih": "2026-09-16",
           "not": "",
-          "secim": "aktif"
+          "secim": "duplicate"
         }
       ]
     },
