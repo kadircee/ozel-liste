@@ -146,6 +146,8 @@ def do_purge(purge_urls):
 
 def main():
     parser = argparse.ArgumentParser(description="ozel-liste kaynak senkronizasyonu")
+    parser.add_argument("--apply", action="store_true",
+                        help="guncellemeleri uygula (varsayilan; geriye donuk acik secenek)")
     parser.add_argument("--check", action="store_true", help="yazmadan sadece farklari raporla (degisiklik varsa exit 1)")
     parser.add_argument("--purge", action="store_true", help="degisiklik olmasa bile tum eklentilerin jsDelivr cache'ini temizle")
     args = parser.parse_args()

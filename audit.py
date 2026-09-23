@@ -283,6 +283,18 @@ def main():
             repo, it, tarih = kazananlar[0]
             tv = set(it.get('tvTypes', []))
             if key in EXCEPTIONS or (it.get('language') == 'tr' and tv and tv <= ALLOWED_TV):
+                if not args.apply:
+                    try:
+                        raw_bytes(it['url'])
+                    except urllib.error.HTTPError as ex:
+                        if ex.code == 404:
+                            elenen_yeni.append('%s (%s): .cs3 404, erisilemedigi icin eklenmedi' % (
+                                it.get('internalName'), repo))
+                            continue
+                    except Exception:
+                        # Belirsiz/gecici erisim sorunlari aksiyon olarak kalir;
+                        # kontrol sessizce aday kaybetmemelidir.
+                        pass
                 yeniler.append((repo, it, tarih))
             else:
                 elenen_yeni.append('%s (%s): dil=%s tur=%s' % (it.get('internalName'), repo, it.get('language'), sorted(tv)))
