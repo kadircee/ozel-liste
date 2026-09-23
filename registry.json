@@ -625,10 +625,10 @@
           "site_cell": "[ddizi](https://ddizi.site)",
           "domain": "ddizi",
           "version": "22",
-          "kaynak_tarih": "2026-09-16",
-          "bizim_tarih": "2026-09-16",
+          "kaynak_tarih": "2026-09-22",
+          "bizim_tarih": "2026-09-22",
           "not": "",
-          "secim": "duplicate"
+          "secim": "aktif"
         },
         {
           "name": "DDizi",
@@ -642,7 +642,7 @@
           "kaynak_tarih": "2026-09-22",
           "bizim_tarih": "2026-09-22",
           "not": "",
-          "secim": "aktif"
+          "secim": "duplicate"
         }
       ]
     },
@@ -677,10 +677,10 @@
           "site_cell": "[dizibox](https://dizibox.site)",
           "domain": "dizibox",
           "version": "23",
-          "kaynak_tarih": "2026-09-16",
-          "bizim_tarih": "2026-09-16",
+          "kaynak_tarih": "2026-09-22",
+          "bizim_tarih": "2026-09-22",
           "not": "",
-          "secim": "duplicate"
+          "secim": "aktif"
         },
         {
           "name": "DiziBox",
@@ -694,7 +694,7 @@
           "kaynak_tarih": "2026-09-22",
           "bizim_tarih": "2026-09-22",
           "not": "",
-          "secim": "aktif"
+          "secim": "duplicate"
         }
       ]
     },
@@ -767,10 +767,10 @@
           "site_cell": "[dizilla](https://dizilla.site)",
           "domain": "dizilla",
           "version": "92",
-          "kaynak_tarih": "2026-09-16",
-          "bizim_tarih": "2026-09-16",
+          "kaynak_tarih": "2026-09-22",
+          "bizim_tarih": "2026-09-22",
           "not": "",
-          "secim": "duplicate"
+          "secim": "aktif"
         },
         {
           "name": "Dizilla",
@@ -784,7 +784,7 @@
           "kaynak_tarih": "2026-09-22",
           "bizim_tarih": "2026-09-22",
           "not": "",
-          "secim": "aktif"
+          "secim": "duplicate"
         }
       ]
     },
@@ -800,10 +800,10 @@
           "site_cell": "[dizimom](https://dizimom.site)",
           "domain": "dizimom",
           "version": "58",
-          "kaynak_tarih": "2026-09-16",
-          "bizim_tarih": "2026-09-16",
+          "kaynak_tarih": "2026-09-22",
+          "bizim_tarih": "2026-09-22",
           "not": "",
-          "secim": "duplicate"
+          "secim": "aktif"
         },
         {
           "name": "DiziMom",
@@ -817,7 +817,7 @@
           "kaynak_tarih": "2026-09-22",
           "bizim_tarih": "2026-09-22",
           "not": "",
-          "secim": "aktif"
+          "secim": "duplicate"
         }
       ]
     },
@@ -1004,10 +1004,10 @@
           "site_cell": "[diziyou](https://diziyou.site)",
           "domain": "diziyou",
           "version": "26",
-          "kaynak_tarih": "2026-09-16",
-          "bizim_tarih": "2026-09-16",
+          "kaynak_tarih": "2026-09-22",
+          "bizim_tarih": "2026-09-22",
           "not": "",
-          "secim": "duplicate"
+          "secim": "aktif"
         },
         {
           "name": "DiziYou",
@@ -1021,7 +1021,7 @@
           "kaynak_tarih": "2026-09-22",
           "bizim_tarih": "2026-09-22",
           "not": "",
-          "secim": "aktif"
+          "secim": "duplicate"
         }
       ]
     },
@@ -1113,10 +1113,10 @@
           "site_cell": "[filmmakinesi](https://filmmakinesi.site)",
           "domain": "filmmakinesi",
           "version": "59",
-          "kaynak_tarih": "2026-09-16",
-          "bizim_tarih": "2026-09-16",
+          "kaynak_tarih": "2026-09-22",
+          "bizim_tarih": "2026-09-22",
           "not": "",
-          "secim": "duplicate"
+          "secim": "aktif"
         },
         {
           "name": "FilmMakinesi",
@@ -1130,7 +1130,7 @@
           "kaynak_tarih": "2026-09-22",
           "bizim_tarih": "2026-09-22",
           "not": "",
-          "secim": "aktif"
+          "secim": "duplicate"
         }
       ]
     },
@@ -1184,10 +1184,10 @@
           "site_cell": "[fullhdfilmizlesene](https://fullhdfilmizlesene.site)",
           "domain": "fullhdfilmizlesene",
           "version": "33",
-          "kaynak_tarih": "2026-09-16",
-          "bizim_tarih": "2026-09-16",
+          "kaynak_tarih": "2026-09-22",
+          "bizim_tarih": "2026-09-22",
           "not": "",
-          "secim": "duplicate"
+          "secim": "aktif"
         },
         {
           "name": "FullHDFilmizlesene",
@@ -1201,7 +1201,7 @@
           "kaynak_tarih": "2026-09-22",
           "bizim_tarih": "2026-09-22",
           "not": "",
-          "secim": "aktif"
+          "secim": "duplicate"
         }
       ]
     },
@@ -1217,10 +1217,10 @@
           "site_cell": "[hdfilmcehennemi](https://hdfilmcehennemi.site)",
           "domain": "hdfilmcehennemi",
           "version": "48",
-          "kaynak_tarih": "2026-09-16",
-          "bizim_tarih": "2026-09-16",
+          "kaynak_tarih": "2026-09-22",
+          "bizim_tarih": "2026-09-22",
           "not": "",
-          "secim": "duplicate"
+          "secim": "aktif"
         },
         {
           "name": "HDFilmCehennemi",
@@ -1234,7 +1234,7 @@
           "kaynak_tarih": "2026-09-22",
           "bizim_tarih": "2026-09-22",
           "not": "",
-          "secim": "aktif"
+          "secim": "duplicate"
         }
       ]
     },
@@ -1340,10 +1340,10 @@
           "site_cell": "[inatbox.site](https://inatbox.site)",
           "domain": "inatbox.site",
           "version": "30",
-          "kaynak_tarih": "2026-09-17",
-          "bizim_tarih": "2026-09-17",
+          "kaynak_tarih": "2026-09-22",
+          "bizim_tarih": "2026-09-22",
           "not": "",
-          "secim": "duplicate"
+          "secim": "aktif"
         },
         {
           "name": "InatBox",
@@ -1357,7 +1357,7 @@
           "kaynak_tarih": "2026-09-22",
           "bizim_tarih": "2026-09-22",
           "not": "",
-          "secim": "aktif"
+          "secim": "duplicate"
         }
       ]
     },
@@ -1437,6 +1437,25 @@
         }
       ]
     },
+    "site:plt-tv": {
+      "name": "plt-tv",
+      "candidates": [
+        {
+          "name": "plt-tv",
+          "listed": true,
+          "order": 66,
+          "source": "pltmustafa/plt-stream",
+          "source_cell": "[pltmustafa/plt-stream](https://github.com/pltmustafa/plt-stream)",
+          "site_cell": "[plt-tv](https://github.com/pltmustafa/plt-stream)",
+          "domain": "plt-tv",
+          "version": "5",
+          "kaynak_tarih": "2026-09-21",
+          "bizim_tarih": "2026-09-21",
+          "not": "M3U/M3U8 çalma listeleri ve canlı TV oynatıcı",
+          "secim": "aktif"
+        }
+      ]
+    },
     "site:selcukflix": {
       "name": "SelcukFlix",
       "candidates": [
@@ -1449,10 +1468,10 @@
           "site_cell": "[selcukflix](https://selcukflix.site)",
           "domain": "selcukflix",
           "version": "2",
-          "kaynak_tarih": "2026-09-16",
-          "bizim_tarih": "2026-09-16",
+          "kaynak_tarih": "2026-09-22",
+          "bizim_tarih": "2026-09-22",
           "not": "",
-          "secim": "duplicate"
+          "secim": "aktif"
         },
         {
           "name": "SelcukFlix",
@@ -1466,7 +1485,7 @@
           "kaynak_tarih": "2026-09-22",
           "bizim_tarih": "2026-09-22",
           "not": "",
-          "secim": "aktif"
+          "secim": "duplicate"
         }
       ]
     },
@@ -1482,10 +1501,10 @@
           "site_cell": "[setfilmizle](https://setfilmizle.site)",
           "domain": "setfilmizle",
           "version": "30",
-          "kaynak_tarih": "2026-09-16",
-          "bizim_tarih": "2026-09-16",
+          "kaynak_tarih": "2026-09-22",
+          "bizim_tarih": "2026-09-22",
           "not": "",
-          "secim": "duplicate"
+          "secim": "aktif"
         },
         {
           "name": "SetFilmIzle",
@@ -1499,7 +1518,7 @@
           "kaynak_tarih": "2026-09-22",
           "bizim_tarih": "2026-09-22",
           "not": "",
-          "secim": "aktif"
+          "secim": "duplicate"
         }
       ]
     },
@@ -1515,10 +1534,10 @@
           "site_cell": "[sezonlukdizi](https://sezonlukdizi.site)",
           "domain": "sezonlukdizi",
           "version": "9",
-          "kaynak_tarih": "2026-09-16",
-          "bizim_tarih": "2026-09-16",
+          "kaynak_tarih": "2026-09-22",
+          "bizim_tarih": "2026-09-22",
           "not": "",
-          "secim": "duplicate"
+          "secim": "aktif"
         },
         {
           "name": "SezonlukDizi",
@@ -1532,7 +1551,7 @@
           "kaynak_tarih": "2026-09-22",
           "bizim_tarih": "2026-09-22",
           "not": "",
-          "secim": "aktif"
+          "secim": "duplicate"
         }
       ]
     },
