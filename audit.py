@@ -19,7 +19,8 @@ Kurallar (DEPO-BILGILERI.md Tarih Takip Kurali):
       (yeni kayitlar icin tablo satiri elle eklenmeli).
     - Ag istekleri 429/5xx/gecici hatalarda backoff'lu yeniden denenir (3 deneme).
     - Yazmadan once .cs3 indirilir, sha256 dogrulanir.
-    - Tarihler GitHub API'den (builds branch, dosya bazinda son commit). Token:
+    - Once tum dallardaki .cs3 agaclari taranir; secim tarihleri canonical
+      builds branch'te dosya bazinda son committen alinir. Token:
       GITHUB_TOKEN env, yoksa `gh auth token` ciktisi.
 """
 import argparse
@@ -150,6 +151,55 @@ def raw_bytes(url):
         return r.read()
 
 
+def artifact_exists(url):
+    """Manifestteki .cs3 adresinin gercekten yayinlandigini kontrol eder."""
+    req = urllib.request.Request(percent_encode(url), method='HEAD',
+                                 headers={'User-Agent': UA})
+    try:
+        with _open(req, timeout=30) as r:
+            return r.status < 400
+    except urllib.error.HTTPError as ex:
+        if ex.code == 404:
+            return False
+        raise
+
+
+def inspect_all_branches(repo, tok):
+    """Tum dallari ve dallardaki .cs3 agacini tarar.
+
+    Kaynak secimi yine canonical `builds` dalinin manifesti ve dosya tarihi
+    uzerinden yapilir; ancak baska bir dalda artefakt kalmasi sessizce
+    gozden kacirilmaz. Alternatif dallarda .cs3 bulunursa raporlanir ve
+    otomatik olarak canonical kaynagin yerine gecirilmez.
+    """
+    try:
+        branches = api_json('%s/repos/%s/branches?per_page=100' % (API, repo), tok)
+    except Exception as ex:
+        print('DAL-TARAMA ATLANDI %s: dallar alinamadi (%s)' % (repo, ex))
+        return
+    if not isinstance(branches, list):
+        print('DAL-TARAMA ATLANDI %s: beklenmeyen dal yaniti' % repo)
+        return
+    names = [b.get('name') for b in branches if isinstance(b, dict) and b.get('name')]
+    print('DAL-TARAMA %s: %s' % (repo, ', '.join(names) or '(yok)'))
+    for branch in names:
+        try:
+            tree = api_json('%s/repos/%s/git/trees/%s?recursive=1' % (
+                API, repo, urllib.parse.quote(branch, safe='')), tok)
+        except Exception as ex:
+            print('  DAL-TARAMA ATLANDI %s@%s: agac alinamadi (%s)' % (repo, branch, ex))
+            continue
+        if not isinstance(tree, dict):
+            continue
+        paths = [x.get('path', '') for x in tree.get('tree', [])
+                 if isinstance(x, dict) and x.get('type') == 'blob']
+        cs3 = sorted(p for p in paths if p.lower().endswith('.cs3'))
+        if branch != 'builds' and cs3:
+            print('  ALTERNATIF-DAL .cs3 %s@%s: %s' % (repo, branch, ', '.join(cs3)))
+        if branch == 'builds' and not cs3:
+            print('  UYARI builds dalinda .cs3 yok: %s' % repo)
+
+
 def main():
     ap = argparse.ArgumentParser(description='ozel-liste kaynak denetimi')
     ap.add_argument('--apply', action='store_true', help='guvenli durumlari uygula')
@@ -218,6 +268,11 @@ def main():
     repos = sorted(repos)
     print('kaynak repo: %d' % len(repos))
 
+    # Kaynak manifestlerinden once tum dallari denetle. Bu tarama, plt-stream
+    # benzeri dal/manifest/artefakt ayrismalarini secimden once gorunur kilar.
+    for repo in repos:
+        inspect_all_branches(repo, tok)
+
     # Tum kaynak listeleri + dosya tarihleri
     pool = {}   # norm ad -> [(repo, kayit, tarih)]
     for repo in repos:
@@ -232,6 +287,14 @@ def main():
                 continue
             fn = urllib.parse.unquote(it.get('url', '').rsplit('/', 1)[-1])
             if not fn.endswith('.cs3'):
+                continue
+            try:
+                if not artifact_exists(it.get('url', '')):
+                    print('ATLANDI %s/%s: manifest kaydi var ama .cs3 404' % (repo, fn))
+                    continue
+            except Exception as ex:
+                print('ATLANDI %s/%s: .cs3 erisilebilirlik kontrolu basarisiz (%s)' % (
+                    repo, fn, ex))
                 continue
             try:
                 c = api_json('%s/repos/%s/commits?sha=builds&path=%s&per_page=1' % (API, repo, fn), tok)

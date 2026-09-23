@@ -91,11 +91,16 @@ Eskiden kullanılan / hiç kullanılmayan kaynaklar:
 
 **1. Kaynak seçimi — SADECE TARİH esastır, versiyon kriter değil:**
 - Per-eklenti tarih `git -C <repo> log -1 --format=%cd --date=short --all -- <Eklenti>` ile alınır; repo genel `pushed_at` değil. Aynı eklentinin birden fazla kaynaktan gelen kopyaları arasında en güncel tarihli kayıt otomatik tercih edilir; versiyon numarasının düşük/yüksek olması kararı etkilemez.
+- Kaynak kararından önce `audit.py`, her kaynak reposunun bütün dallarını ve dal ağaçlarındaki tüm `.cs3` dosyalarını tarar. `builds` dışı bir dalda `.cs3` bulunursa `ALTERNATİF-DAL .cs3` olarak raporlanır; doğrulanmadan otomatik Aktif yapılmaz. Canonical manifest/artefakt çifti `builds` dalıdır.
+- Manifestte kayıtlı her `.cs3` adresi de ayrıca HTTP erişilebilirlik kontrolünden geçer. Manifestte bulunup gerçek dosyası 404 olan kayıt havuza alınmaz; böylece manifest/artefakt ayrışması (ör. `plt-stream`) yanlışlıkla Aktif veya yeni kayıt olamaz.
 - Örnek: `FilmMakinesi feroxx v58 (2026-08-23)` vs `blackhope01 v1 (2026-08-25)` — `blackhope01 v1` tarih olarak daha güncel olduğu için doğru şekilde tercih edildi; düşük versiyon yüksek versiyonu ezer ve bu beklenen davranıştır.
 
 **1a. Eşit tarihli kaynaklar (tie-breaker) — OTOMATİK, SORU YOK:**
 İki veya daha fazla kaynağın aynı güncelleme tarihine sahip olduğu durumlarda repo adına göre alfabetik sıralama yapılır ve HER ZAMAN ilk sıradaki kaynak otomatik seçilir (`audit.py` bu çözümü kendisi uygular; script durup sormaz).
 Versiyon numarası bu tie-breaker'da kriter olarak kullanılmaz — ne düşük ne yüksek versiyon tercih nedeni sayılır.
+
+**1b. Tüm dal taraması (2026-09-23):**
+Dokuz kaynak repo ve mevcut tüm dalları (`builds` dahil) tarandı. `builds` dışı dallarda `.cs3` artefaktı bulunmadı; bu nedenle dal değişimiyle daha yeni bir kaynak gizlenmiyor. `ilkelkullanici/ilkel-cloudstream` GitHub API'de 404 olduğu için erişilemeyen kaynak olarak bırakıldı. `pltmustafa/plt-stream` içinde `builds/plugins.json` erişilebilir olsa da manifestteki `plt-stream.cs3` 404; `plt-tv.cs3` gerçek ve erişilebilir olduğu için yalnızca `plt-tv` değerlendirildi.
 
 **2. Tablo bakımı — `Tüm Repolar` tüm karşılaştırılan adayları içerir:**
 - Yeni adaylar için varsayılan filtre `language == tr` ve `tvTypes ⊆ {Movie, TvSeries, Documentary}` kuralıdır. Filtre dışı adaylar tabloya alınmaz; kalıcı olarak istenmeyen seçilenler Delete-Zone’da tutulur.
