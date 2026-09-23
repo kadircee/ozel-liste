@@ -41,8 +41,8 @@
   },
   {
     "url": "https://raw.githubusercontent.com/lepotane/MRC-builds/builds/DiziGom.cs3",
-    "status": 1,
-    "version": 13,
+    "status": 0,
+    "version": 14,
     "name": "DiziGom",
     "internalName": "DiziGom",
     "authors": [
@@ -57,7 +57,7 @@
     ],
     "iconUrl": "https://www.google.com/s2/favicons?domain=dizigom1.co&sz=sz=128",
     "apiVersion": 1,
-    "fileHash": "sha256-1405abe2f5950af8e0ec542871aec9fa067918b8029ddac28459f7a586f0ce1a"
+    "fileHash": "sha256-f3d0229d45c806b3f37750e3ad7871ea8ddb26dbfe94af4ebf0e46f5ef0dc4d1"
   },
   {
     "url": "https://raw.githubusercontent.com/lepotane/MRC-builds/builds/DiziLife.cs3",
@@ -152,7 +152,7 @@
       "NeO"
     ],
     "description": "DiziPal (1578 aynası) - reklamsız, hızlı dizi ve film izleme.",
-    "fileSize": 24838,
+    "fileSize": 24877,
     "repositoryUrl": "https://github.com/neoser1984/cloudstream-extensions",
     "language": "tr",
     "tvTypes": [
@@ -161,7 +161,7 @@
     ],
     "iconUrl": "https://www.google.com/s2/favicons?domain=dizipal1578.com&sz=sz=128",
     "apiVersion": 1,
-    "fileHash": "sha256-0d9923c979a2cb9b36ff2535af60bd2a887730e9803a6f20694ca34b2594cfe2"
+    "fileHash": "sha256-e31c8c708fb91c02b2a95816f8db9b16a300e5d886fd1022100e969fbb9c9a7d"
   },
   {
     "url": "https://raw.githubusercontent.com/neoser1984/cloudstream-extensions/builds/DiziPal2121.cs3",
@@ -173,7 +173,7 @@
       "NeO"
     ],
     "description": "DiziPal (2121 aynası) - reklamsız, hızlı dizi ve film izleme.",
-    "fileSize": 24578,
+    "fileSize": 24649,
     "repositoryUrl": "https://github.com/neoser1984/cloudstream-extensions",
     "language": "tr",
     "tvTypes": [
@@ -182,7 +182,7 @@
     ],
     "iconUrl": "https://www.google.com/s2/favicons?domain=dizipal2121.com&sz=sz=128",
     "apiVersion": 1,
-    "fileHash": "sha256-2ea48d716382b684dffd82881542f4f693881f0f350a909f4a77a44e286d0091"
+    "fileHash": "sha256-05d4e64234a3a8b3338d3ce240466437b861359e8139c5f302fcde8e9552dcfb"
   },
   {
     "url": "https://raw.githubusercontent.com/feroxx/Kekik-cloudstream/builds/DiziPalOriginal.cs3",
@@ -269,8 +269,8 @@
   },
   {
     "url": "https://raw.githubusercontent.com/lepotane/MRC-builds/builds/DiziYo.cs3",
-    "status": 1,
-    "version": 8,
+    "status": 0,
+    "version": 9,
     "name": "DiziYo",
     "internalName": "DiziYo",
     "authors": [
@@ -286,7 +286,7 @@
     ],
     "iconUrl": "https://www.google.com/s2/favicons?domain=https://www.diziyo.so&sz=sz=128",
     "apiVersion": 1,
-    "fileHash": "sha256-6224d1345bb71461307b95670e854dd9a9badddafdab70ceedc967619dace6b7"
+    "fileHash": "sha256-f802f217954bedcd9902a34e7e93a0086bf01bd68fd1387e8a198e6e2f548a5e"
   },
   {
     "url": "https://raw.githubusercontent.com/feroxx/Kekik-cloudstream/builds/DiziYou.cs3",
@@ -525,7 +525,7 @@
       "NeO"
     ],
     "description": "HDFilmDiziIzle - HD film ve dizi izleme.",
-    "fileSize": 19097,
+    "fileSize": 19102,
     "repositoryUrl": "https://github.com/neoser1984/cloudstream-extensions",
     "language": "tr",
     "tvTypes": [
@@ -534,7 +534,7 @@
     ],
     "iconUrl": "https://www.google.com/s2/favicons?domain=hdfilmdiziizle.com&sz=sz=128",
     "apiVersion": 1,
-    "fileHash": "sha256-0ed99f254ac49dd5fe8da2c1a986dc6b621dd268dc1b486f774a26307c641b87"
+    "fileHash": "sha256-800f26adb1c6c31f303a4f35e35e0f45eb1d00bc3565d2448fa575d0847bd91c"
   },
   {
     "url": "https://raw.githubusercontent.com/neoser1984/cloudstream-extensions/builds/HDFilmizle.cs3",
@@ -546,7 +546,7 @@
       "NeO"
     ],
     "description": "HDFilmizle - HD Film ve yabancı dizi izleme.",
-    "fileSize": 20800,
+    "fileSize": 20805,
     "repositoryUrl": "https://github.com/neoser1984/cloudstream-extensions",
     "language": "tr",
     "tvTypes": [
@@ -555,7 +555,7 @@
     ],
     "iconUrl": "https://www.google.com/s2/favicons?domain=hdfilmizle.vip&sz=sz=128",
     "apiVersion": 1,
-    "fileHash": "sha256-058109b5984882aee8b490299e742346721d0415b60a749d70f737e08872e243"
+    "fileHash": "sha256-69a49c382f0ea573949631e2e5bb15e072260cd861bf0ea28ac5aed6fe3528e6"
   },
   {
     "url": "https://raw.githubusercontent.com/feroxx/Kekik-cloudstream/builds/InatBox.cs3",
@@ -819,7 +819,7 @@
       "NeO"
     ],
     "description": "TrDiziIzle - Yerli diziler, tüm bölümler tek parça.",
-    "fileSize": 17177,
+    "fileSize": 17146,
     "repositoryUrl": "https://github.com/neoser1984/cloudstream-extensions",
     "language": "tr",
     "tvTypes": [
@@ -827,7 +827,7 @@
     ],
     "iconUrl": "https://www.google.com/s2/favicons?domain=trdiziizle.tv&sz=sz=128",
     "apiVersion": 1,
-    "fileHash": "sha256-091849b41ea586bd1c50b3a741206f5fd8922b48f6af2922c12d0dbda5badeb8"
+    "fileHash": "sha256-eea0cad3912e02128d2818fb6cf1e9b1b4e97ac2cfeed8e7579583788ca367f5"
   },
   {
     "url": "https://raw.githubusercontent.com/lepotane/MRC-builds/builds/TvDiziler.cs3",
