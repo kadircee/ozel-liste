@@ -40,24 +40,24 @@
     "fileHash": "sha256-8ab5957d93c8fd9545179085605a9398d96d10209606aab5808e9efbcadb774f"
   },
   {
-    "url": "https://raw.githubusercontent.com/lepotane/MRC-builds/builds/DiziGom.cs3",
-    "status": 0,
-    "version": 14,
+    "url": "https://raw.githubusercontent.com/neoser1984/cloudstream-extensions/builds/DiziGom.cs3",
+    "status": 1,
+    "version": 1,
     "name": "DiziGom",
     "internalName": "DiziGom",
     "authors": [
-      "MRC"
+      "NeO"
     ],
-    "description": "Türkçe altyazılı yabancı dizi izle, Tüm yabancı, kore, netflix dizilerin yeni ve eski sezonlarını orijinal dilinde dizigom1 alt yazılı film izleyebilir, sadece türkçe altyazılı en iyi yabancı diziler ve filmler hakkında yorum yapabilirsiniz.",
-    "fileSize": 37483,
-    "repositoryUrl": "https://github.com/lepotane/MRC-builds",
+    "description": "DiziGom - Dizi izleme.",
+    "fileSize": 15230,
+    "repositoryUrl": "https://github.com/neoser1984/cloudstream-extensions",
     "language": "tr",
     "tvTypes": [
       "TvSeries"
     ],
-    "iconUrl": "https://www.google.com/s2/favicons?domain=dizigom1.co&sz=sz=128",
+    "iconUrl": "https://www.google.com/s2/favicons?domain=dizigom.biz&sz=sz=128",
     "apiVersion": 1,
-    "fileHash": "sha256-f3d0229d45c806b3f37750e3ad7871ea8ddb26dbfe94af4ebf0e46f5ef0dc4d1"
+    "fileHash": "sha256-c10c9c6ce78d5f687676d87d0f91f5c329ae2e64705552beb09ba47f6995a468"
   },
   {
     "url": "https://raw.githubusercontent.com/lepotane/MRC-builds/builds/DiziLife.cs3",
@@ -268,25 +268,25 @@
     "fileHash": "sha256-d9b8636256e08ad6c7462a560aa01aebfdbc67e28a3ae1843ff0a3bca2708977"
   },
   {
-    "url": "https://raw.githubusercontent.com/lepotane/MRC-builds/builds/DiziYo.cs3",
-    "status": 0,
-    "version": 9,
-    "name": "DiziYo",
-    "internalName": "DiziYo",
+    "url": "https://raw.githubusercontent.com/neoser1984/cloudstream-extensions/builds/Diziyo.cs3",
+    "status": 1,
+    "version": 1,
+    "name": "Diziyo",
+    "internalName": "Diziyo",
     "authors": [
-      "MRC"
+      "NeO"
     ],
-    "description": "Yeni film, dizi, anime bölümleri keşfet; güncel trendleri, sıralamaları ve yayın takvimini incele.",
-    "fileSize": 48025,
-    "repositoryUrl": "https://github.com/lepotane/MRC-builds",
+    "description": "Diziyo - Dizi, film ve anime izleme.",
+    "fileSize": 15584,
+    "repositoryUrl": "https://github.com/neoser1984/cloudstream-extensions",
     "language": "tr",
     "tvTypes": [
       "Movie",
       "TvSeries"
     ],
-    "iconUrl": "https://www.google.com/s2/favicons?domain=https://www.diziyo.so&sz=sz=128",
+    "iconUrl": "https://www.google.com/s2/favicons?domain=diziyo.so&sz=sz=128",
     "apiVersion": 1,
-    "fileHash": "sha256-f802f217954bedcd9902a34e7e93a0086bf01bd68fd1387e8a198e6e2f548a5e"
+    "fileHash": "sha256-328a4cd2428dee121cffa664d622a7a0d675dbf71831894c16a014678f616b66"
   },
   {
     "url": "https://raw.githubusercontent.com/feroxx/Kekik-cloudstream/builds/DiziYou.cs3",

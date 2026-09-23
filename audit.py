@@ -285,6 +285,10 @@ def main():
         for it in items:
             if not isinstance(it, dict) or not it.get('internalName'):
                 continue
+            if it.get('status') == 0:
+                print('ATLANDI %s/%s: kaynak status=0, devre disi kayit havuza alinmadi' % (
+                    repo, it.get('internalName')))
+                continue
             fn = urllib.parse.unquote(it.get('url', '').rsplit('/', 1)[-1])
             if not fn.endswith('.cs3'):
                 continue
