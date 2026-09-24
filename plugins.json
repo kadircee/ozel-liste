@@ -61,8 +61,8 @@
   },
   {
     "url": "https://raw.githubusercontent.com/lepotane/MRC-builds/builds/DiziLife.cs3",
-    "status": 1,
-    "version": 2,
+    "status": 0,
+    "version": 3,
     "name": "DiziLife",
     "internalName": "DiziLife",
     "authors": [
@@ -78,7 +78,7 @@
     ],
     "iconUrl": "https://www.google.com/s2/favicons?domain=https://dizi73.life&sz=sz=128",
     "apiVersion": 1,
-    "fileHash": "sha256-6e0bd05ff51ea93a00efb6db109b732928084883d74ea918c7bc90fef24cfa69"
+    "fileHash": "sha256-ec13dfd10f2d1f5d4dec38d1a0ebfb8c6b03b13b544cebb7fbb58c5015756fe6"
   },
   {
     "url": "https://raw.githubusercontent.com/feroxx/Kekik-cloudstream/builds/Dizilla.cs3",
@@ -103,14 +103,14 @@
   {
     "url": "https://raw.githubusercontent.com/feroxx/Kekik-cloudstream/builds/DiziMom.cs3",
     "status": 1,
-    "version": 59,
+    "version": 60,
     "name": "DiziMom",
     "internalName": "DiziMom",
     "authors": [
       "keyiflerolsun"
     ],
     "description": "Binlerce yerli yabancı dizi arşivi, tüm sezonlar, kesintisiz bölümler. Sadece dizi izle, Dizimom heryerde seninle!",
-    "fileSize": 34844,
+    "fileSize": 34836,
     "repositoryUrl": "https://github.com/feroxx/Kekik-cloudstream",
     "language": "tr",
     "tvTypes": [
@@ -118,7 +118,7 @@
     ],
     "iconUrl": "https://www.google.com/s2/favicons?domain=www.dizimom.plus&sz=sz=128",
     "apiVersion": 1,
-    "fileHash": "sha256-639725fc9d45daa491a68441a2cef50c505ab8057fe7ab3ff0e17d0840e29dbe"
+    "fileHash": "sha256-56a7a34d7ab414da583a0cab8f44c77fe0110d0529b284b6e6c46db0cb8b32e1"
   },
   {
     "url": "https://raw.githubusercontent.com/feroxx/Kekik-cloudstream/builds/DiziPal.cs3",
@@ -209,14 +209,14 @@
   {
     "url": "https://raw.githubusercontent.com/lepotane/MRC-builds/builds/DiziPalOrijinal.cs3",
     "status": 1,
-    "version": 9,
+    "version": 10,
     "name": "DiziPalOrijinal",
     "internalName": "DiziPalOrijinal",
     "authors": [
       "MRC"
     ],
     "description": "DiziPal Orijinal.",
-    "fileSize": 54571,
+    "fileSize": 54578,
     "repositoryUrl": "https://github.com/lepotane/MRC-builds",
     "language": "tr",
     "tvTypes": [
@@ -224,7 +224,7 @@
     ],
     "iconUrl": "https://t3.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url=https://dizipal1581.com&size=128",
     "apiVersion": 1,
-    "fileHash": "sha256-62086649a6205226bad183f766e84db2475a1b752a4796ae425ffe2a743bda34"
+    "fileHash": "sha256-4471a85072906391022dcbeb15389cac0afe10a0b53824835d89c8512df99499"
   },
   {
     "url": "https://raw.githubusercontent.com/feroxx/Kekik-cloudstream/builds/DiziPod.cs3",
@@ -246,26 +246,6 @@
     "iconUrl": "https://www.google.com/s2/favicons?domain=dizipod.com&sz=sz=128",
     "apiVersion": 1,
     "fileHash": "sha256-c4be7b192eec30ffc084f8df86e30f0ccc59270e58fe7dc99b989677963224f5"
-  },
-  {
-    "url": "https://raw.githubusercontent.com/lepotane/MRC-builds/builds/DiziWatch.cs3",
-    "status": 1,
-    "version": 10,
-    "name": "DiziWatch",
-    "internalName": "DiziWatch",
-    "authors": [
-      "MRC"
-    ],
-    "description": "Yabancı dizi izleme keyfi (MRC)",
-    "fileSize": 40812,
-    "repositoryUrl": "https://github.com/lepotane/MRC-builds",
-    "language": "tr",
-    "tvTypes": [
-      "TvSeries"
-    ],
-    "iconUrl": "https://www.google.com/s2/favicons?sz=64&domain=diziwatch.ac",
-    "apiVersion": 1,
-    "fileHash": "sha256-d9b8636256e08ad6c7462a560aa01aebfdbc67e28a3ae1843ff0a3bca2708977"
   },
   {
     "url": "https://raw.githubusercontent.com/neoser1984/cloudstream-extensions/builds/Diziyo.cs3",
@@ -872,14 +852,14 @@
   {
     "url": "https://raw.githubusercontent.com/lepotane/MRC-builds/builds/UltraFilmizle.cs3",
     "status": 1,
-    "version": 12,
+    "version": 14,
     "name": "UltraFilmizle",
     "internalName": "UltraFilmizle",
     "authors": [
       "MRC"
     ],
     "description": "UltraFilmizle - 1080p ve 4K yerli/yabancı film izleme.",
-    "fileSize": 30879,
+    "fileSize": 30874,
     "repositoryUrl": "https://github.com/lepotane/MRC-builds",
     "language": "tr",
     "tvTypes": [
@@ -888,7 +868,7 @@
     ],
     "iconUrl": "https://t2.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url=https://ultrafilmizle.org/&size=128",
     "apiVersion": 1,
-    "fileHash": "sha256-bd833a06c302c96cb6749a11b0bb706314101a82bbfca22dbd606b8ca1420b9a"
+    "fileHash": "sha256-a71ec7703b4e7fdc3658ae391f16fe952e433933f239e20ffd3923157a801b44"
   },
   {
     "url": "https://raw.githubusercontent.com/feroxx/Kekik-cloudstream/builds/WebteIzle.cs3",
