@@ -17,11 +17,11 @@ ozel-liste/
 ├── plugins.json         → eklenti listesi
 ├── registry.json        → makine-okur kayıt modeli (aday ve durum sayıları aşağıdaki rapor notuna göre değişkendir)
 ├── registry.py          → model araçları (--sync / --check / --render [--write])
-├── audit.py             → kaynak repoları tarih bazlı denetler (--check = rapor/varsayılan, --apply = yazar)
-├── update.py            → kaynak depolardan güncel verileri senkronize eden script (--check / --purge dahil)
+├── audit.py             → kaynak depoları tarih bazında denetler (--check = rapor/varsayılan, --apply = yazar)
+├── update.py            → kaynak depolardaki güncel verileri senkronize eden betik (--check / --purge dahil)
 └── DEPO-BILGILERI.md    → bu doküman (tablo bloğu registry.json'dan üretilir)
 ```
-> **Rapor sayıları hakkında:** Bu dokümandaki aday, aktif, duplicate, istenmeyen ve kaynak repo sayıları sabit kural değildir; yalnızca üretildiği andaki rapor özetidir. Güncel sayılar için `registry.json`, `plugins.json` ve script çıktıları esas alınır. Bu sayılar kaynak değiştikçe değişebilir.
+> **Rapor sayıları hakkında:** Bu dokümandaki aday, aktif, duplicate, istenmeyen ve kaynak depo sayıları sabit kural değildir; yalnızca üretildiği andaki rapor özetidir. Güncel sayılar için `registry.json`, `plugins.json` ve betik çıktıları esas alınır. Bu sayılar kaynaklar değiştikçe değişebilir.
 
 `repo.json` içeriği:
 ```json
@@ -36,36 +36,35 @@ ozel-liste/
 ```
 ## Kaynak Seçim Kriteri ve Tablo Bakımı
 
-**1. Kaynak seçimi — SADECE TARİH esastır, versiyon kriter değil:**
-- Per-eklenti tarih yalnızca `builds` dalındaki `.cs3` dosyasına ait son commit'ten alınır; repo genel `pushed_at` veya başka dallardaki commit tarihleri seçim ölçütü değildir. Aynı eklentinin birden fazla kaynaktan gelen kopyaları arasında en güncel tarihli kayıt otomatik tercih edilir; versiyon numarasının düşük/yüksek olması kararı etkilemez.
-- Kaynak kararından önce `audit.py`, her kaynak reposunun bütün dallarını ve dal ağaçlarındaki tüm `.cs3` dosyalarını tarar. `builds` dışı bir dalda `.cs3` bulunursa `ALTERNATİF-DAL .cs3` olarak raporlanır; doğrulanmadan otomatik Aktif yapılmaz. Canonical manifest/artefakt çifti `builds` dalıdır.
-- Kaynak manifestinde `status: 0` olan kayıtlar devre dışıdır: `plugins.json`'dan silinir, audit havuzuna alınmaz ve sonraki çalıştırmada yeniden eklenmez. Registry tablosunda yalnızca tarih geçmişi için Duplicate adayı olarak görünebilir.
+**1. Kaynak seçimi — yalnızca tarih esastır; versiyon ölçüt değildir:**
+- Eklenti tarihi yalnızca `builds` dalındaki `.cs3` dosyasına ait son commit'ten alınır; deponun genel `pushed_at` değeri veya başka dallardaki commit tarihleri seçim ölçütü değildir. Aynı eklentinin birden fazla kaynaktaki kopyaları arasından tarihi en yeni olan otomatik seçilir; versiyon numarası kararı etkilemez.
+- Kaynak kararı verilmeden önce `audit.py`, her kaynak deposunun tüm dallarını ve dal ağaçlarındaki `.cs3` dosyalarını tarar. `builds` dışındaki bir dalda `.cs3` bulunursa `ALTERNATİF-DAL .cs3` olarak raporlanır; doğrulanmadan otomatik olarak Aktif yapılmaz. Esas manifest ve artefakt çifti `builds` dalındadır.
+- Kaynak manifestinde `status: 0` olan kayıtlar devre dışıdır: `plugins.json` dosyasından silinir, denetim havuzuna alınmaz ve sonraki çalıştırmalarda yeniden eklenmez. Registry tablosunda yalnızca tarih geçmişi amacıyla Duplicate adayı olarak görünebilir.
 
-**1a. Eşit tarihli kaynaklar (tie-breaker) — OTOMATİK, SORU YOK:**
-İki veya daha fazla kaynağın aynı güncelleme tarihine sahip olduğu durumlarda repo adına göre alfabetik sıralama yapılır ve HER ZAMAN ilk sıradaki kaynak otomatik seçilir (`audit.py` bu çözümü kendisi uygular; script durup sormaz).
-Versiyon numarası bu tie-breaker'da kriter olarak kullanılmaz — ne düşük ne yüksek versiyon tercih nedeni sayılır.
+**1a. Eşit tarihli kaynaklar — otomatik seçim:**
+İki veya daha fazla kaynağın güncelleme tarihi aynıysa kaynak depoları alfabetik olarak sıralanır ve ilk sıradaki kaynak otomatik seçilir. `audit.py` bu kararı kendisi verir; kullanıcıya soru sormaz. Versiyon numarası eşitlik çözümünde kullanılmaz.
 
 **1b. Tüm dal taraması:**
-`audit.py`, registry/audit havuzunda fiilen bulunan her kaynak repoyu ve mevcut tüm dallarını (`builds` dahil) tarar. Dal sayısı ve kaynak repo sayısı sabit değildir.
+`audit.py`, registry ve denetim havuzunda bulunan her kaynak deposunu ve mevcut tüm dallarını (`builds` dahil) tarar. Dal sayısı ve kaynak depo sayısı sabit değildir.
 
-**2. Tablo bakımı — `Tüm Repolar` tüm karşılaştırılan adayları içerir:**
+**2. Tablo bakımı — `Tüm Repolar` karşılaştırılan tüm adayları içerir:**
 - Yeni adaylar için varsayılan filtre `language == tr` ve `tvTypes ⊆ {Movie, TvSeries, Documentary}` kuralıdır. 
 - `Site (domain)` her zaman `[domain](https://domain)` linkli olmalı (tıklanabilir).
-- `kadircee/ozel-liste` kaynak değil derleme olduğu için `Tüm Repolar`'da yer almaz.
+- `kadircee/ozel-liste` bir kaynak deposu değil, derleme deposu olduğu için `Tüm Repolar`da yer almaz.
 - `İstenmeyenler` için ayrı bir metin listesi tutulmaz; tek doğruluk kaynağı tablodur.
-- İstenmeyenler tablosundaki benzersiz ad sayısı, `audit.py` çıktısındaki `yasakli sayisi` ve `registry.json` içindeki istenmeyen grup sayısıyla eşleşmelidir. Bu sayılar değişebilir; denetim sırasında güncel değerler karşılaştırılır. Başlık (`## İstenmeyenler ...`) **kendi satırında** olmalıdır; tablo satırına yapıştırılırsa GitHub başlığı render etmez ve `audit.py` yasaklı listesini bulamaz → boş liste tespit edilip **`exit 2` ile durdurulur** (sessiz geçiş yok).
+- İstenmeyenler tablosundaki benzersiz ad sayısı, `audit.py` çıktısındaki `yasakli sayisi` ve `registry.json` içindeki istenmeyen grup sayısıyla eşleşmelidir. Bu sayılar değişebilir; denetim sırasında güncel değerler karşılaştırılır. Başlık (`## İstenmeyenler ...`) **kendi satırında** olmalıdır. Tablo satırına eklenirse GitHub başlığı işleyemez ve `audit.py` yasaklı listesini bulamaz; boş liste tespit edildiğinde **`exit 2` ile durur** (sessiz geçiş yapılmaz).
 
 **3. Kayıt durumu — tek eksen (Seçim):**
-Model yalnızca `Seçim` ekseninden oluşur: `Aktif` (yarışı kazandı, `plugins.json`'da) / `Duplicate` (kaybetti, dosyada yok) / `İstenmeyen` (hiç yarışa girmedi) (bkz. **Kayıt Durumu Modeli**). `status` bilgisi kaynağa bırakılmıştır — kaynak ne yayınlıyorsa (`1`, `0`, …) `update.py` ile birebir yansıtılır; bu depo site canlılığı takibi yapmaz.
+Model yalnızca `Seçim` ekseninden oluşur: `Aktif` (yarışı kazandı, `plugins.json` dosyasında) / `Duplicate` (kaybetti, dosyada yok) / `İstenmeyen` (hiç değerlendirmeye alınmadı) (bkz. **Kayıt Durumu Modeli**). `status` bilgisi kaynağa bırakılmıştır; kaynak ne yayımlıyorsa (`1`, `0`, …) `update.py` ile olduğu gibi yansıtılır. Bu depo site canlılığını izlemez.
 - İkon domaininin ölü görünmesi tek başına karar nedeni değildir; asıl erişim eklentinin kendi sağlayıcı koduna bağlıdır.
 - **Simge/görsel kaynağı:** Her kayıt için `iconUrl`, seçilen kaynak deponun `builds/plugins.json` manifestinden alınır. `%size%` yer tutucusu sabit `sz=128` değerine çevrilir; simge dosyası bu depoya kopyalanmaz ve görsel yeniden barındırılmaz. Kaynak manifestindeki simge değişirse `update.py` ile güncellenir.
-- Kaynak ilerlediyse `update.py` ile senkronize et, `Bizim Tarih`'i eşitle; `status`'e dokunma, kaynak ne verdiyse o alınır.
+- Kaynak ilerlediyse `update.py` ile senkronize et ve `Bizim Tarih`i eşitle; `status` alanına dokunma, kaynakta ne yayımlanıyorsa onu al.
 
 ## Tarih Takip Kuralı
 
 Seçim yalnızca `builds` dalındaki `.cs3` dosyasının son commit tarihine göre yapılır; diğer dallar yalnızca alternatif dal raporu içindir.
 
-Tablodaki her satırda iki eklenti düzeyi tarihi vardır: **Kaynak Tarih** (kaynak deponun `builds` dalında o `.cs3` dosyasına dokunan son commit'in tarihi) ve **Bizim Tarih** (bizim o kaynak kaydını en son benimsediğimiz tarih). **Bizim Tarih**, bu deponun genel son commit tarihi değildir. Bütün olay bu iki tarihin karşılaştırmasıdır:
+Tablodaki her satırda eklentiye ait iki tarih vardır: **Kaynak Tarih** (kaynak deponun `builds` dalında o `.cs3` dosyasına dokunan son commit'in tarihi) ve **Bizim Tarih** (kaynak kaydını en son benimsediğimiz tarih). **Bizim Tarih**, bu deponun genel son commit tarihi değildir. İşlem, bu iki tarihin karşılaştırılmasına dayanır:
 
 - **Kaynak Tarih > Bizim Tarih** → kaynak ilerlemiş demektir. `update.py` ile senkronize et (`status` dahil kaynak ne yayınlıyorsa aynen alınır), sonra satırdaki `Bizim Tarih`'i `Kaynak Tarih`'e eşitle. Versiyon numarasına bakılmaz.
 - **Kaynak Tarih == Bizim Tarih** → yapacak iş yok.
@@ -82,7 +81,7 @@ Her kayıt tek eksene sahiptir:
 | İstenmeyen | Hiç değerlendirmeye alınmadı | yok |
 
 
-**Araçlar:** `python registry.py --sync` (tablolar + `plugins.json` → `registry.json`), `--check` (şema + küme + tarih; ihlalde exit 1), `--render [--write]` (tabloyu üretir). `Seçim` `plugins.json`'dan türetilir (dosyada olan = Aktif); grup başına en fazla 1 Aktif; Aktif kümesi `plugins.json` ile birebir zorunlu. Eklenti alanları (`status`, `version`, `fileSize`, `fileHash`, `description`, `authors`, `language`, `tvTypes`) kaynak `builds/plugins.json`'dan birebir yansıtılır (`update.py`).
+**Araçlar:** `python registry.py --sync` (tablolar + `plugins.json` → `registry.json`), `--check` (şema + küme + tarih; ihlalde exit 1), `--render [--write]` (tabloyu üretir). `Seçim`, `plugins.json` dosyasından türetilir (dosyada olan = Aktif); grup başına en fazla 1 Aktif olabilir ve Aktif kümesi `plugins.json` ile birebir aynı olmalıdır. Eklenti alanları (`status`, `version`, `fileSize`, `fileHash`, `description`, `authors`, `language`, `tvTypes`) kaynak `builds/plugins.json` dosyasından olduğu gibi alınır (`update.py`).
 
 ## Kaynak Senkronizasyonu (update.py)
 ```bash
@@ -166,11 +165,11 @@ Toplam satır: 42 · Aktif: 33 · Duplicate: 9.
 | 42 | YabanciDizi | [lepotane/MRC-builds](https://github.com/lepotane/MRC-builds) | [yabancidizi.site](https://yabancidizi.site) | 17 | 2026-09-20 | 2026-10-06 | Aktif |  |
 <!-- KAYIT-DURUMU:OTOMATIK-SON -->
 
-## Kaynak Repoları ve Kaynak Repo GitHub Tarihleri
+## Kaynak Depoları ve Güncelleme Tarihleri
 
-Bu bölümde kaynak olarak taranan fiili **5 repo** tek tek gösterilir. Repo kümesi ve sayı sabit değildir; yeni veya artık kullanılmayan kaynaklarla değişebilir. Aşağıdaki tarih **bu deponun son güncellenme veya commit tarihi değildir**; yalnızca ilgili kaynak GitHub reposunun API `updated_at` bilgisidir. Bu değer eklenti seçimini belirlemez; eklenti seçimi için yukarıdaki **Kaynak Tarih** kuralı, yani `builds` dalındaki ilgili `.cs3` dosyasının son commit tarihi kullanılır. Bu deponun kendi commit tarihi için GitHub commit geçmişine bakılmalıdır.
+Bu bölümde kaynak olarak taranan fiili **5 depo** listelenir. Depo kümesi ve sayısı sabit değildir; yeni veya artık kullanılmayan kaynaklarla değişebilir. Aşağıdaki tarihler **bu deponun güncellenme veya commit tarihleri değildir**; yalnızca ilgili kaynak depoların GitHub API `updated_at` değerleridir.
 
-| Kaynak repo | Kaynak repo son güncelleme zamanı (GitHub API `updated_at`) |
+| Kaynak depo | Kaynak deponun son güncelleme zamanı (GitHub API `updated_at`) |
 |---|---|
 | [blackhope01/cloudstream-plugins](https://github.com/blackhope01/cloudstream-plugins) | 2026-10-05 19:34:18 UTC | 
 | [feroxx/Kekik-cloudstream](https://github.com/feroxx/Kekik-cloudstream) | 2026-10-05 19:34:08 UTC |
