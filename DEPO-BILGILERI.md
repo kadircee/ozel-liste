@@ -65,7 +65,7 @@ Model yalnızca `Seçim` ekseninden oluşur: `Aktif` (yarışı kazandı, `plugi
 
 Seçim yalnızca `builds` dalındaki `.cs3` dosyasının son commit tarihine göre yapılır; diğer dallar yalnızca alternatif dal raporu içindir.
 
-Tablodaki her satırda iki tarih vardır: **Kaynak Tarih** (kaynak deponun `builds` dalında o `.cs3` dosyasına dokunan son commit'in tarihi) ve **Bizim Tarih** (bizim o kaynağı en son benimsediğimiz tarih). Bütün olay bu iki tarihin karşılaştırmasıdır:
+Tablodaki her satırda iki eklenti düzeyi tarihi vardır: **Kaynak Tarih** (kaynak deponun `builds` dalında o `.cs3` dosyasına dokunan son commit'in tarihi) ve **Bizim Tarih** (bizim o kaynak kaydını en son benimsediğimiz tarih). **Bizim Tarih**, bu deponun genel son commit tarihi değildir. Bütün olay bu iki tarihin karşılaştırmasıdır:
 
 - **Kaynak Tarih > Bizim Tarih** → kaynak ilerlemiş demektir. `update.py` ile senkronize et (`status` dahil kaynak ne yayınlıyorsa aynen alınır), sonra satırdaki `Bizim Tarih`'i `Kaynak Tarih`'e eşitle. Versiyon numarasına bakılmaz.
 - **Kaynak Tarih == Bizim Tarih** → yapacak iş yok.
@@ -166,11 +166,11 @@ Toplam satır: 42 · Aktif: 33 · Duplicate: 9.
 | 42 | YabanciDizi | [lepotane/MRC-builds](https://github.com/lepotane/MRC-builds) | [yabancidizi.site](https://yabancidizi.site) | 17 | 2026-09-20 | 2026-10-06 | Aktif |  |
 <!-- KAYIT-DURUMU:OTOMATIK-SON -->
 
-## Kaynak Repoları, Kullanılan Siteler ve GitHub Güncelleme Tarihleri
+## Kaynak Repoları ve Kaynak Repo GitHub Tarihleri
 
-Bu bölümde kaynak olarak taranan fiili **5 repo** tek tek gösterilir. Repo kümesi ve sayı sabit değildir; yeni veya artık kullanılmayan kaynaklarla değişebilir. `Repo son güncelleme`, bizim depomuzun değil, ilgili kaynak GitHub reposunun GitHub API `updated_at` değeridir.
+Bu bölümde kaynak olarak taranan fiili **5 repo** tek tek gösterilir. Repo kümesi ve sayı sabit değildir; yeni veya artık kullanılmayan kaynaklarla değişebilir. Aşağıdaki tarih **bu deponun son güncellenme veya commit tarihi değildir**; yalnızca ilgili kaynak GitHub reposunun API `updated_at` bilgisidir. Bu değer eklenti seçimini belirlemez; eklenti seçimi için yukarıdaki **Kaynak Tarih** kuralı, yani `builds` dalındaki ilgili `.cs3` dosyasının son commit tarihi kullanılır. Bu deponun kendi commit tarihi için GitHub commit geçmişine bakılmalıdır.
 
-| Kaynak repo | Repo son güncelleme (GitHub) |
+| Kaynak repo | Kaynak repo son güncelleme zamanı (GitHub API `updated_at`) |
 |---|---|
 | [blackhope01/cloudstream-plugins](https://github.com/blackhope01/cloudstream-plugins) | 2026-10-05 19:34:18 UTC | 
 | [feroxx/Kekik-cloudstream](https://github.com/feroxx/Kekik-cloudstream) | 2026-10-05 19:34:08 UTC |
