@@ -14,13 +14,15 @@ Kısa kod yalnızca harf/rakam/`!_-` içerebilir; `!` ile başlayanlar `py.md` s
 ```
 ozel-liste/
 ├── repo.json            → CloudStream'in açtığı depo tanımı
-├── plugins.json         → eklenti listesi (33 aktif eklenti)
-├── registry.json        → makine-okur kayıt modeli (94 aday; 33 aktif, 9 duplicate, 52 istenmeyen; Seçim ekseni; Pure Mirror)
+├── plugins.json         → eklenti listesi
+├── registry.json        → makine-okur kayıt modeli (aday ve durum sayıları aşağıdaki rapor notuna göre değişkendir)
 ├── registry.py          → model araçları (--sync / --check / --render [--write])
 ├── audit.py             → kaynak repoları tarih bazlı denetler (--check = rapor/varsayılan, --apply = yazar)
 ├── update.py            → kaynak depolardan güncel verileri senkronize eden script (--check / --purge dahil)
 └── DEPO-BILGILERI.md    → bu doküman (tablo bloğu registry.json'dan üretilir)
 ```
+> **Rapor sayıları hakkında:** Bu dokümandaki aday, aktif, duplicate, istenmeyen ve kaynak repo sayıları sabit kural değildir; yalnızca üretildiği andaki rapor özetidir. Güncel sayılar için `registry.json`, `plugins.json` ve script çıktıları esas alınır. Bu sayılar kaynak değiştikçe değişebilir.
+
 `repo.json` içeriği:
 ```json
 {
@@ -35,7 +37,7 @@ ozel-liste/
 ## Kaynak Seçim Kriteri ve Tablo Bakımı
 
 **1. Kaynak seçimi — SADECE TARİH esastır, versiyon kriter değil:**
-- Per-eklenti tarih `git -C <repo> log -1 --format=%cd --date=short --all -- <Eklenti>` ile alınır; repo genel `pushed_at` değil. Aynı eklentinin birden fazla kaynaktan gelen kopyaları arasında en güncel tarihli kayıt otomatik tercih edilir; versiyon numarasının düşük/yüksek olması kararı etkilemez.
+- Per-eklenti tarih yalnızca `builds` dalındaki `.cs3` dosyasına ait son commit'ten alınır; repo genel `pushed_at` veya başka dallardaki commit tarihleri seçim ölçütü değildir. Aynı eklentinin birden fazla kaynaktan gelen kopyaları arasında en güncel tarihli kayıt otomatik tercih edilir; versiyon numarasının düşük/yüksek olması kararı etkilemez.
 - Kaynak kararından önce `audit.py`, her kaynak reposunun bütün dallarını ve dal ağaçlarındaki tüm `.cs3` dosyalarını tarar. `builds` dışı bir dalda `.cs3` bulunursa `ALTERNATİF-DAL .cs3` olarak raporlanır; doğrulanmadan otomatik Aktif yapılmaz. Canonical manifest/artefakt çifti `builds` dalıdır.
 - Kaynak manifestinde `status: 0` olan kayıtlar devre dışıdır: `plugins.json`'dan silinir, audit havuzuna alınmaz ve sonraki çalıştırmada yeniden eklenmez. Registry tablosunda yalnızca tarih geçmişi için Duplicate adayı olarak görünebilir.
 
@@ -43,15 +45,15 @@ ozel-liste/
 İki veya daha fazla kaynağın aynı güncelleme tarihine sahip olduğu durumlarda repo adına göre alfabetik sıralama yapılır ve HER ZAMAN ilk sıradaki kaynak otomatik seçilir (`audit.py` bu çözümü kendisi uygular; script durup sormaz).
 Versiyon numarası bu tie-breaker'da kriter olarak kullanılmaz — ne düşük ne yüksek versiyon tercih nedeni sayılır.
 
-**1b. Tüm dal taraması (2026-09-29):**
-Yedi kaynak repo ve mevcut tüm dalları (`builds` dahil) taranır.
+**1b. Tüm dal taraması:**
+`audit.py`, registry/audit havuzunda fiilen bulunan her kaynak repoyu ve mevcut tüm dallarını (`builds` dahil) tarar. Dal sayısı ve kaynak repo sayısı sabit değildir.
 
 **2. Tablo bakımı — `Tüm Repolar` tüm karşılaştırılan adayları içerir:**
 - Yeni adaylar için varsayılan filtre `language == tr` ve `tvTypes ⊆ {Movie, TvSeries, Documentary}` kuralıdır. 
 - `Site (domain)` her zaman `[domain](https://domain)` linkli olmalı (tıklanabilir).
 - `kadircee/ozel-liste` kaynak değil derleme olduğu için `Tüm Repolar`'da yer almaz.
-- `İstenmeyenler` metin + tablo aynı anda tutulmaz; tek tablo yeterlidir, `Silinen Eklentiler` metin listesi sadece not bırakır.
-- **Yasaklı sayısı tek doğruluk kaynağıdır:** İstenmeyenler tablosundaki benzersiz ad sayısı = `audit.py` çıktısındaki `yasakli sayisi` = **55** (2026-09-29). `registry.json` içinde kaynak örnekleriyle birlikte **56** istenmeyen aday bulunur. Üçü düzenli karşılaştırılır. Başlık (`## İstenmeyenler ...`) **kendi satırında** olmalıdır; tablo satırına yapıştırılırsa GitHub başlığı render etmez ve `audit.py` yasaklı listesini bulamaz → boş liste tespit edilip **`exit 2` ile durdurulur** (sessiz geçiş yok).
+- `İstenmeyenler` için ayrı bir metin listesi tutulmaz; tek doğruluk kaynağı tablodur.
+- İstenmeyenler tablosundaki benzersiz ad sayısı, `audit.py` çıktısındaki `yasakli sayisi` ve `registry.json` içindeki istenmeyen grup sayısıyla eşleşmelidir. Bu sayılar değişebilir; denetim sırasında güncel değerler karşılaştırılır. Başlık (`## İstenmeyenler ...`) **kendi satırında** olmalıdır; tablo satırına yapıştırılırsa GitHub başlığı render etmez ve `audit.py` yasaklı listesini bulamaz → boş liste tespit edilip **`exit 2` ile durdurulur** (sessiz geçiş yok).
 
 **3. Kayıt durumu — tek eksen (Seçim):**
 Model yalnızca `Seçim` ekseninden oluşur: `Aktif` (yarışı kazandı, `plugins.json`'da) / `Duplicate` (kaybetti, dosyada yok) / `İstenmeyen` (hiç yarışa girmedi) (bkz. **Kayıt Durumu Modeli**). `status` bilgisi kaynağa bırakılmıştır — kaynak ne yayınlıyorsa (`1`, `0`, …) `update.py` ile birebir yansıtılır; bu depo site canlılığı takibi yapmaz.
@@ -59,9 +61,11 @@ Model yalnızca `Seçim` ekseninden oluşur: `Aktif` (yarışı kazandı, `plugi
 - **Simge/görsel kaynağı:** Her kayıt için `iconUrl`, seçilen kaynak deponun `builds/plugins.json` manifestinden alınır. `%size%` yer tutucusu sabit `sz=128` değerine çevrilir; simge dosyası bu depoya kopyalanmaz ve görsel yeniden barındırılmaz. Kaynak manifestindeki simge değişirse `update.py` ile güncellenir.
 - Kaynak ilerlediyse `update.py` ile senkronize et, `Bizim Tarih`'i eşitle; `status`'e dokunma, kaynak ne verdiyse o alınır.
 
-## Tarih Takip Kuralı (tek kural - aslında kural 1'i anlatmaktadır.)
+## Tarih Takip Kuralı
 
-Tablodaki her satırda iki tarih vardır: **Kaynak Tarih** (kaynak deponun `builds` branch'inde o `.cs3` dosyasına dokunan son commit'in tarihi) ve **Bizim Tarih** (bizim o kaynağı en son benimsediğimiz tarih). Bütün olay bu iki tarihin karşılaştırmasıdır:
+Seçim yalnızca `builds` dalındaki `.cs3` dosyasının son commit tarihine göre yapılır; diğer dallar yalnızca alternatif dal raporu içindir.
+
+Tablodaki her satırda iki tarih vardır: **Kaynak Tarih** (kaynak deponun `builds` dalında o `.cs3` dosyasına dokunan son commit'in tarihi) ve **Bizim Tarih** (bizim o kaynağı en son benimsediğimiz tarih). Bütün olay bu iki tarihin karşılaştırmasıdır:
 
 - **Kaynak Tarih > Bizim Tarih** → kaynak ilerlemiş demektir. `update.py` ile senkronize et (`status` dahil kaynak ne yayınlıyorsa aynen alınır), sonra satırdaki `Bizim Tarih`'i `Kaynak Tarih`'e eşitle. Versiyon numarasına bakılmaz.
 - **Kaynak Tarih == Bizim Tarih** → yapacak iş yok.
@@ -89,11 +93,6 @@ Kaynak `builds/plugins.json` adresi, listedeki `.cs3` adresinden türetilir (`ht
 
 > **Not:** Kaynak senkronu GitHub Actions ile otomatik çalışır (`.github/workflows/mirror.yml`: her gün 05:00 UTC ve `workflow_dispatch` ile manuel tetikleme). Akış: `update.py` → `registry.py --sync` → `registry.py --render --write` → `registry.py --check` → `audit.py --check` → değişiklik varsa otomatik commit+push. Yerelde elle çalıştırmak da mümkündür. Kaynakta bulunamayan veya `status: 0` olan kayıt `[SILINDI]` olarak listeden düşer; kaynak manifesti 404 ise audit kaynağı atlar ve aktif katalogda kayıt bırakılmaz.
 
-## Silinen Eklentiler (delete-zone)
-Bu eklentiler listeye **eklenmez**; yeniden ekleme kararı yalnızca kullanıcı verir. 
-
-> **Not:** Ayrıntılı liste `İstenmeyenler (Delete-Zone)` tablosunda alfabetik olarak yer almaktadır.
-
 ## Güncelleme
 Yeni bir değişiklik yapıldığında:
 ```bash
@@ -101,7 +100,7 @@ python update.py --check    # kaynak farkı var mı bak (exit 1 = var)
 python registry.py --check  # model denetimi: sema + kume + tarih (exit 1 = ihlal ya da karar bekleyen)
 python update.py                # gerekirse kaynak verilerini senkronize et (status dahil Pure Mirror)
 # DEPO-BILGILERI.md: Kaynak Tarih'i ilerleyen satırlarda Bizim Tarih'i eşitle (Tarih Takip Kuralı)
-git add plugins.json DEPO-BILGILERI.md registry.json registry.py
+git add plugins.json DEPO-BILGILERI.md registry.json registry.py audit.py update.py .github/workflows/mirror.yml
 git -c user.name="kadircee" -c user.email="kadircee@users.noreply.github.com" \
     commit -m "plugins.json: aciklama"
 git push
@@ -169,10 +168,10 @@ Toplam satır: 42 · Aktif: 33 · Duplicate: 9.
 
 ## Kaynak Repoları, Kullanılan Siteler ve GitHub Güncelleme Tarihleri
 
-Bu bölümde kaynak olarak taranan **6 repo** tek tek gösterilir. `Repo son güncelleme`, bizim depomuzun değil, ilgili kaynak GitHub reposunun GitHub API `updated_at` değeridir. Site sütununda yalnızca bu depoda listelenen kayıtlar bulunur; `—` olan repo tarama havuzunda bulunmasına rağmen aktif/duplicate katalog kaydı olarak kullanılmıyor.
+Bu bölümde kaynak olarak taranan fiili **5 repo** tek tek gösterilir. Repo kümesi ve sayı sabit değildir; yeni veya artık kullanılmayan kaynaklarla değişebilir. `Repo son güncelleme`, bizim depomuzun değil, ilgili kaynak GitHub reposunun GitHub API `updated_at` değeridir.
 
-| Kaynak repo | Repo son güncelleme (GitHub) 
-|---|---|---|
+| Kaynak repo | Repo son güncelleme (GitHub) |
+|---|---|
 | [blackhope01/cloudstream-plugins](https://github.com/blackhope01/cloudstream-plugins) | 2026-10-05 19:34:18 UTC | 
 | [feroxx/Kekik-cloudstream](https://github.com/feroxx/Kekik-cloudstream) | 2026-10-05 19:34:08 UTC |
 | [Kraptor123/Cs-Karma](https://github.com/Kraptor123/Cs-Karma) | 2026-10-05 19:33:02 UTC | 
