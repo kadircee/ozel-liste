@@ -81,25 +81,25 @@
     "fileHash": "sha256-c4be7b192eec30ffc084f8df86e30f0ccc59270e58fe7dc99b989677963224f5"
   },
   {
-    "url": "https://raw.githubusercontent.com/neoser1984/cloudstream-extensions/builds/Diziyo.cs3",
+    "url": "https://raw.githubusercontent.com/blackhope01/cloudstream-plugins/builds/DiziYo.cs3",
     "status": 1,
     "version": 1,
-    "name": "Diziyo",
-    "internalName": "Diziyo",
+    "name": "DiziYo",
+    "internalName": "DiziYo",
     "authors": [
-      "NeO"
+      "blackhope01"
     ],
-    "description": "Diziyo - Dizi, film ve anime izleme.",
-    "fileSize": 15584,
-    "repositoryUrl": "https://github.com/neoser1984/cloudstream-extensions",
+    "description": "Yeni film, dizi, anime ve bölümleri keşfet; güncel trendleri, sıralamaları ve yayın takvimini incele.",
+    "fileSize": 28760,
+    "repositoryUrl": "https://github.com/blackhope01/cloudstream-plugins",
     "language": "tr",
     "tvTypes": [
       "Movie",
       "TvSeries"
     ],
-    "iconUrl": "https://www.google.com/s2/favicons?domain=diziyo.so&sz=128",
+    "iconUrl": "https://www.google.com/s2/favicons?domain=https://www.diziyo.so&sz=128",
     "apiVersion": 1,
-    "fileHash": "sha256-328a4cd2428dee121cffa664d622a7a0d675dbf71831894c16a014678f616b66"
+    "fileHash": "sha256-9dacc67b13830d30c0412b4430b1bf8476cd7ca98e02fe848cc3818c7982f0aa"
   },
   {
     "url": "https://raw.githubusercontent.com/feroxx/Kekik-cloudstream/builds/DiziYou.cs3",
@@ -287,27 +287,6 @@
     "fileHash": "sha256-20329159ede070b4f6535bb501c5d4276262247574f27ef9740cdf2ab7175a95"
   },
   {
-    "url": "https://raw.githubusercontent.com/neoser1984/cloudstream-extensions/builds/HDFilmDiziIzle.cs3",
-    "status": 1,
-    "version": 1,
-    "name": "HDFilmDiziIzle",
-    "internalName": "HDFilmDiziIzle",
-    "authors": [
-      "NeO"
-    ],
-    "description": "HDFilmDiziIzle - HD film ve dizi izleme.",
-    "fileSize": 19102,
-    "repositoryUrl": "https://github.com/neoser1984/cloudstream-extensions",
-    "language": "tr",
-    "tvTypes": [
-      "Movie",
-      "TvSeries"
-    ],
-    "iconUrl": "https://www.google.com/s2/favicons?domain=hdfilmdiziizle.com&sz=128",
-    "apiVersion": 1,
-    "fileHash": "sha256-800f26adb1c6c31f303a4f35e35e0f45eb1d00bc3565d2448fa575d0847bd91c"
-  },
-  {
     "url": "https://raw.githubusercontent.com/feroxx/Kekik-cloudstream/builds/JetFilmizle.cs3",
     "status": 1,
     "version": 47,
@@ -455,44 +434,24 @@
     "fileHash": "sha256-40981b7d0b72fad681ca98779e20439b1dae1a77b63666c4f0f3e714a30b1c73"
   },
   {
-    "url": "https://raw.githubusercontent.com/lepotane/MRC-builds/builds/Streamed.cs3",
+    "url": "https://raw.githubusercontent.com/Kraptor123/Cs-Karma/builds/Streamed.cs3",
     "status": 1,
-    "version": 3,
+    "version": 29,
     "name": "Streamed",
     "internalName": "Streamed",
     "authors": [
-      "MRC"
+      "kraptor"
     ],
     "description": "Streamed ile Canlı Spor Yayınlarını İzleyebilirsiniz.",
-    "fileSize": 33686,
-    "repositoryUrl": "https://github.com/lepotane/MRC-builds",
+    "fileSize": 31145,
+    "repositoryUrl": "https://github.com/Kraptor123/Cs-Karma",
     "language": "en",
     "tvTypes": [
       "Live"
     ],
     "iconUrl": "https://t2.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url=https://streamed.pk/&size=128",
     "apiVersion": 1,
-    "fileHash": "sha256-2d3a4762b939ddd7929a4a40139d4be455d182ee989121d55966c3250da7eb98"
-  },
-  {
-    "url": "https://raw.githubusercontent.com/neoser1984/cloudstream-extensions/builds/TrDiziIzle.cs3",
-    "status": 1,
-    "version": 1,
-    "name": "TrDiziIzle",
-    "internalName": "TrDiziIzle",
-    "authors": [
-      "NeO"
-    ],
-    "description": "TrDiziIzle - Yerli diziler, tüm bölümler tek parça.",
-    "fileSize": 17146,
-    "repositoryUrl": "https://github.com/neoser1984/cloudstream-extensions",
-    "language": "tr",
-    "tvTypes": [
-      "TvSeries"
-    ],
-    "iconUrl": "https://www.google.com/s2/favicons?domain=trdiziizle.tv&sz=128",
-    "apiVersion": 1,
-    "fileHash": "sha256-eea0cad3912e02128d2818fb6cf1e9b1b4e97ac2cfeed8e7579583788ca367f5"
+    "fileHash": "sha256-3ac142f8ccfcc3be876418f9034e982c9753d29ee1fe411dfebcbd6048359164"
   },
   {
     "url": "https://raw.githubusercontent.com/lepotane/MRC-builds/builds/TvDiziler.cs3",
@@ -556,24 +515,23 @@
     "fileHash": "sha256-c014c951be6263c0eea12449fa1ebf5b0cbd309bf7359afff7dc4f9720540d63"
   },
   {
-    "url": "https://raw.githubusercontent.com/neoser1984/cloudstream-extensions/builds/YabanciDizi.cs3",
+    "url": "https://raw.githubusercontent.com/lepotane/MRC-builds/builds/YabanciDizi.cs3",
     "status": 1,
-    "version": 1,
+    "version": 17,
     "name": "YabanciDizi",
     "internalName": "YabanciDizi",
     "authors": [
-      "NeO"
+      "MRC"
     ],
-    "description": "YabancıDizi - Yabancı dizi ve film izleme.",
-    "fileSize": 22078,
-    "repositoryUrl": "https://github.com/neoser1984/cloudstream-extensions",
+    "description": "Son çıkan yabancı dizi ve filmleri yabancidizi' de izle. En yeni yabancı film ve diziler, türkçe altyazılı yada dublaj olarak 1080p kalitesinde hd izle.",
+    "fileSize": 63799,
+    "repositoryUrl": "https://github.com/lepotane/MRC-builds",
     "language": "tr",
     "tvTypes": [
-      "Movie",
       "TvSeries"
     ],
     "iconUrl": "https://www.google.com/s2/favicons?domain=yabancidizi.news&sz=128",
     "apiVersion": 1,
-    "fileHash": "sha256-e5161acfa6f49b66d834490a7fdf61d2ee6378c42a35f92f4a419b908c92f96d"
+    "fileHash": "sha256-e37d3bd490d12cb30dcb9d285e8e8e701288006ce33884b1eccf7db1d8c7e6eb"
   }
 ]

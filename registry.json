@@ -194,42 +194,6 @@
         }
       ]
     },
-    "dizipal1578": {
-      "name": "DiziPal1578",
-      "candidates": [
-        {
-          "name": "DiziPal1578",
-          "listed": false,
-          "source": "neoser1984/cloudstream-extensions",
-          "source_cell": "[neoser1984/cloudstream-extensions](https://github.com/neoser1984/cloudstream-extensions)",
-          "site_cell": "[dizipal1578.com](https://dizipal1578.com)",
-          "domain": "dizipal1578.com",
-          "version": null,
-          "kaynak_tarih": null,
-          "bizim_tarih": null,
-          "secim": "istenmeyen",
-          "not": "tr Movie,TvSeries"
-        }
-      ]
-    },
-    "dizipal2121": {
-      "name": "DiziPal2121",
-      "candidates": [
-        {
-          "name": "DiziPal2121",
-          "listed": false,
-          "source": "neoser1984/cloudstream-extensions",
-          "source_cell": "[neoser1984/cloudstream-extensions](https://github.com/neoser1984/cloudstream-extensions)",
-          "site_cell": "[dizipal2134.com](https://dizipal2134.com)",
-          "domain": "dizipal2134.com",
-          "version": null,
-          "kaynak_tarih": null,
-          "bizim_tarih": null,
-          "secim": "istenmeyen",
-          "not": "tr Movie,TvSeries"
-        }
-      ]
-    },
     "dizipaloriginal": {
       "name": "DiziPalOriginal",
       "candidates": [
@@ -554,24 +518,6 @@
         }
       ]
     },
-    "korefilmizle": {
-      "name": "KoreFilmizle",
-      "candidates": [
-        {
-          "name": "KoreFilmizle",
-          "listed": false,
-          "source": "neoser1984/cloudstream-extensions",
-          "source_cell": "[neoser1984/cloudstream-extensions](https://github.com/neoser1984/cloudstream-extensions)",
-          "site_cell": "[korefilmizle.com](https://korefilmizle.com)",
-          "domain": "korefilmizle.com",
-          "version": null,
-          "kaynak_tarih": null,
-          "bizim_tarih": null,
-          "secim": "istenmeyen",
-          "not": "tr Movie,TvSeries"
-        }
-      ]
-    },
     "krmzy": {
       "name": "Krmzy",
       "candidates": [
@@ -750,20 +696,6 @@
           "bizim_tarih": "2026-09-22",
           "not": "",
           "secim": "aktif"
-        },
-        {
-          "name": "DDizi",
-          "listed": true,
-          "order": 2,
-          "source": "neoser1984/cloudstream-extensions",
-          "source_cell": "[neoser1984/cloudstream-extensions](https://github.com/neoser1984/cloudstream-extensions)",
-          "site_cell": "[ddizi](https://ddizi.site)",
-          "domain": "ddizi",
-          "version": "1",
-          "kaynak_tarih": "2026-09-22",
-          "bizim_tarih": "2026-09-22",
-          "not": "",
-          "secim": "duplicate"
         }
       ]
     },
@@ -833,25 +765,6 @@
         }
       ]
     },
-    "site:dizipal2134.com": {
-      "name": "DiziPal2121",
-      "candidates": [
-        {
-          "name": "DiziPal2121",
-          "listed": true,
-          "order": 15,
-          "source": "neoser1984/cloudstream-extensions",
-          "source_cell": "[neoser1984/cloudstream-extensions](https://github.com/neoser1984/cloudstream-extensions)",
-          "site_cell": "[dizipal2134.com](https://dizipal2134.com)",
-          "domain": "dizipal2134.com",
-          "version": "1",
-          "kaynak_tarih": "2026-09-22",
-          "bizim_tarih": "2026-08-30",
-          "not": "",
-          "secim": "duplicate"
-        }
-      ]
-    },
     "site:dizipod": {
       "name": "DiziPod",
       "candidates": [
@@ -902,10 +815,10 @@
           "site_cell": "[diziyo](https://diziyo.site)",
           "domain": "diziyo",
           "version": "1",
-          "kaynak_tarih": "2026-09-16",
-          "bizim_tarih": "2026-09-16",
+          "kaynak_tarih": "2026-09-07",
+          "bizim_tarih": "2026-10-06",
           "not": "",
-          "secim": "duplicate"
+          "secim": "aktif"
         }
       ]
     },
@@ -925,20 +838,6 @@
           "bizim_tarih": "2026-09-17",
           "not": "",
           "secim": "duplicate"
-        },
-        {
-          "name": "Diziyo",
-          "listed": true,
-          "order": 22,
-          "source": "neoser1984/cloudstream-extensions",
-          "source_cell": "[neoser1984/cloudstream-extensions](https://github.com/neoser1984/cloudstream-extensions)",
-          "site_cell": "[diziyo.site](https://diziyo.site)",
-          "domain": "diziyo.site",
-          "version": "1",
-          "kaynak_tarih": "2026-09-22",
-          "bizim_tarih": "2026-09-22",
-          "not": "",
-          "secim": "aktif"
         }
       ]
     },
@@ -958,20 +857,6 @@
           "bizim_tarih": "2026-09-22",
           "not": "",
           "secim": "aktif"
-        },
-        {
-          "name": "DiziYou",
-          "listed": true,
-          "order": 24,
-          "source": "neoser1984/cloudstream-extensions",
-          "source_cell": "[neoser1984/cloudstream-extensions](https://github.com/neoser1984/cloudstream-extensions)",
-          "site_cell": "[diziyou](https://diziyou.site)",
-          "domain": "diziyou",
-          "version": "1",
-          "kaynak_tarih": "2026-09-22",
-          "bizim_tarih": "2026-09-22",
-          "not": "",
-          "secim": "duplicate"
         }
       ]
     },
@@ -1100,20 +985,6 @@
           "bizim_tarih": "2026-09-22",
           "not": "",
           "secim": "aktif"
-        },
-        {
-          "name": "FullHDFilmizlesene",
-          "listed": true,
-          "order": 34,
-          "source": "neoser1984/cloudstream-extensions",
-          "source_cell": "[neoser1984/cloudstream-extensions](https://github.com/neoser1984/cloudstream-extensions)",
-          "site_cell": "[fullhdfilmizlesene](https://fullhdfilmizlesene.site)",
-          "domain": "fullhdfilmizlesene",
-          "version": "1",
-          "kaynak_tarih": "2026-09-22",
-          "bizim_tarih": "2026-09-22",
-          "not": "",
-          "secim": "duplicate"
         }
       ]
     },
@@ -1183,25 +1054,6 @@
           "version": "1",
           "kaynak_tarih": "2026-09-29",
           "bizim_tarih": "2026-09-16",
-          "not": "",
-          "secim": "aktif"
-        }
-      ]
-    },
-    "site:hdfilmdiziizle.site": {
-      "name": "HDFilmDiziIzle",
-      "candidates": [
-        {
-          "name": "HDFilmDiziIzle",
-          "listed": true,
-          "order": 39,
-          "source": "neoser1984/cloudstream-extensions",
-          "source_cell": "[neoser1984/cloudstream-extensions](https://github.com/neoser1984/cloudstream-extensions)",
-          "site_cell": "[hdfilmdiziizle.site](https://hdfilmdiziizle.site)",
-          "domain": "hdfilmdiziizle.site",
-          "version": "1",
-          "kaynak_tarih": "2026-09-22",
-          "bizim_tarih": "2026-08-30",
           "not": "",
           "secim": "aktif"
         }
@@ -1299,20 +1151,6 @@
           "bizim_tarih": "2026-09-22",
           "not": "",
           "secim": "aktif"
-        },
-        {
-          "name": "SelcukFlix",
-          "listed": true,
-          "order": 51,
-          "source": "neoser1984/cloudstream-extensions",
-          "source_cell": "[neoser1984/cloudstream-extensions](https://github.com/neoser1984/cloudstream-extensions)",
-          "site_cell": "[selcukflix](https://selcukflix.site)",
-          "domain": "selcukflix",
-          "version": "2",
-          "kaynak_tarih": "2026-09-22",
-          "bizim_tarih": "2026-09-22",
-          "not": "",
-          "secim": "duplicate"
         }
       ]
     },
@@ -1332,20 +1170,6 @@
           "bizim_tarih": "2026-09-22",
           "not": "",
           "secim": "aktif"
-        },
-        {
-          "name": "SezonlukDizi",
-          "listed": true,
-          "order": 55,
-          "source": "neoser1984/cloudstream-extensions",
-          "source_cell": "[neoser1984/cloudstream-extensions](https://github.com/neoser1984/cloudstream-extensions)",
-          "site_cell": "[sezonlukdizi](https://sezonlukdizi.site)",
-          "domain": "sezonlukdizi",
-          "version": "1",
-          "kaynak_tarih": "2026-09-22",
-          "bizim_tarih": "2026-09-22",
-          "not": "",
-          "secim": "duplicate"
         }
       ]
     },
@@ -1413,32 +1237,13 @@
           "name": "Streamed",
           "listed": true,
           "order": 60,
-          "source": "lepotane/MRC-builds",
-          "source_cell": "[lepotane/MRC-builds](https://github.com/lepotane/MRC-builds)",
+          "source": "Kraptor123/Cs-Karma",
+          "source_cell": "[Kraptor123/Cs-Karma](https://github.com/Kraptor123/Cs-Karma)",
           "site_cell": "[streamed.site](https://streamed.site)",
           "domain": "streamed.site",
-          "version": "1",
-          "kaynak_tarih": "2026-09-20",
-          "bizim_tarih": "2026-09-17",
-          "not": "",
-          "secim": "aktif"
-        }
-      ]
-    },
-    "site:trdiziizle.site": {
-      "name": "TrDiziIzle",
-      "candidates": [
-        {
-          "name": "TrDiziIzle",
-          "listed": true,
-          "order": 61,
-          "source": "neoser1984/cloudstream-extensions",
-          "source_cell": "[neoser1984/cloudstream-extensions](https://github.com/neoser1984/cloudstream-extensions)",
-          "site_cell": "[trdiziizle.site](https://trdiziizle.site)",
-          "domain": "trdiziizle.site",
-          "version": "1",
-          "kaynak_tarih": "2026-09-22",
-          "bizim_tarih": "2026-08-30",
+          "version": "29",
+          "kaynak_tarih": "2026-10-05",
+          "bizim_tarih": "2026-10-06",
           "not": "",
           "secim": "aktif"
         }
@@ -1460,20 +1265,6 @@
           "bizim_tarih": "2026-09-29",
           "not": "",
           "secim": "aktif"
-        },
-        {
-          "name": "TvDiziler",
-          "listed": true,
-          "order": 63,
-          "source": "neoser1984/cloudstream-extensions",
-          "source_cell": "[neoser1984/cloudstream-extensions](https://github.com/neoser1984/cloudstream-extensions)",
-          "site_cell": "[tvdiziler.site](https://tvdiziler.site)",
-          "domain": "tvdiziler.site",
-          "version": "1",
-          "kaynak_tarih": "2026-09-22",
-          "bizim_tarih": "2026-09-22",
-          "not": "",
-          "secim": "duplicate"
         }
       ]
     },
@@ -1540,23 +1331,9 @@
           "source_cell": "[lepotane/MRC-builds](https://github.com/lepotane/MRC-builds)",
           "site_cell": "[yabancidizi.site](https://yabancidizi.site)",
           "domain": "yabancidizi.site",
-          "version": "2",
-          "kaynak_tarih": "2026-09-15",
-          "bizim_tarih": "2026-09-15",
-          "not": "",
-          "secim": "duplicate"
-        },
-        {
-          "name": "YabanciDizi",
-          "listed": true,
-          "order": 68,
-          "source": "neoser1984/cloudstream-extensions",
-          "source_cell": "[neoser1984/cloudstream-extensions](https://github.com/neoser1984/cloudstream-extensions)",
-          "site_cell": "[yabancidizi.site](https://yabancidizi.site)",
-          "domain": "yabancidizi.site",
-          "version": "1",
-          "kaynak_tarih": "2026-09-22",
-          "bizim_tarih": "2026-09-22",
+          "version": "17",
+          "kaynak_tarih": "2026-09-20",
+          "bizim_tarih": "2026-10-06",
           "not": "",
           "secim": "aktif"
         }
@@ -1739,24 +1516,6 @@
           "bizim_tarih": null,
           "secim": "istenmeyen",
           "not": "en Anime,Cartoon"
-        }
-      ]
-    },
-    "webdramaturkey": {
-      "name": "WebDramaTurkey",
-      "candidates": [
-        {
-          "name": "WebDramaTurkey",
-          "listed": false,
-          "source": "neoser1984/cloudstream-extensions",
-          "source_cell": "[neoser1984/cloudstream-extensions](https://github.com/neoser1984/cloudstream-extensions)",
-          "site_cell": "[webdramaturkey.org](https://webdramaturkey.org)",
-          "domain": "webdramaturkey.org",
-          "version": null,
-          "kaynak_tarih": null,
-          "bizim_tarih": null,
-          "secim": "istenmeyen",
-          "not": "tr AsianDrama"
         }
       ]
     },
