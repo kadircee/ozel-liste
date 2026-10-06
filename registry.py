@@ -160,7 +160,7 @@ def sync():
 
 def liste_rows(reg):
     rows = [c for g in reg['groups'].values() for c in g['candidates'] if c.get('listed')]
-    return sorted(rows, key=lambda c: c['order'])
+    return sorted(rows, key=lambda c: (norm(c['name']), c['source']))
 
 
 def validate(reg):
@@ -197,9 +197,9 @@ def render(reg):
         return ('' if x is None else str(x)).replace('|', '/').replace('\n', ' ').strip()
 
     out = ['| ' + ' | '.join(HEADER) + ' |', '|' + '|'.join(['---'] * len(HEADER)) + '|']
-    for c in liste_rows(reg):
+    for order, c in enumerate(liste_rows(reg), 1):
         out.append('| %d | %s | %s | %s | %s | %s | %s | %s | %s |' % (
-            c['order'], cell(c['name']), cell(c['source_cell']), cell(c['site_cell']),
+            order, cell(c['name']), cell(c['source_cell']), cell(c['site_cell']),
             cell(c['version']), cell(c['kaynak_tarih']), cell(c['bizim_tarih']),
             SECIM_TR[c['secim']], cell(c['not'])))
     return '\n'.join(out)
