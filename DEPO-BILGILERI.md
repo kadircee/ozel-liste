@@ -1,24 +1,14 @@
 # developer (ozel-liste)
 Bu depo test CloudStream deposudur; yalnızca Türkçe film/dizi eklentilerini ve test seçtiği kaynakları barındırır. Canlı yayın, NSFW ve yabancı dil içerikli eklentiler kullanıcı tercihi gereği listeye alınmamıştır.
 
-## Durum
-- **Son doğrulama:** 2026-10-06 · yeni adaylar eklendi; tüm kurulu `.cs3` kayıtlarının kaynak commit tarihleri kataloglandı. `status` dahil kaynak alanları Pure Mirror kuralıyla korunur.
-- **Doğrulama kanıtı:** 2026-10-06 · katalog/registry senkronlandı; `update.py --check`, `registry.py --check` ve `audit.py --check` ile doğrulanır.
-- **Delete-zone:** silinen eklentiler yeniden eklenmez (bkz. Silinen Eklentiler)
-
 ## Kurulum
 CloudStream → Ayarlar → Uzantılar → Depo Ekle:
 ```
 https://raw.githubusercontent.com/kadircee/ozel-liste/main/repo.json
 ```
-**Tek tıkla kurulum (derin link):** CloudStream kurulu bir cihazda aşağıdaki bağlantıya tıklanınca depo otomatik eklenir (`cloudstreamrepo://` şeması uygulama tarafından çözülür):
-```
-cloudstreamrepo://raw.githubusercontent.com/kadircee/ozel-liste/main/repo.json
-```
 **Shortcode (kısayol):** CloudStream, "Depo Ekle" alanına kısa bir kod yazınca onu bir kısaltma servisinden çözer (redirect `Location` başlığından okunur):
 - **`!ozel45`** → `py.md/ozel45` → `repo.json` (Türkiye'de çalışır; **önerilen**). "Depo Ekle" alanına sadece `!ozel45` yazman yeterli.
 Kısa kod yalnızca harf/rakam/`!_-` içerebilir; `!` ile başlayanlar `py.md` servisine gider. Kişisel depo için zorunlu değil — tam URL de çalışır.
-**İpucu — jsDelivr proxy:** CloudStream'de Ayarlar → Uzantılar bölümünde jsDelivr proxy'si açıksa (otomatik CDN dönüşümü), `raw.githubusercontent.com` adresleri hem `repo.json` hem eklenti indirmelerinde otomatik `cdn.jsdelivr.net` üzerinden çekilir. GitHub/raw Türkiye'de engellenirse bu ayar erişimi kurtarır. Uzantı hâlâ yüklenmiyorsa VPN deneyin.
 
 ## Depo Yapısı
 ```
@@ -29,40 +19,8 @@ ozel-liste/
 ├── registry.py          → model araçları (--sync / --check / --render [--write])
 ├── audit.py             → kaynak repoları tarih bazlı denetler (--check = rapor/varsayılan, --apply = yazar)
 ├── update.py            → kaynak depolardan güncel verileri senkronize eden script (--check / --purge dahil)
-├── backups/            → temizlenmiş CloudStream veri yedeği örneği (kişisel veri yok)
 └── DEPO-BILGILERI.md    → bu doküman (tablo bloğu registry.json'dan üretilir)
 ```
-
-## CloudStream Veri Yedeği (backups/)
-`backups/CS3_Backup_2026_08_18_20_14_TEMIZ.txt` — CloudStream'in **Ayarlar → Güncellemeler ve Yedek → Veri Yedeği** ile ürettiği yedeğin **kişisel veriden arındırılmış** temiz örneğidir. Restore edilebilir bir referans/template dosyasıdır. Aynı içerik `backups/CS3_Backup_2026_08_18_20_14_TEMIZ.json` olarak da saklanır (aynı klasörde; uygulama/cihaza göre uzantı `.json` → `.txt` yeniden adlandırılarak kullanılabilir).
-Yedek iki bloktan oluşur: `datastore` (uygulama DataStore tercihleri) ve `settings` (SharedPreferences). Bu örnekte:
-
-**Çıkarılanlar (kişisel/önemsiz):**
-- `REPOSITORIES_KEY` — ekli depolar (repo artık `!ozel45` ile ekleniyor, yedekte taşınmasına gerek yok)
-- İzleme geçmişi ve kaldığın yerler: `0/result_dub/*`, `0/result_episode/*`, `0/result_season/*`, `0/video_pos_dur/*`, `0/result_resume_watching_2/*`
-- Arama geçmişi + arama tercihleri: `0/search_history/*`, `0/search_pref_providers`, `0/search_pref_tags`
-- İndirme önbellekleri: `download_header_cache/*`, `BACKUP_download_header_cache/*`
-- Bu repoda olmayan eklentilerin ayarları: `KraptorPlus*`, `Torrentio*`, `persistent_program_ids`
-- Ana sayfa API'si (`0/home_api_used` — listede olmayan eklentiye işaret ediyordu)
-
-**Korunanlar (tercihler):**
-- Oynatıcı: kalite/kaynak öncelikleri, `playback_speed`, `preferred_audio_language: tr`, `resize_mode`, `duration_mode`, video profiller
-- Altyazı: `subtitle_settings`, `subs_auto_download: tr`
-- `settings` bloğu bütün: `auto_update: true`, `auto_update_plugins`, jsDelivr proxy, DNS, swipe/pip/rotate, `provider_lang: tr` vb.
-- Kurulum bayrakları: `VERSION_NAME`, `HAS_DONE_SETUP`, `FILES_TO_DELETE_KEY`
-
-**Önemli değerler (kullanıcı tercihi, kaynak kod ile doğrulandı):**
-- `jsdelivr_proxy_key: true` — tüm raw GitHub URL'leri jsDelivr CDN üzerinden gider (`RepositoryManager.kt` `convertRawGitUrl`); GitHub raw engelli/sorunlu ağlarda **CloudStream istemci tarafında** açılması gereken ayardır (`repo.json` yine `raw.githubusercontent.com` adresini verir — dönüşüm depo tarafında değil, uygulama tarafında yapılır). `false` = doğrudan raw GitHub, null = uygulama açılışta otomatik tespit (MainActivity.kt:1327).
-- `prerelease_update: true` — uygulama artık prerelease sürümden (4.8.0-PRE) çalışıyor; güncelleme kontrolü prerelease build'leri de kapsar.
-- `enable_nsfw_on_providers_key: true` — NSFW içerik destekleyen eklentilerde yetişkin içerik gösterimi açık.
-
-**Kaynak (player) öncelikleri — semantik ve sıralama (kaynak kod ile doğrulandı):**
-- Semantik: `sortLinks` → `sortedBy { -it.priority }` (`PlayerGeneratorViewModel.kt`) → **büyük sayı listede üstte**; toplam öncelik = `qualityPriority + sourcePriority`, kaynak varsayılanı = 1, negatif toplam yalnız `hide_negative_sources` açıksa gizlenir (varsayılan kapalı).
-- Dublaj grubu (5-8) altyazı grubunun (0-4) üstünde tutuldu: kullanıcı Türkçe dublajı önce seçiyor (`preferred_audio_language: tr`, altyazı yedek).
-- Hoster sıralaması (en iyi → en kötü): **Filemoon** (CDN + HLS, 1080p+, en sağlam) > **VidMoly** (global CDN, çoklu kalite) > **DzenRu** (dzen.ru, 1080p) > **Odnoklassniki/Okru** (ok.ru, 720p-1080p, bazen yavaş) > **Pixel** (PixelDrain, dosya hostu — 60 gün sonra bağlantılar ölebilir) > **Sibnet** (sibnet.ru, **en fazla 720p**).
-- Profil 1 değerleri: Dublaj: FileMoonSx=8, Dzen=7, Odnoklassniki=6, Pixel=5 · AltYazı: Filemoon=4, VidMoly=3, Dzen=2, Odnoklassniki=1, Okru=1, Sibnet=0, Pixel=0.
-> Not: Yedek dosyası repo'da referans amaçlıdır; CloudStream restore ederken repo/shortcode gerektirmez, repo yine `!ozel45` ile eklenir.
-
 `repo.json` içeriği:
 ```json
 {
@@ -74,38 +32,22 @@ Yedek iki bloktan oluşur: `datastore` (uygulama DataStore tercihleri) ve `setti
   ]
 }
 ```
-Her `plugins.json` kaydı: `.cs3` dosya adresi, SHA-256 `fileHash`, `fileSize`, `language`, `tvTypes`, sürüm ve durum içerir.
-
-> **Not:** Kaynak repo bazında dağılım için bkz. **'Tüm Repolar - Alfabetik Liste'** tablosu (en güncel, tek kaynak). Bu özet tablo çift bakım yükü ve tutarsızlık riski nedeniyle kaldırıldı.
-
-Eskiden kullanılan / hiç kullanılmayan kaynaklar:
-- `NivinCNC/CNCVerse-Cloud-Stream-Extension` — `CricifyProvider` (canlı spor) bu kaynaktan geliyordu; kullanıcı canlı spor istemediği için eklenti yok.
-- `Kraptor123/Cs-Karma` — `Streamed` için eski kaldırma kararı kullanıcı istisnasıyla geçersiz kılındı; artık aktif ve canlı içerik istisnası olarak korunuyor.
-- `Kraptor123/Cs-GizliKeyif` — tamamı +18 NSFW içerikliydi (108 kayıt; NSFW olmayan kayıt yok), hiç eklenmedi.
-- `sarapcanagii/*` — `NeonSpor` (canlı) bu kaynaktan gelmişti; kullanıcı istemedi.
-- `ByAyzen/AyzenCS3` — `Syncler`, `Torrential` bu kaynaktan geliyordu; kişisel tercihle silindi.
-> Not: Kaynakların tamamı `raw.githubusercontent.com` üzerinden `builds/plugins.json` ve/veya tekil `.cs3` dosya adresleriyle çekildi; hiçbir eklenti kopyalanıp yeniden barındırılmadı, adresler kaynak repoya işaret eder.
-
-
 ## Kaynak Seçim Kriteri ve Tablo Bakımı
 
 **1. Kaynak seçimi — SADECE TARİH esastır, versiyon kriter değil:**
 - Per-eklenti tarih `git -C <repo> log -1 --format=%cd --date=short --all -- <Eklenti>` ile alınır; repo genel `pushed_at` değil. Aynı eklentinin birden fazla kaynaktan gelen kopyaları arasında en güncel tarihli kayıt otomatik tercih edilir; versiyon numarasının düşük/yüksek olması kararı etkilemez.
 - Kaynak kararından önce `audit.py`, her kaynak reposunun bütün dallarını ve dal ağaçlarındaki tüm `.cs3` dosyalarını tarar. `builds` dışı bir dalda `.cs3` bulunursa `ALTERNATİF-DAL .cs3` olarak raporlanır; doğrulanmadan otomatik Aktif yapılmaz. Canonical manifest/artefakt çifti `builds` dalıdır.
-- Manifestte kayıtlı her `.cs3` adresi de ayrıca HTTP erişilebilirlik kontrolünden geçer. Manifestte bulunup gerçek dosyası 404 olan kayıt havuza alınmaz; böylece manifest/artefakt ayrışması (ör. `plt-stream`) yanlışlıkla Aktif veya yeni kayıt olamaz.
 - Kaynak manifestinde `status: 0` olan kayıtlar devre dışıdır: `plugins.json`'dan silinir, audit havuzuna alınmaz ve sonraki çalıştırmada yeniden eklenmez. Registry tablosunda yalnızca tarih geçmişi için Duplicate adayı olarak görünebilir.
-- Örnek: `FilmMakinesi feroxx v58 (2026-08-23)` vs `blackhope01 v1 (2026-08-25)` — `blackhope01 v1` tarih olarak daha güncel olduğu için doğru şekilde tercih edildi; düşük versiyon yüksek versiyonu ezer ve bu beklenen davranıştır.
 
 **1a. Eşit tarihli kaynaklar (tie-breaker) — OTOMATİK, SORU YOK:**
 İki veya daha fazla kaynağın aynı güncelleme tarihine sahip olduğu durumlarda repo adına göre alfabetik sıralama yapılır ve HER ZAMAN ilk sıradaki kaynak otomatik seçilir (`audit.py` bu çözümü kendisi uygular; script durup sormaz).
 Versiyon numarası bu tie-breaker'da kriter olarak kullanılmaz — ne düşük ne yüksek versiyon tercih nedeni sayılır.
 
 **1b. Tüm dal taraması (2026-09-29):**
-Yedi kaynak repo ve mevcut tüm dalları (`builds` dahil) taranır. `lepotane/MRC-builds@test` dalında da `.cs3` artefaktları bulunduğu için bu dal ayrıca raporlanır; seçim yalnızca canonical `builds` dalındaki manifest ve dosya tarihine göre yapılır, alternatif dal otomatik kaynak olmaz.
+Yedi kaynak repo ve mevcut tüm dalları (`builds` dahil) taranır.
 
 **2. Tablo bakımı — `Tüm Repolar` tüm karşılaştırılan adayları içerir:**
-- Yeni adaylar için varsayılan filtre `language == tr` ve `tvTypes ⊆ {Movie, TvSeries, Documentary}` kuralıdır. Filtre dışı adaylar tabloya alınmaz; kalıcı olarak istenmeyen seçilenler Delete-Zone’da tutulur.
-- **İstisna — paket (çoklu-kaynak) eklentileri:** `KraptorPlus`, `Sinewix`, `Dizipod` (ve Delete-Zone'da tutulan `Full4kizle`) kaynak metadata'sında `Anime/AsianDrama/Cartoon` etiketi taşır ama **bunlar anime/kategori eklentisi değildir** — bunlar yalnızca kullanıcı onaylı paket istisnalarıdır.
+- Yeni adaylar için varsayılan filtre `language == tr` ve `tvTypes ⊆ {Movie, TvSeries, Documentary}` kuralıdır. 
 - `Site (domain)` her zaman `[domain](https://domain)` linkli olmalı (tıklanabilir).
 - `kadircee/ozel-liste` kaynak değil derleme olduğu için `Tüm Repolar`'da yer almaz.
 - `İstenmeyenler` metin + tablo aynı anda tutulmaz; tek tablo yeterlidir, `Silinen Eklentiler` metin listesi sadece not bırakır.
@@ -117,18 +59,12 @@ Model yalnızca `Seçim` ekseninden oluşur: `Aktif` (yarışı kazandı, `plugi
 - **Simge/görsel kaynağı:** Her kayıt için `iconUrl`, seçilen kaynak deponun `builds/plugins.json` manifestinden alınır. `%size%` yer tutucusu sabit `sz=128` değerine çevrilir; simge dosyası bu depoya kopyalanmaz ve görsel yeniden barındırılmaz. Kaynak manifestindeki simge değişirse `update.py` ile güncellenir.
 - Kaynak ilerlediyse `update.py` ile senkronize et, `Bizim Tarih`'i eşitle; `status`'e dokunma, kaynak ne verdiyse o alınır.
 
-
-
-
-
-## Tarih Takip Kuralı (tek kural)
+## Tarih Takip Kuralı (tek kural - aslında kural 1'i anlatmaktadır.)
 
 Tablodaki her satırda iki tarih vardır: **Kaynak Tarih** (kaynak deponun `builds` branch'inde o `.cs3` dosyasına dokunan son commit'in tarihi) ve **Bizim Tarih** (bizim o kaynağı en son benimsediğimiz tarih). Bütün olay bu iki tarihin karşılaştırmasıdır:
 
 - **Kaynak Tarih > Bizim Tarih** → kaynak ilerlemiş demektir. `update.py` ile senkronize et (`status` dahil kaynak ne yayınlıyorsa aynen alınır), sonra satırdaki `Bizim Tarih`'i `Kaynak Tarih`'e eşitle. Versiyon numarasına bakılmaz.
 - **Kaynak Tarih == Bizim Tarih** → yapacak iş yok.
-
-`verify.py` 2026-09-05'te kaldırıldı: ağ taraması yavaştı ve ürettiği uyarılar karara dönüşmüyordu. Doğruluk tarih takibine dayanır; `status` kaynağın yayınladığı değerdir, bu depoda manuel `status` takibi yapılmaz.
 
 ## Kayıt Durumu Modeli
 
@@ -141,7 +77,6 @@ Her kayıt tek eksene sahiptir:
 | Duplicate | Yarışı kaybetti, dosyada yok | yok |
 | İstenmeyen | Hiç değerlendirmeye alınmadı | yok |
 
-**Kararlar (2026-09-16):** (A) Tarih çelişkileri kurala göre uygulanır; eşit tarihli tie'lar repo adı alfabetik ilk kaynak seçilerek otomatik çözülür; flip, hash/boyut doğrulaması gerektirdiği için script ile ayrı adımda yapılır. (B) Aynı normalize isim = aynı grup (mutlak). (C) `Bizim Tarih`, Duplicate satırlarda referans amaçlı dondurulur, tazelenmez. (D) Tablo üretilen bloktur; değişiklik `--sync` → `--render --write` akışıyla yapılır.
 
 **Araçlar:** `python registry.py --sync` (tablolar + `plugins.json` → `registry.json`), `--check` (şema + küme + tarih; ihlalde exit 1), `--render [--write]` (tabloyu üretir). `Seçim` `plugins.json`'dan türetilir (dosyada olan = Aktif); grup başına en fazla 1 Aktif; Aktif kümesi `plugins.json` ile birebir zorunlu. Eklenti alanları (`status`, `version`, `fileSize`, `fileHash`, `description`, `authors`, `language`, `tvTypes`) kaynak `builds/plugins.json`'dan birebir yansıtılır (`update.py`).
 
@@ -150,53 +85,12 @@ Her kayıt tek eksene sahiptir:
 python update.py --check    # yazmadan sadece farkları raporlar (fark varsa exit 1)
 python update.py            # farkları uygular, plugins.json'u günceller
 ```
-Kaynak `builds/plugins.json` adresi, listedeki `.cs3` adresinden türetilir (`https://raw.githubusercontent.com/<owner>/<repo>/builds/<Isim>.cs3` → aynı klasördeki `plugins.json`). Senkronize edilen alanlar: `status, version, fileSize, fileHash, description, authors, language, tvTypes` (Pure Mirror — kaynak ne yayınlıyorsa aynen alınır). `iconUrl` bilinçli olarak senkronize **edilmez** — bu depo ikon adreslerini normalize eder (kaynaktaki `%size%` yer tutucuları sabit `sz=128`'e çevrilir) ve kaynak güncellemesi bu düzeltmeyi geri almasın.
+Kaynak `builds/plugins.json` adresi, listedeki `.cs3` adresinden türetilir (`https://raw.githubusercontent.com/<owner>/<repo>/builds/<Isim>.cs3` → aynı klasördeki `plugins.json`). Senkronize edilen alanlar: `status, version, fileSize, fileHash, description, authors, language, tvTypes` (Pure Mirror — kaynak ne yayınlıyorsa aynen alınır). 
 
 > **Not:** Kaynak senkronu GitHub Actions ile otomatik çalışır (`.github/workflows/mirror.yml`: her gün 05:00 UTC ve `workflow_dispatch` ile manuel tetikleme). Akış: `update.py` → `registry.py --sync` → `registry.py --render --write` → `registry.py --check` → `audit.py --check` → değişiklik varsa otomatik commit+push. Yerelde elle çalıştırmak da mümkündür. Kaynakta bulunamayan veya `status: 0` olan kayıt `[SILINDI]` olarak listeden düşer; kaynak manifesti 404 ise audit kaynağı atlar ve aktif katalogda kayıt bırakılmaz.
 
-## Karşılaşılan Hatalar ve Çözümleri
-| Hata | Neden | Çözüm |
-|------|-------|-------|
-| Eklentilerin çoğu repo listesinde görünmüyordu | CloudStream önbelleği eski listeyi tutuyordu | Uygulamada "Verileri temizle" → depo yeniden eklendi |
-| `.cs3` dosyaları "format hatası" gösterdi | Sorun dosyada değildi; istemci önbelleği eski listeyi gösteriyordu | Uygulamada "Verileri temizle" → depo yeniden eklendi, sorun çözüldü |
-| `Filmmirasım` JSON'da eşleşmiyordu | Dosya adındaki noktasız `ı` (U+0131) karakteri shell'de bozuldu | Python'da `\u0131` escape'iyle yazılarak halledildi |
-| PowerShell ile JSON düzenlemekte bozulma | `ConvertFrom/ConvertTo-Json` dizi yapısını bozuyordu | Tüm JSON işlemleri Python (`utf-8`, `ensure_ascii=False`) ile yapıldı |
-| jsDelivr hâlâ eski listeyi gösteriyordu | CDN önbelleği | `purge.jsdelivr.net` üzerinden önbellek temizlendi |
-| `FullRaces` simgesi yüklenmiyordu | `iconUrl` içinde `%size%` yer tutucusu kalmıştı | `sz=128` olarak düzeltildi |
-| `Disney-Plus` kaynağı görünüyordu | MirrorVerse eklentisinin içindeki kaynak adı | Eklenti listeden kaldırıldı |
-| 30 eklenti indirilemiyordu (hata yazıyordu) | `cs-kraptor` deposu kapanmıştı; 29 `.cs3` dosyası 404 veriyordu, 1 eklenti de (JPFilms) hash'i güncellenmediği için uyuşmuyordu | Kaynak kapandığı için 29 eklenti listeden çıkarıldı; JPFilms dahil yabancı eklentiler Türkçe filtresiyle kaldırıldı. Kalan 4 eklenti tek tek indirilip hash/boyut doğrulandı |
-| `JPFilms` indirilemiyordu | Kaynakta v6 → v7 güncellenmiş, hash ve boyut değişmişti; listede eski hash duruyordu | Yeni hash/boyut kaynağından alındı; ancak daha sonra Türkçe filtreyle eklenti listeden çıkarıldığı için push edilmedi |
-| `plt-stream` hash uyuşmazlığı | Kaynak v38 → v39 güncellenmiş; listede eski hash (411831 byte) vardı, gerçek dosya değişmişti (413103 byte) | Kaynağın `builds/plugins.json`'ından güncel `version/fileSize/fileHash/description` alındı, kayıt senkronlandı |
-| `İnfluencerChicks` indirilemiyordu | Eklenti adındaki `İ` (U+0130) karakteri raw URL'de HTTP isteğini ascii encode hatasıyla patlatıyordu | URL'deki `İ` → `%C4%B0` percent-encode edildi (CloudStream de benzer sorun yaşamaması için) |
-| Makoto2 eklentilerinde `fileHash` yoktu | Depo eski CloudStream formatı kullanıyor (hash alanı olmadan) | `fileHash` kontrolü atlanıp yalnızca indirilebilirlik doğrulandı; bu depodan eklenti alınmadı |
-| `Kanal 7` eklentisi indirilemiyordu | URL'de boşluk karakteri vardı (`.../Kanal 7.cs3`), GitHub raw'da geçersiz | Depodan eklenti kullanılmadı |
-| `cagatayrepo` ve `AyzenCS3` 404 | Bu depoların `plugins.json`'ı erişilemezdi | Katalogda listelenmesine rağmen kullanılmadı |
-| GitHub API rate limit | `api.github.com` istek limiti doluyordu | Ham `raw.githubusercontent.com` fetch'leri ve websearch ile aşıldı |
-| `plt-stream` yine bozulmuştu (v42 → v44) | Kaynak repo v44'e güncellenmiş; listede v42/eski hash/421535 byte duruyordu, gerçek dosya 428931 byte idi. CloudStream hash doğrulaması "Extension hash mismatch" fırlatıyordu | `update.py` ile kaynaktan senkronlandı (v44, yeni hash) |
-| jsDelivr proxy `.cs3` 404/400 veriyordu (araştırma) | İlk istekte jsDelivr önbelleği soğuk olduğu için 404; `@branch` sözdizimi ve tarayıcı UA ile 200 dönüyor | Sorun değil; jsDelivr önbelleği ısınınca tüm `.cs3`'ler doğru hash'le iniyor (plt-stream hariç kaynak güncel olduğu için o da senkronlanınca düzeldi) |
-| jsDelivr dönüşüm formatı karışıyordu | Doğru format `cdn.jsdelivr.net/gh/<owner>/<repo>@<branch>/<path>` — `@` **repo adından sonra** gelir (branch'ten önce); `repo@branch` yazılmadığında 404 alınıyordu | Format netleştirildi: `https://cdn.jsdelivr.net/gh/kadircee/ozel-liste@main/plugins.json`; purge de aynı biçimi kullanır |
-| `git push` çıktısında kırmızı `NativeCommandError` görünüyordu | PowerShell, git'in stderr'e yazdığı ilerleme satırlarını hata sanıyor | Gerçek hata değil — çıktının sonunda `fb7f710..6aea63d main → main` görülüyorsa push başarılı demektir |
-| YAML doğrulama `ModuleNotFoundError: No module named 'yaml'` | Python'da PyYAML kurulu değildi | `python -m pip install pyyaml` ile kuruldu; doğrulama `yaml.safe_load` ile geçti |
-| plt-stream v47→v55 + DiziPalOriginal v84→v86 + DiziMom v56→v58 hash/boyut uyuşmazlığı (2026-09-05) | Kaynak repolar güncellenmiş; listedeki eski hash/boyut CloudStream’te hash mismatch veriyordu | update.py ile senkronlandı, jsDelivr purge 5/5 OK; Dizipod authors trim koruması geri yazıldı |
-| 4 kapalı açıldı (DiziMom/DiziPal/FullHDFilmizlesene) + WebteIzle typo-kopyaya geçildi (2026-09-05) | Tarih Takip Kuralı: kaynaklar ilerledi, kullanıcı onayı ile açıldı/değiştirildi | 5 kayıt hash doğrulamalı senkronlandı (status 0→1 açılanlar dahil), jsDelivr purge 6/6 OK; UgurFilm yasaklıya eklendi |
-| Full4kizle kaynağın plugins.json’ından düşmüş (.cs3 404) | Cs-Karma tarafında kayıt yok | Güncel kural gereği devre dışı/kayıp artefakt yayın listesine alınmıyor; yalnızca Delete-Zone geçmişi korunuyor |
-| 18 eklenti senkronu (2026-09-15: aytzey 12 + feroxx 4 + blackhope 1 + plt 1) + DiziMom v4/Tablo v3 farki kapatildi | Kaynak repolar ilerlemis (aytzey 09-08 domain rewrite mass-bump, feroxx 09-15 rebuild, blackhope 09-07, plt 09-14); DiziFilmORG status:0 korunarak v23'e senkronlandi, Full4kizle kaynakta yok (ATLANDI, status:0 korunuyor) | update.py ile senkronlandi (Dizipod authors trim geri yazildi), jsDelivr purge 19/19 OK; DiziFilmORG kapali tutuldu, Bizim Tarih esitlendi |
-| Webteizle-group audit FLIP vermedi (2026-09-05) | blackhope Webteizle (09-03) listedeki feroxx WebteIzle (09-02)’den yeniydi ama case-farki (Izle/izle) gruplari ayirdi + listedeki kaynak grupta olmayinca script sessiz gecti | Liste blackhope’a cevrildi (hash dogrulamali); audit.py’a ORPHAN raporu eklendi, sessiz gecis kapatildi |
-| Devre dışı kaynakların temizlenmesi (2026-09-23) | `DiziGom` ve `DiziYo` MRC manifestinde `status: 0` yayınlıyordu | Devre dışı MRC kayıtları `plugins.json`'dan silindi; audit artık `status: 0` kayıtları havuza almadığı için geri eklemiyor. Aynı sitelerin erişilebilir, daha yeni NeO adayları tarih kuralıyla Aktif seçildi |
-| Üretilen `Not` hücresindeki `|` (pipe) tabloyu bölüyordu (2026-09-15) | Not metnine ayraç olarak ` \| ` yazılınca markdown hücre bölünüyor, `--sync` idempotent olmuyordu | Ayraç `;` oldu, yazımda pipe kaçışı (`/`) eklendi; idempotency testiyle doğrulandı |
-| 9 flip beklemede kalmıştı (2026-09-15 raporu) | Aktif kaynak, Tarih Takip Kuralı'na göre en yeni değildi (blackhope 09-07 tercih edilmişti); paralel oturum hazırlamış ama push etmemişti | 2026-09-16'da kaynak builds'ten hash/boyut/ZIP doğrulamalı uygulandı; 4 aytzey + 5 feroxx; Webteizle → WebteIzle CASE birleşmesi yapıldı; jsDelivr purge 10/10 OK |
-| `## İstenmeyenler` başlığı tablo satırının içine yapışmıştı (2026-09-15) | Başlık kendi satırına taşınmadan 87. satırın son hücresine yazılmıştı; GitHub başlığı render etmiyor, satır 7→8 hücreye kayıyordu, delete-zone bölümünün görünür başlığı yoktu | Başlık kendi satırına alındı; `audit.py` yasaklı listesi artık satır içi eşleşme tesadüfüne değil gerçek başlığa dayanıyor |
-| `audit.py` içindeki `guard` listesi hiç yazdırılmıyordu (2026-09-15) | Satır 138'de başlatılıp 173'te dolduruluyordu ama rapora basılmıyordu → "yasaklı, kaynakta görüldü ama elendi" sinyali sessizdi (ORPHAN'da kapatılan sessiz geçişin aynısı) | `=== YASAKLI-ELEME ===` bloğu rapora eklendi ve `--check` exit koşuluna dahil edildi |
-| `audit.py` Türkçe karakterli `.cs3` adında `'ascii' codec can't encode character '\u0131'` veriyordu (Filmmirasım) | GitHub API adresi percent-encode edilmiyordu; urllib ASCII dışı karakteri taşıyamıyor → eklenti denetim havuzundan **sessizce** düşüyor, tarihi hiç takip edilmiyordu | `percent_encode()` (update.py ile aynı mantık) `api_json`'a eklendi + `import urllib.parse` |
-| Geçersiz kaynaklar ve tarih flip'leri (2026-09-29) | `ilkelkullanici/ilkel-cloudstream` 404 oldu; `pltmustafa/plt-stream` manifestindeki bir artefakt 404 verdi; DiziLife ve TvDiziler aktif kaynakları en yeni değildi | İki kaynak tamamen kaldırıldı; DiziLife `blackhope01`, TvDiziler `lepotane/MRC-builds` kaynağına taşındı; tüm kurulu `.cs3` kayıtlarının kaynak tarihleri yenilendi |
-| DiziPal ailesi erişilemiyordu (2026-09-29) | DiziPal alan adları çözümlenmiyor veya çalışmıyordu; DiziPal2121 de DiziPal2134'e yönlenmesine rağmen güvenilir değildi | Beş DiziPal kaydı yayın listesinden ve Delete-Zone'a alındı; simge URL normalizasyonu `sz=128` biçiminde sabitlendi; Actions'a `audit.py --check` kapısı eklendi |
-| Çalışmayan paket kaynakları ve TrDiziİzle mükerrer görünümü (2026-09-29) | `OwnedSites` tek kaynakta paket olarak yayınlanıyor; dokuz site adı bu paketin açıklamasında yer alıyor ve `TrDiziIzle` bağımsız kaydıyla birlikte iki kez görünebiliyordu | `OwnedSites` ile `DiziBox`, `DiziGom`, `DiziLife`, `FilmHane`, `FullHDFilm`, `HDFilmizle`, `InatBox`, `SetFilmIzle` ve `SinemaCX` yayın listesinden çıkarıldı; `OwnedSites` Delete-Zone'a alındı ve `TrDiziIzle` tek aktif kayıt olarak bırakıldı |
-
-### Önemli Not
-Repolar güncellendiğinde (yeni build yayınlandığında (GitHub uzerinden takip edilir)), Kaynak Tarih ilerlediğinde satır Tarih Takip Kuralı'na göre güncellenir: `update.py` ile senkronize edilir (`status` dahil kaynak ne yayınlıyorsa aynen alınır), `Bizim Tarih` eşitlenir.
-
 ## Silinen Eklentiler (delete-zone)
-Bu eklentiler listeye **eklenmez**; yeniden ekleme kararı yalnızca kullanıcı verir. Listede NSFW (+18) hiç yer almadı; canlı yayın/maç eklentileri istenmedi. Kural: Pure Mirror mantığı gereği, kaynak depo bir eklentiyi kaldırırsa (404), o eklenti bizim listemizden de update.py tarafından OTOMATİK OLARAK SİLİNİR. Bu durumda cihazınızda kurulu kalan bozuk eklentilerin manuel temizlenmesi gerekir. "Site açılmıyor" gerekçesiyle silinenler **geri dönüşlüdür**: site düzelirse tekrar denenebilir.
+Bu eklentiler listeye **eklenmez**; yeniden ekleme kararı yalnızca kullanıcı verir. 
 
 > **Not:** Ayrıntılı liste `İstenmeyenler (Delete-Zone)` tablosunda alfabetik olarak yer almaktadır.
 
@@ -277,51 +171,13 @@ Toplam satır: 42 · Aktif: 33 · Duplicate: 9.
 
 Bu bölümde kaynak olarak taranan **6 repo** tek tek gösterilir. `Repo son güncelleme`, bizim depomuzun değil, ilgili kaynak GitHub reposunun GitHub API `updated_at` değeridir. Site sütununda yalnızca bu depoda listelenen kayıtlar bulunur; `—` olan repo tarama havuzunda bulunmasına rağmen aktif/duplicate katalog kaydı olarak kullanılmıyor.
 
-| Kaynak repo | Repo son güncelleme (GitHub) | Bu depoda kullanılan siteler/eklentiler |
+| Kaynak repo | Repo son güncelleme (GitHub) 
 |---|---|---|
-| [blackhope01/cloudstream-plugins](https://github.com/blackhope01/cloudstream-plugins) | 2026-10-05 19:34:18 UTC | diziyo, filmekseni, filmhane.shop, lovefilm, webteizle |
-| [feroxx/Kekik-cloudstream](https://github.com/feroxx/Kekik-cloudstream) | 2026-10-05 19:34:08 UTC | ddizi, dizibox.live, dizilla, dizimom, dizipod, diziyou, filmmakinesi, filmmodu, fullhdfilmizlesene, hdfilm.us, hdfilmcehennemi, hdfilmdelisi, jetfilmizle, selcukflix, setfilmizle.uk, sezonlukdizi, sinema.cx, sinewix, webteizle |
-| [Kraptor123/Cs-Karma](https://github.com/Kraptor123/Cs-Karma) | 2026-10-05 19:33:02 UTC | streamed.site |
-| [lepotane/MRC-builds](https://github.com/lepotane/MRC-builds) | 2026-10-05 19:53:27 UTC | dizilla, dizimom, dizipal2135.com, diziwatch.site, diziyo.site, filmekseni.site, filmizyon.site, filmmakinesi, hdfilmcehennemi, hdfilmcehennemi2.site, lovefilm.site, sinefy.site, sinezy.site, tvdiziler.site, ultrafilmizle.org, yabancidizi.site |
-| [Ripplay/cloudstream-repo](https://github.com/Ripplay/cloudstream-repo) | 2026-09-18 21:27:51 UTC | hdfilmizle.site |
-
-Altındaki ayrıntılı tabloda her kayıt için kullanılan site, kaynak repo, repo güncelleme tarihi ve ilgili `.cs3` dosyasının kaynak tarihi ayrıca gösterilir.
-
-| Eklenti | Kullanılan site | GitHub kaynak sayfası | GitHub son güncelleme | Eklenti kaynak tarihi |
-|---|---|---|---|---|
-| Ddizi | [ddizi](https://ddizi.site) | [feroxx/Kekik-cloudstream](https://github.com/feroxx/Kekik-cloudstream) | 2026-10-05 | 2026-09-29 |
-| DiziBox | [dizibox.live](https://dizibox.live) | [feroxx/Kekik-cloudstream](https://github.com/feroxx/Kekik-cloudstream) | 2026-10-05 | 2026-10-04 |
-| Dizilla | [dizilla](https://dizilla.site) | [feroxx/Kekik-cloudstream](https://github.com/feroxx/Kekik-cloudstream) | 2026-10-05 | 2026-09-29 |
-| DiziMom | [dizimom](https://dizimom.site) | [feroxx/Kekik-cloudstream](https://github.com/feroxx/Kekik-cloudstream) | 2026-10-05 | 2026-09-29 |
-| DiziPal2 | [dizipal2135.com](https://dizipal2135.com) | [lepotane/MRC-builds](https://github.com/lepotane/MRC-builds) | 2026-10-05 | 2026-10-02 |
-| DiziPod | [dizipod](https://dizipod.site) | [feroxx/Kekik-cloudstream](https://github.com/feroxx/Kekik-cloudstream) | 2026-10-05 | 2026-09-29 |
-| DiziYo | [diziyo](https://diziyo.site) | [blackhope01/cloudstream-plugins](https://github.com/blackhope01/cloudstream-plugins) | 2026-10-05 | 2026-09-07 |
-| DiziYou | [diziyou](https://diziyou.site) | [feroxx/Kekik-cloudstream](https://github.com/feroxx/Kekik-cloudstream) | 2026-10-05 | 2026-09-29 |
-| FilmEkseni | [filmekseni.site](https://filmekseni.site) | [lepotane/MRC-builds](https://github.com/lepotane/MRC-builds) | 2026-10-05 | 2026-09-20 |
-| FilmHane | [filmhane.shop](https://filmhane.shop) | [blackhope01/cloudstream-plugins](https://github.com/blackhope01/cloudstream-plugins) | 2026-10-05 | 2026-09-07 |
-| FilmIzyon | [filmizyon.site](https://filmizyon.site) | [lepotane/MRC-builds](https://github.com/lepotane/MRC-builds) | 2026-10-05 | 2026-09-27 |
-| FilmMakinesi | [filmmakinesi](https://filmmakinesi.site) | [feroxx/Kekik-cloudstream](https://github.com/feroxx/Kekik-cloudstream) | 2026-10-05 | 2026-09-29 |
-| FilmModu | [filmmodu](https://filmmodu.site) | [feroxx/Kekik-cloudstream](https://github.com/feroxx/Kekik-cloudstream) | 2026-10-05 | 2026-09-29 |
-| FullHDFilm | [hdfilm.us](https://hdfilm.us) | [feroxx/Kekik-cloudstream](https://github.com/feroxx/Kekik-cloudstream) | 2026-10-05 | 2026-10-04 |
-| FullHDFilmizlesene | [fullhdfilmizlesene](https://fullhdfilmizlesene.site) | [feroxx/Kekik-cloudstream](https://github.com/feroxx/Kekik-cloudstream) | 2026-10-05 | 2026-09-29 |
-| HDFilmCehennemi | [hdfilmcehennemi](https://hdfilmcehennemi.site) | [feroxx/Kekik-cloudstream](https://github.com/feroxx/Kekik-cloudstream) | 2026-10-05 | 2026-09-29 |
-| HdFilmCehennemi2 | [hdfilmcehennemi2.site](https://hdfilmcehennemi2.site) | [lepotane/MRC-builds](https://github.com/lepotane/MRC-builds) | 2026-10-05 | 2026-09-20 |
-| HDFilmDelisi | [hdfilmdelisi](https://hdfilmdelisi.site) | [feroxx/Kekik-cloudstream](https://github.com/feroxx/Kekik-cloudstream) | 2026-10-05 | 2026-09-29 |
-| HDFilmIzle | [hdfilmizle.site](https://hdfilmizle.site) | [Ripplay/cloudstream-repo](https://github.com/Ripplay/cloudstream-repo) | 2026-09-18 | 2026-08-24 |
-| JetFilmizle | [jetfilmizle](https://jetfilmizle.site) | [feroxx/Kekik-cloudstream](https://github.com/feroxx/Kekik-cloudstream) | 2026-10-05 | 2026-09-29 |
-| LoveFilm | [lovefilm.site](https://lovefilm.site) | [lepotane/MRC-builds](https://github.com/lepotane/MRC-builds) | 2026-10-05 | 2026-09-27 |
-| SelcukFlix | [selcukflix](https://selcukflix.site) | [feroxx/Kekik-cloudstream](https://github.com/feroxx/Kekik-cloudstream) | 2026-10-05 | 2026-09-29 |
-| SetFilmIzle | [setfilmizle.uk](https://setfilmizle.uk) | [feroxx/Kekik-cloudstream](https://github.com/feroxx/Kekik-cloudstream) | 2026-10-05 | 2026-10-04 |
-| SezonlukDizi | [sezonlukdizi](https://sezonlukdizi.site) | [feroxx/Kekik-cloudstream](https://github.com/feroxx/Kekik-cloudstream) | 2026-10-05 | 2026-09-29 |
-| Sinefy | [sinefy.site](https://sinefy.site) | [lepotane/MRC-builds](https://github.com/lepotane/MRC-builds) | 2026-10-05 | 2026-09-20 |
-| SinemaCX | [sinema.cx](https://sinema.cx) | [feroxx/Kekik-cloudstream](https://github.com/feroxx/Kekik-cloudstream) | 2026-10-05 | 2026-10-04 |
-| Sinewix | [sinewix](https://sinewix.site) | [feroxx/Kekik-cloudstream](https://github.com/feroxx/Kekik-cloudstream) | 2026-10-05 | 2026-09-29 |
-| Sinezy | [sinezy.site](https://sinezy.site) | [lepotane/MRC-builds](https://github.com/lepotane/MRC-builds) | 2026-10-05 | 2026-09-29 |
-| Streamed | [streamed.site](https://streamed.site) | [Kraptor123/Cs-Karma](https://github.com/Kraptor123/Cs-Karma) | 2026-10-05 | 2026-10-05 |
-| TvDiziler | [tvdiziler.site](https://tvdiziler.site) | [lepotane/MRC-builds](https://github.com/lepotane/MRC-builds) | 2026-10-05 | 2026-09-27 |
-| UltraFilmizle | [ultrafilmizle.org](https://ultrafilmizle.org) | [lepotane/MRC-builds](https://github.com/lepotane/MRC-builds) | 2026-10-05 | 2026-09-23 |
-| WebteIzle | [webteizle](https://webteizle.site) | [feroxx/Kekik-cloudstream](https://github.com/feroxx/Kekik-cloudstream) | 2026-10-05 | 2026-09-29 |
-| YabanciDizi | [yabancidizi.site](https://yabancidizi.site) | [lepotane/MRC-builds](https://github.com/lepotane/MRC-builds) | 2026-10-05 | 2026-09-20 |
+| [blackhope01/cloudstream-plugins](https://github.com/blackhope01/cloudstream-plugins) | 2026-10-05 19:34:18 UTC | 
+| [feroxx/Kekik-cloudstream](https://github.com/feroxx/Kekik-cloudstream) | 2026-10-05 19:34:08 UTC |
+| [Kraptor123/Cs-Karma](https://github.com/Kraptor123/Cs-Karma) | 2026-10-05 19:33:02 UTC | 
+| [lepotane/MRC-builds](https://github.com/lepotane/MRC-builds) | 2026-10-05 19:53:27 UTC |
+| [Ripplay/cloudstream-repo](https://github.com/Ripplay/cloudstream-repo) | 2026-09-18 21:27:51 UTC |
 
 ## İstenmeyenler (Delete-Zone) - 70 unique
 
