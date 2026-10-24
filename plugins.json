@@ -81,10 +81,10 @@
   },
   {
     "iconUrl": "https://www.google.com/s2/favicons?domain=https://dizipal2135.com&sz=128",
-    "fileHash": "sha256-415ef784376a3f9359f6066508bc54eb37dfd481fc59e41d033d53591e15e431",
+    "fileHash": "sha256-de863aa4b5397feca28d28adc02babb8da7e381cc4b2b525199d99901047ffc9",
     "apiVersion": 1,
     "repositoryUrl": "https://github.com/lepotane/MRC-builds",
-    "fileSize": 27820,
+    "fileSize": 36707,
     "status": 1,
     "language": "tr",
     "authors": [
@@ -94,9 +94,9 @@
       "Movie",
       "TvSeries"
     ],
-    "version": 2,
+    "version": 7,
     "internalName": "DiziPal2",
-    "description": "DiziPal2  en yeni dizileri güvenli ve hızlı şekilde sunar.",
+    "description": "DiziPal2  en yeni dizileri gÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â¼venli ve hÃƒÆ’Ã¢â‚¬ÂÃƒâ€šÃ‚Â±zlÃƒÆ’Ã¢â‚¬ÂÃƒâ€šÃ‚Â± ÃƒÆ’Ã¢â‚¬Â¦Ãƒâ€¦Ã‚Â¸ekilde sunar.",
     "url": "https://raw.githubusercontent.com/lepotane/MRC-builds/builds/DiziPal2.cs3",
     "name": "DiziPal2"
   },
@@ -165,14 +165,14 @@
   {
     "url": "https://raw.githubusercontent.com/lepotane/MRC-builds/builds/FilmEkseni.cs3",
     "status": 1,
-    "version": 3,
+    "version": 4,
     "name": "FilmEkseni",
     "internalName": "FilmEkseni",
     "authors": [
       "MRC"
     ],
-    "description": "Film Ekseni Vizyonda ki, en güncel ve en yeni filmleri full hd kalitesinde türkçe dublaj ve altyazı seçenekleriyle 1080p olarak izleyebileceğiniz adresiniz.",
-    "fileSize": 39756,
+    "description": "Film Ekseni Vizyonda ki, en gÃƒÆ’Ã†â€™Ãƒâ€ Ã¢â‚¬â„¢ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â¼ncel ve en yeni filmleri full hd kalitesinde tÃƒÆ’Ã†â€™Ãƒâ€ Ã¢â‚¬â„¢ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â¼rkÃƒÆ’Ã†â€™Ãƒâ€ Ã¢â‚¬â„¢ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â§e dublaj ve altyazÃƒÆ’Ã†â€™ÃƒÂ¢Ã¢â€šÂ¬Ã‚ÂÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â± seÃƒÆ’Ã†â€™Ãƒâ€ Ã¢â‚¬â„¢ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â§enekleriyle 1080p olarak izleyebileceÃƒÆ’Ã†â€™ÃƒÂ¢Ã¢â€šÂ¬Ã‚ÂÃƒÆ’Ã¢â‚¬Â¦Ãƒâ€šÃ‚Â¸iniz adresiniz.",
+    "fileSize": 44062,
     "repositoryUrl": "https://github.com/lepotane/MRC-builds",
     "language": "tr",
     "tvTypes": [
@@ -181,7 +181,7 @@
     ],
     "iconUrl": "https://www.google.com/s2/favicons?domain=https://www.filmekseni.vip&sz=128",
     "apiVersion": 1,
-    "fileHash": "sha256-6709e1b91fdfadaee15486f495126708e28a50b9f3ffa12931c0d85bdc5b66c9"
+    "fileHash": "sha256-10e7581cc4697d39ccf79862c549f41aee98bb31b3f951c4d91e73d2c3b56f17"
   },
   {
     "url": "https://raw.githubusercontent.com/blackhope01/cloudstream-plugins/builds/FilmHane.cs3",
@@ -207,14 +207,14 @@
   {
     "url": "https://raw.githubusercontent.com/lepotane/MRC-builds/builds/FilmIzyon.cs3",
     "status": 1,
-    "version": 6,
+    "version": 8,
     "name": "FilmIzyon",
     "internalName": "FilmIzyon",
     "authors": [
       "MRC"
     ],
-    "description": "Yerli ve yabancı ödüllü tüm filmleri Türkçe Dublaj veya Orjinal dilde izleyebileceğiniz Türkiye'nin en kaliteli film izleme platformuna hoşgeldiniz.",
-    "fileSize": 24279,
+    "description": "Yerli ve yabancÃƒÆ’Ã¢â‚¬ÂÃƒâ€šÃ‚Â± ÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â¶dÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â¼llÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â¼ tÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â¼m filmleri TÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â¼rkÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â§e Dublaj veya Orjinal dilde izleyebileceÃƒÆ’Ã¢â‚¬ÂÃƒâ€¦Ã‚Â¸iniz TÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â¼rkiye'nin en kaliteli film izleme platformuna hoÃƒÆ’Ã¢â‚¬Â¦Ãƒâ€¦Ã‚Â¸geldiniz.",
+    "fileSize": 33227,
     "repositoryUrl": "https://github.com/lepotane/MRC-builds",
     "language": "tr",
     "tvTypes": [
@@ -222,7 +222,7 @@
     ],
     "iconUrl": "https://t2.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url=https://www.filmizyon.com/&size=64",
     "apiVersion": 1,
-    "fileHash": "sha256-38c0a0a695c015c7791519d9fe7a1dae30e673ab86cf3046b3f6763ac6810f8f"
+    "fileHash": "sha256-5b853a3a2d49bcf3e6bc5b691118257990cd735859bb16c993a194de3836e681"
   },
   {
     "url": "https://raw.githubusercontent.com/feroxx/Kekik-cloudstream/builds/FilmMakinesi.cs3",
@@ -337,7 +337,7 @@
     "authors": [
       "MRC"
     ],
-    "description": "HdFilmCehennemi2 - Alternatif yüksek kalitede film izleme sitesi.",
+    "description": "HdFilmCehennemi2 - Alternatif yÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â¼ksek kalitede film izleme sitesi.",
     "fileSize": 30786,
     "repositoryUrl": "https://github.com/lepotane/MRC-builds",
     "language": "tr",
@@ -393,14 +393,14 @@
   {
     "url": "https://raw.githubusercontent.com/feroxx/Kekik-cloudstream/builds/JetFilmizle.cs3",
     "status": 1,
-    "version": 47,
+    "version": 48,
     "name": "JetFilmizle",
     "internalName": "JetFilmizle",
     "authors": [
       "keyiflerolsun"
     ],
     "description": "Binlerce Film İzleme Seçeneğiyle En İyi Film İzleme Sitesi",
-    "fileSize": 18698,
+    "fileSize": 18693,
     "repositoryUrl": "https://github.com/feroxx/Kekik-cloudstream",
     "language": "tr",
     "tvTypes": [
@@ -408,7 +408,7 @@
     ],
     "iconUrl": "https://www.google.com/s2/favicons?domain=https://jetfilmizle.now&sz=128",
     "apiVersion": 1,
-    "fileHash": "sha256-1472a4fd418b77e82a5f21a15d838bc8a0a6b4a9c8189611c53c07df3dc916b9"
+    "fileHash": "sha256-0609231f419e73cffbe535d80244a1081b1988013aed4bbb24a3ae14a616e629"
   },
   {
     "url": "https://raw.githubusercontent.com/lepotane/MRC-builds/builds/LoveFilm.cs3",
@@ -419,7 +419,7 @@
     "authors": [
       "MRC"
     ],
-    "description": "Full HD Film izle - Türkçe Dublaj Altyazılı Film izleme sitesi olarak sizlere yabancı yerli filmleri yüksek kalitede sunmakdayız. Kaliteli film izle sitesi",
+    "description": "Full HD Film izle - TÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â¼rkÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â§e Dublaj AltyazÃƒÆ’Ã¢â‚¬ÂÃƒâ€šÃ‚Â±lÃƒÆ’Ã¢â‚¬ÂÃƒâ€šÃ‚Â± Film izleme sitesi olarak sizlere yabancÃƒÆ’Ã¢â‚¬ÂÃƒâ€šÃ‚Â± yerli filmleri yÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â¼ksek kalitede sunmakdayÃƒÆ’Ã¢â‚¬ÂÃƒâ€šÃ‚Â±z. Kaliteli film izle sitesi",
     "fileSize": 36398,
     "repositoryUrl": "https://github.com/lepotane/MRC-builds",
     "language": "tr",
@@ -497,14 +497,14 @@
   {
     "url": "https://raw.githubusercontent.com/lepotane/MRC-builds/builds/Sinefy.cs3",
     "status": 1,
-    "version": 3,
+    "version": 4,
     "name": "Sinefy",
     "internalName": "Sinefy",
     "authors": [
       "MRC"
     ],
-    "description": "Yabancı film izle olarak vizyondaki en yeni yabancı filmleri türkçe dublaj ve altyazılı olarak en hızlı şekilde full hd olarak sizlere sunuyoruz.",
-    "fileSize": 21761,
+    "description": "YabancÃƒÆ’Ã¢â‚¬ÂÃƒâ€šÃ‚Â± film izle olarak vizyondaki en yeni yabancÃƒÆ’Ã¢â‚¬ÂÃƒâ€šÃ‚Â± filmleri tÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â¼rkÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â§e dublaj ve altyazÃƒÆ’Ã¢â‚¬ÂÃƒâ€šÃ‚Â±lÃƒÆ’Ã¢â‚¬ÂÃƒâ€šÃ‚Â± olarak en hÃƒÆ’Ã¢â‚¬ÂÃƒâ€šÃ‚Â±zlÃƒÆ’Ã¢â‚¬ÂÃƒâ€šÃ‚Â± ÃƒÆ’Ã¢â‚¬Â¦Ãƒâ€¦Ã‚Â¸ekilde full hd olarak sizlere sunuyoruz.",
+    "fileSize": 44009,
     "repositoryUrl": "https://github.com/lepotane/MRC-builds",
     "language": "tr",
     "tvTypes": [
@@ -513,7 +513,7 @@
     ],
     "iconUrl": "https://t2.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url=https://sinefy3.com/&size=128",
     "apiVersion": 1,
-    "fileHash": "sha256-265844af45216ac0ad636abaa0bb1f72484d65e529036c3cf60a7a45f15abda7"
+    "fileHash": "sha256-baa0e07b7e591295e3329381b711b6fe30c0b42dc57b3b224dfffdbc12b99c82"
   },
   {
     "url": "https://raw.githubusercontent.com/feroxx/Kekik-cloudstream/builds/SinemaCX.cs3",
@@ -561,14 +561,14 @@
   {
     "url": "https://raw.githubusercontent.com/lepotane/MRC-builds/builds/Sinezy.cs3",
     "status": 1,
-    "version": 6,
+    "version": 8,
     "name": "Sinezy",
     "internalName": "Sinezy",
     "authors": [
       "MRC"
     ],
     "description": "HD film izleme keyfi (MRC)",
-    "fileSize": 22684,
+    "fileSize": 42111,
     "repositoryUrl": "https://github.com/lepotane/MRC-builds",
     "language": "tr",
     "tvTypes": [
@@ -576,7 +576,7 @@
     ],
     "iconUrl": "https://www.google.com/s2/favicons?sz=64&domain=sinezy.to",
     "apiVersion": 1,
-    "fileHash": "sha256-40981b7d0b72fad681ca98779e20439b1dae1a77b63666c4f0f3e714a30b1c73"
+    "fileHash": "sha256-1693c3fbe69c1c3b871eb240dfcc0d5ea72e866d16298ad736059ae151e0217e"
   },
   {
     "url": "https://raw.githubusercontent.com/Kraptor123/Cs-Karma/builds/Streamed.cs3",
@@ -607,7 +607,7 @@
     "authors": [
       "MRC"
     ],
-    "description": "TvDiziler - Yerli diziler, Türkçe dublaj/altyazılı bölümler.",
+    "description": "TvDiziler - Yerli diziler, TÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â¼rkÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â§e dublaj/altyazÃƒÆ’Ã¢â‚¬ÂÃƒâ€šÃ‚Â±lÃƒÆ’Ã¢â‚¬ÂÃƒâ€šÃ‚Â± bÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â¶lÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â¼mler.",
     "fileSize": 39911,
     "repositoryUrl": "https://github.com/lepotane/MRC-builds",
     "language": "tr",
@@ -627,7 +627,7 @@
     "authors": [
       "MRC"
     ],
-    "description": "UltraFilmizle - 1080p ve 4K yerli/yabancı film izleme.",
+    "description": "UltraFilmizle - 1080p ve 4K yerli/yabancÃƒÆ’Ã¢â‚¬ÂÃƒâ€šÃ‚Â± film izleme.",
     "fileSize": 30874,
     "repositoryUrl": "https://github.com/lepotane/MRC-builds",
     "language": "tr",
@@ -668,7 +668,7 @@
     "authors": [
       "MRC"
     ],
-    "description": "Son çıkan yabancı dizi ve filmleri yabancidizi' de izle. En yeni yabancı film ve diziler, türkçe altyazılı yada dublaj olarak 1080p kalitesinde hd izle.",
+    "description": "Son ÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â§ÃƒÆ’Ã¢â‚¬ÂÃƒâ€šÃ‚Â±kan yabancÃƒÆ’Ã¢â‚¬ÂÃƒâ€šÃ‚Â± dizi ve filmleri yabancidizi' de izle. En yeni yabancÃƒÆ’Ã¢â‚¬ÂÃƒâ€šÃ‚Â± film ve diziler, tÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â¼rkÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â§e altyazÃƒÆ’Ã¢â‚¬ÂÃƒâ€šÃ‚Â±lÃƒÆ’Ã¢â‚¬ÂÃƒâ€šÃ‚Â± yada dublaj olarak 1080p kalitesinde hd izle.",
     "fileSize": 63799,
     "repositoryUrl": "https://github.com/lepotane/MRC-builds",
     "language": "tr",
