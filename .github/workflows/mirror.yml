@@ -27,6 +27,8 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: "3.12"
+      - name: Bagimliliklar (ftfy - aciklama mojibake onarimi)
+        run: python -m pip install --quiet ftfy
       - name: Kaynak senkronu + tablo tazeleme (Pure Mirror)
         run: python update.py
       - name: Registry senkron + tablo uretimi

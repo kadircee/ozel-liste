@@ -59,6 +59,33 @@ OWN_REPO = "kadircee/ozel-liste"
 OWN_BRANCH = "main"
 
 
+def fix_mojibake(s):
+    """Kaynak description'da coklu-UTF8 (mojibake) bozuklugu varsa onarir.
+
+    Ozellikle lepotane/MRC-builds aciklamalari defalarca yanlis cozulmus
+    yayinlaniyor ('güvenli' -> 'gÃ...Â¼venli'). ftfy varsa onu kullanir; yoksa
+    cp1252/latin-1 geri kodlama zinciriyle en iyi cabayi dener. Okunabilir
+    metin onarilir, Pure Mirror icin gorsel duzeltme sayilir.
+    """
+    try:
+        import ftfy
+        return ftfy.fix_text(s)
+    except Exception:
+        pass
+    cur = s
+    for _ in range(6):
+        for enc in ("cp1252", "latin-1"):
+            try:
+                nxt = cur.encode(enc).decode("utf-8")
+            except (UnicodeEncodeError, UnicodeDecodeError):
+                continue
+            cur = nxt
+            break
+        else:
+            break
+    return cur
+
+
 def normalize_icon_url(icon):
     """Normalize source favicon size placeholders without duplicating ``sz=``."""
     return (icon or "").replace("sz=sz=128", "sz=128").replace(
@@ -422,6 +449,10 @@ def main():
             if field not in match:
                 continue
             new_val = match[field]
+            if field == 'description' and isinstance(new_val, str):
+                # Kaynak mojibake yayinliyorsa okunabilir hale onar; karsilastirma
+                # ve yazim onarilmis degerle yapilir (yeni CI kosusunda geri donmez).
+                new_val = fix_mojibake(new_val)
             if field == 'authors' and isinstance(new_val, list):
                 # kaynakta bas/son bosluklu yazar adlari gelir (or. 'ByAyzen ');
                 # bu depo trim edilmis tutar (iconUrl kurali gibi normalizasyon)
