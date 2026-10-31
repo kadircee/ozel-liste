@@ -327,6 +327,25 @@
         }
       ]
     },
+    "name:dizigom": {
+      "name": "DiziGom",
+      "candidates": [
+        {
+          "name": "DiziGom",
+          "listed": true,
+          "order": 44,
+          "source": "lepotane/MRC-builds",
+          "source_cell": "[lepotane/MRC-builds](https://github.com/lepotane/MRC-builds)",
+          "site_cell": "[dizigom1.co](https://dizigom1.co)",
+          "domain": "dizigom1.co",
+          "version": "18",
+          "kaynak_tarih": "2026-10-22",
+          "bizim_tarih": "2026-10-22",
+          "not": "",
+          "secim": "aktif"
+        }
+      ]
+    },
     "name:dizikorea": {
       "name": "DiziKorea",
       "candidates": [
@@ -411,6 +430,25 @@
         }
       ]
     },
+    "name:dizipal": {
+      "name": "DiziPal",
+      "candidates": [
+        {
+          "name": "DiziPal",
+          "listed": true,
+          "order": 41,
+          "source": "feroxx/Kekik-cloudstream",
+          "source_cell": "[feroxx/Kekik-cloudstream](https://github.com/feroxx/Kekik-cloudstream)",
+          "site_cell": "[dizipal1563.com](https://dizipal1563.com)",
+          "domain": "dizipal1563.com",
+          "version": "117",
+          "kaynak_tarih": "2026-10-28",
+          "bizim_tarih": "2026-10-28",
+          "not": "",
+          "secim": "aktif"
+        }
+      ]
+    },
     "name:dizipal2": {
       "name": "DiziPal2",
       "candidates": [
@@ -423,6 +461,44 @@
           "site_cell": "[dizipal2142.com](https://dizipal2142.com)",
           "domain": "dizipal2142.com",
           "version": "7",
+          "kaynak_tarih": "2026-10-22",
+          "bizim_tarih": "2026-10-22",
+          "not": "",
+          "secim": "aktif"
+        }
+      ]
+    },
+    "name:dizipaloriginal": {
+      "name": "DiziPalOriginal",
+      "candidates": [
+        {
+          "name": "DiziPalOriginal",
+          "listed": true,
+          "order": 42,
+          "source": "feroxx/Kekik-cloudstream",
+          "source_cell": "[feroxx/Kekik-cloudstream](https://github.com/feroxx/Kekik-cloudstream)",
+          "site_cell": "[chessplyimages.cfd](https://chessplyimages.cfd)",
+          "domain": "chessplyimages.cfd",
+          "version": "111",
+          "kaynak_tarih": "2026-10-28",
+          "bizim_tarih": "2026-10-28",
+          "not": "",
+          "secim": "aktif"
+        }
+      ]
+    },
+    "name:dizipalorijinal": {
+      "name": "DiziPalOrijinal",
+      "candidates": [
+        {
+          "name": "DiziPalOrijinal",
+          "listed": true,
+          "order": 43,
+          "source": "lepotane/MRC-builds",
+          "source_cell": "[lepotane/MRC-builds](https://github.com/lepotane/MRC-builds)",
+          "site_cell": "[dizipal1581.com](https://dizipal1581.com)",
+          "domain": "dizipal1581.com",
+          "version": "16",
           "kaynak_tarih": "2026-10-22",
           "bizim_tarih": "2026-10-22",
           "not": "",

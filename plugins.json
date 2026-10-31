@@ -678,5 +678,90 @@
     "iconUrl": "https://www.google.com/s2/favicons?domain=yabancidizi.news&sz=128",
     "apiVersion": 1,
     "fileHash": "sha256-e37d3bd490d12cb30dcb9d285e8e8e701288006ce33884b1eccf7db1d8c7e6eb"
+  },
+  {
+    "url": "https://raw.githubusercontent.com/feroxx/Kekik-cloudstream/builds/DiziPal.cs3",
+    "status": 1,
+    "version": 117,
+    "name": "DiziPal",
+    "internalName": "DiziPal",
+    "authors": [
+      "keyiflerolsun",
+      "muratcesmecioglu"
+    ],
+    "description": "en yeni dizileri güvenli ve hızlı şekilde sunar.",
+    "fileSize": 31184,
+    "repositoryUrl": "https://github.com/feroxx/Kekik-cloudstream",
+    "language": "tr",
+    "tvTypes": [
+      "TvSeries",
+      "Movie"
+    ],
+    "iconUrl": "https://dizipal1563.com/assets/favicon/favicon-32x32.png?v=3",
+    "apiVersion": 1,
+    "fileHash": "sha256-7d232b38b3d8513dbc16fa6b856e839a397cf1b3d4d0ae70b4112db127ecdb2f"
+  },
+  {
+    "url": "https://raw.githubusercontent.com/feroxx/Kekik-cloudstream/builds/DiziPalOriginal.cs3",
+    "status": 1,
+    "version": 111,
+    "name": "DiziPalOriginal",
+    "internalName": "DiziPalOriginal",
+    "authors": [
+      "keyiflerolsun",
+      "muratcesmecioglu"
+    ],
+    "description": "en yeni dizileri güvenli ve hızlı şekilde sunar.",
+    "fileSize": 27831,
+    "repositoryUrl": "https://github.com/feroxx/Kekik-cloudstream",
+    "language": "tr",
+    "tvTypes": [
+      "TvSeries",
+      "Movie"
+    ],
+    "iconUrl": "https://chessplyimages.cfd/uploads/site/favicon-32x32.png",
+    "apiVersion": 1,
+    "fileHash": "sha256-02a80813415f006854301117b01a5a2c4ec43339e6b969eda7439bc4410df86e"
+  },
+  {
+    "url": "https://raw.githubusercontent.com/lepotane/MRC-builds/builds/DiziPalOrijinal.cs3",
+    "status": 1,
+    "version": 16,
+    "name": "DiziPalOrijinal",
+    "internalName": "DiziPalOrijinal",
+    "authors": [
+      "MRC"
+    ],
+    "description": "DiziPal Orijinal.",
+    "fileSize": 51285,
+    "repositoryUrl": "https://github.com/lepotane/MRC-builds",
+    "language": "tr",
+    "tvTypes": [
+      "TvSeries"
+    ],
+    "iconUrl": "https://t3.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url=https://dizipal1581.com&size=128",
+    "apiVersion": 1,
+    "fileHash": "sha256-aabc0a97f36833001a4d7202d5662530a14ec83adfe3b3ac8239f1df4eeb3517"
+  },
+  {
+    "url": "https://raw.githubusercontent.com/lepotane/MRC-builds/builds/DiziGom.cs3",
+    "status": 1,
+    "version": 18,
+    "name": "DiziGom",
+    "internalName": "DiziGom",
+    "authors": [
+      "MRC"
+    ],
+    "description": "TÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â¼rkÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â§e altyazÃƒÆ’Ã¢â‚¬ÂÃƒâ€šÃ‚Â±lÃƒÆ’Ã¢â‚¬ÂÃƒâ€šÃ‚Â± yabancÃƒÆ’Ã¢â‚¬ÂÃƒâ€šÃ‚Â± dizi izle, TÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â¼m yabancÃƒÆ’Ã¢â‚¬ÂÃƒâ€šÃ‚Â±, kore, netflix dizilerin yeni ve eski sezonlarÃƒÆ’Ã¢â‚¬ÂÃƒâ€šÃ‚Â±nÃƒÆ’Ã¢â‚¬ÂÃƒâ€šÃ‚Â± orijinal dilinde dizigom1 alt yazÃƒÆ’Ã¢â‚¬ÂÃƒâ€šÃ‚Â±lÃƒÆ’Ã¢â‚¬ÂÃƒâ€šÃ‚Â± film izleyebilir, sadece tÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â¼rkÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â§e altyazÃƒÆ’Ã¢â‚¬ÂÃƒâ€šÃ‚Â±lÃƒÆ’Ã¢â‚¬ÂÃƒâ€šÃ‚Â± en iyi yabancÃƒÆ’Ã¢â‚¬ÂÃƒâ€šÃ‚Â± diziler ve filmler hakkÃƒÆ’Ã¢â‚¬ÂÃƒâ€šÃ‚Â±nda yorum yapabilirsiniz.",
+    "fileSize": 46357,
+    "repositoryUrl": "https://github.com/lepotane/MRC-builds",
+    "language": "tr",
+    "tvTypes": [
+      "TvSeries",
+      "Movie"
+    ],
+    "iconUrl": "https://www.google.com/s2/favicons?domain=dizigom1.co&sz=128",
+    "apiVersion": 1,
+    "fileHash": "sha256-ae6dadf2973ad0b8fefee410b295642575a127043482009bb42ffe5e3b9e7176"
   }
 ]
