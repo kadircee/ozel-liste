@@ -1,6 +1,6 @@
 name: mirror-senkron
 
-# Pure Mirror otomasyonu (kapsam A): kaynak senkronu + registry + tablo.
+# Pure Mirror otomasyonu: kaynak senkronu + tablo tazeleme + registry.
 # - schedule: her gun 05:00 UTC (GitHub tarafinda birkac dakika sarkabilir)
 # - workflow_dispatch: Actions sekmesinden tek tusla manuel tetikleme
 on:
@@ -21,21 +21,20 @@ concurrency:
 jobs:
   mirror:
     runs-on: ubuntu-latest
+    timeout-minutes: 30
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
         with:
           python-version: "3.12"
-      - name: Kaynak senkronu (Pure Mirror)
+      - name: Kaynak senkronu + tablo tazeleme (Pure Mirror)
         run: python update.py
       - name: Registry senkron + tablo uretimi
         run: |
           python registry.py --sync
           python registry.py --render --write
-      - name: Model denetimi (gate)
+      - name: Model + tazelik denetimi (sert kapi)
         run: python registry.py --check
-      - name: Kaynak karar denetimi (gate)
-        run: python audit.py --check
       - name: Degisiklik varsa commit+push
         run: |
           git config user.name "kadircee"
@@ -48,3 +47,10 @@ jobs:
           else
             echo "degisiklik yok"
           fi
+      - name: jsDelivr cache temizligi (push sonrasi)
+        run: python update.py --purge
+      # Karar denetimi bilgi amaclidir: flip/yeni aday raporu commit'i engellemez.
+      # Boylece bir gunluk karar beklemesi diger eklentilerin senkronunu durdurmaz.
+      - name: Kaynak karar denetimi (rapor)
+        continue-on-error: true
+        run: python audit.py --check

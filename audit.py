@@ -45,17 +45,13 @@ UA = 'Mozilla/5.0 (ozel-liste-audit)'
 ALLOWED_TV = {'Movie', 'TvSeries', 'Documentary'}
 # Kullanici istisnalari: normal filtre/delete-zone kurallari bu adlar icin
 # uygulanmaz. Kaynakta yayinlandiklari surece mirror edilirler.
-EXCEPTIONS = {'inatbox', 'streamed'}
+EXCEPTIONS = {'streamed', 'sinewix'}
 
 
 def norm(s):
-    value = (s or '').replace('İ', 'i').replace('I', 'ı').casefold()
-    # Kaynaklar WebteIzle/InatBox adlarini buyuk I ile de yayinliyor.
-    if value in {'webteizle', 'webteızle'}:
-        return 'webteizle'
-    if value in {'inatbox', 'ınatbox'}:
-        return 'inatbox'
-    return value
+    """Kimlik anahtari: buyuk I ve noktasiz i 'i' sayilir (registry.py ile ayni)."""
+    value = (s or '').replace('\u0130', 'i').replace('I', 'i').casefold()
+    return value.replace('\u0131', 'i')
 
 
 def domain_from_text(value):
@@ -206,6 +202,54 @@ def inspect_all_branches(repo, tok):
             print('  UYARI builds dalinda .cs3 yok: %s' % repo)
 
 
+def rewrite_flip_rows(applied):
+    """audit --apply sonrasi tablo satirini yeni kaynaga tasir.
+
+    Satir (normalize ad + eski kaynak repo) ile bulunur; boylece ayni adi
+    tasiyan duplicate satirlar karismaz. registry.py --sync bu satiri
+    plugins.json ile eslestirir.
+    """
+    lines = io.open(DEPO_PATH, encoding='utf-8').read().replace('\r\n', '\n').split('\n')
+    hdr = next((i for i, l in enumerate(lines) if l.startswith('| # |')), None)
+    if hdr is None:
+        return 0
+    changed = 0
+    for cur, repo, it, tarih in applied:
+        m0 = re.match(r'https://raw\.githubusercontent\.com/([^/]+/[^/]+)/builds/', cur.get('url', ''))
+        old_repo = m0.group(1) if m0 else ''
+        name = cur.get('internalName', '')
+        for i in range(hdr, len(lines)):
+            m = re.match(r'^\| (\d+) \|', lines[i])
+            if not m:
+                continue
+            cells = [x.strip() for x in lines[i].strip().strip('|').split('|')]
+            if len(cells) < 8:
+                continue
+            if norm(re.sub(r'^[^A-Za-z0-9]+', '', cells[1])) != norm(name):
+                continue
+            if old_repo and old_repo not in cells[2]:
+                continue
+            cells[1] = it.get('internalName', name)
+            cells[2] = '[{0}](https://github.com/{0})'.format(repo)
+            cells[4] = str(it.get('version', ''))
+            if tarih:
+                cells[5] = tarih
+                cells[6] = tarih
+            dom = item_domain(it)
+            if dom:
+                cells[3] = '[{0}](https://{0})'.format(dom)
+            cells[7] = 'Aktif'
+            lines[i] = '| ' + ' | '.join(cells) + ' |'
+            changed += 1
+            break
+    if changed:
+        tmp = DEPO_PATH + '.tmp'
+        io.open(tmp, 'w', encoding='utf-8', newline='\n').write('\n'.join(lines))
+        os.replace(tmp, DEPO_PATH)
+        print('TABLO: %d flip satiri yeni kaynaga tasindi.' % changed)
+    return changed
+
+
 def main():
     ap = argparse.ArgumentParser(description='ozel-liste kaynak denetimi')
     ap.add_argument('--apply', action='store_true', help='guvenli durumlari uygula')
@@ -252,20 +296,11 @@ def main():
         for m in re.finditer(r'\[.+?\]\(https://github\.com/([^/\)]+)/([^/\)]+)\)', depo):
             repos.add(m.group(1) + '/' + m.group(2))
     listed = json.load(io.open(PLUGINS_PATH, encoding='utf-8'))
-    # Mevcut tabloda elle doğrulanmış domain eşleşmeleri, farklı internalName
-    # kullanan aynı siteleri (ör. HDFilmIzle) tek yarışta birleştirir.
-    domain_by_name = {}
-    try:
-        for g in reg['groups'].values():
-            for c in g['candidates']:
-                if c.get('listed') and c.get('domain'):
-                    domain_by_name[norm(c['name'])] = domain_from_text(c['domain'])
-    except Exception:
-        pass
-
+    # Gruplama normalize internalName uzerinden yapilir: ayni markanin farkli
+    # mirror'lari (or. DiziPal) ayri site gibi davranmaz. Icon domaini yalnizca
+    # tabloda gosterilecek site adresi icin kullanilir.
     def site_key(item):
-        return domain_by_name.get(norm(item.get('internalName', ''))) or item_domain(item) or (
-            'name:' + norm(item.get('internalName', '')))
+        return 'name:' + norm(item.get('internalName', ''))
 
     for p in listed:
         m = re.match(r'https://raw\.githubusercontent\.com/([^/]+)/([^/]+)/builds/', p.get('url', ''))
@@ -332,7 +367,8 @@ def main():
         kazananlar = sorted([g for g in grp if g[2] == top_tarih], key=lambda g: g[0])
         cur = listed_by_norm.get(key)
         if cur:
-            if is_banned(grp[0][1]) and norm(grp[0][1].get('internalName', '')) not in EXCEPTIONS:
+            kazanan = kazananlar[0][1]
+            if is_banned(kazanan) and norm(kazanan.get('internalName', '')) not in EXCEPTIONS:
                 # YASAKLI-IHLAL: delete-zone'daki kayit plugins.json'da kalmis.
                 # Flip uygulanmaz; listeden cikarma insan karari bekler.
                 ihlal.append('%s yasakli ama plugins.json\'da duruyor (listeden cikarilmali)' % cur.get('internalName'))
@@ -350,12 +386,13 @@ def main():
             elif top_tarih > cur_tarih:
                 flips.append((cur, kazananlar[0]))
         else:
-            if is_banned(grp[0][1]) and norm(grp[0][1].get('internalName', '')) not in EXCEPTIONS:
-                guard.append('%s yasakli, kaynaklarda goruldu ama eleniyor' % grp[0][1].get('internalName'))
+            kazanan_item = kazananlar[0][1]
+            if is_banned(kazanan_item) and norm(kazanan_item.get('internalName', '')) not in EXCEPTIONS:
+                guard.append('%s yasakli, kaynaklarda goruldu ama eleniyor' % kazanan_item.get('internalName'))
                 continue
             repo, it, tarih = kazananlar[0]
             tv = set(it.get('tvTypes', []))
-            if key in EXCEPTIONS or (it.get('language') == 'tr' and tv and tv <= ALLOWED_TV):
+            if norm(it.get('internalName', '')) in EXCEPTIONS or (it.get('language') == 'tr' and tv and tv <= ALLOWED_TV):
                 if not args.apply:
                     try:
                         raw_bytes(it['url'])
@@ -402,7 +439,9 @@ def main():
     # Tek eklentideki hata (indirilemedi/hash tutmadi) tum kosuyu durdurmaz:
     # hatali kayit atlanir, rapora duser.
     data = listed
+    mevcut_adlar = {norm(p.get('internalName', '')) for p in data}
     hatali = []
+    uygulanan = []
     for cur, (repo, it, tarih) in flips:
         try:
             blob = raw_bytes(it['url'])
@@ -424,7 +463,12 @@ def main():
             cur['internalName'] = it.get('internalName')
             cur['name'] = it.get('name', it.get('internalName'))
         print('UYGULANDI flip %s -> %s' % (cur.get('internalName'), repo))
+        uygulanan.append((cur, repo, it, tarih))
     for repo, it, tarih in yeniler:
+        if norm(it.get('internalName', '')) in mevcut_adlar:
+            hatali.append('%s (%s, yeni): ayni ad zaten listede, eklenmedi' % (
+                it.get('internalName'), repo))
+            continue
         try:
             blob = raw_bytes(it['url'])
             if 'sha256-' + hashlib.sha256(blob).hexdigest() != it['fileHash'] or len(blob) != it['fileSize']:
@@ -440,6 +484,9 @@ def main():
                      'language': it.get('language'), 'tvTypes': it.get('tvTypes', []),
                      'iconUrl': icon, 'apiVersion': it.get('apiVersion', 3), 'fileHash': it.get('fileHash')})
         print('UYGULANDI yeni %s (%s)' % (it.get('internalName'), repo))
+        mevcut_adlar.add(norm(it.get('internalName', '')))
+    if uygulanan:
+        rewrite_flip_rows(uygulanan)
     data.sort(key=lambda p: (p.get('internalName') or '').casefold())
     # Atomik yazma: once gecici dosyaya, sonra os.replace (yarim yazim olmaz).
     tmp = PLUGINS_PATH + '.tmp'

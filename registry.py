@@ -26,6 +26,7 @@ import json
 import os
 import re
 import sys
+import urllib.parse
 
 REPO_DIR = os.path.dirname(os.path.abspath(__file__))
 DEPO = os.path.join(REPO_DIR, 'DEPO-BILGILERI.md')
@@ -38,6 +39,10 @@ END = '<!-- KAYIT-DURUMU:OTOMATIK-SON -->'
 HEADER = ['#', 'Eklenti', 'Kaynak', 'Site (domain)', 'v', 'Kaynak Tarih', 'Bizim Tarih',
           'Seçim', 'Not']
 SEÇIM = ('aktif', 'duplicate', 'istenmeyen')
+ALLOWED_TV = {'Movie', 'TvSeries', 'Documentary'}
+# Bilincli istisnalar (audit.py ile ayni): Streamed en + Live, Sinewix Anime turu
+# de tasir. Diger kayitlar varsayilan filtreye uyar.
+EXCEPTIONS = {'streamed', 'sinewix'}
 
 SECIM_TR = {'aktif': 'Aktif', 'duplicate': 'Duplicate', 'istenmeyen': 'İstenmeyen'}
 # Hucre metni -> slug; ASCII/aksanli eski bicimler geriye uyumlu kabul edilir.
@@ -46,21 +51,32 @@ CELL_SECIM = {'Aktif': 'aktif', 'aktif': 'aktif', 'Duplicate': 'duplicate', 'dup
 
 
 def norm(s):
-    value = (s or '').replace('\u0130', 'i').replace('I', '\u0131').casefold()
-    # Kaynaklar WebteIzle/InatBox adlarini buyuk I ile de yayinliyor.
-    if value in {'webteizle', 'webte\u0131zle'}:
-        return 'webteizle'
-    if value in {'inatbox', '\u0131natbox'}:
-        return 'inatbox'
-    return value
+    """Kimlik anahtari: buyuk I ve noktasiz i 'i' sayilir.
+
+    ASCII adlarda 'HDFilmIzle' ile 'HdFilmIzle' ayni kayittir; noktasiz i
+    kullanan kaynak adlari da ayni kumeye baglanir.
+    """
+    value = (s or '').replace('\u0130', 'i').replace('I', 'i').casefold()
+    return value.replace('\u0131', 'i')
 
 
-def group_key(name, domain):
-    """Ayni siteyi farkli internalName kullanan kaynaklarda birlestirir."""
-    d = (domain or '').lower().strip()
-    if d and d != 'raw.githubusercontent.com':
-        return 'site:' + d
+def group_key(name, domain=None):
+    """Grup anahtari normalize addir.
+
+    Kaynaklar ayni site icin farkli internalName yayinlayabilir; bu durumda
+    site adi degil ad esas alinir (DEPO-BILGILERI.md: ayni normalize ad tek
+    grup). Boylece ayni markanin farkli mirror'lari ayri kayit olarak kalir.
+    """
     return 'name:' + norm(name)
+
+
+_TR_FOLD = str.maketrans('\u0131\u0130\u015f\u015e\u011f\u011e\u00e7\u00c7\u00f6\u00d6\u00fc\u00dc',
+                         'iissggccoouu')
+
+
+def sort_key(s):
+    """Turkce/ASCII karisik adlarda tutarli alfabetik sira uretir."""
+    return (s or '').translate(_TR_FOLD).casefold()
 
 
 def clean_note(text):
@@ -79,11 +95,17 @@ def parse_depo():
     Tablo uc formati da okuyabilir (eski tek 'Durum' / 10 sutunlu Secim+Saglik+Not /
     9 sutunlu Secim+Not); uretim her zaman 9 sutunludur."""
     lines = io.open(DEPO, encoding='utf-8').read().replace('\r\n', '\n').split('\n')
-    hdr = next(i for i, l in enumerate(lines) if l.startswith('| # |'))
+    hdr = next((i for i, l in enumerate(lines) if l.startswith('| # |')), None)
+    if hdr is None:
+        print('HATA: DEPO-BILGILERI.md icinde "| # |" tablo basligi bulunamadi')
+        sys.exit(2)
     new_fmt = ('Seçim' in lines[hdr]) or ('Secim' in lines[hdr])
     has_saglik = ('Sağlık' in lines[hdr]) or ('Saglik' in lines[hdr])
-    zone = next(i for i, l in enumerate(lines)
-                if re.match(r'^#+\s+.*(Istenmeyenler|İstenmeyenler)', l))
+    zone = next((i for i, l in enumerate(lines)
+                 if re.match(r'^#+\s+.*(Istenmeyenler|İstenmeyenler)', l)), None)
+    if zone is None:
+        print('HATA: DEPO-BILGILERI.md icinde Istenmeyenler basligi bulunamadi')
+        sys.exit(2)
     liste = []
     for i in range(hdr, zone):
         l = lines[i]
@@ -149,7 +171,7 @@ def sync():
         c['secim'] = 'aktif' if hit else 'duplicate'
         groups.setdefault(k, {'name': r['name'], 'candidates': []})['candidates'].append(c)
     for z in zone:
-        k = norm(z['name'])
+        k = group_key(z['name'], z['domain'])
         groups.setdefault(k, {'name': z['name'], 'candidates': []})['candidates'].append(
             {'name': z['name'], 'listed': False, 'source': z['repo'], 'source_cell': z['repo_cell'],
              'site_cell': z['site_cell'], 'domain': z['domain'], 'version': None,
@@ -160,12 +182,12 @@ def sync():
 
 def liste_rows(reg):
     rows = [c for g in reg['groups'].values() for c in g['candidates'] if c.get('listed')]
-    return sorted(rows, key=lambda c: (norm(c['name']), c['source']))
+    return sorted(rows, key=lambda c: (sort_key(c['name']), c['source']))
 
 
 def validate(reg):
-    """Sema + kume + tarih denetimi. (errors, conflicts) dondurur."""
-    errors, conflicts = [], []
+    """Sema + kume + tarih + tazelik denetimi. (errors, conflicts, warnings) dondurur."""
+    errors, conflicts, warnings = [], [], []
     for k, g in sorted(reg['groups'].items()):
         aktif = [c for c in g['candidates'] if c['secim'] == 'aktif']
         if len(aktif) > 1:
@@ -179,7 +201,7 @@ def validate(reg):
             if aktif[0]['kaynak_tarih'] < en:
                 conflicts.append((g['name'], aktif[0]['source'], aktif[0]['kaynak_tarih'], en))
     # kume denetimi: aktif kayitlar == plugins.json
-    idx, _ = plugins_index()
+    idx, pdata = plugins_index()
     reg_aktif = {(norm(c['name']), c['source']) for g in reg['groups'].values()
                  for c in g['candidates'] if c['secim'] == 'aktif'}
     pj = {(k, h['repo']) for k, hs in idx.items() for h in hs}
@@ -188,7 +210,45 @@ def validate(reg):
             errors.append('plugins.json\'da var ama registry\'de Aktif yok: %s (%s)' % key)
         elif key not in pj:
             errors.append('registry\'de Aktif ama plugins.json\'da yok: %s (%s)' % key)
-    return errors, conflicts
+
+    # Tazelik: tablo alanlari plugins.json ve Tarih Takip Kurali ile uyumlu mu?
+    pmap = {}
+    for p in pdata:
+        m = re.match(r'https://raw\.githubusercontent\.com/([^/]+/[^/]+)/builds/', p.get('url', ''))
+        if m:
+            pmap[(norm(p.get('internalName')), m.group(1))] = p
+    adlar = {}
+    for p in pdata:
+        adlar.setdefault(norm(p.get('internalName')), []).append(p.get('url'))
+    for ad, urls in sorted(adlar.items()):
+        if len(urls) > 1:
+            errors.append('plugins.json\'da ayni ad birden fazla: %s' % ad)
+    for g in reg['groups'].values():
+        for c in g['candidates']:
+            if c['secim'] != 'aktif':
+                continue
+            p = pmap.get((norm(c['name']), c['source']))
+            if not p:
+                continue
+            if str(p.get('version')) != str(c.get('version')):
+                errors.append('%s (%s): tablo v=%s, plugins.json v=%s (update.py calistir)' % (
+                    c['name'], c['source'], c.get('version'), p.get('version')))
+            if c.get('kaynak_tarih') and c.get('bizim_tarih') and c['kaynak_tarih'] > c['bizim_tarih']:
+                errors.append('%s (%s): Kaynak Tarih %s > Bizim Tarih %s (senkron bekliyor)' % (
+                    c['name'], c['source'], c['kaynak_tarih'], c['bizim_tarih']))
+            tv = set(p.get('tvTypes') or [])
+            if (p.get('language') != 'tr' or not tv <= ALLOWED_TV) and norm(c['name']) not in EXCEPTIONS:
+                warnings.append('%s: dil=%s tur=%s (filtre disi; istisna degil)' % (
+                    c['name'], p.get('language'), sorted(tv)))
+            m = re.search(r'\[([^\]]+)\]\((https?://[^)]+)\)', c.get('site_cell', ''))
+            if m:
+                host = (urllib.parse.urlsplit(m.group(2)).hostname or '').lower()
+                if host.startswith('www.'):
+                    host = host[4:]
+                if m.group(1).lower() != host:
+                    warnings.append('%s: Site hucresi "%s" -> host "%s" degil' % (
+                        c['name'], m.group(1), host))
+    return errors, conflicts, warnings
 
 
 def render(reg):
@@ -287,13 +347,17 @@ def main():
             sys.exit(2)
         reg = load_registry()
         if args.check:
-            errors, conflicts = validate(reg)
+            errors, conflicts, warnings = validate(reg)
             print('\n=== SEMA + KUME DENETIMI ===')
             if errors:
                 for e in errors:
                     print('  IHLAL: ' + e)
             else:
                 print('  OK: sema gecerli; aktif kumesi plugins.json ile birebir')
+            if warnings:
+                print('=== UYARI (%d) ===' % len(warnings))
+                for w in warnings:
+                    print('  ' + w)
             d = drift(reg)
             if d:
                 print('=== TABLO <-> REGISTRY UYUSMAZLIGI (%d) ===' % len(d))

@@ -1,5 +1,6 @@
 # -*- coding: utf-8 -*-
-"""Kaynak depolardan guncel eklenti verilerini cekip plugins.json'u senkronize eder.
+"""Kaynak depolardan guncel eklenti verilerini cekip plugins.json'u senkronize eder
+ve DEPO-BILGILERI.md tablosunun alanlarini tazeler.
 
 Kaynak builds/plugins.json adresi, listedeki .cs3 url'sinden turetilir:
     https://raw.githubusercontent.com/<owner>/<repo>/builds/<Isim>.cs3
@@ -14,15 +15,17 @@ bu depo ikon adreslerini normalize eder (kaynaktaki %size% yer tutuculari
 sabit sz=128'e cevrilir) ve kaynak guncellemesi bu duzeltmeyi geri almasin.
 
 Kullanim:
-    python update.py            # guncellemeleri uygular (dosyaya yazar)
+    python update.py            # senkron + tablo tazeleme (dosyaya yazar)
     python update.py --check    # sadece farklari raporlar, dosyaya yazmaz
-    python update.py --purge    # degisiklik olmasa bile tum eklentilerin jsDelivr cache'ini temizler
+    python update.py --purge    # tum eklentilerin jsDelivr cache'ini temizler (push sonrasi)
+    python update.py --no-table # yalnizca plugins.json senkronu
 """
 import argparse
 import io
 import json
 import os
 import re
+import subprocess
 import sys
 import time
 import urllib.error
@@ -31,9 +34,19 @@ import urllib.request
 
 REPO_DIR = os.path.dirname(os.path.abspath(__file__))
 PLUGINS_PATH = os.path.join(REPO_DIR, "plugins.json")
+DEPO_PATH = os.path.join(REPO_DIR, "DEPO-BILGILERI.md")
+API = "https://api.github.com"
 
 NET_TIMEOUT = 30
 USER_AGENT = "Mozilla/5.0 (ozel-liste-update)"
+# Simge barindiran CDN'ler site adresi sayilmaz; tablodaki Site hucresi bu
+# adreslerle degistirilmez.
+CDN_HOSTS = {
+    "raw.githubusercontent.com", "blogger.googleusercontent.com",
+    "play-lh.googleusercontent.com", "t3.gstatic.com", "gstatic.com",
+    "themoviedb.org", "image.tmdb.org", "i.imgur.com",
+    "google.com", "www.google.com",
+}
 # iconUrl bilinçli olarak senkronize edilmiyor: bu depo ikon adreslerini normalize
 # ediyor (kaynaktaki %size% yer tutucuları sabit sz=128'e çevriliyor). Kaynak
 # güncellemesi bu düzeltmeyi geri almasın diye sync alanları dışında tutulur.
@@ -56,6 +69,191 @@ def percent_encode(url):
     parts = urllib.parse.urlsplit(url)
     path = urllib.parse.quote(parts.path, safe="/%._~-")
     return urllib.parse.urlunsplit((parts.scheme, parts.netloc, path, parts.query, parts.fragment))
+
+
+def norm_name(s):
+    """registry.py/audit.py ile ayni kimlik anahtari."""
+    value = (s or "").replace("\u0130", "i").replace("I", "i").casefold()
+    return value.replace("\u0131", "i")
+
+
+def domain_from_text(value):
+    if not value:
+        return ""
+    value = value.strip()
+    if "://" not in value:
+        value = "https://" + value
+    try:
+        host = urllib.parse.urlsplit(value).hostname or ""
+    except ValueError:
+        return ""
+    host = host.lower().strip(".")
+    if host.startswith("www."):
+        host = host[4:]
+    if host.startswith("cdn."):
+        host = host[4:]
+    return host
+
+
+def item_domain(item):
+    """Kaynak kaydinin iconUrl'sinden site domainini cikarir."""
+    icon = (item or {}).get("iconUrl", "")
+    match = re.search(r"(?:domain=|url=)(https?%3A%2F%2F|https?://)?([^&\"\s]+)", icon, re.I)
+    value = urllib.parse.unquote(match.group(2)) if match else icon
+    return domain_from_text(value)
+
+
+def github_token():
+    tok = os.environ.get("GITHUB_TOKEN", "").strip()
+    if tok:
+        return tok
+    try:
+        out = subprocess.run(["gh", "auth", "token"], capture_output=True, text=True, timeout=30)
+        if out.returncode == 0 and out.stdout.strip():
+            return out.stdout.strip()
+    except Exception:
+        pass
+    return ""
+
+
+def commit_date(repo, filename, tok, cache):
+    """builds dalindaki dosyanin son commit tarihi (YYYY-MM-DD)."""
+    key = (repo, filename)
+    if key in cache:
+        return cache[key]
+    if not tok:
+        cache[key] = None
+        return None
+    url = "%s/repos/%s/commits?sha=builds&path=%s&per_page=1" % (
+        API, repo, urllib.parse.quote(filename, safe=""))
+    try:
+        req = urllib.request.Request(url, headers={
+            "Authorization": "Bearer " + tok,
+            "Accept": "application/vnd.github+json",
+            "User-Agent": USER_AGENT})
+        with urllib.request.urlopen(req, timeout=NET_TIMEOUT) as resp:
+            data = json.loads(resp.read().decode("utf-8"))
+        value = data[0]["commit"]["committer"]["date"][:10] if data else None
+    except Exception as ex:
+        print("[TARIH] {0}/{1} alinamadi: {2}".format(repo, filename, ex))
+        value = None
+    cache[key] = value
+    return value
+
+
+def refresh_table(plugins, source_items, tok):
+    """DEPO-BILGILERI.md tablosunu tazeler.
+
+    - v                 <- plugins.json (kaynak manifesti)
+    - Kaynak Tarih      <- builds dalindaki .cs3 dosyasinin son commit tarihi
+    - Bizim Tarih       <- kaynak ilerlediyse Kaynak Tarih'e esitlenir
+    - Site (domain)     <- kaynak iconUrl'sindeki site adresi (CDN'ler haric)
+    """
+    bykey = {}
+    for p in plugins:
+        m = re.match(r"https://raw\.githubusercontent\.com/([^/]+/[^/]+)/builds/", p.get("url", ""))
+        if m:
+            bykey[(norm_name(p.get("internalName", "")), m.group(1))] = p
+
+    lines = io.open(DEPO_PATH, encoding="utf-8").read().replace("\r\n", "\n").split("\n")
+    hdr = next((i for i, l in enumerate(lines) if l.startswith("| # |")), None)
+    if hdr is None:
+        print("[TABLO] tablo basligi bulunamadi, tazeleme atlandi")
+        return 0
+    zone = next((i for i, l in enumerate(lines)
+                 if re.match(r"^#+\s+.*(Istenmeyenler|\u0130stenmeyenler)", l)), len(lines))
+
+    # Kaynak manifestleri: kaynakta artik yayinlanmayan satirlar tablodan dusurulur.
+    repos = set()
+    for i in range(hdr, zone):
+        m = re.match(r"^\| (\d+) \|", lines[i])
+        if m:
+            cells = [x.strip() for x in lines[i].strip().strip("|").split("|")]
+            r = (re.search(r"github\.com/([^)]+)", cells[2]) or [None, ""])[1]
+            if r:
+                repos.add(r)
+    manifests = {}
+    for repo in sorted(repos):
+        try:
+            src = fetch_json("https://raw.githubusercontent.com/%s/builds/plugins.json" % repo)
+            items = src if isinstance(src, list) else src.get("plugins", [])
+            manifests[repo] = {norm_name(i.get("internalName", "")): i
+                               for i in items if isinstance(i, dict)}
+        except Exception as ex:
+            print("[TABLO] %s manifesti alinamadi, satirlar korunuyor (%s)" % (repo, ex))
+
+    cache = {}
+    changed = 0
+    drop = []
+    for i in range(hdr, zone):
+        line = lines[i]
+        m = re.match(r"^\| (\d+) \|", line)
+        if not m:
+            continue
+        cells = [x.strip() for x in line.strip().strip("|").split("|")]
+        if len(cells) < 8:
+            continue
+        name = re.sub(r"^[^A-Za-z0-9]+", "", cells[1])
+        repo = (re.search(r"github\.com/([^)]+)", cells[2]) or [None, ""])[1]
+        if repo in manifests:
+            item0 = manifests[repo].get(norm_name(name))
+            if item0 is None:
+                print("[TABLO] satir dusuruldu (kaynakta yok): %s (%s)" % (name, repo))
+                drop.append(i)
+                continue
+        entry = bykey.get((norm_name(name), repo))
+        item = source_items.get((norm_name(name), repo)) or (
+            manifests.get(repo, {}).get(norm_name(name)))
+        rec = entry or item
+        if rec:
+            version = str(rec.get("version", ""))
+            if version and cells[4] != version:
+                cells[4] = version
+            fname = urllib.parse.unquote(rec.get("url", "").rsplit("/", 1)[-1])
+            tarih = commit_date(repo, fname, tok, cache) if fname.endswith(".cs3") else None
+            if tarih:
+                if cells[5] != tarih:
+                    cells[5] = tarih
+                # Bizim Tarih yalnizca aktif (benimsenmis) satirlarda esitlenir.
+                if entry and cells[6] < tarih:
+                    cells[6] = tarih
+        dom = item_domain(item) if item else ""
+        if dom and dom not in CDN_HOSTS:
+            link = re.search(r"\[([^\]]+)\]\((https?://[^)]+)\)", cells[3])
+            if not link or domain_from_text(link.group(2)) != dom:
+                cells[3] = "[{0}](https://{0})".format(dom)
+        link = re.search(r"\[([^\]]+)\]\((https?://[^)]+)\)", cells[3])
+        if link:
+            host = domain_from_text(link.group(2))
+            if host and link.group(1).lower() != host:
+                cells[3] = "[{0}]({1})".format(host, link.group(2))
+        newline = "| " + " | ".join(cells) + " |"
+        if newline != line:
+            lines[i] = newline
+            changed += 1
+    for i in reversed(drop):
+        del lines[i]
+    if drop:
+        # Sira numaralarini yeniden ver (render zaten yeniden numaralar).
+        zone2 = next((i for i, l in enumerate(lines)
+                      if re.match(r"^#+\s+.*(Istenmeyenler|\u0130stenmeyenler)", l)), len(lines))
+        n = 0
+        for i in range(hdr, zone2):
+            m = re.match(r"^\| (\d+) \|", lines[i])
+            if not m:
+                continue
+            n += 1
+            if m.group(1) != str(n):
+                lines[i] = "| %d |" % n + lines[i][m.end():]
+                changed += 1
+    if changed:
+        tmp = DEPO_PATH + ".tmp"
+        io.open(tmp, "w", encoding="utf-8", newline="\n").write("\n".join(lines))
+        os.replace(tmp, DEPO_PATH)
+        print("[TABLO] {0} satir tazelendi, {1} satir dusuruldu.".format(changed, len(drop)))
+    else:
+        print("[TABLO] degisiklik yok.")
+    return changed
 
 
 def fetch_with_retry(op, tries=3):
@@ -155,7 +353,8 @@ def main():
     parser.add_argument("--apply", action="store_true",
                         help="guncellemeleri uygula (varsayilan; geriye donuk acik secenek)")
     parser.add_argument("--check", action="store_true", help="yazmadan sadece farklari raporla (degisiklik varsa exit 1)")
-    parser.add_argument("--purge", action="store_true", help="degisiklik olmasa bile tum eklentilerin jsDelivr cache'ini temizle")
+    parser.add_argument("--purge", action="store_true", help="tum eklentilerin jsDelivr cache'ini temizle (push sonrasi)")
+    parser.add_argument("--no-table", action="store_true", help="DEPO-BILGILERI.md tablosunu tazeleme")
     args = parser.parse_args()
 
     with io.open(PLUGINS_PATH, encoding="utf-8") as f:
@@ -170,6 +369,7 @@ def main():
     missing = []
     unchanged = 0
     kept = []
+    source_items = {}
 
     for e in data:
         name = e.get("internalName", "?")
@@ -212,6 +412,10 @@ def main():
             # Kaynak eklentiyi devre disi biraktiysa yayinlamaya devam etme.
             silinen.append((name, "kaynak plugins.json status=0 yayinliyor"))
             continue
+
+        mrepo = re.match(r"https://raw\.githubusercontent\.com/([^/]+/[^/]+)/builds/", cs3)
+        if mrepo:
+            source_items[(norm_name(name), mrepo.group(1))] = match
 
         diffs = {}
         for field in SYNC_FIELDS:
@@ -259,14 +463,18 @@ def main():
             f.write("\n")
         os.replace(tmp, PLUGINS_PATH)
         print("plugins.json guncellendi ({0} guncelleme, {1} silme).".format(len(changed), len(silinen)))
-        # Guncellenen eklentilerin + kendi plugins.json'un CDN cache'ini temizle
-        updated_names = {name for name, _ in changed}
-        do_purge(build_purge_list(data, updated_names=updated_names))
     else:
         print("Yazma gerekmiyor.")
 
-    # --purge: degisiklik olmasa bile tum eklentilerin cache'ini zorla temizle
-    if args.purge and not changed and not silinen:
+    if not args.no_table:
+        tok = github_token()
+        if not tok:
+            print("[TARIH] GitHub token yok: tablo tarihleri tazelenemedi "
+                  "(GITHUB_TOKEN ya da gh auth login gerekli).")
+        refresh_table(data, source_items, tok)
+
+    # --purge: tum eklentilerin jsDelivr cache'ini temizler (push sonrasi calistirin)
+    if args.purge:
         do_purge(build_purge_list(data, updated_names=None))
 
 

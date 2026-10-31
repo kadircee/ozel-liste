@@ -1,5 +1,5 @@
 # developer (ozel-liste)
-Bu depo test CloudStream deposudur; yalnızca Türkçe film/dizi eklentilerini ve test seçtiği kaynakları barındırır. Canlı yayın, NSFW ve yabancı dil içerikli eklentiler kullanıcı tercihi gereği listeye alınmamıştır.
+Bu depo test CloudStream deposudur; yalnızca Türkçe film/dizi eklentilerini ve test seçtiği kaynakları barındırır. Canlı yayın, NSFW ve yabancı dil içerikli eklentiler kullanıcı tercihi gereği listeye alınmamıştır. Bilinçli iki istisna vardır: **Streamed** (`en`, `Live`) ve **Sinewix** (`tvTypes` içinde `Anime` taşır); ikisi de `audit.py` / `registry.py` içindeki `EXCEPTIONS` kümesiyle filtre dışında tutulur.
 
 ## Kurulum
 CloudStream → Ayarlar → Uzantılar → Depo Ekle:
@@ -13,12 +13,14 @@ Kısa kod yalnızca harf/rakam/`!_-` içerebilir; `!` ile başlayanlar `py.md` s
 ## Depo Yapısı
 ```
 ozel-liste/
+├── .github/
+│   └── workflows/mirror.yml → günlük kaynak senkronu + tablo tazeleme
 ├── repo.json            → CloudStream'in açtığı depo tanımı
 ├── plugins.json         → eklenti listesi
 ├── registry.json        → makine-okur kayıt modeli (aday ve durum sayıları aşağıdaki rapor notuna göre değişkendir)
 ├── registry.py          → model araçları (--sync / --check / --render [--write])
 ├── audit.py             → kaynak depoları tarih bazında denetler (--check = rapor/varsayılan, --apply = yazar)
-├── update.py            → kaynak depolardaki güncel verileri senkronize eden betik (--check / --purge dahil)
+├── update.py            → kaynak verilerini ve tablo alanlarını senkronize eder (--check / --purge / --no-table)
 └── DEPO-BILGILERI.md    → bu doküman (tablo bloğu registry.json'dan üretilir)
 ```
 > **Rapor sayıları hakkında:** Bu dokümandaki aday, aktif, duplicate, istenmeyen ve kaynak depo sayıları sabit kural değildir; yalnızca üretildiği andaki rapor özetidir. Güncel sayılar için `registry.json`, `plugins.json` ve betik çıktıları esas alınır. Bu sayılar kaynaklar değiştikçe değişebilir.
@@ -48,8 +50,9 @@ ozel-liste/
 `audit.py`, registry ve denetim havuzunda bulunan her kaynak deposunu ve mevcut tüm dallarını (`builds` dahil) tarar. Dal sayısı ve kaynak depo sayısı sabit değildir.
 
 **2. Tablo bakımı — `Tüm Repolar` karşılaştırılan tüm adayları içerir:**
-- Yeni adaylar için varsayılan filtre `language == tr` ve `tvTypes ⊆ {Movie, TvSeries, Documentary}` kuralıdır. 
-- `Site (domain)` her zaman `[domain](https://domain)` linkli olmalı (tıklanabilir).
+- Yeni adaylar için varsayılan filtre `language == tr` ve `tvTypes ⊆ {Movie, TvSeries, Documentary}` kuralıdır. `EXCEPTIONS` kümesindeki adlar (`streamed`, `sinewix`) bu filtreyi bilinçli olarak aşar.
+- Gruplama **normalize ada** göre yapılır: aynı adı taşıyan kopyalar (ör. `DiziPal`) tek yarışta birleşir; farklı adlar ayrı kayıt kalır. Ad normalizasyonunda büyük `I` ve noktasız `ı` `i` sayılır (`HDFilmIzle` = `HdFilmIzle`).
+- `Site (domain)` her zaman `[domain](https://domain)` linkli olmalı (tıklanabilir); link metni host adıyla aynı olmalıdır. `update.py` bu alanı kaynak manifestindeki site adresinden tazeler (CDN adresleri hariç).
 - `kadircee/ozel-liste` bir kaynak deposu değil, derleme deposu olduğu için `Tüm Repolar`da yer almaz.
 - `İstenmeyenler` için ayrı bir metin listesi tutulmaz; tek doğruluk kaynağı tablodur.
 - İstenmeyenler tablosundaki benzersiz ad sayısı, `audit.py` çıktısındaki `yasakli sayisi` ve `registry.json` içindeki istenmeyen grup sayısıyla eşleşmelidir. Bu sayılar değişebilir; denetim sırasında güncel değerler karşılaştırılır. Başlık (`## İstenmeyenler ...`) **kendi satırında** olmalıdır. Tablo satırına eklenirse GitHub başlığı işleyemez ve `audit.py` yasaklı listesini bulamaz; boş liste tespit edildiğinde **`exit 2` ile durur** (sessiz geçiş yapılmaz).
@@ -66,8 +69,10 @@ Seçim yalnızca `builds` dalındaki `.cs3` dosyasının son commit tarihine gö
 
 Tablodaki her satırda eklentiye ait iki tarih vardır: **Kaynak Tarih** (kaynak deponun `builds` dalında o `.cs3` dosyasına dokunan son commit'in tarihi) ve **Bizim Tarih** (kaynak kaydını en son benimsediğimiz tarih). **Bizim Tarih**, bu deponun genel son commit tarihi değildir. İşlem, bu iki tarihin karşılaştırılmasına dayanır:
 
-- **Kaynak Tarih > Bizim Tarih** → kaynak ilerlemiş demektir. `update.py` ile senkronize et (`status` dahil kaynak ne yayınlıyorsa aynen alınır), sonra satırdaki `Bizim Tarih`'i `Kaynak Tarih`'e eşitle. Versiyon numarasına bakılmaz.
+- **Kaynak Tarih > Bizim Tarih** → kaynak ilerlemiş demektir. `python update.py` senkronu yapar ve satırdaki `v`, `Kaynak Tarih`, `Bizim Tarih` alanlarını canlı veriyle tazeler (Bizim Tarih, Kaynak Tarih'e eşitlenir). `status` dahil kaynak ne yayınlıyorsa aynen alınır. Versiyon numarasına bakılmaz.
 - **Kaynak Tarih == Bizim Tarih** → yapacak iş yok.
+
+`update.py` her çalıştırmada tabloyu tazeler: `v` ← kaynak manifesti, `Kaynak Tarih` ← `builds` dalındaki `.cs3` dosyasının son commit tarihi (GitHub API), `Bizim Tarih` ← senkron tarihi, `Site (domain)` ← kaynak simgesindeki site adresi. Kaynakta artık yayınlanmayan satırlar tablodan düşürülür ve sıra numaraları yeniden verilir. `registry.py --check` bu alanları `plugins.json` ile karşılaştırır; tablo `v` değeri veya tarih kuralı tutmuyorsa **exit 1** verir.
 
 ## Kayıt Durumu Modeli
 
@@ -81,28 +86,33 @@ Her kayıt tek eksene sahiptir:
 | İstenmeyen | Hiç değerlendirmeye alınmadı | yok |
 
 
-**Araçlar:** `python registry.py --sync` (tablolar + `plugins.json` → `registry.json`), `--check` (şema + küme + tarih; ihlalde exit 1), `--render [--write]` (tabloyu üretir). `Seçim`, `plugins.json` dosyasından türetilir (dosyada olan = Aktif); grup başına en fazla 1 Aktif olabilir ve Aktif kümesi `plugins.json` ile birebir aynı olmalıdır. Eklenti alanları (`status`, `version`, `fileSize`, `fileHash`, `description`, `authors`, `language`, `tvTypes`) kaynak `builds/plugins.json` dosyasından olduğu gibi alınır (`update.py`).
+**Araçlar:** `python registry.py --sync` (tablolar + `plugins.json` → `registry.json`), `--check` (şema + küme + tarih + tablo/`plugins.json` tazeliği; ihlalde exit 1), `--render [--write]` (tabloyu üretir). `Seçim`, `plugins.json` dosyasından türetilir (dosyada olan = Aktif); grup başına en fazla 1 Aktif olabilir ve Aktif kümesi `plugins.json` ile birebir aynı olmalıdır. Eklenti alanları (`status`, `version`, `fileSize`, `fileHash`, `description`, `authors`, `language`, `tvTypes`) kaynak `builds/plugins.json` dosyasından olduğu gibi alınır (`update.py`).
 
 ## Kaynak Senkronizasyonu (update.py)
 ```bash
 python update.py --check    # yazmadan sadece farkları raporlar (fark varsa exit 1)
-python update.py            # farkları uygular, plugins.json'u günceller
+python update.py            # farkları uygular, plugins.json + tablo alanlarını günceller
+python update.py --purge    # push sonrası jsDelivr önbelleğini temizler
+python update.py --no-table # yalnızca plugins.json senkronu (tabloya dokunmaz)
 ```
-Kaynak `builds/plugins.json` adresi, listedeki `.cs3` adresinden türetilir (`https://raw.githubusercontent.com/<owner>/<repo>/builds/<Isim>.cs3` → aynı klasördeki `plugins.json`). Senkronize edilen alanlar: `status, version, fileSize, fileHash, description, authors, language, tvTypes` (Pure Mirror — kaynak ne yayınlıyorsa aynen alınır). 
+Kaynak `builds/plugins.json` adresi, listedeki `.cs3` adresinden türetilir (`https://raw.githubusercontent.com/<owner>/<repo>/builds/<Isim>.cs3` → aynı klasördeki `plugins.json`). Senkronize edilen alanlar: `status, version, fileSize, fileHash, description, authors, language, tvTypes` (Pure Mirror — kaynak ne yayınlıyorsa aynen alınır). Ayrıca `DEPO-BILGILERI.md` tablosundaki `v`, `Kaynak Tarih`, `Bizim Tarih` ve `Site (domain)` alanları tazelenir; kaynakta artık bulunmayan satırlar tablodan düşürülür. Tarih tazeleme için GitHub token gerekir (`GITHUB_TOKEN` ya da `gh auth login`); token yoksa yalnızca tarih alanları atlanır, senkron durmaz.
 
-> **Not:** Kaynak senkronu GitHub Actions ile otomatik çalışır (`.github/workflows/mirror.yml`: her gün 05:00 UTC ve `workflow_dispatch` ile manuel tetikleme). Akış: `update.py` → `registry.py --sync` → `registry.py --render --write` → `registry.py --check` → `audit.py --check` → değişiklik varsa otomatik commit+push. Yerelde elle çalıştırmak da mümkündür. Kaynakta bulunamayan veya `status: 0` olan kayıt `[SILINDI]` olarak listeden düşer; kaynak manifesti 404 ise audit kaynağı atlar ve aktif katalogda kayıt bırakılmaz.
+> **Not:** Kaynak senkronu GitHub Actions ile otomatik çalışır (`.github/workflows/mirror.yml`: her gün 05:00 UTC ve `workflow_dispatch` ile manuel tetikleme). Akış: `update.py` → `registry.py --sync` → `registry.py --render --write` → `registry.py --check` (sert kapı) → commit+push → `update.py --purge` → `audit.py --check` (rapor; hata olsa da commit'i engellemez). Yerelde elle çalıştırmak da mümkündür. Kaynakta bulunamayan veya `status: 0` olan kayıt `[SILINDI]` olarak listeden düşer; kaynak manifesti 404 ise audit kaynağı atlar ve aktif katalogda kayıt bırakılmaz.
 
 ## Güncelleme
 Yeni bir değişiklik yapıldığında:
 ```bash
-python update.py --check    # kaynak farkı var mı bak (exit 1 = var)
-python registry.py --check  # model denetimi: sema + kume + tarih (exit 1 = ihlal ya da karar bekleyen)
-python update.py                # gerekirse kaynak verilerini senkronize et (status dahil Pure Mirror)
-# DEPO-BILGILERI.md: Kaynak Tarih'i ilerleyen satırlarda Bizim Tarih'i eşitle (Tarih Takip Kuralı)
+python update.py --check          # kaynak farkı var mı bak (exit 1 = var)
+python update.py                  # plugins.json + tablo alanlarını tazele
+python registry.py --sync         # tablo + plugins.json -> registry.json
+python registry.py --render --write  # tablo bloğunu yeniden üret
+python registry.py --check        # model + tazelik denetimi (exit 1 = ihlal)
+python audit.py --check           # kaynak karar denetimi (rapor)
 git add plugins.json DEPO-BILGILERI.md registry.json registry.py audit.py update.py .github/workflows/mirror.yml
 git -c user.name="kadircee" -c user.email="kadircee@users.noreply.github.com" \
     commit -m "plugins.json: aciklama"
 git push
+python update.py --purge          # push sonrası jsDelivr temizliği
 ```
 Push sonrası jsDelivr önbelleği için:
 ```
@@ -112,57 +122,55 @@ CloudStream tarafında depo yenilendiğinde yeni liste otomatik çekilir. Kaynak
 
 ## Tüm Repolar - Alfabetik Liste
 
-Bu bölüm 2026-10-06 tarihinde `registry.json` ve `plugins.json` üzerinden yeniden oluşturuldu. Liste, **42** kayıt satırını (**33 aktif**, **9 duplicate**) ve kaynak karşılaştırmalarını birlikte gösterir; 404 ve `status: 0` kaynak kayıtları katalogdan çıkarılmıştır.
+Bu bölüm 2026-10-31 tarihinde `registry.json` ve `plugins.json` üzerinden yeniden oluşturuldu. Liste, **40** kayıt satırını (**33 aktif**, **7 duplicate**) ve kaynak karşılaştırmalarını birlikte gösterir; 404 ve `status: 0` kaynak kayıtları katalogdan çıkarılmıştır.
 
 Aynı normalize ada sahip kayıtlar tek grup olarak değerlendirilir. En güncel kaynak `Aktif`, diğer kaynaklar `Duplicate` olarak gösterilir. `status` alanı kaynak manifestinden Pure Mirror kuralıyla alınır.
 
-Toplam satır: 42 · Aktif: 33 · Duplicate: 9.
+Toplam satır: 40 · Aktif: 33 · Duplicate: 7.
 
 <!-- KAYIT-DURUMU:OTOMATIK-BASLANGIC -->
 | # | Eklenti | Kaynak | Site (domain) | v | Kaynak Tarih | Bizim Tarih | Seçim | Not |
 |---|---|---|---|---|---|---|---|---|
-| 1 | Ddizi | [feroxx/Kekik-cloudstream](https://github.com/feroxx/Kekik-cloudstream) | [ddizi](https://ddizi.site) | 22 | 2026-09-29 | 2026-09-22 | Aktif |  |
-| 2 | DiziBox | [feroxx/Kekik-cloudstream](https://github.com/feroxx/Kekik-cloudstream) | [dizibox.live](https://dizibox.live) | 23 | 2026-10-04 | 2026-10-04 | Aktif |  |
-| 3 | Dizilla | [feroxx/Kekik-cloudstream](https://github.com/feroxx/Kekik-cloudstream) | [dizilla](https://dizilla.site) | 92 | 2026-09-29 | 2026-09-22 | Aktif |  |
-| 4 | Dizilla | [lepotane/MRC-builds](https://github.com/lepotane/MRC-builds) | [dizilla](https://dizilla.site) | 10 | 2026-09-22 | 2026-09-22 | Duplicate |  |
-| 5 | DiziMom | [feroxx/Kekik-cloudstream](https://github.com/feroxx/Kekik-cloudstream) | [dizimom](https://dizimom.site) | 58 | 2026-09-29 | 2026-09-22 | Aktif |  |
-| 6 | DiziMom | [lepotane/MRC-builds](https://github.com/lepotane/MRC-builds) | [dizimom](https://dizimom.site) | 4 | 2026-09-22 | 2026-09-22 | Duplicate |  |
-| 7 | DiziPal2 | [lepotane/MRC-builds](https://github.com/lepotane/MRC-builds) | [dizipal2135.com](https://dizipal2135.com) | 2 | 2026-10-02 | 2026-10-02 | Aktif |  |
-| 8 | DiziPod | [feroxx/Kekik-cloudstream](https://github.com/feroxx/Kekik-cloudstream) | [dizipod](https://dizipod.site) | 3 | 2026-09-29 | 2026-09-16 | Aktif |  |
-| 9 | DiziWatch | [lepotane/MRC-builds](https://github.com/lepotane/MRC-builds) | [diziwatch.site](https://diziwatch.site) | 3 | 2026-09-15 | 2026-09-15 | Duplicate |  |
-| 10 | DiziYo | [blackhope01/cloudstream-plugins](https://github.com/blackhope01/cloudstream-plugins) | [diziyo](https://diziyo.site) | 1 | 2026-09-07 | 2026-10-06 | Aktif |  |
-| 11 | DiziYo | [lepotane/MRC-builds](https://github.com/lepotane/MRC-builds) | [diziyo.site](https://diziyo.site) | 5 | 2026-09-17 | 2026-09-17 | Duplicate |  |
-| 12 | DiziYou | [feroxx/Kekik-cloudstream](https://github.com/feroxx/Kekik-cloudstream) | [diziyou](https://diziyou.site) | 26 | 2026-09-29 | 2026-09-22 | Aktif |  |
-| 13 | FilmEkseni | [blackhope01/cloudstream-plugins](https://github.com/blackhope01/cloudstream-plugins) | [filmekseni](https://filmekseni.site) | 1 | 2026-09-16 | 2026-09-16 | Duplicate |  |
-| 14 | FilmEkseni | [lepotane/MRC-builds](https://github.com/lepotane/MRC-builds) | [filmekseni.site](https://filmekseni.site) | 1 | 2026-09-20 | 2026-09-17 | Aktif |  |
-| 15 | FilmHane | [blackhope01/cloudstream-plugins](https://github.com/blackhope01/cloudstream-plugins) | [filmhane.shop](https://filmhane.shop) | 1 | 2026-09-07 | 2026-09-07 | Aktif |  |
-| 16 | FilmMakinesi | [feroxx/Kekik-cloudstream](https://github.com/feroxx/Kekik-cloudstream) | [filmmakinesi](https://filmmakinesi.site) | 59 | 2026-09-29 | 2026-09-22 | Aktif |  |
-| 17 | FilmMakinesi | [lepotane/MRC-builds](https://github.com/lepotane/MRC-builds) | [filmmakinesi](https://filmmakinesi.site) | 5 | 2026-09-22 | 2026-09-22 | Duplicate |  |
-| 18 | FilmModu | [feroxx/Kekik-cloudstream](https://github.com/feroxx/Kekik-cloudstream) | [filmmodu](https://filmmodu.site) | 19 | 2026-09-29 | 2026-09-16 | Aktif |  |
-| 19 | FilmIzyon | [lepotane/MRC-builds](https://github.com/lepotane/MRC-builds) | [filmizyon.site](https://filmizyon.site) | 2 | 2026-09-27 | 2026-09-15 | Aktif |  |
-| 20 | FullHDFilm | [feroxx/Kekik-cloudstream](https://github.com/feroxx/Kekik-cloudstream) | [hdfilm.us](https://hdfilm.us) | 36 | 2026-10-04 | 2026-10-04 | Aktif |  |
-| 21 | FullHDFilmizlesene | [feroxx/Kekik-cloudstream](https://github.com/feroxx/Kekik-cloudstream) | [fullhdfilmizlesene](https://fullhdfilmizlesene.site) | 33 | 2026-09-29 | 2026-09-22 | Aktif |  |
-| 22 | HDFilmCehennemi | [feroxx/Kekik-cloudstream](https://github.com/feroxx/Kekik-cloudstream) | [hdfilmcehennemi](https://hdfilmcehennemi.site) | 48 | 2026-09-29 | 2026-09-22 | Aktif |  |
-| 23 | HDFilmCehennemi | [lepotane/MRC-builds](https://github.com/lepotane/MRC-builds) | [hdfilmcehennemi](https://hdfilmcehennemi.site) | 8 | 2026-09-22 | 2026-09-22 | Duplicate |  |
-| 24 | HdFilmCehennemi2 | [lepotane/MRC-builds](https://github.com/lepotane/MRC-builds) | [hdfilmcehennemi2.site](https://hdfilmcehennemi2.site) | 2 | 2026-09-20 | 2026-09-16 | Aktif |  |
-| 25 | HDFilmDelisi | [feroxx/Kekik-cloudstream](https://github.com/feroxx/Kekik-cloudstream) | [hdfilmdelisi](https://hdfilmdelisi.site) | 1 | 2026-09-29 | 2026-09-16 | Aktif |  |
-| 26 | HDFilmIzle | [Ripplay/cloudstream-repo](https://github.com/Ripplay/cloudstream-repo) | [hdfilmizle.site](https://hdfilmizle.site) | 8 | 2026-08-24 | 2026-08-24 | Aktif |  |
-| 27 | JetFilmizle | [feroxx/Kekik-cloudstream](https://github.com/feroxx/Kekik-cloudstream) | [jetfilmizle](https://jetfilmizle.site) | 47 | 2026-09-29 | 2026-09-16 | Aktif |  |
-| 28 | LoveFilm | [blackhope01/cloudstream-plugins](https://github.com/blackhope01/cloudstream-plugins) | [lovefilm](https://lovefilm.site) | 1 | 2026-09-16 | 2026-09-16 | Duplicate |  |
-| 29 | LoveFilm | [lepotane/MRC-builds](https://github.com/lepotane/MRC-builds) | [lovefilm.site](https://lovefilm.site) | 2 | 2026-09-27 | 2026-09-17 | Aktif |  |
-| 30 | SelcukFlix | [feroxx/Kekik-cloudstream](https://github.com/feroxx/Kekik-cloudstream) | [selcukflix](https://selcukflix.site) | 2 | 2026-09-29 | 2026-09-22 | Aktif |  |
-| 31 | SetFilmIzle | [feroxx/Kekik-cloudstream](https://github.com/feroxx/Kekik-cloudstream) | [setfilmizle.uk](https://setfilmizle.uk) | 32 | 2026-10-04 | 2026-10-04 | Aktif |  |
-| 32 | SezonlukDizi | [feroxx/Kekik-cloudstream](https://github.com/feroxx/Kekik-cloudstream) | [sezonlukdizi](https://sezonlukdizi.site) | 9 | 2026-09-29 | 2026-09-22 | Aktif |  |
-| 33 | Sinefy | [lepotane/MRC-builds](https://github.com/lepotane/MRC-builds) | [sinefy.site](https://sinefy.site) | 1 | 2026-09-20 | 2026-09-15 | Aktif |  |
-| 34 | SinemaCX | [feroxx/Kekik-cloudstream](https://github.com/feroxx/Kekik-cloudstream) | [sinema.cx](https://sinema.cx) | 25 | 2026-10-04 | 2026-10-04 | Aktif |  |
-| 35 | Sinewix | [feroxx/Kekik-cloudstream](https://github.com/feroxx/Kekik-cloudstream) | [sinewix](https://sinewix.site) | 2 | 2026-09-29 | 2026-09-16 | Aktif |  |
-| 36 | Sinezy | [lepotane/MRC-builds](https://github.com/lepotane/MRC-builds) | [sinezy.site](https://sinezy.site) | 3 | 2026-09-29 | 2026-09-15 | Aktif |  |
-| 37 | Streamed | [Kraptor123/Cs-Karma](https://github.com/Kraptor123/Cs-Karma) | [streamed.site](https://streamed.site) | 29 | 2026-10-05 | 2026-10-06 | Aktif |  |
-| 38 | TvDiziler | [lepotane/MRC-builds](https://github.com/lepotane/MRC-builds) | [tvdiziler.site](https://tvdiziler.site) | 2 | 2026-09-27 | 2026-09-29 | Aktif |  |
-| 39 | UltraFilmizle | [lepotane/MRC-builds](https://github.com/lepotane/MRC-builds) | [ultrafilmizle.org](https://ultrafilmizle.org) | 12 | 2026-09-23 | 2026-09-20 | Aktif |  |
-| 40 | Webteizle | [blackhope01/cloudstream-plugins](https://github.com/blackhope01/cloudstream-plugins) | [webteizle](https://webteizle.site) | 1 | 2026-09-16 | 2026-09-16 | Duplicate |  |
-| 41 | WebteIzle | [feroxx/Kekik-cloudstream](https://github.com/feroxx/Kekik-cloudstream) | [webteizle](https://webteizle.site) | 21 | 2026-09-29 | 2026-09-16 | Aktif |  |
-| 42 | YabanciDizi | [lepotane/MRC-builds](https://github.com/lepotane/MRC-builds) | [yabancidizi.site](https://yabancidizi.site) | 17 | 2026-09-20 | 2026-10-06 | Aktif |  |
+| 1 | Ddizi | [feroxx/Kekik-cloudstream](https://github.com/feroxx/Kekik-cloudstream) | [ddizi.im](https://ddizi.im) | 24 | 2026-10-28 | 2026-10-28 | Aktif |  |
+| 2 | DiziBox | [feroxx/Kekik-cloudstream](https://github.com/feroxx/Kekik-cloudstream) | [dizibox.live](https://dizibox.live) | 25 | 2026-10-28 | 2026-10-28 | Aktif |  |
+| 3 | Dizilla | [feroxx/Kekik-cloudstream](https://github.com/feroxx/Kekik-cloudstream) | [dizilla.now](https://dizilla.now) | 93 | 2026-10-28 | 2026-10-28 | Aktif |  |
+| 4 | Dizilla | [lepotane/MRC-builds](https://github.com/lepotane/MRC-builds) | [dizilla.club](https://dizilla.club) | 10 | 2026-09-27 | 2026-09-22 | Duplicate |  |
+| 5 | DiziMom | [feroxx/Kekik-cloudstream](https://github.com/feroxx/Kekik-cloudstream) | [dizimom.plus](https://dizimom.plus) | 64 | 2026-10-28 | 2026-10-28 | Aktif |  |
+| 6 | DiziMom | [lepotane/MRC-builds](https://github.com/lepotane/MRC-builds) | [dizimom.wiki](https://dizimom.wiki) | 13 | 2026-10-22 | 2026-09-22 | Duplicate |  |
+| 7 | DiziPal2 | [lepotane/MRC-builds](https://github.com/lepotane/MRC-builds) | [dizipal2142.com](https://dizipal2142.com) | 7 | 2026-10-22 | 2026-10-22 | Aktif |  |
+| 8 | DiziPod | [feroxx/Kekik-cloudstream](https://github.com/feroxx/Kekik-cloudstream) | [dizipod.com](https://dizipod.com) | 3 | 2026-10-28 | 2026-10-28 | Aktif |  |
+| 9 | DiziYo | [blackhope01/cloudstream-plugins](https://github.com/blackhope01/cloudstream-plugins) | [diziyo.so](https://diziyo.so) | 1 | 2026-09-07 | 2026-10-06 | Aktif |  |
+| 10 | DiziYou | [feroxx/Kekik-cloudstream](https://github.com/feroxx/Kekik-cloudstream) | [diziyou.one](https://diziyou.one) | 26 | 2026-10-28 | 2026-10-28 | Aktif |  |
+| 11 | FilmEkseni | [blackhope01/cloudstream-plugins](https://github.com/blackhope01/cloudstream-plugins) | [filmekseni.vip](https://filmekseni.vip) | 1 | 2026-09-07 | 2026-09-16 | Duplicate |  |
+| 12 | FilmEkseni | [lepotane/MRC-builds](https://github.com/lepotane/MRC-builds) | [filmekseni.vip](https://filmekseni.vip) | 4 | 2026-10-22 | 2026-10-22 | Aktif |  |
+| 13 | FilmHane | [blackhope01/cloudstream-plugins](https://github.com/blackhope01/cloudstream-plugins) | [filmhane.shop](https://filmhane.shop) | 1 | 2026-09-07 | 2026-09-07 | Aktif |  |
+| 14 | FilmIzyon | [lepotane/MRC-builds](https://github.com/lepotane/MRC-builds) | [filmizyon.com](https://filmizyon.com) | 8 | 2026-10-22 | 2026-10-22 | Aktif |  |
+| 15 | FilmMakinesi | [feroxx/Kekik-cloudstream](https://github.com/feroxx/Kekik-cloudstream) | [filmmakinesi.film](https://filmmakinesi.film) | 59 | 2026-10-28 | 2026-10-28 | Aktif |  |
+| 16 | FilmMakinesi | [lepotane/MRC-builds](https://github.com/lepotane/MRC-builds) | [filmmakinesi.to](https://filmmakinesi.to) | 5 | 2026-09-22 | 2026-09-22 | Duplicate |  |
+| 17 | FilmModu | [feroxx/Kekik-cloudstream](https://github.com/feroxx/Kekik-cloudstream) | [filmmodu.one](https://filmmodu.one) | 19 | 2026-10-28 | 2026-10-28 | Aktif |  |
+| 18 | FullHDFilm | [feroxx/Kekik-cloudstream](https://github.com/feroxx/Kekik-cloudstream) | [hdfilm.us](https://hdfilm.us) | 36 | 2026-10-28 | 2026-10-28 | Aktif |  |
+| 19 | FullHDFilmizlesene | [feroxx/Kekik-cloudstream](https://github.com/feroxx/Kekik-cloudstream) | [fullhdfilmizlesene.de](https://fullhdfilmizlesene.de) | 33 | 2026-10-28 | 2026-10-28 | Aktif |  |
+| 20 | HDFilmCehennemi | [feroxx/Kekik-cloudstream](https://github.com/feroxx/Kekik-cloudstream) | [hdfilmcehennemi.com](https://hdfilmcehennemi.com) | 58 | 2026-10-28 | 2026-10-28 | Aktif |  |
+| 21 | HDFilmCehennemi | [lepotane/MRC-builds](https://github.com/lepotane/MRC-builds) | [hdfilmcehennemi.nl](https://hdfilmcehennemi.nl) | 8 | 2026-09-22 | 2026-09-22 | Duplicate |  |
+| 22 | HdFilmCehennemi2 | [lepotane/MRC-builds](https://github.com/lepotane/MRC-builds) | [hdfilmcehennemi2.biz](https://hdfilmcehennemi2.biz) | 5 | 2026-09-20 | 2026-09-20 | Aktif |  |
+| 23 | HDFilmDelisi | [feroxx/Kekik-cloudstream](https://github.com/feroxx/Kekik-cloudstream) | [hdfilmdelisi.com](https://hdfilmdelisi.com) | 1 | 2026-10-28 | 2026-10-28 | Aktif |  |
+| 24 | HDFilmIzle | [Ripplay/cloudstream-repo](https://github.com/Ripplay/cloudstream-repo) | [hdfilmizle.ink](https://hdfilmizle.ink) | 8 | 2026-08-24 | 2026-08-24 | Aktif |  |
+| 25 | JetFilmizle | [feroxx/Kekik-cloudstream](https://github.com/feroxx/Kekik-cloudstream) | [jetfilmizle.de](https://jetfilmizle.de) | 48 | 2026-10-28 | 2026-10-28 | Aktif |  |
+| 26 | LoveFilm | [blackhope01/cloudstream-plugins](https://github.com/blackhope01/cloudstream-plugins) | [lovefilmizle.net](https://lovefilmizle.net) | 1 | 2026-09-07 | 2026-09-16 | Duplicate |  |
+| 27 | LoveFilm | [lepotane/MRC-builds](https://github.com/lepotane/MRC-builds) | [lovefilmizle.net](https://lovefilmizle.net) | 6 | 2026-09-27 | 2026-09-27 | Aktif |  |
+| 28 | SelcukFlix | [feroxx/Kekik-cloudstream](https://github.com/feroxx/Kekik-cloudstream) | [selcukflix.co](https://selcukflix.co) | 3 | 2026-10-28 | 2026-10-28 | Aktif |  |
+| 29 | SetFilmIzle | [feroxx/Kekik-cloudstream](https://github.com/feroxx/Kekik-cloudstream) | [setfilmizle.uk](https://setfilmizle.uk) | 32 | 2026-10-28 | 2026-10-28 | Aktif |  |
+| 30 | SezonlukDizi | [feroxx/Kekik-cloudstream](https://github.com/feroxx/Kekik-cloudstream) | [sezonlukdizi6.com](https://sezonlukdizi6.com) | 9 | 2026-10-28 | 2026-10-28 | Aktif |  |
+| 31 | Sinefy | [lepotane/MRC-builds](https://github.com/lepotane/MRC-builds) | [sinefy3.com](https://sinefy3.com) | 4 | 2026-10-22 | 2026-10-22 | Aktif |  |
+| 32 | SinemaCX | [feroxx/Kekik-cloudstream](https://github.com/feroxx/Kekik-cloudstream) | [sinema.cx](https://sinema.cx) | 26 | 2026-10-28 | 2026-10-28 | Aktif |  |
+| 33 | Sinewix | [feroxx/Kekik-cloudstream](https://github.com/feroxx/Kekik-cloudstream) | [sinewix.site](https://sinewix.site) | 3 | 2026-10-28 | 2026-10-28 | Aktif |  |
+| 34 | Sinezy | [lepotane/MRC-builds](https://github.com/lepotane/MRC-builds) | [sinezy.to](https://sinezy.to) | 8 | 2026-10-22 | 2026-10-22 | Aktif |  |
+| 35 | Streamed | [Kraptor123/Cs-Karma](https://github.com/Kraptor123/Cs-Karma) | [streamed.pk](https://streamed.pk) | 29 | 2026-10-15 | 2026-10-15 | Aktif |  |
+| 36 | TvDiziler | [lepotane/MRC-builds](https://github.com/lepotane/MRC-builds) | [tvdiziler.tv](https://tvdiziler.tv) | 6 | 2026-09-27 | 2026-09-29 | Aktif |  |
+| 37 | UltraFilmizle | [lepotane/MRC-builds](https://github.com/lepotane/MRC-builds) | [ufilmizle.com](https://ufilmizle.com) | 14 | 2026-09-23 | 2026-09-23 | Aktif |  |
+| 38 | Webteizle | [blackhope01/cloudstream-plugins](https://github.com/blackhope01/cloudstream-plugins) | [webteizle3.xyz](https://webteizle3.xyz) | 1 | 2026-09-07 | 2026-09-16 | Duplicate |  |
+| 39 | WebteIzle | [feroxx/Kekik-cloudstream](https://github.com/feroxx/Kekik-cloudstream) | [webteizle3.xyz](https://webteizle3.xyz) | 21 | 2026-10-28 | 2026-10-28 | Aktif |  |
+| 40 | YabanciDizi | [lepotane/MRC-builds](https://github.com/lepotane/MRC-builds) | [yabancidizi.news](https://yabancidizi.news) | 17 | 2026-09-20 | 2026-10-06 | Aktif |  |
 <!-- KAYIT-DURUMU:OTOMATIK-SON -->
 
 ## Kaynak Depoları ve Güncelleme Tarihleri
@@ -171,10 +179,10 @@ Bu bölümde kaynak olarak taranan fiili **5 depo** listelenir. Depo kümesi ve 
 
 | Kaynak depo | Kaynak deponun son güncelleme zamanı (GitHub API `updated_at`) |
 |---|---|
-| [blackhope01/cloudstream-plugins](https://github.com/blackhope01/cloudstream-plugins) | 2026-10-05 19:34:18 UTC | 
-| [feroxx/Kekik-cloudstream](https://github.com/feroxx/Kekik-cloudstream) | 2026-10-05 19:34:08 UTC |
-| [Kraptor123/Cs-Karma](https://github.com/Kraptor123/Cs-Karma) | 2026-10-05 19:33:02 UTC | 
-| [lepotane/MRC-builds](https://github.com/lepotane/MRC-builds) | 2026-10-05 19:53:27 UTC |
+| [blackhope01/cloudstream-plugins](https://github.com/blackhope01/cloudstream-plugins) | 2026-10-31 06:41:12 UTC | 
+| [feroxx/Kekik-cloudstream](https://github.com/feroxx/Kekik-cloudstream) | 2026-10-30 00:16:41 UTC |
+| [Kraptor123/Cs-Karma](https://github.com/Kraptor123/Cs-Karma) | 2026-10-27 22:27:50 UTC | 
+| [lepotane/MRC-builds](https://github.com/lepotane/MRC-builds) | 2026-10-24 18:46:17 UTC |
 | [Ripplay/cloudstream-repo](https://github.com/Ripplay/cloudstream-repo) | 2026-09-18 21:27:51 UTC |
 
 ## İstenmeyenler (Delete-Zone) - 70 unique

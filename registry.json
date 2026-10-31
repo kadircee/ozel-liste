@@ -1,7 +1,7 @@
 {
   "version": 1,
   "groups": {
-    "animeav": {
+    "name:animeav": {
       "name": "AnimeAV",
       "candidates": [
         {
@@ -19,7 +19,7 @@
         }
       ]
     },
-    "animecix": {
+    "name:animecix": {
       "name": "AnimeciX",
       "candidates": [
         {
@@ -37,7 +37,7 @@
         }
       ]
     },
-    "animejara": {
+    "name:animejara": {
       "name": "Animejara",
       "candidates": [
         {
@@ -55,7 +55,7 @@
         }
       ]
     },
-    "animeworld": {
+    "name:animeworld": {
       "name": "AnimeWorld",
       "candidates": [
         {
@@ -73,7 +73,7 @@
         }
       ]
     },
-    "animeytx": {
+    "name:animeytx": {
       "name": "AnimeYTX",
       "candidates": [
         {
@@ -91,7 +91,7 @@
         }
       ]
     },
-    "anizium": {
+    "name:anizium": {
       "name": "Anizium",
       "candidates": [
         {
@@ -109,7 +109,7 @@
         }
       ]
     },
-    "anizm": {
+    "name:anizm": {
       "name": "Anizm",
       "candidates": [
         {
@@ -127,7 +127,7 @@
         }
       ]
     },
-    "asyaanimeleri": {
+    "name:asyaanimeleri": {
       "name": "AsyaAnimeleri",
       "candidates": [
         {
@@ -145,7 +145,7 @@
         }
       ]
     },
-    "asyawatch": {
+    "name:asyawatch": {
       "name": "AsyaWatch",
       "candidates": [
         {
@@ -163,7 +163,7 @@
         }
       ]
     },
-    "atv": {
+    "name:atv": {
       "name": "Atv",
       "candidates": [
         {
@@ -181,7 +181,7 @@
         }
       ]
     },
-    "ayzentv": {
+    "name:ayzentv": {
       "name": "AyzenTv",
       "candidates": [
         {
@@ -199,7 +199,7 @@
         }
       ]
     },
-    "basketballreplays": {
+    "name:basketballreplays": {
       "name": "BasketballReplays",
       "candidates": [
         {
@@ -217,7 +217,7 @@
         }
       ]
     },
-    "belgeselx": {
+    "name:belgeselx": {
       "name": "BelgeselX",
       "candidates": [
         {
@@ -235,7 +235,7 @@
         }
       ]
     },
-    "birasyadizi": {
+    "name:birasyadizi": {
       "name": "BirAsyaDizi",
       "candidates": [
         {
@@ -253,7 +253,7 @@
         }
       ]
     },
-    "cizgimax": {
+    "name:cizgimax": {
       "name": "CizgiMax",
       "candidates": [
         {
@@ -271,7 +271,7 @@
         }
       ]
     },
-    "cizgivedizi": {
+    "name:cizgivedizi": {
       "name": "CizgiVeDizi",
       "candidates": [
         {
@@ -289,7 +289,45 @@
         }
       ]
     },
-    "dizikorea": {
+    "name:ddizi": {
+      "name": "Ddizi",
+      "candidates": [
+        {
+          "name": "Ddizi",
+          "listed": true,
+          "order": 1,
+          "source": "feroxx/Kekik-cloudstream",
+          "source_cell": "[feroxx/Kekik-cloudstream](https://github.com/feroxx/Kekik-cloudstream)",
+          "site_cell": "[ddizi.im](https://ddizi.im)",
+          "domain": "ddizi.im",
+          "version": "24",
+          "kaynak_tarih": "2026-10-28",
+          "bizim_tarih": "2026-10-28",
+          "not": "",
+          "secim": "aktif"
+        }
+      ]
+    },
+    "name:dizibox": {
+      "name": "DiziBox",
+      "candidates": [
+        {
+          "name": "DiziBox",
+          "listed": true,
+          "order": 2,
+          "source": "feroxx/Kekik-cloudstream",
+          "source_cell": "[feroxx/Kekik-cloudstream](https://github.com/feroxx/Kekik-cloudstream)",
+          "site_cell": "[dizibox.live](https://dizibox.live)",
+          "domain": "dizibox.live",
+          "version": "25",
+          "kaynak_tarih": "2026-10-28",
+          "bizim_tarih": "2026-10-28",
+          "not": "",
+          "secim": "aktif"
+        }
+      ]
+    },
+    "name:dizikorea": {
       "name": "DiziKorea",
       "candidates": [
         {
@@ -307,7 +345,149 @@
         }
       ]
     },
-    "dmax": {
+    "name:dizilla": {
+      "name": "Dizilla",
+      "candidates": [
+        {
+          "name": "Dizilla",
+          "listed": true,
+          "order": 3,
+          "source": "feroxx/Kekik-cloudstream",
+          "source_cell": "[feroxx/Kekik-cloudstream](https://github.com/feroxx/Kekik-cloudstream)",
+          "site_cell": "[dizilla.now](https://dizilla.now)",
+          "domain": "dizilla.now",
+          "version": "93",
+          "kaynak_tarih": "2026-10-28",
+          "bizim_tarih": "2026-10-28",
+          "not": "",
+          "secim": "aktif"
+        },
+        {
+          "name": "Dizilla",
+          "listed": true,
+          "order": 4,
+          "source": "lepotane/MRC-builds",
+          "source_cell": "[lepotane/MRC-builds](https://github.com/lepotane/MRC-builds)",
+          "site_cell": "[dizilla.club](https://dizilla.club)",
+          "domain": "dizilla.club",
+          "version": "10",
+          "kaynak_tarih": "2026-09-27",
+          "bizim_tarih": "2026-09-22",
+          "not": "",
+          "secim": "duplicate"
+        }
+      ]
+    },
+    "name:dizimom": {
+      "name": "DiziMom",
+      "candidates": [
+        {
+          "name": "DiziMom",
+          "listed": true,
+          "order": 5,
+          "source": "feroxx/Kekik-cloudstream",
+          "source_cell": "[feroxx/Kekik-cloudstream](https://github.com/feroxx/Kekik-cloudstream)",
+          "site_cell": "[dizimom.plus](https://dizimom.plus)",
+          "domain": "dizimom.plus",
+          "version": "64",
+          "kaynak_tarih": "2026-10-28",
+          "bizim_tarih": "2026-10-28",
+          "not": "",
+          "secim": "aktif"
+        },
+        {
+          "name": "DiziMom",
+          "listed": true,
+          "order": 6,
+          "source": "lepotane/MRC-builds",
+          "source_cell": "[lepotane/MRC-builds](https://github.com/lepotane/MRC-builds)",
+          "site_cell": "[dizimom.wiki](https://dizimom.wiki)",
+          "domain": "dizimom.wiki",
+          "version": "13",
+          "kaynak_tarih": "2026-10-22",
+          "bizim_tarih": "2026-09-22",
+          "not": "",
+          "secim": "duplicate"
+        }
+      ]
+    },
+    "name:dizipal2": {
+      "name": "DiziPal2",
+      "candidates": [
+        {
+          "name": "DiziPal2",
+          "listed": true,
+          "order": 7,
+          "source": "lepotane/MRC-builds",
+          "source_cell": "[lepotane/MRC-builds](https://github.com/lepotane/MRC-builds)",
+          "site_cell": "[dizipal2142.com](https://dizipal2142.com)",
+          "domain": "dizipal2142.com",
+          "version": "7",
+          "kaynak_tarih": "2026-10-22",
+          "bizim_tarih": "2026-10-22",
+          "not": "",
+          "secim": "aktif"
+        }
+      ]
+    },
+    "name:dizipod": {
+      "name": "DiziPod",
+      "candidates": [
+        {
+          "name": "DiziPod",
+          "listed": true,
+          "order": 8,
+          "source": "feroxx/Kekik-cloudstream",
+          "source_cell": "[feroxx/Kekik-cloudstream](https://github.com/feroxx/Kekik-cloudstream)",
+          "site_cell": "[dizipod.com](https://dizipod.com)",
+          "domain": "dizipod.com",
+          "version": "3",
+          "kaynak_tarih": "2026-10-28",
+          "bizim_tarih": "2026-10-28",
+          "not": "",
+          "secim": "aktif"
+        }
+      ]
+    },
+    "name:diziyo": {
+      "name": "DiziYo",
+      "candidates": [
+        {
+          "name": "DiziYo",
+          "listed": true,
+          "order": 9,
+          "source": "blackhope01/cloudstream-plugins",
+          "source_cell": "[blackhope01/cloudstream-plugins](https://github.com/blackhope01/cloudstream-plugins)",
+          "site_cell": "[diziyo.so](https://diziyo.so)",
+          "domain": "diziyo.so",
+          "version": "1",
+          "kaynak_tarih": "2026-09-07",
+          "bizim_tarih": "2026-10-06",
+          "not": "",
+          "secim": "aktif"
+        }
+      ]
+    },
+    "name:diziyou": {
+      "name": "DiziYou",
+      "candidates": [
+        {
+          "name": "DiziYou",
+          "listed": true,
+          "order": 10,
+          "source": "feroxx/Kekik-cloudstream",
+          "source_cell": "[feroxx/Kekik-cloudstream](https://github.com/feroxx/Kekik-cloudstream)",
+          "site_cell": "[diziyou.one](https://diziyou.one)",
+          "domain": "diziyou.one",
+          "version": "26",
+          "kaynak_tarih": "2026-10-28",
+          "bizim_tarih": "2026-10-28",
+          "not": "",
+          "secim": "aktif"
+        }
+      ]
+    },
+    "name:dmax": {
       "name": "DMax",
       "candidates": [
         {
@@ -325,7 +505,7 @@
         }
       ]
     },
-    "doramaslatinox": {
+    "name:doramaslatinox": {
       "name": "DoramasLatinoX",
       "candidates": [
         {
@@ -343,7 +523,7 @@
         }
       ]
     },
-    "dramadizilerim": {
+    "name:dramadizilerim": {
       "name": "DramaDizilerim",
       "candidates": [
         {
@@ -361,7 +541,7 @@
         }
       ]
     },
-    "dubbindo": {
+    "name:dubbindo": {
       "name": "Dubbindo",
       "candidates": [
         {
@@ -379,7 +559,7 @@
         }
       ]
     },
-    "englishw": {
+    "name:englishw": {
       "name": "EnglishW",
       "candidates": [
         {
@@ -397,7 +577,7 @@
         }
       ]
     },
-    "esheaq": {
+    "name:esheaq": {
       "name": "Esheaq",
       "candidates": [
         {
@@ -415,7 +595,111 @@
         }
       ]
     },
-    "filmmirasım": {
+    "name:filmekseni": {
+      "name": "FilmEkseni",
+      "candidates": [
+        {
+          "name": "FilmEkseni",
+          "listed": true,
+          "order": 11,
+          "source": "blackhope01/cloudstream-plugins",
+          "source_cell": "[blackhope01/cloudstream-plugins](https://github.com/blackhope01/cloudstream-plugins)",
+          "site_cell": "[filmekseni.vip](https://filmekseni.vip)",
+          "domain": "filmekseni.vip",
+          "version": "1",
+          "kaynak_tarih": "2026-09-07",
+          "bizim_tarih": "2026-09-16",
+          "not": "",
+          "secim": "duplicate"
+        },
+        {
+          "name": "FilmEkseni",
+          "listed": true,
+          "order": 12,
+          "source": "lepotane/MRC-builds",
+          "source_cell": "[lepotane/MRC-builds](https://github.com/lepotane/MRC-builds)",
+          "site_cell": "[filmekseni.vip](https://filmekseni.vip)",
+          "domain": "filmekseni.vip",
+          "version": "4",
+          "kaynak_tarih": "2026-10-22",
+          "bizim_tarih": "2026-10-22",
+          "not": "",
+          "secim": "aktif"
+        }
+      ]
+    },
+    "name:filmhane": {
+      "name": "FilmHane",
+      "candidates": [
+        {
+          "name": "FilmHane",
+          "listed": true,
+          "order": 13,
+          "source": "blackhope01/cloudstream-plugins",
+          "source_cell": "[blackhope01/cloudstream-plugins](https://github.com/blackhope01/cloudstream-plugins)",
+          "site_cell": "[filmhane.shop](https://filmhane.shop)",
+          "domain": "filmhane.shop",
+          "version": "1",
+          "kaynak_tarih": "2026-09-07",
+          "bizim_tarih": "2026-09-07",
+          "not": "",
+          "secim": "aktif"
+        }
+      ]
+    },
+    "name:filmizyon": {
+      "name": "FilmIzyon",
+      "candidates": [
+        {
+          "name": "FilmIzyon",
+          "listed": true,
+          "order": 14,
+          "source": "lepotane/MRC-builds",
+          "source_cell": "[lepotane/MRC-builds](https://github.com/lepotane/MRC-builds)",
+          "site_cell": "[filmizyon.com](https://filmizyon.com)",
+          "domain": "filmizyon.com",
+          "version": "8",
+          "kaynak_tarih": "2026-10-22",
+          "bizim_tarih": "2026-10-22",
+          "not": "",
+          "secim": "aktif"
+        }
+      ]
+    },
+    "name:filmmakinesi": {
+      "name": "FilmMakinesi",
+      "candidates": [
+        {
+          "name": "FilmMakinesi",
+          "listed": true,
+          "order": 15,
+          "source": "feroxx/Kekik-cloudstream",
+          "source_cell": "[feroxx/Kekik-cloudstream](https://github.com/feroxx/Kekik-cloudstream)",
+          "site_cell": "[filmmakinesi.film](https://filmmakinesi.film)",
+          "domain": "filmmakinesi.film",
+          "version": "59",
+          "kaynak_tarih": "2026-10-28",
+          "bizim_tarih": "2026-10-28",
+          "not": "",
+          "secim": "aktif"
+        },
+        {
+          "name": "FilmMakinesi",
+          "listed": true,
+          "order": 16,
+          "source": "lepotane/MRC-builds",
+          "source_cell": "[lepotane/MRC-builds](https://github.com/lepotane/MRC-builds)",
+          "site_cell": "[filmmakinesi.to](https://filmmakinesi.to)",
+          "domain": "filmmakinesi.to",
+          "version": "5",
+          "kaynak_tarih": "2026-09-22",
+          "bizim_tarih": "2026-09-22",
+          "not": "",
+          "secim": "duplicate"
+        }
+      ]
+    },
+    "name:filmmirasim": {
       "name": "Filmmirasım",
       "candidates": [
         {
@@ -433,7 +717,26 @@
         }
       ]
     },
-    "flixlatam": {
+    "name:filmmodu": {
+      "name": "FilmModu",
+      "candidates": [
+        {
+          "name": "FilmModu",
+          "listed": true,
+          "order": 17,
+          "source": "feroxx/Kekik-cloudstream",
+          "source_cell": "[feroxx/Kekik-cloudstream](https://github.com/feroxx/Kekik-cloudstream)",
+          "site_cell": "[filmmodu.one](https://filmmodu.one)",
+          "domain": "filmmodu.one",
+          "version": "19",
+          "kaynak_tarih": "2026-10-28",
+          "bizim_tarih": "2026-10-28",
+          "not": "",
+          "secim": "aktif"
+        }
+      ]
+    },
+    "name:flixlatam": {
       "name": "Flixlatam",
       "candidates": [
         {
@@ -451,7 +754,7 @@
         }
       ]
     },
-    "footballia": {
+    "name:footballia": {
       "name": "Footballia",
       "candidates": [
         {
@@ -469,7 +772,7 @@
         }
       ]
     },
-    "footreplays": {
+    "name:footreplays": {
       "name": "FootReplays",
       "candidates": [
         {
@@ -487,7 +790,7 @@
         }
       ]
     },
-    "fstv": {
+    "name:fstv": {
       "name": "FsTv",
       "candidates": [
         {
@@ -505,7 +808,45 @@
         }
       ]
     },
-    "fullraces": {
+    "name:fullhdfilm": {
+      "name": "FullHDFilm",
+      "candidates": [
+        {
+          "name": "FullHDFilm",
+          "listed": true,
+          "order": 18,
+          "source": "feroxx/Kekik-cloudstream",
+          "source_cell": "[feroxx/Kekik-cloudstream](https://github.com/feroxx/Kekik-cloudstream)",
+          "site_cell": "[hdfilm.us](https://hdfilm.us)",
+          "domain": "hdfilm.us",
+          "version": "36",
+          "kaynak_tarih": "2026-10-28",
+          "bizim_tarih": "2026-10-28",
+          "not": "",
+          "secim": "aktif"
+        }
+      ]
+    },
+    "name:fullhdfilmizlesene": {
+      "name": "FullHDFilmizlesene",
+      "candidates": [
+        {
+          "name": "FullHDFilmizlesene",
+          "listed": true,
+          "order": 19,
+          "source": "feroxx/Kekik-cloudstream",
+          "source_cell": "[feroxx/Kekik-cloudstream](https://github.com/feroxx/Kekik-cloudstream)",
+          "site_cell": "[fullhdfilmizlesene.de](https://fullhdfilmizlesene.de)",
+          "domain": "fullhdfilmizlesene.de",
+          "version": "33",
+          "kaynak_tarih": "2026-10-28",
+          "bizim_tarih": "2026-10-28",
+          "not": "",
+          "secim": "aktif"
+        }
+      ]
+    },
+    "name:fullraces": {
       "name": "FullRaces",
       "candidates": [
         {
@@ -523,7 +864,7 @@
         }
       ]
     },
-    "fullreplays": {
+    "name:fullreplays": {
       "name": "FullReplays",
       "candidates": [
         {
@@ -541,7 +882,7 @@
         }
       ]
     },
-    "gnulahd": {
+    "name:gnulahd": {
       "name": "Gnulahd",
       "candidates": [
         {
@@ -559,7 +900,134 @@
         }
       ]
     },
-    "jpfilms": {
+    "name:hdfilmcehennemi": {
+      "name": "HDFilmCehennemi",
+      "candidates": [
+        {
+          "name": "HDFilmCehennemi",
+          "listed": true,
+          "order": 20,
+          "source": "feroxx/Kekik-cloudstream",
+          "source_cell": "[feroxx/Kekik-cloudstream](https://github.com/feroxx/Kekik-cloudstream)",
+          "site_cell": "[hdfilmcehennemi.com](https://hdfilmcehennemi.com)",
+          "domain": "hdfilmcehennemi.com",
+          "version": "58",
+          "kaynak_tarih": "2026-10-28",
+          "bizim_tarih": "2026-10-28",
+          "not": "",
+          "secim": "aktif"
+        },
+        {
+          "name": "HDFilmCehennemi",
+          "listed": true,
+          "order": 21,
+          "source": "lepotane/MRC-builds",
+          "source_cell": "[lepotane/MRC-builds](https://github.com/lepotane/MRC-builds)",
+          "site_cell": "[hdfilmcehennemi.nl](https://hdfilmcehennemi.nl)",
+          "domain": "hdfilmcehennemi.nl",
+          "version": "8",
+          "kaynak_tarih": "2026-09-22",
+          "bizim_tarih": "2026-09-22",
+          "not": "",
+          "secim": "duplicate"
+        }
+      ]
+    },
+    "name:hdfilmcehennemi2": {
+      "name": "HdFilmCehennemi2",
+      "candidates": [
+        {
+          "name": "HdFilmCehennemi2",
+          "listed": true,
+          "order": 22,
+          "source": "lepotane/MRC-builds",
+          "source_cell": "[lepotane/MRC-builds](https://github.com/lepotane/MRC-builds)",
+          "site_cell": "[hdfilmcehennemi2.biz](https://hdfilmcehennemi2.biz)",
+          "domain": "hdfilmcehennemi2.biz",
+          "version": "5",
+          "kaynak_tarih": "2026-09-20",
+          "bizim_tarih": "2026-09-20",
+          "not": "",
+          "secim": "aktif"
+        }
+      ]
+    },
+    "name:hdfilmdelisi": {
+      "name": "HDFilmDelisi",
+      "candidates": [
+        {
+          "name": "HDFilmDelisi",
+          "listed": true,
+          "order": 23,
+          "source": "feroxx/Kekik-cloudstream",
+          "source_cell": "[feroxx/Kekik-cloudstream](https://github.com/feroxx/Kekik-cloudstream)",
+          "site_cell": "[hdfilmdelisi.com](https://hdfilmdelisi.com)",
+          "domain": "hdfilmdelisi.com",
+          "version": "1",
+          "kaynak_tarih": "2026-10-28",
+          "bizim_tarih": "2026-10-28",
+          "not": "",
+          "secim": "aktif"
+        }
+      ]
+    },
+    "name:hdfilmizle": {
+      "name": "HDFilmIzle",
+      "candidates": [
+        {
+          "name": "HDFilmIzle",
+          "listed": true,
+          "order": 24,
+          "source": "Ripplay/cloudstream-repo",
+          "source_cell": "[Ripplay/cloudstream-repo](https://github.com/Ripplay/cloudstream-repo)",
+          "site_cell": "[hdfilmizle.ink](https://hdfilmizle.ink)",
+          "domain": "hdfilmizle.ink",
+          "version": "8",
+          "kaynak_tarih": "2026-08-24",
+          "bizim_tarih": "2026-08-24",
+          "not": "",
+          "secim": "aktif"
+        }
+      ]
+    },
+    "name:iwatchtheoffice": {
+      "name": "Iwatchtheoffice",
+      "candidates": [
+        {
+          "name": "Iwatchtheoffice",
+          "listed": false,
+          "source": "Kraptor123/Cs-Karma",
+          "source_cell": "[Kraptor123/Cs-Karma](https://github.com/Kraptor123/Cs-Karma)",
+          "site_cell": "[iwatchtheoffice.cc](https://iwatchtheoffice.cc)",
+          "domain": "iwatchtheoffice.cc",
+          "version": null,
+          "kaynak_tarih": null,
+          "bizim_tarih": null,
+          "secim": "istenmeyen",
+          "not": "en Movie"
+        }
+      ]
+    },
+    "name:jetfilmizle": {
+      "name": "JetFilmizle",
+      "candidates": [
+        {
+          "name": "JetFilmizle",
+          "listed": true,
+          "order": 25,
+          "source": "feroxx/Kekik-cloudstream",
+          "source_cell": "[feroxx/Kekik-cloudstream](https://github.com/feroxx/Kekik-cloudstream)",
+          "site_cell": "[jetfilmizle.de](https://jetfilmizle.de)",
+          "domain": "jetfilmizle.de",
+          "version": "48",
+          "kaynak_tarih": "2026-10-28",
+          "bizim_tarih": "2026-10-28",
+          "not": "",
+          "secim": "aktif"
+        }
+      ]
+    },
+    "name:jpfilms": {
       "name": "JPFilms",
       "candidates": [
         {
@@ -577,7 +1045,7 @@
         }
       ]
     },
-    "kanald": {
+    "name:kanald": {
       "name": "KanalD",
       "candidates": [
         {
@@ -595,7 +1063,7 @@
         }
       ]
     },
-    "kisskh": {
+    "name:kisskh": {
       "name": "KissKH",
       "candidates": [
         {
@@ -613,7 +1081,7 @@
         }
       ]
     },
-    "krmzy": {
+    "name:krmzy": {
       "name": "Krmzy",
       "candidates": [
         {
@@ -631,7 +1099,7 @@
         }
       ]
     },
-    "kultfilmler": {
+    "name:kultfilmler": {
       "name": "KultFilmler",
       "candidates": [
         {
@@ -649,7 +1117,7 @@
         }
       ]
     },
-    "latanime": {
+    "name:latanime": {
       "name": "Latanime",
       "candidates": [
         {
@@ -667,7 +1135,7 @@
         }
       ]
     },
-    "layarkaca": {
+    "name:layarkaca": {
       "name": "LayarKaca",
       "candidates": [
         {
@@ -685,7 +1153,40 @@
         }
       ]
     },
-    "movix": {
+    "name:lovefilm": {
+      "name": "LoveFilm",
+      "candidates": [
+        {
+          "name": "LoveFilm",
+          "listed": true,
+          "order": 26,
+          "source": "blackhope01/cloudstream-plugins",
+          "source_cell": "[blackhope01/cloudstream-plugins](https://github.com/blackhope01/cloudstream-plugins)",
+          "site_cell": "[lovefilmizle.net](https://lovefilmizle.net)",
+          "domain": "lovefilmizle.net",
+          "version": "1",
+          "kaynak_tarih": "2026-09-07",
+          "bizim_tarih": "2026-09-16",
+          "not": "",
+          "secim": "duplicate"
+        },
+        {
+          "name": "LoveFilm",
+          "listed": true,
+          "order": 27,
+          "source": "lepotane/MRC-builds",
+          "source_cell": "[lepotane/MRC-builds](https://github.com/lepotane/MRC-builds)",
+          "site_cell": "[lovefilmizle.net](https://lovefilmizle.net)",
+          "domain": "lovefilmizle.net",
+          "version": "6",
+          "kaynak_tarih": "2026-09-27",
+          "bizim_tarih": "2026-09-27",
+          "not": "",
+          "secim": "aktif"
+        }
+      ]
+    },
+    "name:movix": {
       "name": "Movix",
       "candidates": [
         {
@@ -703,7 +1204,7 @@
         }
       ]
     },
-    "mrc-live": {
+    "name:mrc-live": {
       "name": "MRC-Live",
       "candidates": [
         {
@@ -721,7 +1222,7 @@
         }
       ]
     },
-    "mrc-naughty": {
+    "name:mrc-naughty": {
       "name": "MRC-Naughty",
       "candidates": [
         {
@@ -739,7 +1240,7 @@
         }
       ]
     },
-    "mrc-plus": {
+    "name:mrc-plus": {
       "name": "MRC-Plus",
       "candidates": [
         {
@@ -757,7 +1258,7 @@
         }
       ]
     },
-    "nekokun": {
+    "name:nekokun": {
       "name": "Nekokun",
       "candidates": [
         {
@@ -775,7 +1276,7 @@
         }
       ]
     },
-    "ok": {
+    "name:ok": {
       "name": "OK",
       "candidates": [
         {
@@ -793,7 +1294,7 @@
         }
       ]
     },
-    "onshort": {
+    "name:onshort": {
       "name": "OnShort",
       "candidates": [
         {
@@ -811,7 +1312,7 @@
         }
       ]
     },
-    "openanime": {
+    "name:openanime": {
       "name": "OpenAnime",
       "candidates": [
         {
@@ -829,7 +1330,7 @@
         }
       ]
     },
-    "ownedsites": {
+    "name:ownedsites": {
       "name": "OwnedSites",
       "candidates": [
         {
@@ -847,7 +1348,7 @@
         }
       ]
     },
-    "rarefilmm": {
+    "name:rarefilmm": {
       "name": "RareFilmm",
       "candidates": [
         {
@@ -865,7 +1366,7 @@
         }
       ]
     },
-    "rectv": {
+    "name:rectv": {
       "name": "RecTV",
       "candidates": [
         {
@@ -883,7 +1384,7 @@
         }
       ]
     },
-    "rectvbc": {
+    "name:rectvbc": {
       "name": "RecTVBC",
       "candidates": [
         {
@@ -901,7 +1402,64 @@
         }
       ]
     },
-    "showtv": {
+    "name:selcukflix": {
+      "name": "SelcukFlix",
+      "candidates": [
+        {
+          "name": "SelcukFlix",
+          "listed": true,
+          "order": 28,
+          "source": "feroxx/Kekik-cloudstream",
+          "source_cell": "[feroxx/Kekik-cloudstream](https://github.com/feroxx/Kekik-cloudstream)",
+          "site_cell": "[selcukflix.co](https://selcukflix.co)",
+          "domain": "selcukflix.co",
+          "version": "3",
+          "kaynak_tarih": "2026-10-28",
+          "bizim_tarih": "2026-10-28",
+          "not": "",
+          "secim": "aktif"
+        }
+      ]
+    },
+    "name:setfilmizle": {
+      "name": "SetFilmIzle",
+      "candidates": [
+        {
+          "name": "SetFilmIzle",
+          "listed": true,
+          "order": 29,
+          "source": "feroxx/Kekik-cloudstream",
+          "source_cell": "[feroxx/Kekik-cloudstream](https://github.com/feroxx/Kekik-cloudstream)",
+          "site_cell": "[setfilmizle.uk](https://setfilmizle.uk)",
+          "domain": "setfilmizle.uk",
+          "version": "32",
+          "kaynak_tarih": "2026-10-28",
+          "bizim_tarih": "2026-10-28",
+          "not": "",
+          "secim": "aktif"
+        }
+      ]
+    },
+    "name:sezonlukdizi": {
+      "name": "SezonlukDizi",
+      "candidates": [
+        {
+          "name": "SezonlukDizi",
+          "listed": true,
+          "order": 30,
+          "source": "feroxx/Kekik-cloudstream",
+          "source_cell": "[feroxx/Kekik-cloudstream](https://github.com/feroxx/Kekik-cloudstream)",
+          "site_cell": "[sezonlukdizi6.com](https://sezonlukdizi6.com)",
+          "domain": "sezonlukdizi6.com",
+          "version": "9",
+          "kaynak_tarih": "2026-10-28",
+          "bizim_tarih": "2026-10-28",
+          "not": "",
+          "secim": "aktif"
+        }
+      ]
+    },
+    "name:showtv": {
       "name": "Showtv",
       "candidates": [
         {
@@ -919,780 +1477,83 @@
         }
       ]
     },
-    "site:ddizi": {
-      "name": "Ddizi",
-      "candidates": [
-        {
-          "name": "Ddizi",
-          "listed": true,
-          "order": 1,
-          "source": "feroxx/Kekik-cloudstream",
-          "source_cell": "[feroxx/Kekik-cloudstream](https://github.com/feroxx/Kekik-cloudstream)",
-          "site_cell": "[ddizi](https://ddizi.site)",
-          "domain": "ddizi",
-          "version": "22",
-          "kaynak_tarih": "2026-09-29",
-          "bizim_tarih": "2026-09-22",
-          "not": "",
-          "secim": "aktif"
-        }
-      ]
-    },
-    "site:dizibox.live": {
-      "name": "DiziBox",
-      "candidates": [
-        {
-          "name": "DiziBox",
-          "listed": true,
-          "order": 2,
-          "source": "feroxx/Kekik-cloudstream",
-          "source_cell": "[feroxx/Kekik-cloudstream](https://github.com/feroxx/Kekik-cloudstream)",
-          "site_cell": "[dizibox.live](https://dizibox.live)",
-          "domain": "dizibox.live",
-          "version": "23",
-          "kaynak_tarih": "2026-10-04",
-          "bizim_tarih": "2026-10-04",
-          "not": "",
-          "secim": "aktif"
-        }
-      ]
-    },
-    "site:dizilla": {
-      "name": "Dizilla",
-      "candidates": [
-        {
-          "name": "Dizilla",
-          "listed": true,
-          "order": 3,
-          "source": "feroxx/Kekik-cloudstream",
-          "source_cell": "[feroxx/Kekik-cloudstream](https://github.com/feroxx/Kekik-cloudstream)",
-          "site_cell": "[dizilla](https://dizilla.site)",
-          "domain": "dizilla",
-          "version": "92",
-          "kaynak_tarih": "2026-09-29",
-          "bizim_tarih": "2026-09-22",
-          "not": "",
-          "secim": "aktif"
-        },
-        {
-          "name": "Dizilla",
-          "listed": true,
-          "order": 4,
-          "source": "lepotane/MRC-builds",
-          "source_cell": "[lepotane/MRC-builds](https://github.com/lepotane/MRC-builds)",
-          "site_cell": "[dizilla](https://dizilla.site)",
-          "domain": "dizilla",
-          "version": "10",
-          "kaynak_tarih": "2026-09-22",
-          "bizim_tarih": "2026-09-22",
-          "not": "",
-          "secim": "duplicate"
-        }
-      ]
-    },
-    "site:dizimom": {
-      "name": "DiziMom",
-      "candidates": [
-        {
-          "name": "DiziMom",
-          "listed": true,
-          "order": 5,
-          "source": "feroxx/Kekik-cloudstream",
-          "source_cell": "[feroxx/Kekik-cloudstream](https://github.com/feroxx/Kekik-cloudstream)",
-          "site_cell": "[dizimom](https://dizimom.site)",
-          "domain": "dizimom",
-          "version": "58",
-          "kaynak_tarih": "2026-09-29",
-          "bizim_tarih": "2026-09-22",
-          "not": "",
-          "secim": "aktif"
-        },
-        {
-          "name": "DiziMom",
-          "listed": true,
-          "order": 6,
-          "source": "lepotane/MRC-builds",
-          "source_cell": "[lepotane/MRC-builds](https://github.com/lepotane/MRC-builds)",
-          "site_cell": "[dizimom](https://dizimom.site)",
-          "domain": "dizimom",
-          "version": "4",
-          "kaynak_tarih": "2026-09-22",
-          "bizim_tarih": "2026-09-22",
-          "not": "",
-          "secim": "duplicate"
-        }
-      ]
-    },
-    "site:dizipal2135.com": {
-      "name": "DiziPal2",
-      "candidates": [
-        {
-          "name": "DiziPal2",
-          "listed": true,
-          "order": 7,
-          "source": "lepotane/MRC-builds",
-          "source_cell": "[lepotane/MRC-builds](https://github.com/lepotane/MRC-builds)",
-          "site_cell": "[dizipal2135.com](https://dizipal2135.com)",
-          "domain": "dizipal2135.com",
-          "version": "2",
-          "kaynak_tarih": "2026-10-02",
-          "bizim_tarih": "2026-10-02",
-          "not": "",
-          "secim": "aktif"
-        }
-      ]
-    },
-    "site:dizipod": {
-      "name": "DiziPod",
-      "candidates": [
-        {
-          "name": "DiziPod",
-          "listed": true,
-          "order": 8,
-          "source": "feroxx/Kekik-cloudstream",
-          "source_cell": "[feroxx/Kekik-cloudstream](https://github.com/feroxx/Kekik-cloudstream)",
-          "site_cell": "[dizipod](https://dizipod.site)",
-          "domain": "dizipod",
-          "version": "3",
-          "kaynak_tarih": "2026-09-29",
-          "bizim_tarih": "2026-09-16",
-          "not": "",
-          "secim": "aktif"
-        }
-      ]
-    },
-    "site:diziwatch.site": {
-      "name": "DiziWatch",
-      "candidates": [
-        {
-          "name": "DiziWatch",
-          "listed": true,
-          "order": 9,
-          "source": "lepotane/MRC-builds",
-          "source_cell": "[lepotane/MRC-builds](https://github.com/lepotane/MRC-builds)",
-          "site_cell": "[diziwatch.site](https://diziwatch.site)",
-          "domain": "diziwatch.site",
-          "version": "3",
-          "kaynak_tarih": "2026-09-15",
-          "bizim_tarih": "2026-09-15",
-          "not": "",
-          "secim": "duplicate"
-        }
-      ]
-    },
-    "site:diziyo": {
-      "name": "DiziYo",
-      "candidates": [
-        {
-          "name": "DiziYo",
-          "listed": true,
-          "order": 10,
-          "source": "blackhope01/cloudstream-plugins",
-          "source_cell": "[blackhope01/cloudstream-plugins](https://github.com/blackhope01/cloudstream-plugins)",
-          "site_cell": "[diziyo](https://diziyo.site)",
-          "domain": "diziyo",
-          "version": "1",
-          "kaynak_tarih": "2026-09-07",
-          "bizim_tarih": "2026-10-06",
-          "not": "",
-          "secim": "aktif"
-        }
-      ]
-    },
-    "site:diziyo.site": {
-      "name": "DiziYo",
-      "candidates": [
-        {
-          "name": "DiziYo",
-          "listed": true,
-          "order": 11,
-          "source": "lepotane/MRC-builds",
-          "source_cell": "[lepotane/MRC-builds](https://github.com/lepotane/MRC-builds)",
-          "site_cell": "[diziyo.site](https://diziyo.site)",
-          "domain": "diziyo.site",
-          "version": "5",
-          "kaynak_tarih": "2026-09-17",
-          "bizim_tarih": "2026-09-17",
-          "not": "",
-          "secim": "duplicate"
-        }
-      ]
-    },
-    "site:diziyou": {
-      "name": "DiziYou",
-      "candidates": [
-        {
-          "name": "DiziYou",
-          "listed": true,
-          "order": 12,
-          "source": "feroxx/Kekik-cloudstream",
-          "source_cell": "[feroxx/Kekik-cloudstream](https://github.com/feroxx/Kekik-cloudstream)",
-          "site_cell": "[diziyou](https://diziyou.site)",
-          "domain": "diziyou",
-          "version": "26",
-          "kaynak_tarih": "2026-09-29",
-          "bizim_tarih": "2026-09-22",
-          "not": "",
-          "secim": "aktif"
-        }
-      ]
-    },
-    "site:filmekseni": {
-      "name": "FilmEkseni",
-      "candidates": [
-        {
-          "name": "FilmEkseni",
-          "listed": true,
-          "order": 13,
-          "source": "blackhope01/cloudstream-plugins",
-          "source_cell": "[blackhope01/cloudstream-plugins](https://github.com/blackhope01/cloudstream-plugins)",
-          "site_cell": "[filmekseni](https://filmekseni.site)",
-          "domain": "filmekseni",
-          "version": "1",
-          "kaynak_tarih": "2026-09-16",
-          "bizim_tarih": "2026-09-16",
-          "not": "",
-          "secim": "duplicate"
-        }
-      ]
-    },
-    "site:filmekseni.site": {
-      "name": "FilmEkseni",
-      "candidates": [
-        {
-          "name": "FilmEkseni",
-          "listed": true,
-          "order": 14,
-          "source": "lepotane/MRC-builds",
-          "source_cell": "[lepotane/MRC-builds](https://github.com/lepotane/MRC-builds)",
-          "site_cell": "[filmekseni.site](https://filmekseni.site)",
-          "domain": "filmekseni.site",
-          "version": "1",
-          "kaynak_tarih": "2026-09-20",
-          "bizim_tarih": "2026-09-17",
-          "not": "",
-          "secim": "aktif"
-        }
-      ]
-    },
-    "site:filmhane.shop": {
-      "name": "FilmHane",
-      "candidates": [
-        {
-          "name": "FilmHane",
-          "listed": true,
-          "order": 15,
-          "source": "blackhope01/cloudstream-plugins",
-          "source_cell": "[blackhope01/cloudstream-plugins](https://github.com/blackhope01/cloudstream-plugins)",
-          "site_cell": "[filmhane.shop](https://filmhane.shop)",
-          "domain": "filmhane.shop",
-          "version": "1",
-          "kaynak_tarih": "2026-09-07",
-          "bizim_tarih": "2026-09-07",
-          "not": "",
-          "secim": "aktif"
-        }
-      ]
-    },
-    "site:filmizyon.site": {
-      "name": "FilmIzyon",
-      "candidates": [
-        {
-          "name": "FilmIzyon",
-          "listed": true,
-          "order": 19,
-          "source": "lepotane/MRC-builds",
-          "source_cell": "[lepotane/MRC-builds](https://github.com/lepotane/MRC-builds)",
-          "site_cell": "[filmizyon.site](https://filmizyon.site)",
-          "domain": "filmizyon.site",
-          "version": "2",
-          "kaynak_tarih": "2026-09-27",
-          "bizim_tarih": "2026-09-15",
-          "not": "",
-          "secim": "aktif"
-        }
-      ]
-    },
-    "site:filmmakinesi": {
-      "name": "FilmMakinesi",
-      "candidates": [
-        {
-          "name": "FilmMakinesi",
-          "listed": true,
-          "order": 16,
-          "source": "feroxx/Kekik-cloudstream",
-          "source_cell": "[feroxx/Kekik-cloudstream](https://github.com/feroxx/Kekik-cloudstream)",
-          "site_cell": "[filmmakinesi](https://filmmakinesi.site)",
-          "domain": "filmmakinesi",
-          "version": "59",
-          "kaynak_tarih": "2026-09-29",
-          "bizim_tarih": "2026-09-22",
-          "not": "",
-          "secim": "aktif"
-        },
-        {
-          "name": "FilmMakinesi",
-          "listed": true,
-          "order": 17,
-          "source": "lepotane/MRC-builds",
-          "source_cell": "[lepotane/MRC-builds](https://github.com/lepotane/MRC-builds)",
-          "site_cell": "[filmmakinesi](https://filmmakinesi.site)",
-          "domain": "filmmakinesi",
-          "version": "5",
-          "kaynak_tarih": "2026-09-22",
-          "bizim_tarih": "2026-09-22",
-          "not": "",
-          "secim": "duplicate"
-        }
-      ]
-    },
-    "site:filmmodu": {
-      "name": "FilmModu",
-      "candidates": [
-        {
-          "name": "FilmModu",
-          "listed": true,
-          "order": 18,
-          "source": "feroxx/Kekik-cloudstream",
-          "source_cell": "[feroxx/Kekik-cloudstream](https://github.com/feroxx/Kekik-cloudstream)",
-          "site_cell": "[filmmodu](https://filmmodu.site)",
-          "domain": "filmmodu",
-          "version": "19",
-          "kaynak_tarih": "2026-09-29",
-          "bizim_tarih": "2026-09-16",
-          "not": "",
-          "secim": "aktif"
-        }
-      ]
-    },
-    "site:fullhdfilmizlesene": {
-      "name": "FullHDFilmizlesene",
-      "candidates": [
-        {
-          "name": "FullHDFilmizlesene",
-          "listed": true,
-          "order": 21,
-          "source": "feroxx/Kekik-cloudstream",
-          "source_cell": "[feroxx/Kekik-cloudstream](https://github.com/feroxx/Kekik-cloudstream)",
-          "site_cell": "[fullhdfilmizlesene](https://fullhdfilmizlesene.site)",
-          "domain": "fullhdfilmizlesene",
-          "version": "33",
-          "kaynak_tarih": "2026-09-29",
-          "bizim_tarih": "2026-09-22",
-          "not": "",
-          "secim": "aktif"
-        }
-      ]
-    },
-    "site:hdfilm.us": {
-      "name": "FullHDFilm",
-      "candidates": [
-        {
-          "name": "FullHDFilm",
-          "listed": true,
-          "order": 20,
-          "source": "feroxx/Kekik-cloudstream",
-          "source_cell": "[feroxx/Kekik-cloudstream](https://github.com/feroxx/Kekik-cloudstream)",
-          "site_cell": "[hdfilm.us](https://hdfilm.us)",
-          "domain": "hdfilm.us",
-          "version": "36",
-          "kaynak_tarih": "2026-10-04",
-          "bizim_tarih": "2026-10-04",
-          "not": "",
-          "secim": "aktif"
-        }
-      ]
-    },
-    "site:hdfilmcehennemi": {
-      "name": "HDFilmCehennemi",
-      "candidates": [
-        {
-          "name": "HDFilmCehennemi",
-          "listed": true,
-          "order": 22,
-          "source": "feroxx/Kekik-cloudstream",
-          "source_cell": "[feroxx/Kekik-cloudstream](https://github.com/feroxx/Kekik-cloudstream)",
-          "site_cell": "[hdfilmcehennemi](https://hdfilmcehennemi.site)",
-          "domain": "hdfilmcehennemi",
-          "version": "48",
-          "kaynak_tarih": "2026-09-29",
-          "bizim_tarih": "2026-09-22",
-          "not": "",
-          "secim": "aktif"
-        },
-        {
-          "name": "HDFilmCehennemi",
-          "listed": true,
-          "order": 23,
-          "source": "lepotane/MRC-builds",
-          "source_cell": "[lepotane/MRC-builds](https://github.com/lepotane/MRC-builds)",
-          "site_cell": "[hdfilmcehennemi](https://hdfilmcehennemi.site)",
-          "domain": "hdfilmcehennemi",
-          "version": "8",
-          "kaynak_tarih": "2026-09-22",
-          "bizim_tarih": "2026-09-22",
-          "not": "",
-          "secim": "duplicate"
-        }
-      ]
-    },
-    "site:hdfilmcehennemi2.site": {
-      "name": "HdFilmCehennemi2",
-      "candidates": [
-        {
-          "name": "HdFilmCehennemi2",
-          "listed": true,
-          "order": 24,
-          "source": "lepotane/MRC-builds",
-          "source_cell": "[lepotane/MRC-builds](https://github.com/lepotane/MRC-builds)",
-          "site_cell": "[hdfilmcehennemi2.site](https://hdfilmcehennemi2.site)",
-          "domain": "hdfilmcehennemi2.site",
-          "version": "2",
-          "kaynak_tarih": "2026-09-20",
-          "bizim_tarih": "2026-09-16",
-          "not": "",
-          "secim": "aktif"
-        }
-      ]
-    },
-    "site:hdfilmdelisi": {
-      "name": "HDFilmDelisi",
-      "candidates": [
-        {
-          "name": "HDFilmDelisi",
-          "listed": true,
-          "order": 25,
-          "source": "feroxx/Kekik-cloudstream",
-          "source_cell": "[feroxx/Kekik-cloudstream](https://github.com/feroxx/Kekik-cloudstream)",
-          "site_cell": "[hdfilmdelisi](https://hdfilmdelisi.site)",
-          "domain": "hdfilmdelisi",
-          "version": "1",
-          "kaynak_tarih": "2026-09-29",
-          "bizim_tarih": "2026-09-16",
-          "not": "",
-          "secim": "aktif"
-        }
-      ]
-    },
-    "site:hdfilmizle.site": {
-      "name": "HDFilmIzle",
-      "candidates": [
-        {
-          "name": "HDFilmIzle",
-          "listed": true,
-          "order": 26,
-          "source": "Ripplay/cloudstream-repo",
-          "source_cell": "[Ripplay/cloudstream-repo](https://github.com/Ripplay/cloudstream-repo)",
-          "site_cell": "[hdfilmizle.site](https://hdfilmizle.site)",
-          "domain": "hdfilmizle.site",
-          "version": "8",
-          "kaynak_tarih": "2026-08-24",
-          "bizim_tarih": "2026-08-24",
-          "not": "",
-          "secim": "aktif"
-        }
-      ]
-    },
-    "site:jetfilmizle": {
-      "name": "JetFilmizle",
-      "candidates": [
-        {
-          "name": "JetFilmizle",
-          "listed": true,
-          "order": 27,
-          "source": "feroxx/Kekik-cloudstream",
-          "source_cell": "[feroxx/Kekik-cloudstream](https://github.com/feroxx/Kekik-cloudstream)",
-          "site_cell": "[jetfilmizle](https://jetfilmizle.site)",
-          "domain": "jetfilmizle",
-          "version": "47",
-          "kaynak_tarih": "2026-09-29",
-          "bizim_tarih": "2026-09-16",
-          "not": "",
-          "secim": "aktif"
-        }
-      ]
-    },
-    "site:lovefilm": {
-      "name": "LoveFilm",
-      "candidates": [
-        {
-          "name": "LoveFilm",
-          "listed": true,
-          "order": 28,
-          "source": "blackhope01/cloudstream-plugins",
-          "source_cell": "[blackhope01/cloudstream-plugins](https://github.com/blackhope01/cloudstream-plugins)",
-          "site_cell": "[lovefilm](https://lovefilm.site)",
-          "domain": "lovefilm",
-          "version": "1",
-          "kaynak_tarih": "2026-09-16",
-          "bizim_tarih": "2026-09-16",
-          "not": "",
-          "secim": "duplicate"
-        }
-      ]
-    },
-    "site:lovefilm.site": {
-      "name": "LoveFilm",
-      "candidates": [
-        {
-          "name": "LoveFilm",
-          "listed": true,
-          "order": 29,
-          "source": "lepotane/MRC-builds",
-          "source_cell": "[lepotane/MRC-builds](https://github.com/lepotane/MRC-builds)",
-          "site_cell": "[lovefilm.site](https://lovefilm.site)",
-          "domain": "lovefilm.site",
-          "version": "2",
-          "kaynak_tarih": "2026-09-27",
-          "bizim_tarih": "2026-09-17",
-          "not": "",
-          "secim": "aktif"
-        }
-      ]
-    },
-    "site:selcukflix": {
-      "name": "SelcukFlix",
-      "candidates": [
-        {
-          "name": "SelcukFlix",
-          "listed": true,
-          "order": 30,
-          "source": "feroxx/Kekik-cloudstream",
-          "source_cell": "[feroxx/Kekik-cloudstream](https://github.com/feroxx/Kekik-cloudstream)",
-          "site_cell": "[selcukflix](https://selcukflix.site)",
-          "domain": "selcukflix",
-          "version": "2",
-          "kaynak_tarih": "2026-09-29",
-          "bizim_tarih": "2026-09-22",
-          "not": "",
-          "secim": "aktif"
-        }
-      ]
-    },
-    "site:setfilmizle.uk": {
-      "name": "SetFilmIzle",
-      "candidates": [
-        {
-          "name": "SetFilmIzle",
-          "listed": true,
-          "order": 31,
-          "source": "feroxx/Kekik-cloudstream",
-          "source_cell": "[feroxx/Kekik-cloudstream](https://github.com/feroxx/Kekik-cloudstream)",
-          "site_cell": "[setfilmizle.uk](https://setfilmizle.uk)",
-          "domain": "setfilmizle.uk",
-          "version": "32",
-          "kaynak_tarih": "2026-10-04",
-          "bizim_tarih": "2026-10-04",
-          "not": "",
-          "secim": "aktif"
-        }
-      ]
-    },
-    "site:sezonlukdizi": {
-      "name": "SezonlukDizi",
-      "candidates": [
-        {
-          "name": "SezonlukDizi",
-          "listed": true,
-          "order": 32,
-          "source": "feroxx/Kekik-cloudstream",
-          "source_cell": "[feroxx/Kekik-cloudstream](https://github.com/feroxx/Kekik-cloudstream)",
-          "site_cell": "[sezonlukdizi](https://sezonlukdizi.site)",
-          "domain": "sezonlukdizi",
-          "version": "9",
-          "kaynak_tarih": "2026-09-29",
-          "bizim_tarih": "2026-09-22",
-          "not": "",
-          "secim": "aktif"
-        }
-      ]
-    },
-    "site:sinefy.site": {
+    "name:sinefy": {
       "name": "Sinefy",
       "candidates": [
         {
           "name": "Sinefy",
           "listed": true,
-          "order": 33,
+          "order": 31,
           "source": "lepotane/MRC-builds",
           "source_cell": "[lepotane/MRC-builds](https://github.com/lepotane/MRC-builds)",
-          "site_cell": "[sinefy.site](https://sinefy.site)",
-          "domain": "sinefy.site",
-          "version": "1",
-          "kaynak_tarih": "2026-09-20",
-          "bizim_tarih": "2026-09-15",
+          "site_cell": "[sinefy3.com](https://sinefy3.com)",
+          "domain": "sinefy3.com",
+          "version": "4",
+          "kaynak_tarih": "2026-10-22",
+          "bizim_tarih": "2026-10-22",
           "not": "",
           "secim": "aktif"
         }
       ]
     },
-    "site:sinema.cx": {
+    "name:sinemacx": {
       "name": "SinemaCX",
       "candidates": [
         {
           "name": "SinemaCX",
           "listed": true,
-          "order": 34,
+          "order": 32,
           "source": "feroxx/Kekik-cloudstream",
           "source_cell": "[feroxx/Kekik-cloudstream](https://github.com/feroxx/Kekik-cloudstream)",
           "site_cell": "[sinema.cx](https://sinema.cx)",
           "domain": "sinema.cx",
-          "version": "25",
-          "kaynak_tarih": "2026-10-04",
-          "bizim_tarih": "2026-10-04",
+          "version": "26",
+          "kaynak_tarih": "2026-10-28",
+          "bizim_tarih": "2026-10-28",
           "not": "",
           "secim": "aktif"
         }
       ]
     },
-    "site:sinewix": {
+    "name:sinewix": {
       "name": "Sinewix",
       "candidates": [
         {
           "name": "Sinewix",
           "listed": true,
-          "order": 35,
+          "order": 33,
           "source": "feroxx/Kekik-cloudstream",
           "source_cell": "[feroxx/Kekik-cloudstream](https://github.com/feroxx/Kekik-cloudstream)",
-          "site_cell": "[sinewix](https://sinewix.site)",
-          "domain": "sinewix",
-          "version": "2",
-          "kaynak_tarih": "2026-09-29",
-          "bizim_tarih": "2026-09-16",
+          "site_cell": "[sinewix.site](https://sinewix.site)",
+          "domain": "sinewix.site",
+          "version": "3",
+          "kaynak_tarih": "2026-10-28",
+          "bizim_tarih": "2026-10-28",
           "not": "",
           "secim": "aktif"
         }
       ]
     },
-    "site:sinezy.site": {
+    "name:sinezy": {
       "name": "Sinezy",
       "candidates": [
         {
           "name": "Sinezy",
           "listed": true,
-          "order": 36,
+          "order": 34,
           "source": "lepotane/MRC-builds",
           "source_cell": "[lepotane/MRC-builds](https://github.com/lepotane/MRC-builds)",
-          "site_cell": "[sinezy.site](https://sinezy.site)",
-          "domain": "sinezy.site",
-          "version": "3",
-          "kaynak_tarih": "2026-09-29",
-          "bizim_tarih": "2026-09-15",
+          "site_cell": "[sinezy.to](https://sinezy.to)",
+          "domain": "sinezy.to",
+          "version": "8",
+          "kaynak_tarih": "2026-10-22",
+          "bizim_tarih": "2026-10-22",
           "not": "",
           "secim": "aktif"
         }
       ]
     },
-    "site:streamed.site": {
-      "name": "Streamed",
-      "candidates": [
-        {
-          "name": "Streamed",
-          "listed": true,
-          "order": 37,
-          "source": "Kraptor123/Cs-Karma",
-          "source_cell": "[Kraptor123/Cs-Karma](https://github.com/Kraptor123/Cs-Karma)",
-          "site_cell": "[streamed.site](https://streamed.site)",
-          "domain": "streamed.site",
-          "version": "29",
-          "kaynak_tarih": "2026-10-05",
-          "bizim_tarih": "2026-10-06",
-          "not": "",
-          "secim": "aktif"
-        }
-      ]
-    },
-    "site:tvdiziler.site": {
-      "name": "TvDiziler",
-      "candidates": [
-        {
-          "name": "TvDiziler",
-          "listed": true,
-          "order": 38,
-          "source": "lepotane/MRC-builds",
-          "source_cell": "[lepotane/MRC-builds](https://github.com/lepotane/MRC-builds)",
-          "site_cell": "[tvdiziler.site](https://tvdiziler.site)",
-          "domain": "tvdiziler.site",
-          "version": "2",
-          "kaynak_tarih": "2026-09-27",
-          "bizim_tarih": "2026-09-29",
-          "not": "",
-          "secim": "aktif"
-        }
-      ]
-    },
-    "site:ultrafilmizle.org": {
-      "name": "UltraFilmizle",
-      "candidates": [
-        {
-          "name": "UltraFilmizle",
-          "listed": true,
-          "order": 39,
-          "source": "lepotane/MRC-builds",
-          "source_cell": "[lepotane/MRC-builds](https://github.com/lepotane/MRC-builds)",
-          "site_cell": "[ultrafilmizle.org](https://ultrafilmizle.org)",
-          "domain": "ultrafilmizle.org",
-          "version": "12",
-          "kaynak_tarih": "2026-09-23",
-          "bizim_tarih": "2026-09-20",
-          "not": "",
-          "secim": "aktif"
-        }
-      ]
-    },
-    "site:webteizle": {
-      "name": "Webteizle",
-      "candidates": [
-        {
-          "name": "Webteizle",
-          "listed": true,
-          "order": 40,
-          "source": "blackhope01/cloudstream-plugins",
-          "source_cell": "[blackhope01/cloudstream-plugins](https://github.com/blackhope01/cloudstream-plugins)",
-          "site_cell": "[webteizle](https://webteizle.site)",
-          "domain": "webteizle",
-          "version": "1",
-          "kaynak_tarih": "2026-09-16",
-          "bizim_tarih": "2026-09-16",
-          "not": "",
-          "secim": "duplicate"
-        },
-        {
-          "name": "WebteIzle",
-          "listed": true,
-          "order": 41,
-          "source": "feroxx/Kekik-cloudstream",
-          "source_cell": "[feroxx/Kekik-cloudstream](https://github.com/feroxx/Kekik-cloudstream)",
-          "site_cell": "[webteizle](https://webteizle.site)",
-          "domain": "webteizle",
-          "version": "21",
-          "kaynak_tarih": "2026-09-29",
-          "bizim_tarih": "2026-09-16",
-          "not": "",
-          "secim": "aktif"
-        }
-      ]
-    },
-    "site:yabancidizi.site": {
-      "name": "YabanciDizi",
-      "candidates": [
-        {
-          "name": "YabanciDizi",
-          "listed": true,
-          "order": 42,
-          "source": "lepotane/MRC-builds",
-          "source_cell": "[lepotane/MRC-builds](https://github.com/lepotane/MRC-builds)",
-          "site_cell": "[yabancidizi.site](https://yabancidizi.site)",
-          "domain": "yabancidizi.site",
-          "version": "17",
-          "kaynak_tarih": "2026-09-20",
-          "bizim_tarih": "2026-10-06",
-          "not": "",
-          "secim": "aktif"
-        }
-      ]
-    },
-    "sokuja": {
+    "name:sokuja": {
       "name": "Sokuja",
       "candidates": [
         {
@@ -1710,7 +1571,7 @@
         }
       ]
     },
-    "startv": {
+    "name:startv": {
       "name": "Startv",
       "candidates": [
         {
@@ -1728,7 +1589,26 @@
         }
       ]
     },
-    "subsplease": {
+    "name:streamed": {
+      "name": "Streamed",
+      "candidates": [
+        {
+          "name": "Streamed",
+          "listed": true,
+          "order": 35,
+          "source": "Kraptor123/Cs-Karma",
+          "source_cell": "[Kraptor123/Cs-Karma](https://github.com/Kraptor123/Cs-Karma)",
+          "site_cell": "[streamed.pk](https://streamed.pk)",
+          "domain": "streamed.pk",
+          "version": "29",
+          "kaynak_tarih": "2026-10-15",
+          "bizim_tarih": "2026-10-15",
+          "not": "",
+          "secim": "aktif"
+        }
+      ]
+    },
+    "name:subsplease": {
       "name": "Subsplease",
       "candidates": [
         {
@@ -1746,7 +1626,7 @@
         }
       ]
     },
-    "supercartoons": {
+    "name:supercartoons": {
       "name": "Supercartoons",
       "candidates": [
         {
@@ -1764,7 +1644,7 @@
         }
       ]
     },
-    "tlc": {
+    "name:tlc": {
       "name": "TLC",
       "candidates": [
         {
@@ -1782,7 +1662,7 @@
         }
       ]
     },
-    "tlctr": {
+    "name:tlctr": {
       "name": "TLCtr",
       "candidates": [
         {
@@ -1800,7 +1680,7 @@
         }
       ]
     },
-    "tranimaci": {
+    "name:tranimaci": {
       "name": "TRanimaci",
       "candidates": [
         {
@@ -1818,7 +1698,7 @@
         }
       ]
     },
-    "trasyalog": {
+    "name:trasyalog": {
       "name": "TRasyalog",
       "candidates": [
         {
@@ -1836,7 +1716,7 @@
         }
       ]
     },
-    "turkanime": {
+    "name:turkanime": {
       "name": "TurkAnime",
       "candidates": [
         {
@@ -1854,7 +1734,7 @@
         }
       ]
     },
-    "turkishw": {
+    "name:turkishw": {
       "name": "TurkishW",
       "candidates": [
         {
@@ -1872,7 +1752,7 @@
         }
       ]
     },
-    "tv8": {
+    "name:tv8": {
       "name": "Tv8",
       "candidates": [
         {
@@ -1890,7 +1770,26 @@
         }
       ]
     },
-    "tvgarden": {
+    "name:tvdiziler": {
+      "name": "TvDiziler",
+      "candidates": [
+        {
+          "name": "TvDiziler",
+          "listed": true,
+          "order": 36,
+          "source": "lepotane/MRC-builds",
+          "source_cell": "[lepotane/MRC-builds](https://github.com/lepotane/MRC-builds)",
+          "site_cell": "[tvdiziler.tv](https://tvdiziler.tv)",
+          "domain": "tvdiziler.tv",
+          "version": "6",
+          "kaynak_tarih": "2026-09-27",
+          "bizim_tarih": "2026-09-29",
+          "not": "",
+          "secim": "aktif"
+        }
+      ]
+    },
+    "name:tvgarden": {
       "name": "TVGarden",
       "candidates": [
         {
@@ -1908,7 +1807,26 @@
         }
       ]
     },
-    "watch2movies": {
+    "name:ultrafilmizle": {
+      "name": "UltraFilmizle",
+      "candidates": [
+        {
+          "name": "UltraFilmizle",
+          "listed": true,
+          "order": 37,
+          "source": "lepotane/MRC-builds",
+          "source_cell": "[lepotane/MRC-builds](https://github.com/lepotane/MRC-builds)",
+          "site_cell": "[ufilmizle.com](https://ufilmizle.com)",
+          "domain": "ufilmizle.com",
+          "version": "14",
+          "kaynak_tarih": "2026-09-23",
+          "bizim_tarih": "2026-09-23",
+          "not": "",
+          "secim": "aktif"
+        }
+      ]
+    },
+    "name:watch2movies": {
       "name": "Watch2Movies",
       "candidates": [
         {
@@ -1926,7 +1844,7 @@
         }
       ]
     },
-    "watchwrestling": {
+    "name:watchwrestling": {
       "name": "WatchWrestling",
       "candidates": [
         {
@@ -1944,7 +1862,7 @@
         }
       ]
     },
-    "wcoflix": {
+    "name:wcoflix": {
       "name": "Wcoflix",
       "candidates": [
         {
@@ -1962,7 +1880,59 @@
         }
       ]
     },
-    "yablom": {
+    "name:webteizle": {
+      "name": "Webteizle",
+      "candidates": [
+        {
+          "name": "Webteizle",
+          "listed": true,
+          "order": 38,
+          "source": "blackhope01/cloudstream-plugins",
+          "source_cell": "[blackhope01/cloudstream-plugins](https://github.com/blackhope01/cloudstream-plugins)",
+          "site_cell": "[webteizle3.xyz](https://webteizle3.xyz)",
+          "domain": "webteizle3.xyz",
+          "version": "1",
+          "kaynak_tarih": "2026-09-07",
+          "bizim_tarih": "2026-09-16",
+          "not": "",
+          "secim": "duplicate"
+        },
+        {
+          "name": "WebteIzle",
+          "listed": true,
+          "order": 39,
+          "source": "feroxx/Kekik-cloudstream",
+          "source_cell": "[feroxx/Kekik-cloudstream](https://github.com/feroxx/Kekik-cloudstream)",
+          "site_cell": "[webteizle3.xyz](https://webteizle3.xyz)",
+          "domain": "webteizle3.xyz",
+          "version": "21",
+          "kaynak_tarih": "2026-10-28",
+          "bizim_tarih": "2026-10-28",
+          "not": "",
+          "secim": "aktif"
+        }
+      ]
+    },
+    "name:yabancidizi": {
+      "name": "YabanciDizi",
+      "candidates": [
+        {
+          "name": "YabanciDizi",
+          "listed": true,
+          "order": 40,
+          "source": "lepotane/MRC-builds",
+          "source_cell": "[lepotane/MRC-builds](https://github.com/lepotane/MRC-builds)",
+          "site_cell": "[yabancidizi.news](https://yabancidizi.news)",
+          "domain": "yabancidizi.news",
+          "version": "17",
+          "kaynak_tarih": "2026-09-20",
+          "bizim_tarih": "2026-10-06",
+          "not": "",
+          "secim": "aktif"
+        }
+      ]
+    },
+    "name:yablom": {
       "name": "Yablom",
       "candidates": [
         {
@@ -1980,7 +1950,7 @@
         }
       ]
     },
-    "yesilcamtv": {
+    "name:yesilcamtv": {
       "name": "YesilCamTv",
       "candidates": [
         {
@@ -1998,7 +1968,7 @@
         }
       ]
     },
-    "yoturkish": {
+    "name:yoturkish": {
       "name": "YoTurkish",
       "candidates": [
         {
@@ -2013,24 +1983,6 @@
           "bizim_tarih": null,
           "secim": "istenmeyen",
           "not": "en TvSeries"
-        }
-      ]
-    },
-    "ıwatchtheoffice": {
-      "name": "Iwatchtheoffice",
-      "candidates": [
-        {
-          "name": "Iwatchtheoffice",
-          "listed": false,
-          "source": "Kraptor123/Cs-Karma",
-          "source_cell": "[Kraptor123/Cs-Karma](https://github.com/Kraptor123/Cs-Karma)",
-          "site_cell": "[iwatchtheoffice.cc](https://iwatchtheoffice.cc)",
-          "domain": "iwatchtheoffice.cc",
-          "version": null,
-          "kaynak_tarih": null,
-          "bizim_tarih": null,
-          "secim": "istenmeyen",
-          "not": "en Movie"
         }
       ]
     }
