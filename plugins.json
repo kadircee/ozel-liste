@@ -22,14 +22,14 @@
   {
     "url": "https://raw.githubusercontent.com/feroxx/Kekik-cloudstream/builds/DiziBox.cs3",
     "status": 1,
-    "version": 25,
+    "version": 26,
     "name": "DiziBox",
     "internalName": "DiziBox",
     "authors": [
       "keyiflerolsun"
     ],
     "description": "Yabancı Dizi izle, Tüm yabancı dizilerin yeni ve eski sezonlarını full hd izleyebileceğiniz elit site.",
-    "fileSize": 29983,
+    "fileSize": 31433,
     "repositoryUrl": "https://github.com/feroxx/Kekik-cloudstream",
     "language": "tr",
     "tvTypes": [
@@ -37,7 +37,7 @@
     ],
     "iconUrl": "https://www.google.com/s2/favicons?domain=www.dizibox.live&sz=128",
     "apiVersion": 1,
-    "fileHash": "sha256-8ed21b94b508582988ca37e830ef4037e29564aaba670cc62e841c685792da35"
+    "fileHash": "sha256-d303d6973d0a26160e777c14048769196de0801a229393a5c5270a75654b09cc"
   },
   {
     "url": "https://raw.githubusercontent.com/feroxx/Kekik-cloudstream/builds/Dizilla.cs3",
@@ -235,7 +235,7 @@
       "usdogu"
     ],
     "description": "Film Makinesi, en yeni ve en güncel filmleri sitemizde full HD kalite farkı ile izleyebilirsiniz. HD film izle denildiğinde akla gelen en kaliteli film izleme sitesi.",
-    "fileSize": 32902,
+    "fileSize": 34650,
     "repositoryUrl": "https://github.com/feroxx/Kekik-cloudstream",
     "language": "tr",
     "tvTypes": [
@@ -243,7 +243,7 @@
     ],
     "iconUrl": "https://www.google.com/s2/favicons?domain=filmmakinesi.film&sz=128",
     "apiVersion": 1,
-    "fileHash": "sha256-96c3e3784c270d960ab3207e618c3306214466a1f2225af66cd7c6fdb15b02ff"
+    "fileHash": "sha256-86bcfee991daeb8a8cb179c8d16b92ce01ee470692f210970f957e99fd0dc86a"
   },
   {
     "url": "https://raw.githubusercontent.com/feroxx/Kekik-cloudstream/builds/FilmModu.cs3",
@@ -682,7 +682,7 @@
   {
     "url": "https://raw.githubusercontent.com/feroxx/Kekik-cloudstream/builds/DiziPal.cs3",
     "status": 1,
-    "version": 119,
+    "version": 122,
     "name": "DiziPal",
     "internalName": "DiziPal",
     "authors": [
@@ -690,7 +690,7 @@
       "muratcesmecioglu"
     ],
     "description": "en yeni dizileri güvenli ve hızlı şekilde sunar.",
-    "fileSize": 31186,
+    "fileSize": 38327,
     "repositoryUrl": "https://github.com/feroxx/Kekik-cloudstream",
     "language": "tr",
     "tvTypes": [
@@ -699,12 +699,12 @@
     ],
     "iconUrl": "https://dizipal1563.com/assets/favicon/favicon-32x32.png?v=3",
     "apiVersion": 1,
-    "fileHash": "sha256-11f7424805993d206af36952eb0cfae11c2ed0061c54261e94575a29b239096d"
+    "fileHash": "sha256-dc9909575b6b909580b29831bda1cf96fc7027e87584d603ad5d42a86afc4613"
   },
   {
     "url": "https://raw.githubusercontent.com/feroxx/Kekik-cloudstream/builds/DiziPalOriginal.cs3",
     "status": 1,
-    "version": 112,
+    "version": 114,
     "name": "DiziPalOriginal",
     "internalName": "DiziPalOriginal",
     "authors": [
@@ -712,7 +712,7 @@
       "muratcesmecioglu"
     ],
     "description": "en yeni dizileri güvenli ve hızlı şekilde sunar.",
-    "fileSize": 27830,
+    "fileSize": 32223,
     "repositoryUrl": "https://github.com/feroxx/Kekik-cloudstream",
     "language": "tr",
     "tvTypes": [
@@ -721,7 +721,7 @@
     ],
     "iconUrl": "https://chessplyimages.cfd/uploads/site/favicon-32x32.png",
     "apiVersion": 1,
-    "fileHash": "sha256-a75c1d30b79eeda844ce7f773246b74f9c6e7f1bc035d4424e9d0305e2820347"
+    "fileHash": "sha256-40f23bd2b2fcd0398cd4513e16476d744cd5cf5680b57af36a41fc386a5164ca"
   },
   {
     "url": "https://raw.githubusercontent.com/lepotane/MRC-builds/builds/DiziPalOrijinal.cs3",
