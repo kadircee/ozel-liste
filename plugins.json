@@ -1,23 +1,23 @@
 [
   {
-    "url": "https://raw.githubusercontent.com/lepotane/MRC-builds/builds/DDizi.cs3",
+    "url": "https://raw.githubusercontent.com/baristomruk-max/BTVault/builds/DDizi.cs3",
     "status": 1,
-    "version": 6,
+    "version": 3,
     "name": "DDizi",
     "internalName": "DDizi",
     "authors": [
-      "MRC"
+      "BTcozum"
     ],
-    "description": "DDizi - Yerli ve yabancı diziler için hızlı izleme platformu.",
-    "fileSize": 25842,
-    "repositoryUrl": "https://github.com/lepotane/MRC-builds",
+    "description": "DDizi - Yabanci dizi izle",
+    "fileSize": 17441,
+    "repositoryUrl": "https://github.com/baristomruk-max/BTVault",
     "language": "tr",
     "tvTypes": [
       "TvSeries"
     ],
-    "iconUrl": "https://www.ddizi.im/favicon.ico",
+    "iconUrl": "https://www.google.com/s2/favicons?domain=ddizi.tel&sz=%size%",
     "apiVersion": 1,
-    "fileHash": "sha256-dd2f251490270b5a333b5d55a5004cddd01a6d6d9002916a8f9dc87417ece90c"
+    "fileHash": "sha256-2ce6902206c1a65193a9e8e03e773f61365cd40bf0d9ff1fe63c438466a9dfee"
   },
   {
     "url": "https://raw.githubusercontent.com/lepotane/MRC-builds/builds/DiziBal.cs3",
@@ -64,45 +64,44 @@
     "fileHash": "sha256-a82cafede9a753e21e541cc3eb4de581e23be4eadd68fd8fd695698624629468"
   },
   {
-    "url": "https://raw.githubusercontent.com/lepotane/MRC-builds/builds/DiziBox.cs3",
+    "url": "https://raw.githubusercontent.com/baristomruk-max/BTVault/builds/DiziBox.cs3",
     "status": 1,
-    "version": 21,
+    "version": 4,
     "name": "DiziBox",
     "internalName": "DiziBox",
     "authors": [
-      "MRC"
+      "BTcozum"
     ],
-    "description": "DiziBox - Yabancı dizilerin tüm sezonları için Full HD izleme platformu.",
-    "fileSize": 45648,
-    "repositoryUrl": "https://github.com/lepotane/MRC-builds",
+    "description": "DiziBox - Yabanci dizileri full hd izleyebileceginiz elit site. DIKKAT: site VPN/sunucu IP adreslerini engelliyor (Cloudflare 1000s -> 500 ERROR), normal ev/mobil interneti olmadan acilmaz.",
+    "fileSize": 22762,
+    "repositoryUrl": "https://github.com/baristomruk-max/BTVault",
     "language": "tr",
     "tvTypes": [
-      "Movie"
+      "TvSeries"
     ],
-    "iconUrl": "https://www.google.com/s2/favicons?domain=www.dizibox.de&sz=128",
+    "iconUrl": "https://www.google.com/s2/favicons?domain=www.dizibox.live&sz=%size%",
     "apiVersion": 1,
-    "fileHash": "sha256-1fa16b50d36f8c986c860d8be9ce2f782a421229a15bc9d5afbc8b0c1520fe15"
+    "fileHash": "sha256-e65017242f4149ccd9a86ed08cdcd1095e0bb3d41916d7728d1bb8ecd9d005ad"
   },
   {
-    "url": "https://raw.githubusercontent.com/lepotane/MRC-builds/builds/DiziGom.cs3",
+    "url": "https://raw.githubusercontent.com/baristomruk-max/BTVault/builds/DiziGom.cs3",
     "status": 1,
-    "version": 19,
+    "version": 3,
     "name": "DiziGom",
     "internalName": "DiziGom",
     "authors": [
-      "MRC"
+      "BTcozum"
     ],
-    "description": "DiziGom - Türkçe altyazılı yabancı, Kore ve popüler diziler.",
-    "fileSize": 46357,
-    "repositoryUrl": "https://github.com/lepotane/MRC-builds",
+    "description": "DiziGom - Yabanci dizi izle",
+    "fileSize": 25442,
+    "repositoryUrl": "https://github.com/baristomruk-max/BTVault",
     "language": "tr",
     "tvTypes": [
-      "TvSeries",
-      "Movie"
+      "TvSeries"
     ],
-    "iconUrl": "https://www.google.com/s2/favicons?domain=dizigom1.co&sz=128",
+    "iconUrl": "https://www.google.com/s2/favicons?domain=dizigom.news&sz=%size%",
     "apiVersion": 1,
-    "fileHash": "sha256-fa6b3cab3c95ff75fcbc23309f51e9b78bd47b7f4d2749bbf86ea27e817125ee"
+    "fileHash": "sha256-39d677260274829a42662035265c5c2c712420e110c3adfcca2a657196d21415"
   },
   {
     "url": "https://raw.githubusercontent.com/blackhope01/cloudstream-plugins/builds/DiziLife.cs3",
@@ -251,25 +250,25 @@
     "fileHash": "sha256-aca5e7619390e022eba61aab59de28fa848e3975814522c900c84ef94af28c8f"
   },
   {
-    "url": "https://raw.githubusercontent.com/lepotane/MRC-builds/builds/DiziPod.cs3",
+    "url": "https://raw.githubusercontent.com/baristomruk-max/BTVault/builds/Dizipod.cs3",
     "status": 1,
-    "version": 2,
-    "name": "DiziPod",
-    "internalName": "DiziPod",
+    "version": 4,
+    "name": "Dizipod",
+    "internalName": "Dizipod",
     "authors": [
-      "MRC"
+      "BTcozum"
     ],
-    "description": "DiziPod - Türkçe altyazılı yabancı dizi ve film izleme platformu.",
-    "fileSize": 29373,
-    "repositoryUrl": "https://github.com/lepotane/MRC-builds",
+    "description": "Dizipod - Yabanci dizi ve film izle (Turkce altyazili)",
+    "fileSize": 20366,
+    "repositoryUrl": "https://github.com/baristomruk-max/BTVault",
     "language": "tr",
     "tvTypes": [
-      "Movie",
-      "TvSeries"
+      "TvSeries",
+      "Movie"
     ],
-    "iconUrl": "https://www.google.com/s2/favicons?domain=dizipod.com&sz=128",
+    "iconUrl": "https://www.google.com/s2/favicons?domain=dizipod.com&sz=%size%",
     "apiVersion": 1,
-    "fileHash": "sha256-7842c5a6f7506a031d5bc464e70b95e4c9bcdcf71b4f1f29d08e9f78fad80ebf"
+    "fileHash": "sha256-42b2af95cae159b246cd58b92c6a0bad9c639270611f43e97107b976567f7def"
   },
   {
     "url": "https://raw.githubusercontent.com/blackhope01/cloudstream-plugins/builds/DiziYo.cs3",
@@ -457,24 +456,25 @@
     "fileHash": "sha256-da4a08d12e961234c3e044e81cc14d3e4465d12ae70698f30846486d981d3ddc"
   },
   {
-    "url": "https://raw.githubusercontent.com/lepotane/MRC-builds/builds/HdFilmCehennemi2.cs3",
+    "url": "https://raw.githubusercontent.com/baristomruk-max/BTVault/builds/HDFilmCehennemi2.cs3",
     "status": 1,
     "version": 6,
-    "name": "HdFilmCehennemi2",
-    "internalName": "HdFilmCehennemi2",
+    "name": "HDFilmCehennemi2",
+    "internalName": "HDFilmCehennemi2",
     "authors": [
-      "MRC"
+      "BTcozum"
     ],
-    "description": "HdFilmCehennemi2 - Alternatif yüksek kaliteli HD film izleme sitesi.",
-    "fileSize": 32043,
-    "repositoryUrl": "https://github.com/lepotane/MRC-builds",
+    "description": "HDFilmCehennemi2 - Full HD film ve dizi (yeni Laravel/Livewire tema, /api/search + vidload/vidmoly oynatici)",
+    "fileSize": 26164,
+    "repositoryUrl": "https://github.com/baristomruk-max/BTVault",
     "language": "tr",
     "tvTypes": [
-      "Movie"
+      "Movie",
+      "TvSeries"
     ],
-    "iconUrl": "https://www.google.com/s2/favicons?domain=www.hdfilmcehennemi2.biz&sz=128",
+    "iconUrl": "https://www.google.com/s2/favicons?domain=hdfilmcehennemi2.biz&sz=%size%",
     "apiVersion": 1,
-    "fileHash": "sha256-7ff77750b27ea0706bd5ac3d8f193cb07ac3c0ee7736482b241ebc7eace77d51"
+    "fileHash": "sha256-353d86c4467f1b21d72b87e2d2ba0699ba628ff7b94aa05cb337d2561268d104"
   },
   {
     "url": "https://raw.githubusercontent.com/lepotane/MRC-builds/builds/HDFilmDelisi.cs3",
@@ -498,25 +498,25 @@
     "fileHash": "sha256-c7126ad1b82bc37f863072535904fcaed63c419510575c1299546164d78cffdb"
   },
   {
-    "url": "https://raw.githubusercontent.com/Ripplay/cloudstream-repo/builds/HDFilmIzle.cs3",
+    "url": "https://raw.githubusercontent.com/baristomruk-max/BTVault/builds/HDFilmIzle.cs3",
     "status": 1,
-    "version": 8,
+    "version": 4,
     "name": "HDFilmIzle",
     "internalName": "HDFilmIzle",
     "authors": [
-      "nikyokki"
+      "BTcozum"
     ],
-    "description": "HDFilmizle ile Full HD izle, 1080p kalitede Yerli ve Yabancı filmlerle Türkçe dublaj veya Altyazı olarak kesintisiz film izlemenin tadını çıkarın.",
-    "fileSize": 40634,
-    "repositoryUrl": "https://github.com/Ripplay/cloudstream-repo",
+    "description": "HDFilmIzle - HD film izle",
+    "fileSize": 34613,
+    "repositoryUrl": "https://github.com/baristomruk-max/BTVault",
     "language": "tr",
     "tvTypes": [
       "Movie",
       "TvSeries"
     ],
-    "iconUrl": "https://www.google.com/s2/favicons?domain=hdfilmizle.ink&sz=128",
+    "iconUrl": "https://www.google.com/s2/favicons?domain=hdfilmizle.live&sz=%size%",
     "apiVersion": 1,
-    "fileHash": "sha256-4e85ba57f537765f3ccda701c108151c04126d42c9dde0efaeec753695dcd89d"
+    "fileHash": "sha256-b8af344f03ea6688e6d6306aa64ae0399a5cf3659a076ae0a84be6414e3e305c"
   },
   {
     "url": "https://raw.githubusercontent.com/feroxx/Kekik-cloudstream/builds/InatBox.cs3",
@@ -564,24 +564,25 @@
     "fileHash": "sha256-dc317cfc6d2035b0674e6ce0ed4602a398ad8a43d27f938a2939e9f6cd10bac7"
   },
   {
-    "url": "https://raw.githubusercontent.com/lepotane/MRC-builds/builds/JetFilmizle.cs3",
+    "url": "https://raw.githubusercontent.com/baristomruk-max/BTVault/builds/JetFilmizle.cs3",
     "status": 1,
-    "version": 4,
+    "version": 22,
     "name": "JetFilmizle",
     "internalName": "JetFilmizle",
     "authors": [
-      "MRC"
+      "BTcozum",
+      "keyiflerolsun"
     ],
-    "description": "JetFilmizle - Hızlı ve yüksek kaliteli film izleme platformu.",
-    "fileSize": 18468,
-    "repositoryUrl": "https://github.com/lepotane/MRC-builds",
+    "description": "Binlerce Film İzleme Seçeneğiyle En İyi Film İzleme Sitesi",
+    "fileSize": 22191,
+    "repositoryUrl": "https://github.com/baristomruk-max/BTVault",
     "language": "tr",
     "tvTypes": [
       "Movie"
     ],
-    "iconUrl": "https://www.google.com/s2/favicons?sz=64&domain=jetfilmizle.now",
+    "iconUrl": "https://www.google.com/s2/favicons?domain=jetfilmizle.app&sz=%size%",
     "apiVersion": 1,
-    "fileHash": "sha256-c2984def237aeb1c1243a3b0dc3427dbf21a46fec685f626917f2cd2b5830615"
+    "fileHash": "sha256-e65e7c76977459f6eb715c80eb5e3a8273821351568bc7598394f91ffa5e6677"
   },
   {
     "url": "https://raw.githubusercontent.com/lepotane/MRC-builds/builds/LoveFilm.cs3",
@@ -647,24 +648,24 @@
     "fileHash": "sha256-66f99a80e06463dd87f7575ea3e4338aca8540ebb45ab9f416756ff56c267e20"
   },
   {
-    "url": "https://raw.githubusercontent.com/lepotane/MRC-builds/builds/SezonlukDizi.cs3",
+    "url": "https://raw.githubusercontent.com/baristomruk-max/BTVault/builds/SezonlukDizi.cs3",
     "status": 1,
-    "version": 8,
+    "version": 3,
     "name": "SezonlukDizi",
     "internalName": "SezonlukDizi",
     "authors": [
-      "MRC"
+      "BTcozum"
     ],
-    "description": "SezonlukDizi - Türkçe altyazılı ve dublajlı yabancı dizi izleme platformu.",
-    "fileSize": 53596,
-    "repositoryUrl": "https://github.com/lepotane/MRC-builds",
+    "description": "SezonlukDizi - Guncel ve eski dizileri en iyi goruntu kalitesiyle izleyin",
+    "fileSize": 25963,
+    "repositoryUrl": "https://github.com/baristomruk-max/BTVault",
     "language": "tr",
     "tvTypes": [
       "TvSeries"
     ],
-    "iconUrl": "https://www.google.com/s2/favicons?domain=sezonlukdizi.cc&sz=128",
+    "iconUrl": "https://www.google.com/s2/favicons?domain=sezonlukdizi.cc&sz=%size%",
     "apiVersion": 1,
-    "fileHash": "sha256-c8d7c37001525ccb7e87178f1f95aea69f0f1aba5522110e7fee2849acecfce7"
+    "fileHash": "sha256-e4e8f7b7041bc0bf303984bd36beed385c54837b9d6973c52f5766592a5b8337"
   },
   {
     "url": "https://raw.githubusercontent.com/lepotane/MRC-builds/builds/Sinefy.cs3",
@@ -832,23 +833,277 @@
     "fileHash": "sha256-c014c951be6263c0eea12449fa1ebf5b0cbd309bf7359afff7dc4f9720540d63"
   },
   {
-    "url": "https://raw.githubusercontent.com/lepotane/MRC-builds/builds/YabanciDizi.cs3",
+    "url": "https://raw.githubusercontent.com/baristomruk-max/BTVault/builds/YabanciDizi.cs3",
     "status": 1,
-    "version": 18,
+    "version": 3,
     "name": "YabanciDizi",
     "internalName": "YabanciDizi",
     "authors": [
-      "MRC"
+      "BTcozum"
     ],
-    "description": "YabancıDizi - En yeni yabancı dizi ve filmler 1080p Türkçe altyazı ve dublaj.",
-    "fileSize": 63799,
-    "repositoryUrl": "https://github.com/lepotane/MRC-builds",
+    "description": "YabanciDizi - Turkce altyazili dizi izle",
+    "fileSize": 47600,
+    "repositoryUrl": "https://github.com/baristomruk-max/BTVault",
+    "language": "tr",
+    "tvTypes": [
+      "TvSeries",
+      "Movie"
+    ],
+    "iconUrl": "https://www.google.com/s2/favicons?domain=yabancidizi.news&sz=%size%",
+    "apiVersion": 1,
+    "fileHash": "sha256-4ac265a37fd2931ba18919137d87c4b2f813da600239881c688d0d2a5b45499f"
+  },
+  {
+    "url": "https://raw.githubusercontent.com/baristomruk-max/BTVault/builds/CanliTV.cs3",
+    "status": 1,
+    "version": 6,
+    "name": "CanliTV",
+    "internalName": "CanliTV",
+    "authors": [
+      "BTcozum",
+      "keyiflerolsun"
+    ],
+    "description": "Canli TV - iptv-org TR kanal listesi",
+    "fileSize": 20512,
+    "repositoryUrl": "https://github.com/baristomruk-max/BTVault",
+    "language": "tr",
+    "tvTypes": [
+      "Live"
+    ],
+    "iconUrl": "https://www.google.com/s2/favicons?domain=iptv-org.github.io&sz=%size%",
+    "apiVersion": 1,
+    "fileHash": "sha256-0d95ea6ae4ccc97a711998bc523c7d25e3ffa673abdc4554b86d6228ff7764c1"
+  },
+  {
+    "iconUrl": "https://raw.githubusercontent.com/Emre-Kahveci/CloudStreamHub/main/assets/icon.png",
+    "fileHash": "sha256-06fdbc4968a97fb114a28988e1754b0cb73915f968d7f3aab21975c25b6b7508",
+    "apiVersion": 1,
+    "repositoryUrl": "https://github.com/Emre-Kahveci/CloudStreamHub",
+    "fileSize": 479832,
+    "status": 1,
+    "language": "tr",
+    "authors": [
+      "CloudStreamTR",
+      "Emre-Kahveci"
+    ],
+    "tvTypes": [
+      "Movie",
+      "TvSeries",
+      "Anime",
+      "AnimeMovie",
+      "Cartoon",
+      "Documentary"
+    ],
+    "version": 42,
+    "internalName": "CloudStreamHub",
+    "description": "CloudStreamHub Aggregator - TMDB Keşif & CloudStream Sağlayıcılarını Birleştiren Eklenti",
+    "url": "https://raw.githubusercontent.com/Emre-Kahveci/CloudStreamHub/builds/CloudStreamHub.cs3",
+    "name": "CloudStreamHub"
+  },
+  {
+    "iconUrl": "https://www.google.com/s2/favicons?sz=128&domain=dizigecesi.com",
+    "fileHash": "sha256-fff4543f416cb9eddfb918c118a47cb204a782b086f73071234d8a135f5ca390",
+    "apiVersion": 1,
+    "repositoryUrl": "https://github.com/Emre-Kahveci/CloudStreamHub",
+    "fileSize": 148481,
+    "status": 1,
+    "language": "tr",
+    "authors": [
+      "CloudStreamTR",
+      "kraptor"
+    ],
+    "tvTypes": [
+      "TvSeries",
+      "Movie"
+    ],
+    "version": 20,
+    "internalName": "Dizigecesi",
+    "description": "Dizigecesi - Yabancı Dizi ve Film İzle",
+    "url": "https://raw.githubusercontent.com/Emre-Kahveci/CloudStreamHub/builds/Dizigecesi.cs3",
+    "name": "Dizigecesi"
+  },
+  {
+    "iconUrl": "https://www.google.com/s2/favicons?sz=128&domain=diziizle.you",
+    "fileHash": "sha256-92ffad3dbc54d3734d842ffc4fa60ba38d8e4cc3cfc1bb0fd70ee6579975a3de",
+    "apiVersion": 1,
+    "repositoryUrl": "https://github.com/Emre-Kahveci/CloudStreamHub",
+    "fileSize": 150995,
+    "status": 1,
+    "language": "tr",
+    "authors": [
+      "CloudStreamTR"
+    ],
+    "tvTypes": [
+      "TvSeries"
+    ],
+    "version": 6,
+    "internalName": "DiziIzle",
+    "description": "Diziİzle Türk dizileri ve tam bölümleri",
+    "url": "https://raw.githubusercontent.com/Emre-Kahveci/CloudStreamHub/builds/DiziIzle.cs3",
+    "name": "DiziIzle"
+  },
+  {
+    "url": "https://raw.githubusercontent.com/baristomruk-max/BTVault/builds/DiziMag.cs3",
+    "status": 1,
+    "version": 4,
+    "name": "DiziMag",
+    "internalName": "DiziMag",
+    "authors": [
+      "BTcozum"
+    ],
+    "description": "DiziMag - Turkce altyazili yabanci dizi",
+    "fileSize": 41513,
+    "repositoryUrl": "https://github.com/baristomruk-max/BTVault",
+    "language": "tr",
+    "tvTypes": [
+      "TvSeries",
+      "Movie"
+    ],
+    "iconUrl": "https://www.google.com/s2/favicons?domain=dizimag.onl&sz=%size%",
+    "apiVersion": 1,
+    "fileHash": "sha256-eaf8d0f743189850dbe485f807fb7d36dca5242ca4a819b27cce45fae84b0781"
+  },
+  {
+    "iconUrl": "https://www.google.com/s2/favicons?domain=diziroll.club&sz=%size%",
+    "fileHash": "sha256-f02b29f116ef415b566f0ee1816faf6a6f92355f04341cf434a2a41c45d2dce2",
+    "apiVersion": 1,
+    "repositoryUrl": "https://github.com/bilhan50/BilhanTR",
+    "fileSize": 18548,
+    "status": 1,
+    "language": "tr",
+    "authors": [
+      "bilhan50"
+    ],
+    "tvTypes": [
+      "TvSeries"
+    ],
+    "version": 1,
+    "internalName": "DiziRoll",
+    "description": "DiziRoll - yabanci dizileri turkce dublaj veya altyazili olarak 1080p HD izleyin.",
+    "url": "https://raw.githubusercontent.com/bilhan50/BilhanTR/builds/DiziRoll.cs3",
+    "name": "DiziRoll"
+  },
+  {
+    "iconUrl": "https://www.google.com/s2/favicons?domain=diziwatch.org&sz=%size%",
+    "fileHash": "sha256-72ca020156bf50ac658886bb65eef84f945352475e1e6c8561c379c7e2cc4a51",
+    "apiVersion": 1,
+    "repositoryUrl": "https://github.com/Jung1330/StreamTest",
+    "fileSize": 19010,
+    "status": 1,
+    "language": "tr",
+    "authors": [
+      "Jung1330",
+      "StreamTest",
+      "AI-Assistant"
+    ],
+    "tvTypes": [
+      "Anime",
+      "TvSeries"
+    ],
+    "version": 4,
+    "internalName": "Diziwatch",
+    "description": "StreamTest - Diziwatch Güncel Anime & Dizi Eklentisi (sayfalama ve oynatıcı taraması düzeltildi).",
+    "url": "https://raw.githubusercontent.com/Jung1330/StreamTest/builds/Diziwatch.cs3",
+    "name": "Diziwatch"
+  },
+  {
+    "url": "https://raw.githubusercontent.com/baristomruk-max/BTVault/builds/DMax.cs3",
+    "status": 1,
+    "version": 2,
+    "name": "DMax",
+    "internalName": "DMax",
+    "authors": [
+      "BTcozum"
+    ],
+    "description": "DMAX - Belgesel ve macera dizileri",
+    "fileSize": 14367,
+    "repositoryUrl": "https://github.com/baristomruk-max/BTVault",
     "language": "tr",
     "tvTypes": [
       "TvSeries"
     ],
-    "iconUrl": "https://www.google.com/s2/favicons?domain=yabancidizi.news&sz=128",
+    "iconUrl": "https://www.google.com/s2/favicons?domain=dmax.com.tr&sz=%size%",
     "apiVersion": 1,
-    "fileHash": "sha256-68c8126424954f199fc6697d3af5fa66dde52dd26fedbe7e2120dbe3809dda43"
+    "fileHash": "sha256-426fa59c00a613af7032d4b4848d9d08c07ab2597050e4963e4216e8625b6426"
+  },
+  {
+    "url": "https://raw.githubusercontent.com/baristomruk-max/BTVault/builds/powerDizi.cs3",
+    "status": 1,
+    "version": 2,
+    "name": "powerDizi",
+    "internalName": "powerDizi",
+    "authors": [
+      "BTcozum"
+    ],
+    "description": "powerDizi - Canli yabanci dizi kanallari",
+    "fileSize": 20508,
+    "repositoryUrl": "https://github.com/baristomruk-max/BTVault",
+    "language": "tr",
+    "tvTypes": [
+      "TvSeries"
+    ],
+    "iconUrl": "https://www.google.com/s2/favicons?domain=power&sz=%size%",
+    "apiVersion": 1,
+    "fileHash": "sha256-dc34fa43d45e5ac7cc24c009b259c72b516be8bb71a16130c973c4b3de3baabc"
+  },
+  {
+    "url": "https://raw.githubusercontent.com/baristomruk-max/BTVault/builds/powerSinema.cs3",
+    "status": 1,
+    "version": 2,
+    "name": "powerSinema",
+    "internalName": "powerSinema",
+    "authors": [
+      "BTcozum"
+    ],
+    "description": "powerSinema - Canli sinema kanallari",
+    "fileSize": 20508,
+    "repositoryUrl": "https://github.com/baristomruk-max/BTVault",
+    "language": "tr",
+    "tvTypes": [
+      "Movie"
+    ],
+    "iconUrl": "https://www.google.com/s2/favicons?domain=power&sz=%size%",
+    "apiVersion": 1,
+    "fileHash": "sha256-16b701845ccb5ae87a19bb75b77f243318e487d17322e2f7ed36d977b5e62c9d"
+  },
+  {
+    "iconUrl": "https://www.google.com/s2/favicons?domain=sezonlukdizi.one&sz=%size%",
+    "fileHash": "sha256-7cd7559bc09b8c702acc545377d87e60a4fc1390f41477630defa037b2ff7923",
+    "apiVersion": 1,
+    "repositoryUrl": "https://github.com/bilhan50/BilhanTR",
+    "fileSize": 20018,
+    "status": 1,
+    "language": "tr",
+    "authors": [
+      "bilhan50"
+    ],
+    "tvTypes": [
+      "Movie"
+    ],
+    "version": 1,
+    "internalName": "SezonlukFilm",
+    "description": "SezonlukFilm - en yeni filmleri full HD, turkce dublaj veya altyazili 4K kalitesinde izleyin.",
+    "url": "https://raw.githubusercontent.com/bilhan50/BilhanTR/builds/SezonlukFilm.cs3",
+    "name": "SezonlukFilm"
+  },
+  {
+    "url": "https://raw.githubusercontent.com/baristomruk-max/BTVault/builds/XPrime.cs3",
+    "status": 1,
+    "version": 2,
+    "name": "XPrime",
+    "internalName": "XPrime",
+    "authors": [
+      "BTcozum"
+    ],
+    "description": "XPrime - TMDB tabanli film/dizi bilgi",
+    "fileSize": 32030,
+    "repositoryUrl": "https://github.com/baristomruk-max/BTVault",
+    "language": "tr",
+    "tvTypes": [
+      "Movie"
+    ],
+    "iconUrl": "https://www.google.com/s2/favicons?domain=themoviedb.org&sz=%size%",
+    "apiVersion": 1,
+    "fileHash": "sha256-5f50772b672c8924c9e21653d493438c81c945e6414b4c61bff79cf18d071dbc"
   }
 ]

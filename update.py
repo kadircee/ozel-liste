@@ -58,6 +58,28 @@ SYNC_FIELDS = ["status", "version", "fileSize", "fileHash", "description", "auth
 OWN_REPO = "kadircee/ozel-liste"
 OWN_BRANCH = "main"
 
+CANDIDATE_SOURCES = {
+    "baristomruk-max/BTVault": "https://raw.githubusercontent.com/baristomruk-max/BTVault/builds/plugins.json",
+    "berr49300/cloudstream-film-repo": "https://raw.githubusercontent.com/berr49300/cloudstream-film-repo/builds/plugins.json",
+    "Jung1330/StreamTest": "https://raw.githubusercontent.com/Jung1330/StreamTest/builds/plugins.json",
+    "bilhan50/BilhanTR": "https://raw.githubusercontent.com/bilhan50/BilhanTR/builds/plugins.json",
+    "altigenay/cloudstream-eklentiler": "https://raw.githubusercontent.com/altigenay/cloudstream-eklentiler/builds/plugins.json",
+    "Emre-Kahveci/CloudStreamHub": "https://raw.githubusercontent.com/Emre-Kahveci/CloudStreamHub/builds/plugins.json",
+}
+
+ADULT_INTERNAL_NAMES = {
+    "FullPorner", "HQPorner", "PornHub", "SpankBang", "UncutMaza", "xHamster",
+}
+
+EXCLUDED_INTERNAL_NAMES = {
+    "AnimeciXProvider", "CizgiMaxProvider", "TurkAnimeProvider",
+    "AnimeciX", "Asyaanimeleri", "Dramadizilerim", "Hdkore", "Koreanturk",
+    "TRAnimeIzle", "Webdramaturkey", "AsyaWatch", "SporTV", "TLC", "vavooSpor",
+    "YouTube", "BelgeselX", "FourKHDHub", "StarTV", "RareFilmm",
+    "Animeler", "DiziKorea", "KultFilmler", "DiziKorea", "WebDramaTurkey", "YesilCamTv", "YTS",
+    "ArsivSinema", "AtvDizi", "Tabii", "TrtBelgesel",
+}
+
 
 def fix_mojibake(s):
     """Kaynak description'da coklu-UTF8 (mojibake) bozuklugu varsa onarir.
@@ -178,7 +200,7 @@ def refresh_table(plugins, source_items, tok):
     """
     bykey = {}
     for p in plugins:
-        m = re.match(r"https://raw\.githubusercontent\.com/([^/]+/[^/]+)/builds/", p.get("url", ""))
+        m = re.match(r"https://raw\.githubusercontent\.com/([^/]+/[^/]+)/", p.get("url", ""))
         if m:
             bykey[(norm_name(p.get("internalName", "")), m.group(1))] = p
 
@@ -199,17 +221,59 @@ def refresh_table(plugins, source_items, tok):
             r = (re.search(r"github\.com/([^)]+)", cells[2]) or [None, ""])[1]
             if r:
                 repos.add(r)
+    repos.update(repo for _, repo in source_items)
     manifests = {}
     for repo in sorted(repos):
         try:
-            src = fetch_json("https://raw.githubusercontent.com/%s/builds/plugins.json" % repo)
+            candidates = [item for (_, candidate_repo), item in source_items.items()
+                          if candidate_repo == repo]
+            src_url = source_plugins_url(candidates[0].get("url", "")) if candidates else None
+            if not src_url:
+                src_url = "https://raw.githubusercontent.com/%s/builds/plugins.json" % repo
+            src = fetch_json(src_url)
             items = src if isinstance(src, list) else src.get("plugins", [])
             manifests[repo] = {norm_name(i.get("internalName", "")): i
                                for i in items if isinstance(i, dict)}
         except Exception as ex:
             print("[TABLO] %s manifesti alinamadi, satirlar korunuyor (%s)" % (repo, ex))
 
+    existing_keys = set()
+    for i in range(hdr, zone):
+        line = lines[i]
+        m = re.match(r"^\| (\d+) \|", line)
+        if not m:
+            continue
+        cells = [x.strip() for x in line.strip().strip("|").split("|")]
+        if len(cells) < 3:
+            continue
+        name = re.sub(r"^[^A-Za-z0-9]+", "", cells[1])
+        repo = (re.search(r"github\.com/([^)]+)", cells[2]) or [None, ""])[1]
+        if repo:
+            existing_keys.add((norm_name(name), repo))
+
+    new_rows = []
     cache = {}
+    for (normalized_name, repo), item in sorted(source_items.items(), key=lambda x: (norm_name(x[1].get("name", "")), x[0][1])):
+        if (normalized_name, repo) in existing_keys:
+            continue
+        name = item.get("name") or item.get("internalName") or normalized_name
+        internal_name = item.get("internalName") or name
+        version = str(item.get("version", ""))
+        fname = urllib.parse.unquote(item.get("url", "").rsplit("/", 1)[-1])
+        source_date = commit_date(repo, fname, tok, cache) if fname.endswith(".cs3") else None
+        domain = item_domain(item)
+        site_cell = "—" if not domain or domain in CDN_HOSTS else "[{0}](https://{0})".format(domain)
+        repo_cell = "[{0}](https://github.com/{0})".format(repo)
+        new_rows.append("| 999 | %s | %s | %s | %s | %s | %s | Aktif | |" % (
+            name, repo_cell, site_cell, version,
+            source_date or "", source_date or ""))
+        existing_keys.add((normalized_name, repo))
+    if new_rows:
+        new_zone = next((i for i, l in enumerate(lines)
+                         if re.match(r"^#+\s+.*(Istenmeyenler|\u0130stenmeyenler)", l)), len(lines))
+        lines[new_zone:new_zone] = new_rows
+        zone = new_zone + len(new_rows)
+
     changed = 0
     drop = []
     for i in range(hdr, zone):
@@ -313,11 +377,17 @@ def fetch_json(url):
 
 
 def source_plugins_url(cs3_url):
-    """.cs3 url'sinden ayni deponun builds/plugins.json adresini turetir."""
-    m = re.match(r"^(https://raw\.githubusercontent\.com/[^/]+/[^/]+/builds/)([^/?#]+\.cs3)([?#].*)?$", cs3_url)
-    if not m:
-        return None
-    return m.group(1) + "plugins.json"
+    """.cs3 url'sinden ayni deponun plugins.json adresini turetir."""
+    m = re.match(r"^(https://raw\.githubusercontent\.com/[^/]+/[^/]+/builds/)[^/?#]+\.cs3([?#].*)?$", cs3_url)
+    if m:
+        return m.group(1) + "plugins.json"
+    m = re.match(r"^(https://raw\.githubusercontent\.com/[^/]+/[^/]+/main/plugins/)[^/?#]+\.cs3([?#].*)?$", cs3_url)
+    if m:
+        return m.group(1).replace("/plugins/", "/") + "plugins.json"
+    m = re.match(r"^(https://raw\.githubusercontent\.com/[^/]+/[^/]+/main/)[^/?#]+\.cs3([?#].*)?$", cs3_url)
+    if m:
+        return m.group(1) + "plugins.json"
+    return None
 
 
 def cs3_to_purge_url(cs3_url):
@@ -383,6 +453,7 @@ def main():
     parser.add_argument("--purge", action="store_true", help="tum eklentilerin jsDelivr cache'ini temizle (push sonrasi)")
     parser.add_argument("--no-table", action="store_true", help="DEPO-BILGILERI.md tablosunu tazeleme")
     args = parser.parse_args()
+    tok = github_token()
 
     with io.open(PLUGINS_PATH, encoding="utf-8") as f:
         data = json.load(f)
@@ -390,6 +461,52 @@ def main():
     if not isinstance(data, list):
         print("HATA: plugins.json liste degil")
         sys.exit(1)
+
+    candidate_added = 0
+    candidate_winners = {}
+    date_cache = {}
+    excluded_names = {norm_name(name) for name in ADULT_INTERNAL_NAMES | EXCLUDED_INTERNAL_NAMES}
+
+    for repo, manifest_url in CANDIDATE_SOURCES.items():
+        try:
+            manifest = fetch_json(manifest_url)
+        except Exception as ex:
+            print("[ADAY] %s manifesti alinamadi: %s" % (repo, ex))
+            continue
+        items = manifest if isinstance(manifest, list) else manifest.get("plugins", [])
+        for item in items:
+            if not isinstance(item, dict) or item.get("status") == 0:
+                continue
+            internal_name = item.get("internalName") or item.get("name")
+            normalized_name = norm_name(internal_name)
+            if normalized_name in excluded_names:
+                continue
+            cs3_url = item.get("url", "")
+            if not cs3_url:
+                continue
+            filename = urllib.parse.unquote(cs3_url.rsplit("/", 1)[-1])
+            source_date = commit_date(repo, filename, tok, date_cache) if filename.endswith(".cs3") else None
+            winner = candidate_winners.get(normalized_name)
+            if winner is None or (source_date or "") > (winner[2] or ""):
+                candidate_winners[normalized_name] = (repo, dict(item), source_date)
+
+    for normalized_name, (repo, item, source_date) in sorted(candidate_winners.items(), key=lambda x: x[0]):
+        cs3_url = item.get("url", "")
+        existing = next((p for p in data
+                         if norm_name(p.get("internalName") or p.get("name") or "") == normalized_name), None)
+        if existing is None:
+            data.append(dict(item))
+            candidate_added += 1
+        elif existing.get("url") != cs3_url:
+            existing_filename = urllib.parse.unquote(existing.get("url", "").rsplit("/", 1)[-1])
+            existing_repo_match = re.match(r"https://raw\.githubusercontent\.com/([^/]+/[^/]+)/", existing.get("url", ""))
+            existing_repo = existing_repo_match.group(1) if existing_repo_match else ""
+            existing_date = commit_date(existing_repo, existing_filename, tok, date_cache) if existing_filename.endswith(".cs3") else None
+            if (source_date or "") > (existing_date or ""):
+                data[data.index(existing)] = dict(item)
+                candidate_added += 1
+    if candidate_added:
+        print("[ADAY] plugins.json'e %d yeni eklenti eklenebilir." % candidate_added)
 
     changed = []
     silinen = []
@@ -440,7 +557,7 @@ def main():
             silinen.append((name, "kaynak plugins.json status=0 yayinliyor"))
             continue
 
-        mrepo = re.match(r"https://raw\.githubusercontent\.com/([^/]+/[^/]+)/builds/", cs3)
+        mrepo = re.match(r"https://raw\.githubusercontent\.com/([^/]+/[^/]+)/", cs3)
         if mrepo:
             source_items[(norm_name(name), mrepo.group(1))] = match
 
@@ -480,13 +597,13 @@ def main():
         unchanged, len(changed), len(silinen), len(missing)))
 
     if args.check:
-        if changed or silinen or missing:
+        if candidate_added or changed or silinen or missing:
             print("Degisiklik var; --check modunda yazilmadi.")
             sys.exit(1)
         print("Her sey guncel.")
         return
 
-    if changed or silinen:
+    if candidate_added or changed or silinen:
         # Atomik yazma: once gecici dosyaya, sonra os.replace (yarim yazim olmaz).
         tmp = PLUGINS_PATH + ".tmp"
         with io.open(tmp, "w", encoding="utf-8", newline="\n") as f:
@@ -498,7 +615,6 @@ def main():
         print("Yazma gerekmiyor.")
 
     if not args.no_table:
-        tok = github_token()
         if not tok:
             print("[TARIH] GitHub token yok: tablo tarihleri tazelenemedi "
                   "(GITHUB_TOKEN ya da gh auth login gerekli).")
