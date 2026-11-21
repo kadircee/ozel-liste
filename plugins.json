@@ -1085,5 +1085,25 @@
     "iconUrl": "https://www.google.com/s2/favicons?domain=themoviedb.org&sz=%size%",
     "apiVersion": 1,
     "fileHash": "sha256-5f50772b672c8924c9e21653d493438c81c945e6414b4c61bff79cf18d071dbc"
+  },
+  {
+    "url": "https://raw.githubusercontent.com/baristomruk-max/BTVault/builds/DMax.cs3",
+    "status": 1,
+    "version": 2,
+    "name": "DMax",
+    "internalName": "DMax",
+    "authors": [
+      "BTcozum"
+    ],
+    "description": "DMAX - Belgesel ve macera dizileri",
+    "fileSize": 14367,
+    "repositoryUrl": "https://github.com/baristomruk-max/BTVault",
+    "language": "tr",
+    "tvTypes": [
+      "TvSeries"
+    ],
+    "iconUrl": "https://www.google.com/s2/favicons?domain=dmax.com.tr&sz=%size%",
+    "apiVersion": 1,
+    "fileHash": "sha256-426fa59c00a613af7032d4b4848d9d08c07ab2597050e4963e4216e8625b6426"
   }
 ]

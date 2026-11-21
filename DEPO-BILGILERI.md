@@ -164,52 +164,53 @@ Toplam satır: 44 · Aktif: 37 · Duplicate: 7.
 | 31 | DiziYo | [blackhope01/cloudstream-plugins](https://github.com/blackhope01/cloudstream-plugins) | [diziyo.so](https://diziyo.so) | 1 | 2026-09-07 | 2026-10-06 | Aktif |  |
 | 32 | DiziYou | [feroxx/Kekik-cloudstream](https://github.com/feroxx/Kekik-cloudstream) | [diziyou.one](https://diziyou.one) | 26 | 2026-11-21 | 2026-11-12 | Duplicate |  |
 | 33 | DiziYou | [lepotane/MRC-builds](https://github.com/lepotane/MRC-builds) | [diziyou.one](https://diziyou.one) | 11 | 2026-11-19 | 2026-11-19 | Aktif |  |
-| 34 | FilmEkseni | [blackhope01/cloudstream-plugins](https://github.com/blackhope01/cloudstream-plugins) | [filmekseni.vip](https://filmekseni.vip) | 1 | 2026-09-07 | 2026-09-16 | Duplicate |  |
-| 35 | FilmEkseni | [lepotane/MRC-builds](https://github.com/lepotane/MRC-builds) | [filmekseni.vip](https://filmekseni.vip) | 6 | 2026-11-19 | 2026-11-15 | Duplicate |  |
-| 36 | FilmHane | [blackhope01/cloudstream-plugins](https://github.com/blackhope01/cloudstream-plugins) | [filmhane.shop](https://filmhane.shop) | 1 | 2026-09-07 | 2026-09-07 | Aktif |  |
-| 37 | FilmIzyon | [lepotane/MRC-builds](https://github.com/lepotane/MRC-builds) | [filmizyon.com](https://filmizyon.com) | 9 | 2026-11-15 | 2026-11-15 | Aktif |  |
-| 38 | FilmMakinesi | [feroxx/Kekik-cloudstream](https://github.com/feroxx/Kekik-cloudstream) | [filmmakinesi.film](https://filmmakinesi.film) | 59 | 2026-11-21 | 2026-11-12 | Duplicate |  |
-| 39 | FilmMakinesi | [lepotane/MRC-builds](https://github.com/lepotane/MRC-builds) | [filmmakinesi.to](https://filmmakinesi.to) | 7 | 2026-11-19 | 2026-11-19 | Aktif |  |
-| 40 | FilmModu | [feroxx/Kekik-cloudstream](https://github.com/feroxx/Kekik-cloudstream) | [filmmodu.one](https://filmmodu.one) | 19 | 2026-11-21 | 2026-11-21 | Aktif |  |
-| 41 | FullHDFilm | [feroxx/Kekik-cloudstream](https://github.com/feroxx/Kekik-cloudstream) | [hdfilm.us](https://hdfilm.us) | 36 | 2026-11-21 | 2026-11-21 | Aktif |  |
-| 42 | FullHDFilmizlesene | [feroxx/Kekik-cloudstream](https://github.com/feroxx/Kekik-cloudstream) | [fullhdfilmizlesene.de](https://fullhdfilmizlesene.de) | 33 | 2026-11-21 | 2026-11-12 | Duplicate |  |
-| 43 | FullHDFilmizlesene | [lepotane/MRC-builds](https://github.com/lepotane/MRC-builds) | [fullhdfilmizlesene.now](https://fullhdfilmizlesene.now) | 7 | 2026-11-15 | 2026-11-15 | Aktif |  |
-| 44 | HDFilmCehennemi | [feroxx/Kekik-cloudstream](https://github.com/feroxx/Kekik-cloudstream) | [hdfilmcehennemi.com](https://hdfilmcehennemi.com) | 59 | 2026-11-21 | 2026-11-12 | Duplicate |  |
-| 45 | HDFilmCehennemi | [lepotane/MRC-builds](https://github.com/lepotane/MRC-builds) | [hdfilmcehennemi.nl](https://hdfilmcehennemi.nl) | 10 | 2026-11-19 | 2026-11-19 | Aktif |  |
-| 46 | HDFilmCehennemi2 | [baristomruk-max/BTVault](https://github.com/baristomruk-max/BTVault) | [hdfilmcehennemi2.biz](https://hdfilmcehennemi2.biz) | 6 | 2026-11-18 | 2026-11-18 | Aktif |  |
-| 47 | HdFilmCehennemi2 | [lepotane/MRC-builds](https://github.com/lepotane/MRC-builds) | [hdfilmcehennemi2.biz](https://hdfilmcehennemi2.biz) | 6 | 2026-11-15 | 2026-11-15 | Duplicate |  |
-| 48 | HDFilmDelisi | [feroxx/Kekik-cloudstream](https://github.com/feroxx/Kekik-cloudstream) | [hdfilmdelisi.com](https://hdfilmdelisi.com) | 1 | 2026-11-21 | 2026-11-12 | Duplicate |  |
-| 49 | HDFilmDelisi | [lepotane/MRC-builds](https://github.com/lepotane/MRC-builds) | [hdfilmdelisi.one](https://hdfilmdelisi.one) | 18 | 2026-11-19 | 2026-11-19 | Aktif |  |
-| 50 | HDFilmIzle | [baristomruk-max/BTVault](https://github.com/baristomruk-max/BTVault) | [hdfilmizle.live](https://hdfilmizle.live) | 4 | 2026-11-18 | 2026-11-18 | Aktif |  |
-| 51 | InatBox | [feroxx/Kekik-cloudstream](https://github.com/feroxx/Kekik-cloudstream) | — | 30 | 2026-11-21 | 2026-11-21 | Aktif |  |
-| 52 | InatBoxBC | [lepotane/MRC-builds](https://github.com/lepotane/MRC-builds) | — | 6 | 2026-11-19 | 2026-11-19 | Aktif |  |
-| 53 | JetFilmizle | [baristomruk-max/BTVault](https://github.com/baristomruk-max/BTVault) | [jetfilmizle.app](https://jetfilmizle.app) | 22 | 2026-11-18 | 2026-11-18 | Aktif |  |
-| 54 | JetFilmizle | [feroxx/Kekik-cloudstream](https://github.com/feroxx/Kekik-cloudstream) | [jetfilmizle.de](https://jetfilmizle.de) | 48 | 2026-11-21 | 2026-11-12 | Duplicate |  |
-| 55 | JetFilmizle | [lepotane/MRC-builds](https://github.com/lepotane/MRC-builds) | [jetfilmizle.now](https://jetfilmizle.now) | 4 | 2026-11-15 | 2026-11-15 | Duplicate |  |
-| 56 | LoveFilm | [blackhope01/cloudstream-plugins](https://github.com/blackhope01/cloudstream-plugins) | [lovefilmizle.net](https://lovefilmizle.net) | 1 | 2026-09-07 | 2026-09-16 | Duplicate |  |
-| 57 | LoveFilm | [lepotane/MRC-builds](https://github.com/lepotane/MRC-builds) | [lovefilmizle.net](https://lovefilmizle.net) | 7 | 2026-11-15 | 2026-11-15 | Aktif |  |
-| 58 | powerDizi | [baristomruk-max/BTVault](https://github.com/baristomruk-max/BTVault) | [power](https://power) | 2 | 2026-11-18 | 2026-11-18 | Aktif |  |
-| 59 | powerSinema | [baristomruk-max/BTVault](https://github.com/baristomruk-max/BTVault) | [power](https://power) | 2 | 2026-11-18 | 2026-11-18 | Aktif |  |
-| 60 | SelcukFlix | [feroxx/Kekik-cloudstream](https://github.com/feroxx/Kekik-cloudstream) | [selcukflix.co](https://selcukflix.co) | 5 | 2026-11-21 | 2026-11-12 | Duplicate |  |
-| 61 | SelcukFlix | [lepotane/MRC-builds](https://github.com/lepotane/MRC-builds) | [selcukflix.com](https://selcukflix.com) | 9 | 2026-11-15 | 2026-11-15 | Aktif |  |
-| 62 | SetFilmIzle | [feroxx/Kekik-cloudstream](https://github.com/feroxx/Kekik-cloudstream) | [setfilmizle.uk](https://setfilmizle.uk) | 32 | 2026-11-21 | 2026-11-12 | Duplicate |  |
-| 63 | SetFilmIzle | [lepotane/MRC-builds](https://github.com/lepotane/MRC-builds) | [setfilmizle.uk](https://setfilmizle.uk) | 7 | 2026-11-15 | 2026-11-15 | Aktif |  |
-| 64 | SezonlukDizi | [baristomruk-max/BTVault](https://github.com/baristomruk-max/BTVault) | [sezonlukdizi.cc](https://sezonlukdizi.cc) | 3 | 2026-11-18 | 2026-11-18 | Aktif |  |
-| 65 | SezonlukDizi | [feroxx/Kekik-cloudstream](https://github.com/feroxx/Kekik-cloudstream) | [sezonlukdizi6.com](https://sezonlukdizi6.com) | 9 | 2026-11-21 | 2026-11-12 | Duplicate |  |
-| 66 | SezonlukDizi | [lepotane/MRC-builds](https://github.com/lepotane/MRC-builds) | [sezonlukdizi.cc](https://sezonlukdizi.cc) | 8 | 2026-11-15 | 2026-11-15 | Duplicate |  |
-| 67 | SezonlukFilm | [bilhan50/BilhanTR](https://github.com/bilhan50/BilhanTR) | [sezonlukdizi.one](https://sezonlukdizi.one) | 1 | 2026-10-09 | 2026-10-09 | Aktif |  |
-| 68 | Sinefy | [lepotane/MRC-builds](https://github.com/lepotane/MRC-builds) | [sinefy3.com](https://sinefy3.com) | 6 | 2026-11-19 | 2026-11-19 | Aktif |  |
-| 69 | SinemaCX | [feroxx/Kekik-cloudstream](https://github.com/feroxx/Kekik-cloudstream) | [sinema.cx](https://sinema.cx) | 26 | 2026-11-21 | 2026-11-21 | Aktif |  |
-| 70 | Sinewix | [feroxx/Kekik-cloudstream](https://github.com/feroxx/Kekik-cloudstream) | [sinewix.site](https://sinewix.site) | 4 | 2026-11-21 | 2026-11-21 | Aktif |  |
-| 71 | Sinezy | [lepotane/MRC-builds](https://github.com/lepotane/MRC-builds) | [sinezy.to](https://sinezy.to) | 9 | 2026-11-15 | 2026-11-15 | Aktif |  |
-| 72 | Streamed | [Kraptor123/Cs-Karma](https://github.com/Kraptor123/Cs-Karma) | [streamed.pk](https://streamed.pk) | 30 | 2026-11-15 | 2026-11-15 | Aktif |  |
-| 73 | TvDiziler | [lepotane/MRC-builds](https://github.com/lepotane/MRC-builds) | [tvdiziler.tv](https://tvdiziler.tv) | 7 | 2026-11-15 | 2026-11-15 | Aktif |  |
-| 74 | UltraFilmizle | [lepotane/MRC-builds](https://github.com/lepotane/MRC-builds) | [ufilmizle.com](https://ufilmizle.com) | 15 | 2026-11-15 | 2026-11-15 | Aktif |  |
-| 75 | Webteizle | [blackhope01/cloudstream-plugins](https://github.com/blackhope01/cloudstream-plugins) | [webteizle3.xyz](https://webteizle3.xyz) | 1 | 2026-09-07 | 2026-09-16 | Duplicate |  |
-| 76 | WebteIzle | [feroxx/Kekik-cloudstream](https://github.com/feroxx/Kekik-cloudstream) | [webteizle3.xyz](https://webteizle3.xyz) | 21 | 2026-11-21 | 2026-11-21 | Aktif |  |
-| 77 | XPrime | [baristomruk-max/BTVault](https://github.com/baristomruk-max/BTVault) | — | 2 | 2026-11-18 | 2026-11-18 | Aktif |  |
-| 78 | YabanciDizi | [baristomruk-max/BTVault](https://github.com/baristomruk-max/BTVault) | [yabancidizi.news](https://yabancidizi.news) | 3 | 2026-11-18 | 2026-11-18 | Aktif |  |
-| 79 | YabanciDizi | [lepotane/MRC-builds](https://github.com/lepotane/MRC-builds) | [yabancidizi.news](https://yabancidizi.news) | 18 | 2026-11-15 | 2026-11-15 | Duplicate |  |
+| 34 | DMax | [baristomruk-max/BTVault](https://github.com/baristomruk-max/BTVault) | [dmax.com.tr](https://dmax.com.tr) | 2 | 2026-11-18 | 2026-11-18 | Aktif |  |
+| 35 | FilmEkseni | [blackhope01/cloudstream-plugins](https://github.com/blackhope01/cloudstream-plugins) | [filmekseni.vip](https://filmekseni.vip) | 1 | 2026-09-07 | 2026-09-16 | Duplicate |  |
+| 36 | FilmEkseni | [lepotane/MRC-builds](https://github.com/lepotane/MRC-builds) | [filmekseni.vip](https://filmekseni.vip) | 6 | 2026-11-19 | 2026-11-15 | Duplicate |  |
+| 37 | FilmHane | [blackhope01/cloudstream-plugins](https://github.com/blackhope01/cloudstream-plugins) | [filmhane.shop](https://filmhane.shop) | 1 | 2026-09-07 | 2026-09-07 | Aktif |  |
+| 38 | FilmIzyon | [lepotane/MRC-builds](https://github.com/lepotane/MRC-builds) | [filmizyon.com](https://filmizyon.com) | 9 | 2026-11-15 | 2026-11-15 | Aktif |  |
+| 39 | FilmMakinesi | [feroxx/Kekik-cloudstream](https://github.com/feroxx/Kekik-cloudstream) | [filmmakinesi.film](https://filmmakinesi.film) | 59 | 2026-11-21 | 2026-11-12 | Duplicate |  |
+| 40 | FilmMakinesi | [lepotane/MRC-builds](https://github.com/lepotane/MRC-builds) | [filmmakinesi.to](https://filmmakinesi.to) | 7 | 2026-11-19 | 2026-11-19 | Aktif |  |
+| 41 | FilmModu | [feroxx/Kekik-cloudstream](https://github.com/feroxx/Kekik-cloudstream) | [filmmodu.one](https://filmmodu.one) | 19 | 2026-11-21 | 2026-11-21 | Aktif |  |
+| 42 | FullHDFilm | [feroxx/Kekik-cloudstream](https://github.com/feroxx/Kekik-cloudstream) | [hdfilm.us](https://hdfilm.us) | 36 | 2026-11-21 | 2026-11-21 | Aktif |  |
+| 43 | FullHDFilmizlesene | [feroxx/Kekik-cloudstream](https://github.com/feroxx/Kekik-cloudstream) | [fullhdfilmizlesene.de](https://fullhdfilmizlesene.de) | 33 | 2026-11-21 | 2026-11-12 | Duplicate |  |
+| 44 | FullHDFilmizlesene | [lepotane/MRC-builds](https://github.com/lepotane/MRC-builds) | [fullhdfilmizlesene.now](https://fullhdfilmizlesene.now) | 7 | 2026-11-15 | 2026-11-15 | Aktif |  |
+| 45 | HDFilmCehennemi | [feroxx/Kekik-cloudstream](https://github.com/feroxx/Kekik-cloudstream) | [hdfilmcehennemi.com](https://hdfilmcehennemi.com) | 59 | 2026-11-21 | 2026-11-12 | Duplicate |  |
+| 46 | HDFilmCehennemi | [lepotane/MRC-builds](https://github.com/lepotane/MRC-builds) | [hdfilmcehennemi.nl](https://hdfilmcehennemi.nl) | 10 | 2026-11-19 | 2026-11-19 | Aktif |  |
+| 47 | HDFilmCehennemi2 | [baristomruk-max/BTVault](https://github.com/baristomruk-max/BTVault) | [hdfilmcehennemi2.biz](https://hdfilmcehennemi2.biz) | 6 | 2026-11-18 | 2026-11-18 | Aktif |  |
+| 48 | HdFilmCehennemi2 | [lepotane/MRC-builds](https://github.com/lepotane/MRC-builds) | [hdfilmcehennemi2.biz](https://hdfilmcehennemi2.biz) | 6 | 2026-11-15 | 2026-11-15 | Duplicate |  |
+| 49 | HDFilmDelisi | [feroxx/Kekik-cloudstream](https://github.com/feroxx/Kekik-cloudstream) | [hdfilmdelisi.com](https://hdfilmdelisi.com) | 1 | 2026-11-21 | 2026-11-12 | Duplicate |  |
+| 50 | HDFilmDelisi | [lepotane/MRC-builds](https://github.com/lepotane/MRC-builds) | [hdfilmdelisi.one](https://hdfilmdelisi.one) | 18 | 2026-11-19 | 2026-11-19 | Aktif |  |
+| 51 | HDFilmIzle | [baristomruk-max/BTVault](https://github.com/baristomruk-max/BTVault) | [hdfilmizle.live](https://hdfilmizle.live) | 4 | 2026-11-18 | 2026-11-18 | Aktif |  |
+| 52 | InatBox | [feroxx/Kekik-cloudstream](https://github.com/feroxx/Kekik-cloudstream) | — | 30 | 2026-11-21 | 2026-11-21 | Aktif |  |
+| 53 | InatBoxBC | [lepotane/MRC-builds](https://github.com/lepotane/MRC-builds) | — | 6 | 2026-11-19 | 2026-11-19 | Aktif |  |
+| 54 | JetFilmizle | [baristomruk-max/BTVault](https://github.com/baristomruk-max/BTVault) | [jetfilmizle.app](https://jetfilmizle.app) | 22 | 2026-11-18 | 2026-11-18 | Aktif |  |
+| 55 | JetFilmizle | [feroxx/Kekik-cloudstream](https://github.com/feroxx/Kekik-cloudstream) | [jetfilmizle.de](https://jetfilmizle.de) | 48 | 2026-11-21 | 2026-11-12 | Duplicate |  |
+| 56 | JetFilmizle | [lepotane/MRC-builds](https://github.com/lepotane/MRC-builds) | [jetfilmizle.now](https://jetfilmizle.now) | 4 | 2026-11-15 | 2026-11-15 | Duplicate |  |
+| 57 | LoveFilm | [blackhope01/cloudstream-plugins](https://github.com/blackhope01/cloudstream-plugins) | [lovefilmizle.net](https://lovefilmizle.net) | 1 | 2026-09-07 | 2026-09-16 | Duplicate |  |
+| 58 | LoveFilm | [lepotane/MRC-builds](https://github.com/lepotane/MRC-builds) | [lovefilmizle.net](https://lovefilmizle.net) | 7 | 2026-11-15 | 2026-11-15 | Aktif |  |
+| 59 | powerDizi | [baristomruk-max/BTVault](https://github.com/baristomruk-max/BTVault) | [power](https://power) | 2 | 2026-11-18 | 2026-11-18 | Aktif |  |
+| 60 | powerSinema | [baristomruk-max/BTVault](https://github.com/baristomruk-max/BTVault) | [power](https://power) | 2 | 2026-11-18 | 2026-11-18 | Aktif |  |
+| 61 | SelcukFlix | [feroxx/Kekik-cloudstream](https://github.com/feroxx/Kekik-cloudstream) | [selcukflix.co](https://selcukflix.co) | 5 | 2026-11-21 | 2026-11-12 | Duplicate |  |
+| 62 | SelcukFlix | [lepotane/MRC-builds](https://github.com/lepotane/MRC-builds) | [selcukflix.com](https://selcukflix.com) | 9 | 2026-11-15 | 2026-11-15 | Aktif |  |
+| 63 | SetFilmIzle | [feroxx/Kekik-cloudstream](https://github.com/feroxx/Kekik-cloudstream) | [setfilmizle.uk](https://setfilmizle.uk) | 32 | 2026-11-21 | 2026-11-12 | Duplicate |  |
+| 64 | SetFilmIzle | [lepotane/MRC-builds](https://github.com/lepotane/MRC-builds) | [setfilmizle.uk](https://setfilmizle.uk) | 7 | 2026-11-15 | 2026-11-15 | Aktif |  |
+| 65 | SezonlukDizi | [baristomruk-max/BTVault](https://github.com/baristomruk-max/BTVault) | [sezonlukdizi.cc](https://sezonlukdizi.cc) | 3 | 2026-11-18 | 2026-11-18 | Aktif |  |
+| 66 | SezonlukDizi | [feroxx/Kekik-cloudstream](https://github.com/feroxx/Kekik-cloudstream) | [sezonlukdizi6.com](https://sezonlukdizi6.com) | 9 | 2026-11-21 | 2026-11-12 | Duplicate |  |
+| 67 | SezonlukDizi | [lepotane/MRC-builds](https://github.com/lepotane/MRC-builds) | [sezonlukdizi.cc](https://sezonlukdizi.cc) | 8 | 2026-11-15 | 2026-11-15 | Duplicate |  |
+| 68 | SezonlukFilm | [bilhan50/BilhanTR](https://github.com/bilhan50/BilhanTR) | [sezonlukdizi.one](https://sezonlukdizi.one) | 1 | 2026-10-09 | 2026-10-09 | Aktif |  |
+| 69 | Sinefy | [lepotane/MRC-builds](https://github.com/lepotane/MRC-builds) | [sinefy3.com](https://sinefy3.com) | 6 | 2026-11-19 | 2026-11-19 | Aktif |  |
+| 70 | SinemaCX | [feroxx/Kekik-cloudstream](https://github.com/feroxx/Kekik-cloudstream) | [sinema.cx](https://sinema.cx) | 26 | 2026-11-21 | 2026-11-21 | Aktif |  |
+| 71 | Sinewix | [feroxx/Kekik-cloudstream](https://github.com/feroxx/Kekik-cloudstream) | [sinewix.site](https://sinewix.site) | 4 | 2026-11-21 | 2026-11-21 | Aktif |  |
+| 72 | Sinezy | [lepotane/MRC-builds](https://github.com/lepotane/MRC-builds) | [sinezy.to](https://sinezy.to) | 9 | 2026-11-15 | 2026-11-15 | Aktif |  |
+| 73 | Streamed | [Kraptor123/Cs-Karma](https://github.com/Kraptor123/Cs-Karma) | [streamed.pk](https://streamed.pk) | 30 | 2026-11-15 | 2026-11-15 | Aktif |  |
+| 74 | TvDiziler | [lepotane/MRC-builds](https://github.com/lepotane/MRC-builds) | [tvdiziler.tv](https://tvdiziler.tv) | 7 | 2026-11-15 | 2026-11-15 | Aktif |  |
+| 75 | UltraFilmizle | [lepotane/MRC-builds](https://github.com/lepotane/MRC-builds) | [ufilmizle.com](https://ufilmizle.com) | 15 | 2026-11-15 | 2026-11-15 | Aktif |  |
+| 76 | Webteizle | [blackhope01/cloudstream-plugins](https://github.com/blackhope01/cloudstream-plugins) | [webteizle3.xyz](https://webteizle3.xyz) | 1 | 2026-09-07 | 2026-09-16 | Duplicate |  |
+| 77 | WebteIzle | [feroxx/Kekik-cloudstream](https://github.com/feroxx/Kekik-cloudstream) | [webteizle3.xyz](https://webteizle3.xyz) | 21 | 2026-11-21 | 2026-11-21 | Aktif |  |
+| 78 | XPrime | [baristomruk-max/BTVault](https://github.com/baristomruk-max/BTVault) | — | 2 | 2026-11-18 | 2026-11-18 | Aktif |  |
+| 79 | YabanciDizi | [baristomruk-max/BTVault](https://github.com/baristomruk-max/BTVault) | [yabancidizi.news](https://yabancidizi.news) | 3 | 2026-11-18 | 2026-11-18 | Aktif |  |
+| 80 | YabanciDizi | [lepotane/MRC-builds](https://github.com/lepotane/MRC-builds) | [yabancidizi.news](https://yabancidizi.news) | 18 | 2026-11-15 | 2026-11-15 | Duplicate |  |
 <!-- KAYIT-DURUMU:OTOMATIK-SON -->
 
 ## Kaynak Depoları ve Güncelleme Tarihleri
@@ -223,6 +224,7 @@ Bu bölümde kaynak olarak taranan fiili **5 depo** listelenir. Depo kümesi ve 
 | [Kraptor123/Cs-Karma](https://github.com/Kraptor123/Cs-Karma) | 2026-10-27 22:27:50 UTC | 
 | [lepotane/MRC-builds](https://github.com/lepotane/MRC-builds) | 2026-10-24 18:46:17 UTC |
 
+| 999 | DMax | [baristomruk-max/BTVault](https://github.com/baristomruk-max/BTVault) | [dmax.com.tr](https://dmax.com.tr) | 2 | 2026-11-18 | 2026-11-18 | Aktif |  |
 ## İstenmeyenler (Delete-Zone) - 70 unique
 
 | Eklenti | Kaynak Ornek | Site | Dil | Tur |
