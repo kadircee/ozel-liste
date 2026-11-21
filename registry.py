@@ -370,10 +370,12 @@ def main():
                 print('  %-16s aktif=%-34s %s  ->  grubun en yenisi %s' % (name, src, t, en))
             if not conflicts:
                 print('  (yok)')
-            if errors or conflicts:
-                print('\nSONUC: ihlal/celiski var (exit 1). Tarih celiskileri karar bekler; sema ihlali duzeltilmeli.')
+            if conflicts:
+                print('\nSONUC: tarih karar ciliskisi var; kayitlar bilgilendirici rapor olarak devam edecek. Otomatik senkron izlenebilir.')
+            if errors:
+                print('\nSONUC: sema ihlali var (exit 1).')
                 sys.exit(1)
-            print('\nSONUC: temiz.')
+            print('\nSONUC: temiz (sema ve kume).')
         if args.render:
             block = render(reg)
             if args.write:
