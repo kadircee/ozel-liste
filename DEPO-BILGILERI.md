@@ -190,7 +190,7 @@ Toplam satır: 44 · Aktif: 37 · Duplicate: 7.
 | 57 | JetFilmizle | [lepotane/MRC-builds](https://github.com/lepotane/MRC-builds) | [jetfilmizle.now](https://jetfilmizle.now) | 4 | 2026-11-15 | 2026-11-15 | Duplicate |  |
 | 58 | LoveFilm | [blackhope01/cloudstream-plugins](https://github.com/blackhope01/cloudstream-plugins) | [lovefilmizle.net](https://lovefilmizle.net) | 1 | 2026-09-07 | 2026-09-16 | Duplicate |  |
 | 59 | LoveFilm | [lepotane/MRC-builds](https://github.com/lepotane/MRC-builds) | [lovefilmizle.net](https://lovefilmizle.net) | 7 | 2026-11-15 | 2026-11-15 | Aktif |  |
-| 60 | powerDizi | [baristomruk-max/BTVault](https://github.com/baristomruk-max/BTVault) | [power](https://power) | 2 |  |  | Aktif |  |
+| 60 | powerDizi | [baristomruk-max/BTVault](https://github.com/baristomruk-max/BTVault) | [power](https://power) | 2 | 2026-11-18 | 2026-11-18 | Aktif |  |
 | 61 | powerSinema | [baristomruk-max/BTVault](https://github.com/baristomruk-max/BTVault) | [power](https://power) | 2 | 2026-11-18 | 2026-11-18 | Aktif |  |
 | 62 | SelcukFlix | [feroxx/Kekik-cloudstream](https://github.com/feroxx/Kekik-cloudstream) | [selcukflix.co](https://selcukflix.co) | 5 | 2026-11-21 | 2026-11-12 | Duplicate |  |
 | 63 | SelcukFlix | [lepotane/MRC-builds](https://github.com/lepotane/MRC-builds) | [selcukflix.com](https://selcukflix.com) | 9 | 2026-11-15 | 2026-11-15 | Aktif |  |
