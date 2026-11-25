@@ -84,24 +84,28 @@
     "fileHash": "sha256-e65017242f4149ccd9a86ed08cdcd1095e0bb3d41916d7728d1bb8ecd9d005ad"
   },
   {
-    "url": "https://raw.githubusercontent.com/baristomruk-max/BTVault/builds/DiziGom.cs3",
-    "status": 1,
-    "version": 3,
-    "name": "DiziGom",
-    "internalName": "DiziGom",
-    "authors": [
-      "BTcozum"
-    ],
-    "description": "DiziGom - Yabanci dizi izle",
-    "fileSize": 25442,
-    "repositoryUrl": "https://github.com/baristomruk-max/BTVault",
-    "language": "tr",
-    "tvTypes": [
-      "TvSeries"
-    ],
     "iconUrl": "https://www.google.com/s2/favicons?domain=dizigom.news&sz=%size%",
+    "fileHash": "sha256-1db72a4f2e9bd2373fed7527675e6a8f5899d88920346bb75015aed7c9be3b09",
     "apiVersion": 1,
-    "fileHash": "sha256-39d677260274829a42662035265c5c2c712420e110c3adfcca2a657196d21415"
+    "repositoryUrl": "https://github.com/Jung1330/StreamTest",
+    "fileSize": 20359,
+    "status": 1,
+    "language": "tr",
+    "authors": [
+      "Jung1330",
+      "StreamTest",
+      "AI-Assistant"
+    ],
+    "tvTypes": [
+      "TvSeries",
+      "Movie",
+      "Anime"
+    ],
+    "version": 1,
+    "internalName": "Dizigom",
+    "description": "StreamTest - DiziGom Full HD 1080p Yabancı & Yerli Dizi, Film, Anime ve Platform Eklentisi.",
+    "url": "https://raw.githubusercontent.com/Jung1330/StreamTest/builds/Dizigom.cs3",
+    "name": "Dizigom"
   },
   {
     "url": "https://raw.githubusercontent.com/blackhope01/cloudstream-plugins/builds/DiziLife.cs3",
@@ -145,46 +149,52 @@
     "fileHash": "sha256-1abaca4ae989d918c3272037c532011a5db30e79e26c1a74242a827710990f42"
   },
   {
-    "url": "https://raw.githubusercontent.com/lepotane/MRC-builds/builds/DiziMom.cs3",
-    "status": 1,
-    "version": 14,
-    "name": "DiziMom",
-    "internalName": "DiziMom",
-    "authors": [
-      "MRC"
-    ],
-    "description": "DiziMom - Binlerce yerli ve yabancı dizi arşivi, tüm sezonlar kesintisiz.",
-    "fileSize": 31712,
-    "repositoryUrl": "https://github.com/lepotane/MRC-builds",
-    "language": "tr",
-    "tvTypes": [
-      "Movie",
-      "TvSeries"
-    ],
-    "iconUrl": "https://www.google.com/s2/favicons?domain=https://www.dizimom.wiki&sz=128",
+    "iconUrl": "https://www.google.com/s2/favicons?domain=ddizimom.icu&sz=%size%",
+    "fileHash": "sha256-e87c38a27bd565db7abf32b16ab9dd76bdc03a4450cbd7de30e74f8698c0b527",
     "apiVersion": 1,
-    "fileHash": "sha256-8cd0e8a4f0cb88e83c915909766d59a1f27ebecb4a757a2348d56942ae7e78f1"
-  },
-  {
-    "url": "https://raw.githubusercontent.com/lepotane/MRC-builds/builds/DiziPal.cs3",
+    "repositoryUrl": "https://github.com/Jung1330/StreamTest",
+    "fileSize": 20362,
     "status": 1,
-    "version": 15,
-    "name": "DiziPal",
-    "internalName": "DiziPal",
-    "authors": [
-      "MRC"
-    ],
-    "description": "DiziPal - Güncel adres üzerinden yabancı dizi ve filmler.",
-    "fileSize": 39626,
-    "repositoryUrl": "https://github.com/lepotane/MRC-builds",
     "language": "tr",
+    "authors": [
+      "Jung1330",
+      "StreamTest",
+      "AI-Assistant"
+    ],
     "tvTypes": [
       "TvSeries",
-      "Movie"
+      "Movie",
+      "Anime"
     ],
-    "iconUrl": "https://www.google.com/s2/favicons?domain=dizipal2142.com&sz=128",
+    "version": 1,
+    "internalName": "Dizimom",
+    "description": "StreamTest - DiziMom Yabancı & Yerli Dizi, Film, Anime ve Platform Eklentisi.",
+    "url": "https://raw.githubusercontent.com/Jung1330/StreamTest/builds/Dizimom.cs3",
+    "name": "Dizimom"
+  },
+  {
+    "iconUrl": "https://www.google.com/s2/favicons?domain=ddizipal.icu&sz=%size%",
+    "fileHash": "sha256-bf9d7565fc99bf8ddb0dab00f92f8493488ea8b904831ce3f78fa87155556018",
     "apiVersion": 1,
-    "fileHash": "sha256-b03238d4d35f29cb1fa97bb624d60c526457405c3fdc24a6ecf72d841115fb31"
+    "repositoryUrl": "https://github.com/Jung1330/StreamTest",
+    "fileSize": 20432,
+    "status": 1,
+    "language": "tr",
+    "authors": [
+      "Jung1330",
+      "StreamTest",
+      "AI-Assistant"
+    ],
+    "tvTypes": [
+      "TvSeries",
+      "Movie",
+      "Anime"
+    ],
+    "version": 1,
+    "internalName": "Dizipal",
+    "description": "StreamTest - DiziPAL Yabancı/Yerli Dizi, Film, Anime ve Platform (Exxen, BluTV, Gain, Netflix, Disney+, TOD, Tabii) Eklentisi.",
+    "url": "https://raw.githubusercontent.com/Jung1330/StreamTest/builds/Dizipal.cs3",
+    "name": "Dizipal"
   },
   {
     "iconUrl": "https://www.google.com/s2/favicons?domain=https://dizipal2135.com&sz=128",
@@ -292,24 +302,26 @@
     "fileHash": "sha256-9dacc67b13830d30c0412b4430b1bf8476cd7ca98e02fe848cc3818c7982f0aa"
   },
   {
-    "url": "https://raw.githubusercontent.com/lepotane/MRC-builds/builds/DiziYou.cs3",
+    "iconUrl": "https://www.google.com/s2/favicons?domain=diziyou.love&sz=%size%",
+    "fileHash": "sha256-41daeb9c0d989843b1463ce51d5cb7f4d81c51fd15fc0034607fd460b273d409",
+    "apiVersion": 1,
+    "repositoryUrl": "https://github.com/Jung1330/StreamTest",
+    "fileSize": 18952,
     "status": 1,
-    "version": 11,
-    "name": "DiziYou",
-    "internalName": "DiziYou",
-    "authors": [
-      "MRC"
-    ],
-    "description": "DiziYou - Kaliteli Türkçe dublaj ve altyazılı yabancı dizi izleme sitesi.",
-    "fileSize": 20415,
-    "repositoryUrl": "https://github.com/lepotane/MRC-builds",
     "language": "tr",
+    "authors": [
+      "Jung1330",
+      "StreamTest",
+      "AI-Assistant"
+    ],
     "tvTypes": [
       "TvSeries"
     ],
-    "iconUrl": "https://cdn.diziyou.one/wp-content/uploads/2020/04/diziyou-favicon.png",
-    "apiVersion": 1,
-    "fileHash": "sha256-5a534dcbc68874666283093c0ccf028921eb5946edf55ddb6a64de5d60ac57a5"
+    "version": 7,
+    "internalName": "Diziyou",
+    "description": "StreamTest - Diziyou Yabancı Dizi Eklentisi (doğrudan HLS oynatma).",
+    "url": "https://raw.githubusercontent.com/Jung1330/StreamTest/builds/Diziyou.cs3",
+    "name": "Diziyou"
   },
   {
     "url": "https://raw.githubusercontent.com/blackhope01/cloudstream-plugins/builds/FilmHane.cs3",
@@ -415,24 +427,26 @@
     "fileHash": "sha256-83de6f5e436bc671aef7925683ffa870a8f8264513d032e23e64b2d0d59515a4"
   },
   {
-    "url": "https://raw.githubusercontent.com/lepotane/MRC-builds/builds/FullHDFilmizlesene.cs3",
+    "iconUrl": "https://www.google.com/s2/favicons?domain=fullhdfilmizlesene.now&sz=%size%",
+    "fileHash": "sha256-9d58b39c11443df4bf1066bc935a6ff05ab0dd27693b49760af4bce08cc8ab9e",
+    "apiVersion": 1,
+    "repositoryUrl": "https://github.com/Jung1330/StreamTest",
+    "fileSize": 16370,
     "status": 1,
-    "version": 7,
-    "name": "FullHDFilmizlesene",
-    "internalName": "FullHDFilmizlesene",
-    "authors": [
-      "MRC"
-    ],
-    "description": "FullHDFilmizlesene - Türkçe dublaj ve altyazılı Full HD film arşivi.",
-    "fileSize": 29293,
-    "repositoryUrl": "https://github.com/lepotane/MRC-builds",
     "language": "tr",
+    "authors": [
+      "Jung1330",
+      "StreamTest",
+      "AI-Assistant"
+    ],
     "tvTypes": [
       "Movie"
     ],
-    "iconUrl": "https://www.fullhdfilmizlesene.now/favicon.ico",
-    "apiVersion": 1,
-    "fileHash": "sha256-12a0896baa2decb332a0e66f3b011005708fdc2606263a6aeedb4f0b929cd47c"
+    "version": 1,
+    "internalName": "Fullhdfilmizlesene",
+    "description": "StreamTest - FullHDFilmizlesene 4K & Full HD Türkçe Dublaj ve Altyazılı Film Eklentisi.",
+    "url": "https://raw.githubusercontent.com/Jung1330/StreamTest/builds/Fullhdfilmizlesene.cs3",
+    "name": "Fullhdfilmizlesene"
   },
   {
     "url": "https://raw.githubusercontent.com/lepotane/MRC-builds/builds/HDFilmCehennemi.cs3",
@@ -498,25 +512,27 @@
     "fileHash": "sha256-c7126ad1b82bc37f863072535904fcaed63c419510575c1299546164d78cffdb"
   },
   {
-    "url": "https://raw.githubusercontent.com/baristomruk-max/BTVault/builds/HDFilmIzle.cs3",
+    "iconUrl": "https://www.google.com/s2/favicons?domain=hdfilmizle.live&sz=%size%",
+    "fileHash": "sha256-b29f0ea9868fa10d017679038b5eda12ef258541ef6b2b6f034dd4d265bbbf48",
+    "apiVersion": 1,
+    "repositoryUrl": "https://github.com/Jung1330/StreamTest",
+    "fileSize": 19933,
     "status": 1,
-    "version": 4,
-    "name": "HDFilmIzle",
-    "internalName": "HDFilmIzle",
-    "authors": [
-      "BTcozum"
-    ],
-    "description": "HDFilmIzle - HD film izle",
-    "fileSize": 34613,
-    "repositoryUrl": "https://github.com/baristomruk-max/BTVault",
     "language": "tr",
+    "authors": [
+      "Jung1330",
+      "StreamTest",
+      "AI-Assistant"
+    ],
     "tvTypes": [
       "Movie",
       "TvSeries"
     ],
-    "iconUrl": "https://www.google.com/s2/favicons?domain=hdfilmizle.live&sz=%size%",
-    "apiVersion": 1,
-    "fileHash": "sha256-b8af344f03ea6688e6d6306aa64ae0399a5cf3659a076ae0a84be6414e3e305c"
+    "version": 1,
+    "internalName": "Hdfilmizle",
+    "description": "StreamTest - HDFilmizle 1080p Türkçe Dublaj & Altyazılı Film ve Yabancı Dizi Eklentisi.",
+    "url": "https://raw.githubusercontent.com/Jung1330/StreamTest/builds/Hdfilmizle.cs3",
+    "name": "Hdfilmizle"
   },
   {
     "url": "https://raw.githubusercontent.com/feroxx/Kekik-cloudstream/builds/InatBox.cs3",
@@ -943,25 +959,28 @@
     "name": "DiziIzle"
   },
   {
-    "url": "https://raw.githubusercontent.com/baristomruk-max/BTVault/builds/DiziMag.cs3",
+    "iconUrl": "https://www.google.com/s2/favicons?domain=ddizimag2.icu&sz=%size%",
+    "fileHash": "sha256-cd489335e856a2449603705e037e95d0a2b00e365cc6e65f47a5d43006247c11",
+    "apiVersion": 1,
+    "repositoryUrl": "https://github.com/Jung1330/StreamTest",
+    "fileSize": 20411,
     "status": 1,
-    "version": 4,
-    "name": "DiziMag",
-    "internalName": "DiziMag",
-    "authors": [
-      "BTcozum"
-    ],
-    "description": "DiziMag - Turkce altyazili yabanci dizi",
-    "fileSize": 41513,
-    "repositoryUrl": "https://github.com/baristomruk-max/BTVault",
     "language": "tr",
+    "authors": [
+      "Jung1330",
+      "StreamTest",
+      "AI-Assistant"
+    ],
     "tvTypes": [
       "TvSeries",
-      "Movie"
+      "Movie",
+      "Anime"
     ],
-    "iconUrl": "https://www.google.com/s2/favicons?domain=dizimag.onl&sz=%size%",
-    "apiVersion": 1,
-    "fileHash": "sha256-eaf8d0f743189850dbe485f807fb7d36dca5242ca4a819b27cce45fae84b0781"
+    "version": 3,
+    "internalName": "Dizimag",
+    "description": "StreamTest - Dizimag Yabancı Dizi, Film ve Anime Eklentisi (Pilavyer HLS + Altyazı destekli).",
+    "url": "https://raw.githubusercontent.com/Jung1330/StreamTest/builds/Dizimag.cs3",
+    "name": "Dizimag"
   },
   {
     "iconUrl": "https://www.google.com/s2/favicons?domain=diziroll.club&sz=%size%",
@@ -1105,5 +1124,148 @@
     "iconUrl": "https://www.google.com/s2/favicons?domain=dmax.com.tr&sz=%size%",
     "apiVersion": 1,
     "fileHash": "sha256-426fa59c00a613af7032d4b4848d9d08c07ab2597050e4963e4216e8625b6426"
+  },
+  {
+    "iconUrl": "https://www.google.com/s2/favicons?domain=asyadizi.com&sz=%size%",
+    "fileHash": "sha256-4e98e1b1c56bc4c501a4dbe77710df3441649d848ca039ab990043a90ad3c6c7",
+    "apiVersion": 1,
+    "repositoryUrl": "https://github.com/Jung1330/StreamTest",
+    "fileSize": 15207,
+    "status": 1,
+    "language": "tr",
+    "authors": [
+      "Jung1330",
+      "StreamTest",
+      "AI-Assistant"
+    ],
+    "tvTypes": [
+      "AsianDrama",
+      "TvSeries",
+      "Movie",
+      "Anime"
+    ],
+    "version": 1,
+    "internalName": "Asyadizi",
+    "description": "StreamTest - AsyaDizi Türkçe Altyazılı Kore, Çin, Japon, Tayland Dizileri, BL Dizileri ve Anime Eklentisi.",
+    "url": "https://raw.githubusercontent.com/Jung1330/StreamTest/builds/Asyadizi.cs3",
+    "name": "Asyadizi"
+  },
+  {
+    "iconUrl": "https://www.google.com/s2/favicons?domain=dizican.cc&sz=%size%",
+    "fileHash": "sha256-8c7c34ed17d52508ccbb17ddea173962a447837a4bedeb74aeb4ae8f3dcc34af",
+    "apiVersion": 1,
+    "repositoryUrl": "https://github.com/Jung1330/StreamTest",
+    "fileSize": 28634,
+    "status": 1,
+    "language": "tr",
+    "authors": [
+      "Jung1330",
+      "StreamTest",
+      "AI-Assistant"
+    ],
+    "tvTypes": [
+      "AsianDrama",
+      "TvSeries",
+      "Movie"
+    ],
+    "version": 1,
+    "internalName": "Dizican",
+    "description": "StreamTest - DiziCaN Kore, Çin, Japon, Tayland Dizileri ve Asya Filmleri Eklentisi.",
+    "url": "https://raw.githubusercontent.com/Jung1330/StreamTest/builds/Dizican.cs3",
+    "name": "Dizican"
+  },
+  {
+    "iconUrl": "https://www.google.com/s2/favicons?domain=dramadunyam.com&sz=%size%",
+    "fileHash": "sha256-ce13603110cbe4b5c42f504c4fa0e27bb60f8809afcfdf50bffb46cd35dc49f5",
+    "apiVersion": 1,
+    "repositoryUrl": "https://github.com/Jung1330/StreamTest",
+    "fileSize": 15472,
+    "status": 1,
+    "language": "tr",
+    "authors": [
+      "Jung1330",
+      "StreamTest",
+      "AI-Assistant"
+    ],
+    "tvTypes": [
+      "TvSeries",
+      "AsianDrama"
+    ],
+    "version": 1,
+    "internalName": "Dramadunyam",
+    "description": "StreamTest - DramaDünyam Türkçe Dublaj & Altyazılı Kısa/Mini Dizi Eklentisi.",
+    "url": "https://raw.githubusercontent.com/Jung1330/StreamTest/builds/Dramadunyam.cs3",
+    "name": "Dramadunyam"
+  },
+  {
+    "iconUrl": "https://www.google.com/s2/favicons?domain=minidiziizle.com&sz=%size%",
+    "fileHash": "sha256-6445eebc1890968081f88bb4cd895c50cabfc21be6d3d379ab6dae7ee627e47f",
+    "apiVersion": 1,
+    "repositoryUrl": "https://github.com/Jung1330/StreamTest",
+    "fileSize": 17548,
+    "status": 1,
+    "language": "tr",
+    "authors": [
+      "Jung1330",
+      "StreamTest",
+      "AI-Assistant"
+    ],
+    "tvTypes": [
+      "TvSeries",
+      "AsianDrama"
+    ],
+    "version": 1,
+    "internalName": "Minidiziizle",
+    "description": "StreamTest - Mini Dizi İzle Türkçe Dublaj & Altyazılı Kısa/Mini Dizi Eklentisi (1080p HLS).",
+    "url": "https://raw.githubusercontent.com/Jung1330/StreamTest/builds/Minidiziizle.cs3",
+    "name": "Minidiziizle"
+  },
+  {
+    "iconUrl": "https://www.google.com/s2/favicons?domain=myasiantv.rest&sz=%size%",
+    "fileHash": "sha256-28acb5e54cc02c79772cba7ff46846886415738ab5366307da3a08194a6b9f3e",
+    "apiVersion": 1,
+    "repositoryUrl": "https://github.com/Jung1330/StreamTest",
+    "fileSize": 20305,
+    "status": 1,
+    "language": "en",
+    "authors": [
+      "Jung1330",
+      "StreamTest",
+      "AI-Assistant"
+    ],
+    "tvTypes": [
+      "AsianDrama",
+      "TvSeries",
+      "Movie"
+    ],
+    "version": 1,
+    "internalName": "Myasiantv",
+    "description": "StreamTest - MyAsianTV English Subtitled Korean, Chinese, Japanese, Thai Dramas & Asian Movies.",
+    "url": "https://raw.githubusercontent.com/Jung1330/StreamTest/builds/Myasiantv.cs3",
+    "name": "Myasiantv"
+  },
+  {
+    "iconUrl": "https://www.google.com/s2/favicons?domain=shortizle.com&sz=%size%",
+    "fileHash": "sha256-02e9beadbf9924c9987662cca0e0995aa026be51f2e854df89019e91e0251cbb",
+    "apiVersion": 1,
+    "repositoryUrl": "https://github.com/Jung1330/StreamTest",
+    "fileSize": 18666,
+    "status": 1,
+    "language": "tr",
+    "authors": [
+      "Jung1330",
+      "StreamTest",
+      "AI-Assistant"
+    ],
+    "tvTypes": [
+      "TvSeries",
+      "AsianDrama",
+      "Movie"
+    ],
+    "version": 1,
+    "internalName": "Shortizle",
+    "description": "StreamTest - Shortizle Türkçe Dublaj & Altyazılı Kısa/Mini Dizi, K-Drama ve Film Eklentisi (1080p HLS).",
+    "url": "https://raw.githubusercontent.com/Jung1330/StreamTest/builds/Shortizle.cs3",
+    "name": "Shortizle"
   }
 ]
