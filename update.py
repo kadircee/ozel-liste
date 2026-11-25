@@ -35,6 +35,7 @@ import urllib.request
 REPO_DIR = os.path.dirname(os.path.abspath(__file__))
 PLUGINS_PATH = os.path.join(REPO_DIR, "plugins.json")
 DEPO_PATH = os.path.join(REPO_DIR, "DEPO-BILGILERI.md")
+END = "<!-- KAYIT-DURUMU:OTOMATIK-SON -->"
 API = "https://api.github.com"
 
 NET_TIMEOUT = 30
@@ -269,10 +270,24 @@ def refresh_table(plugins, source_items, tok):
             source_date or "", source_date or ""))
         existing_keys.add((normalized_name, repo))
     if new_rows:
-        new_zone = next((i for i, l in enumerate(lines)
-                         if re.match(r"^#+\s+.*(Istenmeyenler|\u0130stenmeyenler)", l)), len(lines))
-        lines[new_zone:new_zone] = new_rows
-        zone = new_zone + len(new_rows)
+        original_zone = next((i for i, l in enumerate(lines)
+                             if re.match(r"^#+\s+.*(Istenmeyenler|\u0130stenmeyenler)", l)), len(lines))
+        end_marker = next((i for i, l in enumerate(lines) if l.strip() == END), None)
+        # Yeni satirlar isaretli otomatik blok icine (END isaretcisinden once)
+        # yazilir; boylece tablo disinda (Kaynak Depolari bolumu sonrasi gibi)
+        # sahipsiz satirlar olusmaz ve registry.py --sync cift kayit gormez.
+        if end_marker is not None and end_marker <= original_zone:
+            insert_at = end_marker
+        else:
+            last = hdr
+            for i in range(hdr, original_zone):
+                if lines[i].startswith('|'):
+                    last = i
+                elif lines[i].strip():
+                    break
+            insert_at = last + 1
+        lines[insert_at:insert_at] = new_rows
+        zone = original_zone + len(new_rows)
 
     changed = 0
     drop = []

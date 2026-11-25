@@ -45,7 +45,7 @@ UA = 'Mozilla/5.0 (ozel-liste-audit)'
 ALLOWED_TV = {'Movie', 'TvSeries', 'Documentary'}
 # Kullanici istisnalari: normal filtre/delete-zone kurallari bu adlar icin
 # uygulanmaz. Kaynakta yayinlandiklari surece mirror edilirler.
-EXCEPTIONS = {'streamed', 'sinewix', 'dizibal', 'dizibol', 'inatbox', 'inatboxbc'}
+EXCEPTIONS = {'streamed', 'sinewix', 'dizibal', 'dizibol', 'inatbox', 'inatboxbc', 'dmax'}
 
 
 def norm(s):

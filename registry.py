@@ -42,7 +42,7 @@ SEÇIM = ('aktif', 'duplicate', 'istenmeyen')
 ALLOWED_TV = {'Movie', 'TvSeries', 'Documentary'}
 # Bilincli istisnalar (audit.py ile ayni): Streamed en + Live, Sinewix Anime turu
 # de tasir. Diger kayitlar varsayilan filtreye uyar.
-EXCEPTIONS = {'streamed', 'sinewix', 'dizibal', 'dizibol', 'inatbox', 'inatboxbc'}
+EXCEPTIONS = {'streamed', 'sinewix', 'dizibal', 'dizibol', 'inatbox', 'inatboxbc', 'dmax'}
 
 SECIM_TR = {'aktif': 'Aktif', 'duplicate': 'Duplicate', 'istenmeyen': 'İstenmeyen'}
 # Hucre metni -> slug; ASCII/aksanli eski bicimler geriye uyumlu kabul edilir.
@@ -106,8 +106,19 @@ def parse_depo():
     if zone is None:
         print('HATA: DEPO-BILGILERI.md icinde Istenmeyenler basligi bulunamadi')
         sys.exit(2)
+    # Otomatik isaretli blok varsa yalnizca o aralikta tablo satiri oku:
+    # blok disinda (Kaynak Depolari bolumu sonrasi gibi) kalmis sahipsiz
+    # satirlar cift kayit olusturmaz.
+    blk_s = next((i for i, l in enumerate(lines) if l.strip() == BEGIN), None)
+    blk_e = next((i for i, l in enumerate(lines) if l.strip() == END), None)
+    if blk_s is not None and blk_e is not None and blk_s < blk_e:
+        table_start = blk_s + 1
+        table_end = blk_e
+    else:
+        table_start = hdr
+        table_end = zone
     liste = []
-    for i in range(hdr, zone):
+    for i in range(table_start, table_end):
         l = lines[i]
         m = re.match(r'^\| (\d+) \|', l)
         if not m:

@@ -224,7 +224,6 @@ Bu bölümde kaynak olarak taranan fiili **5 depo** listelenir. Depo kümesi ve 
 | [Kraptor123/Cs-Karma](https://github.com/Kraptor123/Cs-Karma) | 2026-10-27 22:27:50 UTC | 
 | [lepotane/MRC-builds](https://github.com/lepotane/MRC-builds) | 2026-10-24 18:46:17 UTC |
 
-| 999 | DMax | [baristomruk-max/BTVault](https://github.com/baristomruk-max/BTVault) | [dmax.com.tr](https://dmax.com.tr) | 2 | 2026-11-18 | 2026-11-18 | Aktif |  |
 ## İstenmeyenler (Delete-Zone) - 70 unique
 
 | Eklenti | Kaynak Ornek | Site | Dil | Tur |
