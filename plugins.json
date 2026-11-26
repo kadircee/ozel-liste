@@ -727,7 +727,7 @@
   {
     "url": "https://raw.githubusercontent.com/feroxx/Kekik-cloudstream/builds/Sinewix.cs3",
     "status": 1,
-    "version": 4,
+    "version": 5,
     "name": "Sinewix",
     "internalName": "Sinewix",
     "authors": [
@@ -735,7 +735,7 @@
       "keyiflerolsun"
     ],
     "description": "Sinewix | Ücretsiz Film - Dizi - Anime İzleme Uygulaması",
-    "fileSize": 26760,
+    "fileSize": 26761,
     "repositoryUrl": "https://github.com/feroxx/Kekik-cloudstream",
     "language": "tr",
     "tvTypes": [
@@ -745,7 +745,7 @@
     ],
     "iconUrl": "https://play-lh.googleusercontent.com/brwGNmr7IjA_MKk_TTPs0va10hdKE_bD_a1lnKoiMuCayW98EHpRv55edA6aEoJlmwfX=w240-h480",
     "apiVersion": 1,
-    "fileHash": "sha256-104fcceef435c42394007414644620fb7f9b2296443d20a420b2ffe552e01b22"
+    "fileHash": "sha256-83ed3793c81af8134bcec0c64be06a426165fda459e8d91db8fd0505e37a3696"
   },
   {
     "url": "https://raw.githubusercontent.com/lepotane/MRC-builds/builds/Sinezy.cs3",
