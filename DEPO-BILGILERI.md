@@ -156,7 +156,7 @@ Toplam satır: 44 · Aktif: 37 · Duplicate: 7.
 | 23 | Dizimom | [Jung1330/StreamTest](https://github.com/Jung1330/StreamTest) | [ddizimom.icu](https://ddizimom.icu) | 1 | 2026-11-23 | 2026-11-23 | Aktif |  |
 | 24 | DiziMom | [feroxx/Kekik-cloudstream](https://github.com/feroxx/Kekik-cloudstream) | [dizimom.plus](https://dizimom.plus) | 64 | 2026-11-25 | 2026-11-12 | Duplicate |  |
 | 25 | DiziMom | [lepotane/MRC-builds](https://github.com/lepotane/MRC-builds) | [dizimom.wiki](https://dizimom.wiki) | 14 | 2026-11-15 | 2026-11-15 | Duplicate |  |
-| 26 | Dizipal | [Jung1330/StreamTest](https://github.com/Jung1330/StreamTest) | [ddizipal.icu](https://ddizipal.icu) | 1 | 2026-11-23 | 2026-11-23 | Aktif |  |
+| 26 | Dizipal | [Jung1330/StreamTest](https://github.com/Jung1330/StreamTest) | [ddizipal.live](https://ddizipal.live) | 2 | 2026-11-27 | 2026-11-27 | Aktif |  |
 | 27 | DiziPal | [feroxx/Kekik-cloudstream](https://github.com/feroxx/Kekik-cloudstream) | [dizipal1563.com](https://dizipal1563.com) | 126 | 2026-11-25 | 2026-11-12 | Duplicate |  |
 | 28 | DiziPal | [lepotane/MRC-builds](https://github.com/lepotane/MRC-builds) | [dizipal2142.com](https://dizipal2142.com) | 15 | 2026-11-19 | 2026-11-19 | Duplicate |  |
 | 29 | DiziPal2 | [lepotane/MRC-builds](https://github.com/lepotane/MRC-builds) | [dizipal2142.com](https://dizipal2142.com) | 9 | 2026-11-19 | 2026-11-19 | Aktif |  |
